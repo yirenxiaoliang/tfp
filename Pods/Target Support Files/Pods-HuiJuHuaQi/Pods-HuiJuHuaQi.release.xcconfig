@@ -1,0 +1,11 @@
+EXCLUDED_SOURCE_FILE_NAMES[sdk=iphoneos*][arch=*] = ZBarReaderViewImpl_Simulator.m
+EXCLUDED_SOURCE_FILE_NAMES[sdk=iphonesimulator*][arch=*] = ZBarReaderViewImpl_Capture.m ZBarCaptureReader.m
+FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/FMDB" "${PODS_CONFIGURATION_BUILD_DIR}/KMNavigationBarTransition" "${PODS_CONFIGURATION_BUILD_DIR}/LBXScan" "${PODS_CONFIGURATION_BUILD_DIR}/RESideMenu" "${PODS_CONFIGURATION_BUILD_DIR}/ReactiveObjC" "${PODS_CONFIGURATION_BUILD_DIR}/SocketRocket" "${PODS_CONFIGURATION_BUILD_DIR}/ZBarSDK"
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1 NDEBUG=1
+LD_RUNPATH_SEARCH_PATHS = $(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks'
+OTHER_CFLAGS = $(inherited) -iquote "${PODS_CONFIGURATION_BUILD_DIR}/FMDB/FMDB.framework/Headers" -iquote "${PODS_CONFIGURATION_BUILD_DIR}/KMNavigationBarTransition/KMNavigationBarTransition.framework/Headers" -iquote "${PODS_CONFIGURATION_BUILD_DIR}/LBXScan/LBXScan.framework/Headers" -iquote "${PODS_CONFIGURATION_BUILD_DIR}/RESideMenu/RESideMenu.framework/Headers" -iquote "${PODS_CONFIGURATION_BUILD_DIR}/ReactiveObjC/ReactiveObjC.framework/Headers" -iquote "${PODS_CONFIGURATION_BUILD_DIR}/SocketRocket/SocketRocket.framework/Headers" -iquote "${PODS_CONFIGURATION_BUILD_DIR}/ZBarSDK/ZBarSDK.framework/Headers"
+OTHER_LDFLAGS = $(inherited) -framework "FMDB" -framework "KMNavigationBarTransition" -framework "LBXScan" -framework "RESideMenu" -framework "ReactiveObjC" -framework "SocketRocket" -framework "ZBarSDK"
+PODS_BUILD_DIR = ${BUILD_DIR}
+PODS_CONFIGURATION_BUILD_DIR = ${PODS_BUILD_DIR}/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
+PODS_PODFILE_DIR_PATH = ${SRCROOT}/.
+PODS_ROOT = ${SRCROOT}/Pods

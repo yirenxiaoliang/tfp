@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<string>{
+  "functionformula_1533363691844" : "",
+  "project_id" : 15,
+  "timeId" : 546,
+  "personnel_create_by" : "4",
+  "id" : 382,
+  "multitext_desc" : "&lt;p style='margin-top: 0px; margin-bottom: 0px; padding: 0px; font-size: 14px; box-sizing: border-box; color: rgb(74, 74, 74); font-family: &amp;quot;Helvetica Neue&amp;quot;, &amp;quot;PingFang SC&amp;quot;, &amp;quot;Microsoft Yahei&amp;quot;, å¾®è½¯é›…é»‘, STXihei, åŽæ–‡ç»†é»‘, sans-serif; white-space: normal; background-color: rgb(255, 255, 255); text-indent: 28px;'&gt;&lt;span style='margin: 0px; padding: 0px; box-sizing: border-box; font-family: 微软雅黑;'&gt;在省市区组件中增加默认值，先选择省份才可选择城市，选择城市后才可选择区域；&lt;\/span&gt;&lt;\/p&gt;&lt;p style='margin-top: 0px; margin-bottom: 0px; padding: 0px; font-size: 14px; box-sizing: border-box; color: rgb(74, 74, 74); font-family: &amp;quot;Helvetica Neue&amp;quot;, &amp;quot;PingFang SC&amp;quot;, &amp;quot;Microsoft Yahei&amp;quot;, å¾®è½¯é›…é»‘, STXihei, åŽæ–‡ç»†é»‘, sans-serif; white-space: normal; background-color: rgb(255, 255, 255); text-indent: 28px;'&gt;&lt;span style='margin: 0px; padding: 0px; box-sizing: border-box; font-family: 微软雅黑;'&gt;&lt;span style='margin: 0px; padding: 0px; box-sizing: border-box;'&gt;默认值设置时可只选择省份或省份&lt;\/span&gt;+城市或者省份+城市+区域即允许用户设置默认值时不将3个下拉都设置默认值；&lt;\/span&gt;&lt;\/p&gt;&lt;p style='margin-top: 0px; margin-bottom: 0px; padding: 0px; font-size: 14px; box-sizing: border-box; color: rgb(74, 74, 74); font-family: &amp;quot;Helvetica Neue&amp;quot;, &amp;quot;PingFang SC&amp;quot;, &amp;quot;Microsoft Yahei&amp;quot;, å¾®è½¯é›…é»‘, STXihei, åŽæ–‡ç»†é»‘, sans-serif; white-space: normal; background-color: rgb(255, 255, 255); text-indent: 28px;'&gt;&lt;span style='margin: 0px; padding: 0px; box-sizing: border-box; font-family: 微软雅黑;'&gt;设置为默认值后在前端新增时将默认值赋值给字段；&lt;\/span&gt;&lt;\/p&gt;&lt;p style='margin-top: 0px; margin-bottom: 0px; padding: 0px; font-size: 14px; box-sizing: border-box; color: rgb(74, 74, 74); font-family: &amp;quot;Helvetica Neue&amp;quot;, &amp;quot;PingFang SC&amp;quot;, &amp;quot;Microsoft Yahei&amp;quot;, å¾®è½¯é›…é»‘, STXihei, åŽæ–‡ç»†é»‘, sans-serif; white-space: normal; background-color: rgb(255, 255, 255); text-indent: 28px;'&gt;&lt;span style='margin: 0px; padding: 0px; box-sizing: border-box; font-family: 微软雅黑;'&gt;若字段被隐藏走隐藏字段的逻辑；&lt;\/span&gt;&lt;\/p&gt;",
+  "project_labels_content" : "[{\"numbering\":{\"dateValue\":\"yyyy-MM-dd\",\"serialValue\":\"001\",\"fixedValue\":\"RW\"},\"field\":{\"fieldControl\":\"1\",\"editView\":\"0\",\"defaultValue\":\"\",\"isShowCard\":\"0\",\"addView\":\"0\",\"structure\":\"1\"},\"typeText\":\"自动编号\",\"name\":\"identifier_1534817876011\",\"width\":\"100%\",\"active\":\"1\",\"label\":\"编号\",\"state\":\"1\",\"type\":\"identifier\",\"remove\":\"1\",\"isactive\":0},{\"field\":{\"fieldControl\":\"1\",\"formulaCalculates\":\"0\",\"editView\":\"0\",\"numberType\":\"0\",\"decimalLen\":\"2\",\"isShowCard\":\"0\",\"formulaCh\":\"\",\"addView\":\"0\",\"structure\":\"1\",\"formulaEn\":\"\"},\"typeText\":\"函数公式\",\"name\":\"functionformula_1533363691844\",\"width\":\"50%\",\"active\":\"1\",\"label\":\"状态\",\"state\":\"1\",\"type\":\"functionformula\",\"remove\":\"1\",\"isactive\":0}]",
+  "check_status" : "0",
+  "sub_task_complete_count" : 0,
+  "attachment_customnumber" : "",
+  "text_name" : "省市区默认值逻辑处理",
+  "picklist_1533362133717" : "",
+  "reference_relation" : [
+    {
+      "name" : "",
+      "id" : ""
+    }
+  ],
+  "seas_pool_id" : 0,
+  "functionformula_1534645359619" : "",
+  "sub_task_count" : 0,
+  "del_status" : "0",
+  "dataType" : 2,
+  "picklist_1533362133717_v" : "",
+  "taskInfoId" : 483,
+  "passed_status" : "0",
+  "functionformula_1534645299132" : "",
+  "personnel_execution" : [
+    {
+      "id" : 23,
+      "post_name" : "IOS工程师",
+      "picture" : "https:\/\/file.teamface.cn\/custom-gateway\/common\/file\/imageDownload?bean=company&amp;fileName=23\/company\/1528279051420.201806061757300.jpg",
+      "name" : "尹明亮"
+    }
+  ],
+  "datetime_create_time" : 1536913737877,
+  "complete_status" : 0,
+  "formula_1536195475786" : "",
+  "personnel_1534646255262" : "",
+  "datetime_deadline" : "",
+  "identifier_1534817876011" : "RW20180914004",
+  "number_1536195390812" : "",
+  "datetime_starttime" : "",
+  "beanType" : 2,
+  "datetime_modify_time" : 1536913737877,
+  "functionformula_1533362222256" : "",
+  "personnel_modify_by" : "4",
+  "picklist_tag" : [
+    {
+      "colour" : "#FABC01",
+      "name" : "3级",
+      "id" : 4
+    }
+  ],
+  "beanName" : "project_custom_15",
+  "functionformula_1534645658587" : "",
+  "picklist_tag_v" : "",
+  "beanId" : 382,
+  "seniorformula_1536195432088" : 0
+}</string>
+	<string>{
+  "functionformula_1533363691844" : "",
+  "project_id" : 15,
+  "timeId" : 703,
+  "personnel_create_by" : "4",
+  "id" : 489,
+  "multitext_desc" : "&lt;p style='margin-top: 0px; margin-bottom: 0px; padding: 0px; font-size: 14px; box-sizing: border-box; white-space: normal; color: rgb(20, 20, 20); font-family: &amp;quot;Helvetica Neue&amp;quot;, Helvetica, Tahoma, Arial, sans-serif; background-color: rgb(255, 255, 255);'&gt;1.正常打卡&lt;\/p&gt;&lt;p style='margin-top: 0px; margin-bottom: 0px; padding: 0px; font-size: 14px; box-sizing: border-box; white-space: normal; color: rgb(20, 20, 20); font-family: &amp;quot;Helvetica Neue&amp;quot;, Helvetica, Tahoma, Arial, sans-serif; background-color: rgb(255, 255, 255);'&gt;2.外勤打卡&lt;\/p&gt;&lt;p style='margin-top: 0px; margin-bottom: 0px; padding: 0px; font-size: 14px; box-sizing: border-box; white-space: normal; color: rgb(20, 20, 20); font-family: &amp;quot;Helvetica Neue&amp;quot;, Helvetica, Tahoma, Arial, sans-serif; background-color: rgb(255, 255, 255);'&gt;3.考勤范围&lt;\/p&gt;&lt;p style='margin-top: 0px; margin-bottom: 0px; padding: 0px; font-size: 14px; box-sizing: border-box; white-space: normal; color: rgb(20, 20, 20); font-family: &amp;quot;Helvetica Neue&amp;quot;, Helvetica, Tahoma, Arial, sans-serif; background-color: rgb(255, 255, 255);'&gt;4.异常打卡逻辑处理&lt;\/p&gt;",
+  "project_labels_content" : "[{\"numbering\":{\"dateValue\":\"yyyy-MM-dd\",\"serialValue\":\"001\",\"fixedValue\":\"RW\"},\"field\":{\"fieldControl\":\"1\",\"editView\":\"0\",\"defaultValue\":\"\",\"isShowCard\":\"0\",\"addView\":\"0\",\"structure\":\"1\"},\"typeText\":\"自动编号\",\"name\":\"identifier_1534817876011\",\"width\":\"100%\",\"active\":\"1\",\"label\":\"编号\",\"state\":\"1\",\"type\":\"identifier\",\"remove\":\"1\",\"isactive\":0},{\"field\":{\"fieldControl\":\"1\",\"formulaCalculates\":\"0\",\"editView\":\"0\",\"numberType\":\"0\",\"decimalLen\":\"2\",\"isShowCard\":\"0\",\"formulaCh\":\"\",\"addView\":\"0\",\"structure\":\"1\",\"formulaEn\":\"\"},\"typeText\":\"函数公式\",\"name\":\"functionformula_1533363691844\",\"width\":\"50%\",\"active\":\"1\",\"label\":\"状态\",\"state\":\"1\",\"type\":\"functionformula\",\"remove\":\"1\",\"isactive\":0}]",
+  "check_status" : "0",
+  "sub_task_complete_count" : 0,
+  "attachment_customnumber" : "",
+  "text_name" : "【考勤】上班打卡功能开发",
+  "picklist_1533362133717" : "",
+  "reference_relation" : [
+    {
+      "name" : "",
+      "id" : ""
+    }
+  ],
+  "seas_pool_id" : 0,
+  "functionformula_1534645359619" : "",
+  "sub_task_count" : 0,
+  "del_status" : "0",
+  "dataType" : 2,
+  "picklist_1533362133717_v" : "",
+  "taskInfoId" : 584,
+  "passed_status" : "0",
+  "functionformula_1534645299132" : "",
+  "personnel_execution" : [
+    {
+      "id" : 23,
+      "post_name" : "IOS工程师",
+      "picture" : "https:\/\/file.teamface.cn\/custom-gateway\/common\/file\/imageDownload?bean=company&amp;fileName=23\/company\/1528279051420.201806061757300.jpg",
+      "name" : "尹明亮"
+    }
+  ],
+  "datetime_create_time" : 1537319818125,
+  "complete_status" : 0,
+  "formula_1536195475786" : "",
+  "personnel_1534646255262" : "",
+  "datetime_deadline" : "",
+  "identifier_1534817876011" : "RW20180919002",
+  "number_1536195390812" : "",
+  "datetime_starttime" : "",
+  "beanType" : 2,
+  "datetime_modify_time" : 1537319818125,
+  "functionformula_1533362222256" : "",
+  "personnel_modify_by" : "4",
+  "picklist_tag" : [
+
+  ],
+  "beanName" : "project_custom_15",
+  "functionformula_1534645658587" : "",
+  "picklist_tag_v" : "",
+  "beanId" : 489,
+  "seniorformula_1536195432088" : 0
+}</string>
+	<string>{
+  "functionformula_1533363691844" : "",
+  "project_id" : 15,
+  "timeId" : 704,
+  "personnel_create_by" : "4",
+  "id" : 490,
+  "multitext_desc" : "&lt;p style='margin-top: 0px; margin-bottom: 0px; padding: 0px; font-size: 14px; box-sizing: border-box; white-space: normal; color: rgb(20, 20, 20); font-family: &amp;quot;Helvetica Neue&amp;quot;, Helvetica, Tahoma, Arial, sans-serif; background-color: rgb(255, 255, 255);'&gt;1.日统计（统计数据\/筛选\/单项统计数据详情）&lt;\/p&gt;&lt;p style='margin-top: 0px; margin-bottom: 0px; padding: 0px; font-size: 14px; box-sizing: border-box; white-space: normal; color: rgb(20, 20, 20); font-family: &amp;quot;Helvetica Neue&amp;quot;, Helvetica, Tahoma, Arial, sans-serif; background-color: rgb(255, 255, 255);'&gt;2.月统计（统计数据\/筛选\/单项统计数据详情）&lt;\/p&gt;&lt;p style='margin-top: 0px; margin-bottom: 0px; padding: 0px; font-size: 14px; box-sizing: border-box; white-space: normal; color: rgb(20, 20, 20); font-family: &amp;quot;Helvetica Neue&amp;quot;, Helvetica, Tahoma, Arial, sans-serif; background-color: rgb(255, 255, 255);'&gt;3.我的统计（统计数据\/筛选\/单项统计数据详情\/日历）&lt;\/p&gt;",
+  "project_labels_content" : "[{\"numbering\":{\"dateValue\":\"yyyy-MM-dd\",\"serialValue\":\"001\",\"fixedValue\":\"RW\"},\"field\":{\"fieldControl\":\"1\",\"editView\":\"0\",\"defaultValue\":\"\",\"isShowCard\":\"0\",\"addView\":\"0\",\"structure\":\"1\"},\"typeText\":\"自动编号\",\"name\":\"identifier_1534817876011\",\"width\":\"100%\",\"active\":\"1\",\"label\":\"编号\",\"state\":\"1\",\"type\":\"identifier\",\"remove\":\"1\",\"isactive\":0},{\"field\":{\"fieldControl\":\"1\",\"formulaCalculates\":\"0\",\"editView\":\"0\",\"numberType\":\"0\",\"decimalLen\":\"2\",\"isShowCard\":\"0\",\"formulaCh\":\"\",\"addView\":\"0\",\"structure\":\"1\",\"formulaEn\":\"\"},\"typeText\":\"函数公式\",\"name\":\"functionformula_1533363691844\",\"width\":\"50%\",\"active\":\"1\",\"label\":\"状态\",\"state\":\"1\",\"type\":\"functionformula\",\"remove\":\"1\",\"isactive\":0}]",
+  "check_status" : "0",
+  "sub_task_complete_count" : 0,
+  "attachment_customnumber" : "",
+  "text_name" : "【考勤】统计功能",
+  "picklist_1533362133717" : "",
+  "reference_relation" : [
+    {
+      "name" : "",
+      "id" : ""
+    }
+  ],
+  "seas_pool_id" : 0,
+  "functionformula_1534645359619" : "",
+  "sub_task_count" : 0,
+  "del_status" : "0",
+  "dataType" : 2,
+  "picklist_1533362133717_v" : "",
+  "taskInfoId" : 585,
+  "passed_status" : "0",
+  "functionformula_1534645299132" : "",
+  "personnel_execution" : [
+    {
+      "id" : 23,
+      "post_name" : "IOS工程师",
+      "picture" : "https:\/\/file.teamface.cn\/custom-gateway\/common\/file\/imageDownload?bean=company&amp;fileName=23\/company\/1528279051420.201806061757300.jpg",
+      "name" : "尹明亮"
+    }
+  ],
+  "datetime_create_time" : 1537319869991,
+  "complete_status" : 0,
+  "formula_1536195475786" : "",
+  "personnel_1534646255262" : "",
+  "datetime_deadline" : "",
+  "identifier_1534817876011" : "RW20180919003",
+  "number_1536195390812" : "",
+  "datetime_starttime" : "",
+  "beanType" : 2,
+  "datetime_modify_time" : 1537319869991,
+  "functionformula_1533362222256" : "",
+  "personnel_modify_by" : "4",
+  "picklist_tag" : [
+
+  ],
+  "beanName" : "project_custom_15",
+  "functionformula_1534645658587" : "",
+  "picklist_tag_v" : "",
+  "beanId" : 490,
+  "seniorformula_1536195432088" : 0
+}</string>
+	<string>{
+  "functionformula_1533363691844" : "",
+  "project_id" : 15,
+  "timeId" : 705,
+  "personnel_create_by" : "4",
+  "id" : 491,
+  "multitext_desc" : "&lt;p style='margin-top: 0px; margin-bottom: 0px; padding: 0px; font-size: 14px; box-sizing: border-box; white-space: normal; color: rgb(20, 20, 20); font-family: &amp;quot;Helvetica Neue&amp;quot;, Helvetica, Tahoma, Arial, sans-serif; background-color: rgb(255, 255, 255);'&gt;1.排班管理数据获取&lt;\/p&gt;&lt;p style='margin-top: 0px; margin-bottom: 0px; padding: 0px; font-size: 14px; box-sizing: border-box; white-space: normal; color: rgb(20, 20, 20); font-family: &amp;quot;Helvetica Neue&amp;quot;, Helvetica, Tahoma, Arial, sans-serif; background-color: rgb(255, 255, 255);'&gt;2.切换考勤组&lt;\/p&gt;",
+  "project_labels_content" : "[{\"numbering\":{\"dateValue\":\"yyyy-MM-dd\",\"serialValue\":\"001\",\"fixedValue\":\"RW\"},\"field\":{\"fieldControl\":\"1\",\"editView\":\"0\",\"defaultValue\":\"\",\"isShowCard\":\"0\",\"addView\":\"0\",\"structure\":\"1\"},\"typeText\":\"自动编号\",\"name\":\"identifier_1534817876011\",\"width\":\"100%\",\"active\":\"1\",\"label\":\"编号\",\"state\":\"1\",\"type\":\"identifier\",\"remove\":\"1\",\"isactive\":0},{\"field\":{\"fieldControl\":\"1\",\"formulaCalculates\":\"0\",\"editView\":\"0\",\"numberType\":\"0\",\"decimalLen\":\"2\",\"isShowCard\":\"0\",\"formulaCh\":\"\",\"addView\":\"0\",\"structure\":\"1\",\"formulaEn\":\"\"},\"typeText\":\"函数公式\",\"name\":\"functionformula_1533363691844\",\"width\":\"50%\",\"active\":\"1\",\"label\":\"状态\",\"state\":\"1\",\"type\":\"functionformula\",\"remove\":\"1\",\"isactive\":0}]",
+  "check_status" : "0",
+  "sub_task_complete_count" : 0,
+  "attachment_customnumber" : "",
+  "text_name" : "【考勤】排版管理",
+  "picklist_1533362133717" : "",
+  "reference_relation" : [
+    {
+      "name" : "",
+      "id" : ""
+    }
+  ],
+  "seas_pool_id" : 0,
+  "functionformula_1534645359619" : "",
+  "sub_task_count" : 0,
+  "del_status" : "0",
+  "dataType" : 2,
+  "picklist_1533362133717_v" : "",
+  "taskInfoId" : 586,
+  "passed_status" : "0",
+  "functionformula_1534645299132" : "",
+  "personnel_execution" : [
+    {
+      "id" : 23,
+      "post_name" : "IOS工程师",
+      "picture" : "https:\/\/file.teamface.cn\/custom-gateway\/common\/file\/imageDownload?bean=company&amp;fileName=23\/company\/1528279051420.201806061757300.jpg",
+      "name" : "尹明亮"
+    }
+  ],
+  "datetime_create_time" : 1537319916872,
+  "complete_status" : 0,
+  "formula_1536195475786" : "",
+  "personnel_1534646255262" : "",
+  "datetime_deadline" : "",
+  "identifier_1534817876011" : "RW20180919004",
+  "number_1536195390812" : "",
+  "datetime_starttime" : "",
+  "beanType" : 2,
+  "datetime_modify_time" : 1537319916872,
+  "functionformula_1533362222256" : "",
+  "personnel_modify_by" : "4",
+  "picklist_tag" : [
+
+  ],
+  "beanName" : "project_custom_15",
+  "functionformula_1534645658587" : "",
+  "picklist_tag_v" : "",
+  "beanId" : 491,
+  "seniorformula_1536195432088" : 0
+}</string>
+	<string>{
+  "functionformula_1533363691844" : "",
+  "project_id" : 15,
+  "timeId" : 706,
+  "personnel_create_by" : "4",
+  "id" : 492,
+  "multitext_desc" : "&lt;p style='margin-top: 0px; margin-bottom: 0px; padding: 0px; font-size: 14px; box-sizing: border-box; white-space: normal; color: rgb(20, 20, 20); font-family: &amp;quot;Helvetica Neue&amp;quot;, Helvetica, Tahoma, Arial, sans-serif; background-color: rgb(255, 255, 255);'&gt;1.获取列表&lt;\/p&gt;&lt;p style='margin-top: 0px; margin-bottom: 0px; padding: 0px; font-size: 14px; box-sizing: border-box; white-space: normal; color: rgb(20, 20, 20); font-family: &amp;quot;Helvetica Neue&amp;quot;, Helvetica, Tahoma, Arial, sans-serif; background-color: rgb(255, 255, 255);'&gt;2.添加关联&lt;\/p&gt;",
+  "project_labels_content" : "[{\"numbering\":{\"dateValue\":\"yyyy-MM-dd\",\"serialValue\":\"001\",\"fixedValue\":\"RW\"},\"field\":{\"fieldControl\":\"1\",\"editView\":\"0\",\"defaultValue\":\"\",\"isShowCard\":\"0\",\"addView\":\"0\",\"structure\":\"1\"},\"typeText\":\"自动编号\",\"name\":\"identifier_1534817876011\",\"width\":\"100%\",\"active\":\"1\",\"label\":\"编号\",\"state\":\"1\",\"type\":\"identifier\",\"remove\":\"1\",\"isactive\":0},{\"field\":{\"fieldControl\":\"1\",\"formulaCalculates\":\"0\",\"editView\":\"0\",\"numberType\":\"0\",\"decimalLen\":\"2\",\"isShowCard\":\"0\",\"formulaCh\":\"\",\"addView\":\"0\",\"structure\":\"1\",\"formulaEn\":\"\"},\"typeText\":\"函数公式\",\"name\":\"functionformula_1533363691844\",\"width\":\"50%\",\"active\":\"1\",\"label\":\"状态\",\"state\":\"1\",\"type\":\"functionformula\",\"remove\":\"1\",\"isactive\":0}]",
+  "check_status" : "0",
+  "sub_task_complete_count" : 0,
+  "attachment_customnumber" : "",
+  "text_name" : "【考勤】关联审批",
+  "picklist_1533362133717" : "",
+  "reference_relation" : [
+    {
+      "name" : "",
+      "id" : ""
+    }
+  ],
+  "seas_pool_id" : 0,
+  "functionformula_1534645359619" : "",
+  "sub_task_count" : 0,
+  "del_status" : "0",
+  "dataType" : 2,
+  "picklist_1533362133717_v" : "",
+  "taskInfoId" : 587,
+  "passed_status" : "0",
+  "functionformula_1534645299132" : "",
+  "personnel_execution" : [
+    {
+      "id" : 23,
+      "post_name" : "IOS工程师",
+      "picture" : "https:\/\/file.teamface.cn\/custom-gateway\/common\/file\/imageDownload?bean=company&amp;fileName=23\/company\/1528279051420.201806061757300.jpg",
+      "name" : "尹明亮"
+    }
+  ],
+  "datetime_create_time" : 1537319961007,
+  "complete_status" : 0,
+  "formula_1536195475786" : "",
+  "personnel_1534646255262" : "",
+  "datetime_deadline" : "",
+  "identifier_1534817876011" : "RW20180919005",
+  "number_1536195390812" : "",
+  "datetime_starttime" : "",
+  "beanType" : 2,
+  "datetime_modify_time" : 1537319961007,
+  "functionformula_1533362222256" : "",
+  "personnel_modify_by" : "4",
+  "picklist_tag" : [
+
+  ],
+  "beanName" : "project_custom_15",
+  "functionformula_1534645658587" : "",
+  "picklist_tag_v" : "",
+  "beanId" : 492,
+  "seniorformula_1536195432088" : 0
+}</string>
+</array>
+</plist>

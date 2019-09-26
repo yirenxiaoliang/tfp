@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="mFr-7H-lij" customClass="TFModelView">
+            <rect key="frame" x="0.0" y="0.0" width="112" height="123"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="B0n-8n-gvX">
+                    <rect key="frame" x="34" y="17.5" width="44" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="9qY-5s-ydG"/>
+                        <constraint firstAttribute="width" constant="44" id="ZR1-Ug-hmb"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JF7-Bj-053">
+                    <rect key="frame" x="26" y="59.5" width="60" height="34"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="34" id="KJJ-Sa-eMD"/>
+                        <constraint firstAttribute="width" constant="60" id="UqU-pz-qrV"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6gw-yg-BF6">
+                    <rect key="frame" x="68" y="7.5" width="20" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="6id-v7-s5V"/>
+                        <constraint firstAttribute="width" constant="20" id="DMy-ti-vnN"/>
+                    </constraints>
+                    <state key="normal" image="新增"/>
+                    <state key="selected" image="删除Model"/>
+                    <state key="highlighted" image="新增"/>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="B0n-8n-gvX" firstAttribute="top" secondItem="6gw-yg-BF6" secondAttribute="bottom" constant="-10" id="LcG-DL-YXT"/>
+                <constraint firstItem="B0n-8n-gvX" firstAttribute="centerX" secondItem="mFr-7H-lij" secondAttribute="centerX" id="M1B-Bq-Q5Q"/>
+                <constraint firstItem="JF7-Bj-053" firstAttribute="centerY" secondItem="mFr-7H-lij" secondAttribute="centerY" constant="15" id="UF8-ua-Rqr"/>
+                <constraint firstItem="6gw-yg-BF6" firstAttribute="leading" secondItem="B0n-8n-gvX" secondAttribute="trailing" constant="-10" id="Vhj-o3-rED"/>
+                <constraint firstItem="JF7-Bj-053" firstAttribute="centerX" secondItem="mFr-7H-lij" secondAttribute="centerX" id="gHt-cI-GcN"/>
+                <constraint firstItem="B0n-8n-gvX" firstAttribute="centerY" secondItem="mFr-7H-lij" secondAttribute="centerY" constant="-22" id="xQO-PG-Daj"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="handleBtn" destination="6gw-yg-BF6" id="ZYs-1Z-8VJ"/>
+                <outlet property="imageView" destination="B0n-8n-gvX" id="9dl-Ga-j3Z"/>
+                <outlet property="nameLabel" destination="JF7-Bj-053" id="vKZ-k3-l34"/>
+            </connections>
+            <point key="canvasLocation" x="122" y="-189.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="删除Model" width="12" height="12"/>
+        <image name="新增" width="12" height="12"/>
+    </resources>
+</document>

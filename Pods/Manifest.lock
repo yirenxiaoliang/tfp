@@ -1,0 +1,53 @@
+PODS:
+  - FMDB (2.7.5):
+    - FMDB/standard (= 2.7.5)
+  - FMDB/standard (2.7.5)
+  - KMNavigationBarTransition (1.1.5)
+  - LBXScan/LBXNative (2.3):
+    - LBXScan/Types (~> 2.2)
+  - LBXScan/LBXZBar (2.3):
+    - LBXScan/Types (~> 2.2)
+    - ZBarSDK (~> 1.3.1)
+  - LBXScan/LBXZXing (2.3):
+    - LBXScan/Types (~> 2.2)
+  - LBXScan/Types (2.3)
+  - LBXScan/UI (2.3):
+    - LBXScan/Types (~> 2.2)
+  - ReactiveObjC (3.1.0)
+  - RESideMenu (4.0.7)
+  - SocketRocket (0.5.1)
+  - ZBarSDK (1.3.1)
+
+DEPENDENCIES:
+  - FMDB
+  - KMNavigationBarTransition
+  - LBXScan/LBXNative (~> 2.3)
+  - LBXScan/LBXZBar (~> 2.3)
+  - LBXScan/LBXZXing (~> 2.3)
+  - LBXScan/UI (~> 2.3)
+  - ReactiveObjC
+  - RESideMenu (~> 4.0.7)
+  - SocketRocket
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - FMDB
+    - KMNavigationBarTransition
+    - LBXScan
+    - ReactiveObjC
+    - RESideMenu
+    - SocketRocket
+    - ZBarSDK
+
+SPEC CHECKSUMS:
+  FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
+  KMNavigationBarTransition: 7a52c9bc25b39b6e3343e980b453facee1591b82
+  LBXScan: e51449f0832d1fe17da632af0d22adeb3cfa3543
+  ReactiveObjC: 2a38ea15335de4119d8b17caf1db1484f61db902
+  RESideMenu: f24c508404b49c667344c54aba7e590883533958
+  SocketRocket: d57c7159b83c3c6655745cd15302aa24b6bae531
+  ZBarSDK: 4c1b5daeb7d6cc67dc9355e690af0230a661f6ec
+
+PODFILE CHECKSUM: b67899b9fbe0183fc2833eb97414546cbd200fa2
+
+COCOAPODS: 1.5.3

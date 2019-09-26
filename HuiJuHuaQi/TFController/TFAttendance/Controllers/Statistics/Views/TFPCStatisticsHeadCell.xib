@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="54" id="6NH-Zt-iej" customClass="TFPCStatisticsHeadCell">
+            <rect key="frame" x="0.0" y="0.0" width="452" height="54"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6NH-Zt-iej" id="itT-W1-mYz">
+                <rect key="frame" x="0.0" y="0.0" width="452" height="53.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jMB-X2-O1j">
+                        <rect key="frame" x="24" y="12.5" width="43" height="29"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <state key="normal" title="Button"/>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EjR-3M-ZLi">
+                        <rect key="frame" x="400.5" y="18.5" width="35.5" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="下一级浅灰" translatesAutoresizingMaskIntoConstraints="NO" id="t9m-qH-Sxv">
+                        <rect key="frame" x="71" y="17" width="20" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="Z8A-c7-y07"/>
+                            <constraint firstAttribute="width" constant="20" id="cPE-KA-Jtv"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="EjR-3M-ZLi" firstAttribute="centerY" secondItem="jMB-X2-O1j" secondAttribute="centerY" id="0RP-0k-8YF"/>
+                    <constraint firstItem="EjR-3M-ZLi" firstAttribute="trailing" secondItem="itT-W1-mYz" secondAttribute="trailingMargin" constant="4" id="299-uR-Qox"/>
+                    <constraint firstItem="jMB-X2-O1j" firstAttribute="leading" secondItem="itT-W1-mYz" secondAttribute="leadingMargin" constant="4" id="hs8-v6-JxK"/>
+                    <constraint firstItem="t9m-qH-Sxv" firstAttribute="centerY" secondItem="jMB-X2-O1j" secondAttribute="centerY" id="iog-GH-wg5"/>
+                    <constraint firstItem="jMB-X2-O1j" firstAttribute="centerY" secondItem="itT-W1-mYz" secondAttribute="centerY" id="kuO-Zn-log"/>
+                    <constraint firstItem="t9m-qH-Sxv" firstAttribute="leading" secondItem="jMB-X2-O1j" secondAttribute="trailing" constant="4" id="zPa-Xl-8IU"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="arrow" destination="t9m-qH-Sxv" id="t63-Tw-9W9"/>
+                <outlet property="calendarBtn" destination="jMB-X2-O1j" id="3uA-MJ-hMw"/>
+                <outlet property="lable" destination="EjR-3M-ZLi" id="nkf-c8-BNQ"/>
+            </connections>
+            <point key="canvasLocation" x="-120" y="-41.379310344827587"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="下一级浅灰" width="8" height="13"/>
+    </resources>
+</document>

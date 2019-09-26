@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11759" systemVersion="15G1421" minimumToolsVersion="Xcode 7.0" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="">
+    <entity name="HQBarcodeCModel" representedClassName="HQBarcodeCModel" syncable="YES">
+        <attribute name="companyAddress" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="companyUrl" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="remark" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="userID" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="HQChatSetTopCModel" representedClassName="HQChatSetTopCModel" syncable="YES">
+        <attribute name="conversationId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="setTopState" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="weChatId" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="HQCompanyCModel" representedClassName="HQCompanyCModel" syncable="YES">
+        <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="companyName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lealPersonId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="telphone" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="HQCustomerCModel" representedClassName="HQCustomerCModel" syncable="YES">
+        <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="birthday" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="customerID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="customerName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="employeeID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="gender" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="position" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="qqNumbe" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="remark" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="webAddress" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="weChatID" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="eMail" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="HQCustomerStringCModel" syncable="YES"/>
+        <relationship name="telephone" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="HQCustomerStringCModel" syncable="YES"/>
+    </entity>
+    <entity name="HQCustomerStringCModel" representedClassName="HQCustomerStringCModel" syncable="YES">
+        <attribute name="desc" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="HQDepartMentCModel" representedClassName="HQDepartMentCModel" syncable="YES">
+        <attribute name="companyID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="departmentName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="levelNum" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="order" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="remark" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="shrink" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="childs" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="HQDepartMentCModel" syncable="YES"/>
+        <relationship name="head" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="HQEmployCModel" syncable="YES"/>
+    </entity>
+    <entity name="HQDepartmentIdCModel" representedClassName="HQDepartmentIdCModel" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="HQDispatchingListCModel" representedClassName="HQDispatchingListCModel" syncable="YES">
+        <attribute name="checkPhotograph" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="defaultDispatching" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="supportRange" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="wifiName" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="departmentIds" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="HQDepartmentIdCModel" syncable="YES"/>
+        <relationship name="periods" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="HQPeriodCModel" syncable="YES"/>
+    </entity>
+    <entity name="HQDocunmentCModel" representedClassName="HQDocunmentCModel" syncable="YES">
+        <attribute name="approveType" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="createTime" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="documName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="documPath" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="documType" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="employId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="includeInfo" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="isStar" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="onlyId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="otherInfo" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="HQEmailCModel" representedClassName="HQEmailCModel" syncable="YES">
+        <attribute name="canUse" optional="YES" attributeType="Float" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="emailName" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="HQEmployCModel" representedClassName="HQEmployCModel" syncable="YES">
+        <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="birthday" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="companyId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="departmentId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="disSelectState" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="employeeCode" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="employeeName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="friendBg" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="levelNum" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="permission" optional="YES" attributeType="Float" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="personDescribe" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="position" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="qqID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="quickMark" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="selectState" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="sex" optional="YES" attributeType="Float" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="state" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="telphone" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="userId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="weChatID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="weixinID" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="emails" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="HQEmailCModel" syncable="YES"/>
+        <relationship name="exigency" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="HQExigencyCModel" syncable="YES"/>
+        <relationship name="photograph" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="HQPhotographCModel" syncable="YES"/>
+    </entity>
+    <entity name="HQEmployeeForumModel" representedClassName="HQEmployeeForumModel" syncable="YES">
+        <attribute name="forumName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="userID" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="HQExigencyCModel" representedClassName="HQExigencyCModel" syncable="YES">
+        <attribute name="employeeName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="telphone" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="HQPeriodCModel" representedClassName="HQPeriodCModel" syncable="YES">
+        <attribute name="endTime" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="startTime" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="NO" syncable="YES"/>
+    </entity>
+    <entity name="HQPhotographCModel" representedClassName="HQPhotographCModel" syncable="YES">
+        <attribute name="absolutePath" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="choose" optional="YES" attributeType="Float" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="date" optional="YES" attributeType="Float" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="defaultImage" optional="YES" attributeType="Float" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="imageID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="info" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="HQUserCModel" representedClassName=".HQUserCModel" syncable="YES">
+        <attribute name="defaultCompany" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="telphone" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="HQUserLoginCModel" representedClassName=".HQUserLoginCModel" syncable="YES">
+        <attribute name="defaultCompany" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="isSameMobile" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="token" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="userID" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="authorityList" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="HQCustomerStringCModel" syncable="YES"/>
+        <relationship name="companys" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="HQCompanyCModel" syncable="YES"/>
+        <relationship name="departMents" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="HQDepartMentCModel" syncable="YES"/>
+        <relationship name="employ" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="HQEmployCModel" syncable="YES"/>
+        <relationship name="employeeForum" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="HQEmployeeForumModel" syncable="YES"/>
+        <relationship name="employes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="HQEmployCModel" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="HQBarcodeCModel" positionX="-927" positionY="-267" width="128" height="120"/>
+        <element name="HQChatSetTopCModel" positionX="-927" positionY="-351" width="128" height="88"/>
+        <element name="HQCompanyCModel" positionX="-731" positionY="-243" width="128" height="120"/>
+        <element name="HQCustomerCModel" positionX="-729" positionY="-324" width="128" height="285"/>
+        <element name="HQCustomerStringCModel" positionX="-720" positionY="-315" width="128" height="60"/>
+        <element name="HQDepartMentCModel" positionX="-585" positionY="-439" width="128" height="180"/>
+        <element name="HQDepartmentIdCModel" positionX="-765" positionY="306" width="128" height="60"/>
+        <element name="HQDispatchingListCModel" positionX="-900" positionY="441" width="128" height="163"/>
+        <element name="HQDocunmentCModel" positionX="-684" positionY="-279" width="128" height="195"/>
+        <element name="HQEmailCModel" positionX="-20" positionY="-468" width="128" height="75"/>
+        <element name="HQEmployCModel" positionX="-380" positionY="-81" width="128" height="420"/>
+        <element name="HQEmployeeForumModel" positionX="-729" positionY="-324" width="128" height="90"/>
+        <element name="HQExigencyCModel" positionX="-164" positionY="-468" width="128" height="73"/>
+        <element name="HQPeriodCModel" positionX="-612" positionY="264" width="128" height="105"/>
+        <element name="HQPhotographCModel" positionX="-281" positionY="-381" width="128" height="163"/>
+        <element name="HQUserCModel" positionX="-927" positionY="-453" width="128" height="75"/>
+        <element name="HQUserLoginCModel" positionX="-837" positionY="-18" width="128" height="195"/>
+    </elements>
+</model>

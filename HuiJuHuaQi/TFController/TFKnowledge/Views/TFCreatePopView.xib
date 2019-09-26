@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="J9w-nq-QJT" customClass="TFCreatePopView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="290"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="knowledgePop" translatesAutoresizingMaskIntoConstraints="NO" id="CkB-ob-I7W">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="290"/>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="787-q0-qyH">
+                    <rect key="frame" x="0.0" y="145" width="365" height="0.5"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="0.5" id="aT8-tp-ycW"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E4a-co-ZHy">
+                    <rect key="frame" x="0.0" y="0.0" width="365" height="145"/>
+                    <state key="normal" title="新建知识"/>
+                    <connections>
+                        <action selector="knowledgeClicked:" destination="J9w-nq-QJT" eventType="touchUpInside" id="j8M-fI-LXh"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ktR-J0-1jd">
+                    <rect key="frame" x="0.0" y="145.5" width="365" height="144.5"/>
+                    <state key="normal" title="新建提问"/>
+                    <connections>
+                        <action selector="questionClicked:" destination="J9w-nq-QJT" eventType="touchUpInside" id="ZqG-yz-b7c"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="CkB-ob-I7W" firstAttribute="leading" secondItem="J9w-nq-QJT" secondAttribute="leading" id="1Vv-yB-T34"/>
+                <constraint firstItem="787-q0-qyH" firstAttribute="leading" secondItem="J9w-nq-QJT" secondAttribute="leading" id="5hi-cp-bPe"/>
+                <constraint firstItem="ktR-J0-1jd" firstAttribute="leading" secondItem="J9w-nq-QJT" secondAttribute="leading" id="62I-VI-7MT"/>
+                <constraint firstAttribute="bottom" secondItem="CkB-ob-I7W" secondAttribute="bottom" id="8Kq-VK-6WQ"/>
+                <constraint firstItem="787-q0-qyH" firstAttribute="centerY" secondItem="J9w-nq-QJT" secondAttribute="centerY" id="BAP-aO-x0B"/>
+                <constraint firstItem="ktR-J0-1jd" firstAttribute="top" secondItem="787-q0-qyH" secondAttribute="bottom" id="DnE-hy-dTt"/>
+                <constraint firstAttribute="trailing" secondItem="ktR-J0-1jd" secondAttribute="trailing" constant="10" id="EAN-LQ-rVQ"/>
+                <constraint firstItem="CkB-ob-I7W" firstAttribute="top" secondItem="J9w-nq-QJT" secondAttribute="top" id="FL5-un-vFk"/>
+                <constraint firstAttribute="trailing" secondItem="CkB-ob-I7W" secondAttribute="trailing" id="FiC-3H-PQM"/>
+                <constraint firstItem="E4a-co-ZHy" firstAttribute="leading" secondItem="J9w-nq-QJT" secondAttribute="leading" id="Hbt-NT-1w9"/>
+                <constraint firstAttribute="trailing" secondItem="E4a-co-ZHy" secondAttribute="trailing" constant="10" id="N77-1A-Yvp"/>
+                <constraint firstAttribute="bottom" secondItem="ktR-J0-1jd" secondAttribute="bottom" id="NCc-iy-yS5"/>
+                <constraint firstItem="787-q0-qyH" firstAttribute="top" secondItem="E4a-co-ZHy" secondAttribute="bottom" id="Rxq-37-nfT"/>
+                <constraint firstAttribute="trailing" secondItem="787-q0-qyH" secondAttribute="trailing" constant="10" id="u0g-ax-0Xe"/>
+                <constraint firstItem="E4a-co-ZHy" firstAttribute="top" secondItem="J9w-nq-QJT" secondAttribute="top" id="ywA-wc-OWg"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="knowledgeBtn" destination="E4a-co-ZHy" id="Bf2-Ss-TIC"/>
+                <outlet property="questionBtn" destination="ktR-J0-1jd" id="Kjf-Tx-Ga6"/>
+            </connections>
+            <point key="canvasLocation" x="301.60000000000002" y="-44.07796101949026"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="knowledgePop" width="102" height="75"/>
+    </resources>
+</document>

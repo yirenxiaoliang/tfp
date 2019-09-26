@@ -1,0 +1,25 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "32347d91-80fa-b843-a22c-219a33db3e50++7696",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+    "32347d91-80fa-b843-a22c-219a33db3e50++7696" : {
+
+    }
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "32347d91-80fa-b843-a22c-219a33db3e50++7696" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "635BA69B-E882-4019-BAB6-62D39F225E16",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "32347d91-80fa-b843-a22c-219a33db3e50++7696" : "HQ520\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "HuiJuHuaQi",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "4.SourceCode\/HQ520_Client_IOS\/HuiJuHuaQi.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/192.168.1.200\/svn\/repo",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "32347d91-80fa-b843-a22c-219a33db3e50++7696"
+    }
+  ]
+}

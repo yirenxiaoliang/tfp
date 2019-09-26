@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="hpf-U4-1Zi" customClass="TFTaskPriorityView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="178"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sQU-zJ-O0Z">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G5B-nZ-8oq">
+                            <rect key="frame" x="15" y="0.0" width="46" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="46" id="cGL-sI-xGe"/>
+                            </constraints>
+                            <state key="normal" title="Button"/>
+                            <connections>
+                                <action selector="cancelClicked:" destination="hpf-U4-1Zi" eventType="touchUpInside" id="jIR-4Q-YO7"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H8l-t8-hC7">
+                            <rect key="frame" x="166.5" y="9.5" width="42" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="G5B-nZ-8oq" firstAttribute="leading" secondItem="sQU-zJ-O0Z" secondAttribute="leading" constant="15" id="Ayp-TZ-Juf"/>
+                        <constraint firstItem="H8l-t8-hC7" firstAttribute="centerX" secondItem="sQU-zJ-O0Z" secondAttribute="centerX" id="Ghy-Rc-vUp"/>
+                        <constraint firstItem="H8l-t8-hC7" firstAttribute="centerY" secondItem="sQU-zJ-O0Z" secondAttribute="centerY" id="W2h-Fy-xrs"/>
+                        <constraint firstAttribute="bottom" secondItem="G5B-nZ-8oq" secondAttribute="bottom" id="ZdP-fa-qWO"/>
+                        <constraint firstItem="G5B-nZ-8oq" firstAttribute="top" secondItem="sQU-zJ-O0Z" secondAttribute="top" id="cBv-hg-OPg"/>
+                        <constraint firstAttribute="height" constant="40" id="rYe-KG-X3a"/>
+                    </constraints>
+                </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="e4U-M0-8QD">
+                    <rect key="frame" x="0.0" y="40" width="375" height="138"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="sQU-zJ-O0Z" firstAttribute="top" secondItem="hpf-U4-1Zi" secondAttribute="top" id="4t8-73-h32"/>
+                <constraint firstAttribute="trailing" secondItem="sQU-zJ-O0Z" secondAttribute="trailing" id="5QJ-Lg-PxO"/>
+                <constraint firstItem="sQU-zJ-O0Z" firstAttribute="leading" secondItem="hpf-U4-1Zi" secondAttribute="leading" id="5mx-5U-aeJ"/>
+                <constraint firstItem="e4U-M0-8QD" firstAttribute="leading" secondItem="hpf-U4-1Zi" secondAttribute="leading" id="7c5-KK-zZs"/>
+                <constraint firstAttribute="trailing" secondItem="e4U-M0-8QD" secondAttribute="trailing" id="8zV-JD-JF9"/>
+                <constraint firstItem="e4U-M0-8QD" firstAttribute="top" secondItem="sQU-zJ-O0Z" secondAttribute="bottom" id="bEC-8g-d8c"/>
+                <constraint firstAttribute="bottom" secondItem="e4U-M0-8QD" secondAttribute="bottom" id="qcj-xs-s4e"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="cancelBtn" destination="G5B-nZ-8oq" id="IqX-60-koo"/>
+                <outlet property="headVeiw" destination="sQU-zJ-O0Z" id="eOS-SL-9kL"/>
+                <outlet property="tableView" destination="e4U-M0-8QD" id="Ajt-Sw-qTb"/>
+                <outlet property="title" destination="H8l-t8-hC7" id="1BS-kC-Obn"/>
+            </connections>
+            <point key="canvasLocation" x="456.80000000000001" y="-50.374812593703155"/>
+        </view>
+    </objects>
+</document>

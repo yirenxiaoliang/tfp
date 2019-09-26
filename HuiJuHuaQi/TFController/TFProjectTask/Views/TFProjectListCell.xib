@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TFProjectListCell" rowHeight="139" id="vYk-Kf-uPc" customClass="TFProjectListCell">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vYk-Kf-uPc" id="lGw-ep-0ry">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="149.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7b0-HL-dGc">
+                        <rect key="frame" x="15" y="5" width="345" height="139.5"/>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="超期" translatesAutoresizingMaskIntoConstraints="NO" id="nOJ-lp-ePE">
+                        <rect key="frame" x="13" y="3" width="51" height="51"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="51" id="Tbt-KB-tIg"/>
+                            <constraint firstAttribute="height" constant="51" id="fCV-jn-b3A"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t1T-g7-8Ga">
+                        <rect key="frame" x="131" y="64.5" width="208" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pgJ-C7-k3I">
+                        <rect key="frame" x="319" y="17" width="30" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="30" id="1w4-CU-3ge"/>
+                            <constraint firstAttribute="height" constant="30" id="E0c-nx-kXI"/>
+                        </constraints>
+                    </button>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="goF-H7-l8i" customClass="TFProjectProgressView">
+                        <rect key="frame" x="46" y="40" width="70" height="70"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="70" id="JSo-BH-X2N"/>
+                            <constraint firstAttribute="width" constant="70" id="WR0-Ym-cgn"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="7b0-HL-dGc" secondAttribute="bottom" constant="5" id="4P6-Xo-3bg"/>
+                    <constraint firstItem="pgJ-C7-k3I" firstAttribute="top" secondItem="lGw-ep-0ry" secondAttribute="topMargin" constant="6" id="Ajs-xb-9yG"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="t1T-g7-8Ga" secondAttribute="trailing" constant="20" id="Grn-UZ-99e"/>
+                    <constraint firstItem="nOJ-lp-ePE" firstAttribute="leading" secondItem="lGw-ep-0ry" secondAttribute="leading" constant="13" id="LhQ-Ny-Ywl"/>
+                    <constraint firstItem="t1T-g7-8Ga" firstAttribute="leading" secondItem="goF-H7-l8i" secondAttribute="trailing" constant="15" id="MAc-iu-D16"/>
+                    <constraint firstAttribute="trailing" secondItem="7b0-HL-dGc" secondAttribute="trailing" constant="15" id="Mt7-yO-Gf7"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="pgJ-C7-k3I" secondAttribute="trailing" constant="10" id="Smn-dg-yDU"/>
+                    <constraint firstItem="7b0-HL-dGc" firstAttribute="leading" secondItem="lGw-ep-0ry" secondAttribute="leading" constant="15" id="TaL-Qh-cR2"/>
+                    <constraint firstItem="nOJ-lp-ePE" firstAttribute="top" secondItem="lGw-ep-0ry" secondAttribute="top" constant="3" id="X8f-zg-Gk8"/>
+                    <constraint firstItem="goF-H7-l8i" firstAttribute="centerY" secondItem="lGw-ep-0ry" secondAttribute="centerY" id="ecw-Ve-S0k"/>
+                    <constraint firstItem="goF-H7-l8i" firstAttribute="leading" secondItem="lGw-ep-0ry" secondAttribute="leadingMargin" constant="30" id="kR0-cm-txS"/>
+                    <constraint firstItem="7b0-HL-dGc" firstAttribute="top" secondItem="lGw-ep-0ry" secondAttribute="top" constant="5" id="khp-qr-rZB"/>
+                    <constraint firstItem="t1T-g7-8Ga" firstAttribute="centerY" secondItem="lGw-ep-0ry" secondAttribute="centerY" id="l9n-8f-mQR"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="bgImageView" destination="7b0-HL-dGc" id="g8i-5P-6jV"/>
+                <outlet property="nameLabel" destination="t1T-g7-8Ga" id="cs4-Gj-yfx"/>
+                <outlet property="overImage" destination="nOJ-lp-ePE" id="Ocp-d4-7Vz"/>
+                <outlet property="progressView" destination="goF-H7-l8i" id="W9l-uy-FTa"/>
+                <outlet property="starBtn" destination="pgJ-C7-k3I" id="Ngi-Fm-H4r"/>
+            </connections>
+            <point key="canvasLocation" x="17.5" y="34"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="超期" width="60" height="62"/>
+    </resources>
+</document>

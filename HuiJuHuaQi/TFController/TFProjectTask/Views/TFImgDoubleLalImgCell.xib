@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TFImgDoubleLalImgCell" rowHeight="63" id="CeG-Cr-Rd9" customClass="TFImgDoubleLalImgCell">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="63"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="CeG-Cr-Rd9" id="Uvy-Iw-pMx">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="62.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4b0-U8-JCc">
+                        <rect key="frame" x="21" y="9.5" width="30" height="44"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="44" id="KQU-rH-nRL"/>
+                        </constraints>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b4L-Wh-pba">
+                        <rect key="frame" x="336" y="14.5" width="30" height="34"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="30" id="Ju2-OJ-JzU"/>
+                            <constraint firstAttribute="height" constant="34" id="qs0-KR-TV5"/>
+                        </constraints>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bI9-1m-PgO">
+                        <rect key="frame" x="294" y="21" width="42" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="bI9-1m-PgO" firstAttribute="centerY" secondItem="Uvy-Iw-pMx" secondAttribute="centerY" id="Bef-xC-meS"/>
+                    <constraint firstItem="b4L-Wh-pba" firstAttribute="trailing" secondItem="Uvy-Iw-pMx" secondAttribute="trailingMargin" constant="7" id="KDw-cS-1um"/>
+                    <constraint firstItem="4b0-U8-JCc" firstAttribute="leading" secondItem="Uvy-Iw-pMx" secondAttribute="leadingMargin" constant="5" id="SJF-M9-vj2"/>
+                    <constraint firstItem="b4L-Wh-pba" firstAttribute="centerY" secondItem="Uvy-Iw-pMx" secondAttribute="centerY" id="kbj-CJ-ZdV"/>
+                    <constraint firstItem="4b0-U8-JCc" firstAttribute="centerY" secondItem="Uvy-Iw-pMx" secondAttribute="centerY" id="qfg-fO-icc"/>
+                    <constraint firstItem="b4L-Wh-pba" firstAttribute="leading" secondItem="bI9-1m-PgO" secondAttribute="trailing" id="xbu-uS-4b2"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="enterImg" destination="b4L-Wh-pba" id="IHH-Yp-aHF"/>
+                <outlet property="heartBtn" destination="4b0-U8-JCc" id="h5z-Fa-b5e"/>
+                <outlet property="nameLabel" destination="bI9-1m-PgO" id="vVI-VI-rHA"/>
+            </connections>
+            <point key="canvasLocation" x="5.5999999999999996" y="38.23088455772114"/>
+        </tableViewCell>
+    </objects>
+</document>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<string>{
+  "timeId" : 4527,
+  "project_status" : 0,
+  "picklist_status" : [
+    {
+      "color" : "#E5E5E5",
+      "label" : "未开始",
+      "value" : "0"
+    }
+  ],
+  "dataType" : 2,
+  "passed_status" : 0,
+  "beanName" : "project_custom_90",
+  "beanId" : 280,
+  "text_name" : "【自定义模块】前端关联关系支持扫一扫",
+  "personnel_principal" : [
+    {
+      "id" : 23,
+      "post_name" : "iOS工程师",
+      "employee_name" : "尹明亮",
+      "picture" : "\/common\/file\/imageDownload?bean=company&amp;fileName=23\/company\/1528279051420.201806061757300.jpg"
+    }
+  ],
+  "complete_status" : 0,
+  "project_name" : "自定义1.0.6",
+  "sub_task_complete_count" : 0,
+  "datetime_deadline" : "",
+  "id" : 280,
+  "project_id" : 90,
+  "check_status" : 0,
+  "picklist_priority" : [
+    {
+      "label" : "中",
+      "value" : "1",
+      "isactive" : true,
+      "color" : "#F8F40A"
+    }
+  ],
+  "beanType" : 2,
+  "sub_task_count" : 0,
+  "taskInfoId" : 2365,
+  "picklist_tag" : [
+    {
+      "colour" : "#19BFA4",
+      "name" : "新增任务",
+      "id" : 26
+    }
+  ],
+  "datetime_create_time" : 1561512955237
+}</string>
+</array>
+</plist>

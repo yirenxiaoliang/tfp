@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "+[HQHelper projectRowWithTaskDict:]:HQHelper.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[TFNewProjectTaskItemCell refreshNewProjectTaskItemCellWithModel:haveClear:]:TFNewProjectTaskItemCell.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[TFProjectThinkController handleActionWithActionType:]:TFProjectThinkController.m">
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="9o8-xD-4HN" customClass="TFWorkNumButton">
+            <rect key="frame" x="0.0" y="0.0" width="323" height="257"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="S73-dn-yPM">
+                    <rect key="frame" x="151.5" y="108.5" width="20" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="20" id="2ls-s0-xV0"/>
+                        <constraint firstAttribute="height" constant="20" id="EQN-uW-bhL"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pRH-6g-d7G">
+                    <rect key="frame" x="0.0" y="138.5" width="323" height="0.0"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GEs-sn-GMt">
+                    <rect key="frame" x="161.5" y="103" width="15" height="15"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JKh-jt-DsP">
+                            <rect key="frame" x="0.0" y="0.0" width="15" height="15"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                            <nil key="textColor"/>
+                            <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="15" id="GCR-Wv-Cns"/>
+                        <constraint firstAttribute="bottom" secondItem="JKh-jt-DsP" secondAttribute="bottom" id="J0d-RT-XGF"/>
+                        <constraint firstItem="JKh-jt-DsP" firstAttribute="top" secondItem="GEs-sn-GMt" secondAttribute="top" id="T7M-OR-vOf"/>
+                        <constraint firstAttribute="trailing" secondItem="JKh-jt-DsP" secondAttribute="trailing" id="UtC-go-Gut"/>
+                        <constraint firstAttribute="width" constant="15" id="WwH-rY-lRj"/>
+                        <constraint firstItem="JKh-jt-DsP" firstAttribute="leading" secondItem="GEs-sn-GMt" secondAttribute="leading" id="fQz-yG-wPJ"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="GEs-sn-GMt" firstAttribute="centerY" secondItem="S73-dn-yPM" secondAttribute="centerY" constant="-8" id="2rk-hy-eMC"/>
+                <constraint firstItem="pRH-6g-d7G" firstAttribute="leading" secondItem="9o8-xD-4HN" secondAttribute="leading" id="3Vq-0Q-lLe"/>
+                <constraint firstItem="pRH-6g-d7G" firstAttribute="centerX" secondItem="9o8-xD-4HN" secondAttribute="centerX" id="4xO-xN-wNN"/>
+                <constraint firstItem="pRH-6g-d7G" firstAttribute="centerY" secondItem="9o8-xD-4HN" secondAttribute="centerY" constant="10" id="Mwm-tM-Th3"/>
+                <constraint firstAttribute="trailing" secondItem="pRH-6g-d7G" secondAttribute="trailing" id="cYh-hp-X8p"/>
+                <constraint firstItem="S73-dn-yPM" firstAttribute="centerX" secondItem="9o8-xD-4HN" secondAttribute="centerX" id="g3j-Ik-T2N"/>
+                <constraint firstItem="GEs-sn-GMt" firstAttribute="leading" secondItem="S73-dn-yPM" secondAttribute="trailing" constant="-10" id="i8c-Um-s2H"/>
+                <constraint firstItem="S73-dn-yPM" firstAttribute="centerY" secondItem="9o8-xD-4HN" secondAttribute="centerY" constant="-10" id="tVK-de-hhz"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="imageView" destination="S73-dn-yPM" id="tEF-YD-Ysc"/>
+                <outlet property="nameLabel" destination="pRH-6g-d7G" id="rxG-Qr-fW1"/>
+                <outlet property="numBg" destination="GEs-sn-GMt" id="bCi-eI-xt5"/>
+                <outlet property="numW" destination="WwH-rY-lRj" id="a45-8z-WKB"/>
+                <outlet property="numlLabel" destination="JKh-jt-DsP" id="b0d-qB-3ez"/>
+            </connections>
+            <point key="canvasLocation" x="42.399999999999999" y="5.8470764617691158"/>
+        </view>
+    </objects>
+</document>

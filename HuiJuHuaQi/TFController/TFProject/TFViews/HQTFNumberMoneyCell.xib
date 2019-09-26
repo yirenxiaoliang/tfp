@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1217" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="HQTFNumberMoneyCell" rowHeight="75" id="x0t-st-nAs" customClass="HQTFNumberMoneyCell">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="75"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="x0t-st-nAs" id="bif-rs-dSc">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="74"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bcL-I5-PgH">
+                        <rect key="frame" x="187" y="15" width="1" height="44.5"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="1" id="Vkc-6F-LXe"/>
+                        </constraints>
+                    </view>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mz9-YC-SVy">
+                        <rect key="frame" x="196" y="0.0" width="171" height="74.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <state key="normal" title="  金额" image="未选择24">
+                            <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <state key="selected" title="  金额" image="选择24"/>
+                        <state key="highlighted" title="  金额" image="未选择24"/>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hnv-Q7-3bY">
+                        <rect key="frame" x="8" y="0.0" width="171" height="74.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <state key="normal" title="  数量" image="未选择24">
+                            <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <state key="selected" title="  数量" image="选择24"/>
+                        <state key="highlighted" title="  数量" image="未选择24"/>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="bcL-I5-PgH" firstAttribute="leading" secondItem="Hnv-Q7-3bY" secondAttribute="trailing" constant="8" id="VtR-OW-ApI"/>
+                    <constraint firstItem="bcL-I5-PgH" firstAttribute="centerX" secondItem="bif-rs-dSc" secondAttribute="centerX" id="WJL-2d-81E"/>
+                    <constraint firstItem="Mz9-YC-SVy" firstAttribute="top" secondItem="bif-rs-dSc" secondAttribute="top" id="XcA-pK-Qdo"/>
+                    <constraint firstItem="Hnv-Q7-3bY" firstAttribute="top" secondItem="bif-rs-dSc" secondAttribute="top" id="bpJ-oz-dof"/>
+                    <constraint firstItem="bcL-I5-PgH" firstAttribute="bottom" secondItem="bif-rs-dSc" secondAttribute="bottomMargin" constant="-7" id="c9O-xs-Mbc"/>
+                    <constraint firstItem="bcL-I5-PgH" firstAttribute="top" secondItem="bif-rs-dSc" secondAttribute="topMargin" constant="7" id="dKA-3o-4c3"/>
+                    <constraint firstAttribute="bottom" secondItem="Mz9-YC-SVy" secondAttribute="bottom" id="eC6-BR-6uS"/>
+                    <constraint firstAttribute="trailing" secondItem="Mz9-YC-SVy" secondAttribute="trailing" constant="8" id="elx-Ho-xeA"/>
+                    <constraint firstAttribute="bottom" secondItem="Hnv-Q7-3bY" secondAttribute="bottom" id="f2o-ss-hp9"/>
+                    <constraint firstItem="Hnv-Q7-3bY" firstAttribute="leading" secondItem="bif-rs-dSc" secondAttribute="leading" constant="8" id="fbA-S9-9Ex"/>
+                    <constraint firstItem="Mz9-YC-SVy" firstAttribute="leading" secondItem="bcL-I5-PgH" secondAttribute="trailing" constant="8" id="oua-5r-Teo"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="money" destination="Mz9-YC-SVy" id="bGa-u9-Zhi"/>
+                <outlet property="number" destination="Hnv-Q7-3bY" id="yEa-IT-5L6"/>
+                <outlet property="view" destination="bcL-I5-PgH" id="9TR-lH-FEB"/>
+                <outlet property="viewW" destination="Vkc-6F-LXe" id="1GE-VQ-aji"/>
+            </connections>
+            <point key="canvasLocation" x="6.5" y="35.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="未选择24" width="20" height="20"/>
+        <image name="选择24" width="20" height="20"/>
+    </resources>
+</document>

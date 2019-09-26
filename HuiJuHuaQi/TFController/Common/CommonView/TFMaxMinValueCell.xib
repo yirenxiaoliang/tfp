@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="maxMinValueCell" id="nmt-am-Oyh" customClass="TFMaxMinValueCell">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nmt-am-Oyh" id="3YZ-OM-I4Z">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="最小值" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dS6-kC-7VL">
+                        <rect key="frame" x="15" y="14" width="42" height="16"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="42" id="0Z5-e2-lKS"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="最大值" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="goF-gD-UaU">
+                        <rect key="frame" x="202.5" y="14" width="40" height="16"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="40" id="1Se-ac-HCA"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VTU-G4-0st">
+                        <rect key="frame" x="65" y="6" width="110" height="30"/>
+                        <nil key="textColor"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits"/>
+                    </textField>
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ySX-2D-jSP">
+                        <rect key="frame" x="250" y="7" width="110" height="30"/>
+                        <nil key="textColor"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits"/>
+                    </textField>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="goF-gD-UaU" firstAttribute="centerY" secondItem="3YZ-OM-I4Z" secondAttribute="centerY" id="0Ik-hQ-d8Y"/>
+                    <constraint firstItem="VTU-G4-0st" firstAttribute="leading" secondItem="dS6-kC-7VL" secondAttribute="trailing" constant="8" id="HHe-hI-nYv"/>
+                    <constraint firstItem="goF-gD-UaU" firstAttribute="leading" secondItem="VTU-G4-0st" secondAttribute="trailing" constant="27.5" id="Hvb-f2-SQz"/>
+                    <constraint firstAttribute="trailing" secondItem="ySX-2D-jSP" secondAttribute="trailing" constant="15" id="I1C-Fc-p5f"/>
+                    <constraint firstItem="goF-gD-UaU" firstAttribute="centerX" secondItem="3YZ-OM-I4Z" secondAttribute="centerX" constant="35" id="NjR-gb-V0h"/>
+                    <constraint firstItem="dS6-kC-7VL" firstAttribute="leading" secondItem="3YZ-OM-I4Z" secondAttribute="leadingMargin" constant="7" id="SwJ-HU-Olb"/>
+                    <constraint firstItem="ySX-2D-jSP" firstAttribute="leading" secondItem="goF-gD-UaU" secondAttribute="trailing" constant="7.5" id="Uu6-bk-jDf"/>
+                    <constraint firstItem="ySX-2D-jSP" firstAttribute="centerY" secondItem="3YZ-OM-I4Z" secondAttribute="centerY" id="aGd-zN-vtZ"/>
+                    <constraint firstItem="VTU-G4-0st" firstAttribute="centerY" secondItem="3YZ-OM-I4Z" secondAttribute="centerY" id="eXh-Ed-OG4"/>
+                    <constraint firstItem="dS6-kC-7VL" firstAttribute="centerY" secondItem="3YZ-OM-I4Z" secondAttribute="centerY" id="hYP-Me-ugQ"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="textField1" destination="VTU-G4-0st" id="2YU-wv-qei"/>
+                <outlet property="textField2" destination="ySX-2D-jSP" id="QU8-bQ-Jlq"/>
+            </connections>
+            <point key="canvasLocation" x="43.5" y="-161"/>
+        </tableViewCell>
+    </objects>
+</document>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<string>{"id":20,"icon_color":"#3689E9","chinese_name":"人力资源","icon_url":"icon-apps-library-4","icon_type":"0","topper":1}</string>
+	<string>{"id":63,"icon_color":"#FA5A55","chinese_name":"CRM客户管理","icon_url":"icon-apps-library-4","icon_type":"0","topper":2}</string>
+	<string>{"id":26,"icon_color":"#487BCC","chinese_name":"项目管理","icon_url":"icon-apps-library-6","icon_type":"0","topper":4}</string>
+	<string>{"id":41,"icon_color":"#F88F41","chinese_name":"行政管理","icon_url":"icon-apps-library-3","icon_type":"0","topper":7}</string>
+	<string>{"id":190,"icon_color":"#FF7748","chinese_name":"财务管理","icon_url":"icon-apps-library-1","icon_type":"0","topper":8}</string>
+	<string>{"id":3,"icon_color":"#38BA5D","chinese_name":"审批管理","icon_url":"\/common\/file\/imageDownload?bean=company&amp;fileName=8\/image\/1551334311158\/审批管理.png&amp;fileSize=2548","icon_type":"1","topper":9}</string>
+</array>
+</plist>

@@ -1,0 +1,26 @@
+//
+//  TFCompanyCirclePictureView.h
+//  HuiJuHuaQi
+//
+//  Created by HQ-20 on 17/4/19.
+//  Copyright © 2017年 com.huijuhuaqi.com. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+@protocol TFCompanyCirclePictureViewDelegate <NSObject>
+
+@optional
+-(void)companyCirclePictureViewWithImageViews:(NSArray *)imageViews didImageViewWithIndex:(NSInteger)index;
+
+@end
+
+@interface TFCompanyCirclePictureView : UIView
+
+- (void)refreshCompanyCirclePictureViewWithImages:(NSArray *)images;
+
+/** delegate */
+@property (nonatomic, weak) id <TFCompanyCirclePictureViewDelegate> delegate;
+
+
+@end

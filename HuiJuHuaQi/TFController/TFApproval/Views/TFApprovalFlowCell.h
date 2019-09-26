@@ -1,0 +1,23 @@
+//
+//  TFApprovalFlowCell.h
+//  HuiJuHuaQi
+//
+//  Created by HQ-20 on 2018/1/3.
+//  Copyright © 2018年 com.huijuhuaqi.com. All rights reserved.
+//
+
+#import "HQBaseCell.h"
+#import "TFApprovalFlowModel.h"
+
+@interface TFApprovalFlowCell : HQBaseCell
+
+@property (weak, nonatomic) IBOutlet UIImageView *topLineImage;
+@property (weak, nonatomic) IBOutlet UIImageView *bottomLineImage;
+@property (weak, nonatomic) IBOutlet UIView *line;
+
++ (instancetype)approvalFlowCellWithTableView:(UITableView *)tableView;
+
+- (void)refreshApprovalCellWithModel:(TFApprovalFlowModel *)mdoel;
++ (CGFloat)refreshApprovalCellHeightWithModel:(TFApprovalFlowModel *)mdoel;
+    
+@end

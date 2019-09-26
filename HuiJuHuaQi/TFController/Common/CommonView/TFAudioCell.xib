@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TFAudioCell" rowHeight="240" id="wfL-np-7rh" customClass="TFAudioCell">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="240"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wfL-np-7rh" id="MWH-Mt-JVf">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="240"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mp3" highlightedImage="mp3" translatesAutoresizingMaskIntoConstraints="NO" id="qJv-ni-ix8">
+                        <rect key="frame" x="136" y="48.5" width="103" height="103"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="103" id="D9H-Bb-cSz"/>
+                            <constraint firstAttribute="height" constant="103" id="hNN-uR-smG"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lS3-yA-RHV">
+                        <rect key="frame" x="187" y="179.5" width="0.0" height="0.0"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oX4-QE-beY">
+                        <rect key="frame" x="0.0" y="173.5" width="375" height="57"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VQm-sB-JHe">
+                                <rect key="frame" x="8" y="11" width="54" height="34"/>
+                            </button>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="avc-zc-2N5">
+                                <rect key="frame" x="68" y="13" width="239" height="31"/>
+                            </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d4d-yN-tEs">
+                                <rect key="frame" x="313" y="28.5" width="54" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="avc-zc-2N5" firstAttribute="centerY" secondItem="oX4-QE-beY" secondAttribute="centerY" id="JWO-3b-tGW"/>
+                            <constraint firstAttribute="trailing" secondItem="avc-zc-2N5" secondAttribute="trailing" constant="70" id="KRp-cS-XpW"/>
+                            <constraint firstItem="avc-zc-2N5" firstAttribute="leading" secondItem="VQm-sB-JHe" secondAttribute="trailing" constant="8" id="UHo-gw-q1n"/>
+                            <constraint firstItem="avc-zc-2N5" firstAttribute="leading" secondItem="oX4-QE-beY" secondAttribute="leading" constant="70" id="V73-0G-Ydk"/>
+                            <constraint firstAttribute="trailing" secondItem="d4d-yN-tEs" secondAttribute="trailing" constant="8" id="b3Q-50-HzX"/>
+                            <constraint firstItem="d4d-yN-tEs" firstAttribute="leading" secondItem="avc-zc-2N5" secondAttribute="trailing" constant="8" id="ghp-ch-d1M"/>
+                            <constraint firstItem="VQm-sB-JHe" firstAttribute="leading" secondItem="oX4-QE-beY" secondAttribute="leading" constant="8" id="gnL-ax-BL5"/>
+                            <constraint firstAttribute="height" constant="57" id="m4y-fm-7JA"/>
+                            <constraint firstItem="VQm-sB-JHe" firstAttribute="centerY" secondItem="oX4-QE-beY" secondAttribute="centerY" id="tU0-gX-aVy"/>
+                            <constraint firstItem="d4d-yN-tEs" firstAttribute="centerY" secondItem="oX4-QE-beY" secondAttribute="centerY" id="vAw-Rc-hAM"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="lS3-yA-RHV" firstAttribute="top" secondItem="qJv-ni-ix8" secondAttribute="bottom" constant="28" id="1au-no-DhD"/>
+                    <constraint firstItem="qJv-ni-ix8" firstAttribute="centerX" secondItem="MWH-Mt-JVf" secondAttribute="centerX" id="Co1-IA-y7a"/>
+                    <constraint firstItem="oX4-QE-beY" firstAttribute="leading" secondItem="MWH-Mt-JVf" secondAttribute="leading" id="GKC-eG-kOT"/>
+                    <constraint firstAttribute="trailing" secondItem="oX4-QE-beY" secondAttribute="trailing" id="Rf6-Dh-DVK"/>
+                    <constraint firstItem="oX4-QE-beY" firstAttribute="top" secondItem="qJv-ni-ix8" secondAttribute="bottom" constant="22" id="old-0G-8we"/>
+                    <constraint firstItem="qJv-ni-ix8" firstAttribute="centerY" secondItem="MWH-Mt-JVf" secondAttribute="centerY" constant="-20" id="s97-Qh-Odk"/>
+                    <constraint firstItem="lS3-yA-RHV" firstAttribute="centerX" secondItem="MWH-Mt-JVf" secondAttribute="centerX" id="wPU-3h-Qbu"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="backTime" destination="d4d-yN-tEs" id="vS2-N4-vgw"/>
+                <outlet property="bgView" destination="oX4-QE-beY" id="eht-He-7Gb"/>
+                <outlet property="logoImage" destination="qJv-ni-ix8" id="PrA-DY-BA4"/>
+                <outlet property="sliderView" destination="avc-zc-2N5" id="ZcY-hs-wal"/>
+                <outlet property="timeBtn" destination="VQm-sB-JHe" id="HTp-hh-bR1"/>
+                <outlet property="timeLabel" destination="lS3-yA-RHV" id="Gho-of-0NN"/>
+            </connections>
+            <point key="canvasLocation" x="-52.5" y="127"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="mp3" width="136" height="154"/>
+    </resources>
+</document>

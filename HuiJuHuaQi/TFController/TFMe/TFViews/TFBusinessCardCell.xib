@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="17C88" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TFBusinessCardCell" rowHeight="193" id="pxi-8B-f60" customClass="TFBusinessCardCell">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="193"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pxi-8B-f60" id="TrG-u3-Zk2">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="192.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bqi-eJ-ZVm">
+                        <rect key="frame" x="13" y="73" width="46" height="46"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="46" id="3SI-Cb-KQ3"/>
+                            <constraint firstAttribute="width" constant="46" id="bAS-re-yLr"/>
+                        </constraints>
+                        <state key="normal" image="没选中"/>
+                        <state key="selected" image="选中了"/>
+                    </button>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WOa-Jl-hdb">
+                        <rect key="frame" x="73" y="11" width="270" height="170.5"/>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottomMargin" secondItem="WOa-Jl-hdb" secondAttribute="bottom" constant="3" id="5TS-qe-eta"/>
+                    <constraint firstItem="WOa-Jl-hdb" firstAttribute="leading" secondItem="TrG-u3-Zk2" secondAttribute="leadingMargin" constant="65" id="5b1-dB-PoD"/>
+                    <constraint firstItem="bqi-eJ-ZVm" firstAttribute="leading" secondItem="TrG-u3-Zk2" secondAttribute="leadingMargin" constant="5" id="93J-Ed-Gny"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="WOa-Jl-hdb" secondAttribute="trailing" constant="24" id="eYI-1a-uZS"/>
+                    <constraint firstItem="WOa-Jl-hdb" firstAttribute="top" secondItem="TrG-u3-Zk2" secondAttribute="topMargin" constant="3" id="lv4-Ka-vuQ"/>
+                    <constraint firstItem="bqi-eJ-ZVm" firstAttribute="centerY" secondItem="TrG-u3-Zk2" secondAttribute="centerY" id="pd1-he-QxJ"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="cardImageView" destination="WOa-Jl-hdb" id="Pxa-WB-m5B"/>
+                <outlet property="selectBtn" destination="bqi-eJ-ZVm" id="gFr-DM-pg3"/>
+            </connections>
+            <point key="canvasLocation" x="-40.5" y="32.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="没选中" width="18" height="18"/>
+        <image name="选中了" width="18" height="18"/>
+    </resources>
+</document>

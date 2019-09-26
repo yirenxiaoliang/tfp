@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="gHS-3X-cf1" customClass="TFAllDynamicView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="77"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sZ0-5D-mb8">
+                    <rect key="frame" x="16" y="23.5" width="30" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="30" id="R8I-dv-3Ie"/>
+                        <constraint firstAttribute="height" constant="30" id="pfq-ri-5yb"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F1k-ya-x8J">
+                    <rect key="frame" x="56" y="30" width="35.5" height="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Dl-1s-eIA">
+                    <rect key="frame" x="106.5" y="23.5" width="30" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="0rJ-pL-Z08"/>
+                        <constraint firstAttribute="width" constant="30" id="QnY-0m-hY2"/>
+                    </constraints>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="sZ0-5D-mb8" firstAttribute="leading" secondItem="gHS-3X-cf1" secondAttribute="leading" constant="16" id="5JV-fB-SLk"/>
+                <constraint firstItem="F1k-ya-x8J" firstAttribute="centerY" secondItem="gHS-3X-cf1" secondAttribute="centerY" id="O7z-ix-jkb"/>
+                <constraint firstItem="F1k-ya-x8J" firstAttribute="leading" secondItem="sZ0-5D-mb8" secondAttribute="trailing" constant="10" id="b0g-8b-igf"/>
+                <constraint firstItem="9Dl-1s-eIA" firstAttribute="leading" secondItem="F1k-ya-x8J" secondAttribute="trailing" constant="15" id="b93-CG-RUs"/>
+                <constraint firstItem="sZ0-5D-mb8" firstAttribute="centerY" secondItem="gHS-3X-cf1" secondAttribute="centerY" id="ivu-yu-qyZ"/>
+                <constraint firstItem="9Dl-1s-eIA" firstAttribute="centerY" secondItem="gHS-3X-cf1" secondAttribute="centerY" id="qpz-sk-mbn"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="arrowImage" destination="9Dl-1s-eIA" id="4Yu-U9-u8f"/>
+                <outlet property="headImage" destination="sZ0-5D-mb8" id="Paa-gL-mRf"/>
+                <outlet property="nameLabel" destination="F1k-ya-x8J" id="jb8-GR-HoC"/>
+            </connections>
+            <point key="canvasLocation" x="370.39999999999998" y="-113.79310344827587"/>
+        </view>
+    </objects>
+</document>

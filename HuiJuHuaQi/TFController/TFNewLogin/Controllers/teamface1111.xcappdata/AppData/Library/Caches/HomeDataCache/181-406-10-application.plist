@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<string>{"id":1,"icon_color":"#19BFA4","chinese_name":"客户CRM","icon_url":"icon-apps-library-1","icon_type":"0","topper":1}</string>
+	<string>{"id":2,"icon_color":"#7076FA","chinese_name":"CRM","icon_url":"icon-apps-library-2","icon_type":"0","topper":2}</string>
+	<string>{"id":4,"icon_color":"#F969AA","chinese_name":"金粒子","icon_url":"icon-apps-library-6","icon_type":"0","topper":4}</string>
+	<string>{"id":5,"icon_color":"#4E8AF9","chinese_name":"徐兵的应用","icon_url":"icon-apps-library-4","icon_type":"0","topper":5}</string>
+	<string>{"id":6,"icon_color":"#7076FA","chinese_name":"大数字","icon_url":"icon-apps-library-5","icon_type":"0","topper":6}</string>
+	<string>{"id":7,"icon_color":"#FF7748","chinese_name":"Test-XXjob","icon_url":"icon-apps-library-3","icon_type":"0","topper":7}</string>
+	<string>{"id":8,"icon_color":"#EF7EDE","chinese_name":"数据分析基础模块","icon_url":"icon-apps-library-7","icon_type":"0","topper":8}</string>
+	<string>{"id":9,"icon_color":"#F969AA","chinese_name":"Test上传","icon_url":"icon-apps-library-8","icon_type":"0","topper":9}</string>
+	<string>{"id":10,"icon_color":"#FC587B","chinese_name":"混合组件测试","icon_url":"icon-apps-library-1","icon_type":"0","topper":10}</string>
+</array>
+</plist>

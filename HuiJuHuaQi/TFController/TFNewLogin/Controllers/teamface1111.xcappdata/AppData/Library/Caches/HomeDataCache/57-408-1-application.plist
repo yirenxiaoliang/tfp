@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<string>{"id":1,"icon_color":"#7076FA","chinese_name":"CRM","icon_url":"icon-apps-library-2","icon_type":"0","topper":1}</string>
+	<string>{"id":2,"icon_color":"#2CCCDA","chinese_name":"考勤","icon_url":"icon-apps-library-2","icon_type":"0","topper":2}</string>
+	<string>{"id":3,"icon_color":"#2EBCFF","chinese_name":"金粒子","icon_url":"icon-apps-library-3","icon_type":"0","topper":3}</string>
+	<string>{"id":4,"icon_color":"#4E8AF9","chinese_name":"test","icon_url":"icon-apps-library-4","icon_type":"0","topper":4}</string>
+</array>
+</plist>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<string>{"id":2,"icon_color":"#2CCCDA","application_id":1,"chinese_name":"客户","del_status":"0","icon_url":"icon-modules-library-2","icon_type":"0","icon":"","english_name":"bean1558431265767","topper":"2"}</string>
+	<string>{"id":13,"icon_color":"#2CCCDA","application_id":2,"chinese_name":"请假","del_status":"0","icon_url":"icon-modules-library-2","icon_type":"0","icon":"","english_name":"bean1561625517699","topper":"13"}</string>
+	<string>{"id":11,"icon_color":"#19BFA4","application_id":2,"chinese_name":"补卡","del_status":"0","icon_url":"icon-modules-library-1","icon_type":"0","icon":"","english_name":"bean1561604351339","topper":"11"}</string>
+	<string>{"id":8,"icon_color":"#FF7748","application_id":1,"chinese_name":"回款单","del_status":"0","icon_url":"icon-modules-library-11","icon_type":"0","icon":"","english_name":"bean1558433327070","topper":"8"}</string>
+	<string>{"id":12,"icon_color":"#19BFA4","application_id":3,"chinese_name":"工作","del_status":"0","icon_url":"icon-modules-library-1","icon_type":"0","icon":"","english_name":"bean1561608570431","topper":"12"}</string>
+	<string>{"id":10,"icon_color":"#FF7748","application_id":1,"chinese_name":"产品","del_status":"0","icon_url":"icon-modules-library-11","icon_type":"0","icon":"","english_name":"bean1558432750926","topper":"10"}</string>
+	<string>{"id":7,"icon_color":"#F969AA","application_id":1,"chinese_name":"合同","del_status":"0","icon_url":"icon-modules-library-8","icon_type":"0","icon":"","english_name":"bean1558431296826","topper":"7"}</string>
+	<string>{"id":15,"icon_color":"#2CCCDA","application_id":1,"chinese_name":"客户1","del_status":"0","icon_url":"icon-modules-library-2","icon_type":"0","icon":"","english_name":"bean1561631281930","topper":"15"}</string>
+	<string>{"id":14,"icon_color":"#FA5A55","application_id":1,"chinese_name":"市场活动1","del_status":"0","icon_url":"icon-modules-library-10","icon_type":"0","icon":"","english_name":"bean1561631269076","topper":"14"}</string>
+	<string>{"id":9,"icon_color":"#FA5A55","application_id":1,"chinese_name":"开票信息","del_status":"0","icon_url":"icon-modules-library-10","icon_type":"0","icon":"","english_name":"bean1558431308685","topper":"9"}</string>
+	<string>{"id":16,"icon_color":"#2EBCFF","application_id":1,"chinese_name":"联系人1","del_status":"0","icon_url":"icon-modules-library-3","icon_type":"0","icon":"","english_name":"bean1561631288216","topper":"16"}</string>
+	<string>{"id":1,"icon_color":"#FA5A55","application_id":1,"chinese_name":"市场活动","del_status":"0","icon_url":"icon-modules-library-10","icon_type":"0","icon":"","english_name":"bean1558432744295","topper":"1"}</string>
+</array>
+</plist>

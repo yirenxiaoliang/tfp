@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TFTaskDetailCooperationCell" rowHeight="58" id="sma-SM-Gzi" customClass="TFTaskDetailCooperationCell">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="58"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sma-SM-Gzi" id="FYu-Wg-mD0">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="57.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="公司文件库" translatesAutoresizingMaskIntoConstraints="NO" id="W79-YA-02r">
+                        <rect key="frame" x="16" y="19" width="20" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="20" id="Gwb-dd-gpz"/>
+                            <constraint firstAttribute="height" constant="20" id="dza-M9-Gqn"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="协作人" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Nh-d8-ugO">
+                        <rect key="frame" x="54" y="20.5" width="43" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mpb-kt-719">
+                        <rect key="frame" x="308" y="13.5" width="51" height="31"/>
+                        <connections>
+                            <action selector="switchChange:" destination="sma-SM-Gzi" eventType="valueChanged" id="Pyr-1a-GE3"/>
+                        </connections>
+                    </switch>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="仅协作人可见" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="keK-cy-1RK">
+                        <rect key="frame" x="214" y="20.5" width="86" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="W79-YA-02r" firstAttribute="leading" secondItem="FYu-Wg-mD0" secondAttribute="leadingMargin" id="2on-u8-aYZ"/>
+                    <constraint firstItem="4Nh-d8-ugO" firstAttribute="leading" secondItem="W79-YA-02r" secondAttribute="trailing" constant="18" id="B3c-7E-7VX"/>
+                    <constraint firstItem="keK-cy-1RK" firstAttribute="centerY" secondItem="FYu-Wg-mD0" secondAttribute="centerY" id="amg-hI-JuS"/>
+                    <constraint firstItem="W79-YA-02r" firstAttribute="centerY" secondItem="FYu-Wg-mD0" secondAttribute="centerY" id="dgy-tI-HRf"/>
+                    <constraint firstItem="4Nh-d8-ugO" firstAttribute="centerY" secondItem="FYu-Wg-mD0" secondAttribute="centerY" id="fWc-Au-cEN"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="Mpb-kt-719" secondAttribute="trailing" constant="2" id="pHd-f4-B9S"/>
+                    <constraint firstItem="Mpb-kt-719" firstAttribute="centerY" secondItem="FYu-Wg-mD0" secondAttribute="centerY" id="uXk-hy-mku"/>
+                    <constraint firstItem="Mpb-kt-719" firstAttribute="leading" secondItem="keK-cy-1RK" secondAttribute="trailing" constant="8" id="uaK-lI-k0h"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="cooperationPeople" destination="4Nh-d8-ugO" id="nJx-10-vJz"/>
+                <outlet property="headImage" destination="W79-YA-02r" id="DPq-dq-4pF"/>
+                <outlet property="switchBtn" destination="Mpb-kt-719" id="3ry-Il-CLd"/>
+                <outlet property="visableLabel" destination="keK-cy-1RK" id="91A-XI-QeQ"/>
+            </connections>
+            <point key="canvasLocation" x="116" y="121.4392803598201"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="公司文件库" width="27" height="25"/>
+    </resources>
+</document>

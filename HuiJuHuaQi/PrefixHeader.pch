@@ -1,0 +1,100 @@
+//
+//  PrefixHeader.pch
+//  HuiJuHuaQi
+//
+//  Created by XieLB on 16/1/13.
+//  Copyright © 2016年 com.huijuhuaqi.com. All rights reserved.
+//
+
+#ifdef __OBJC__
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#import "HQConfig.h"
+#import "HQConst.h"
+#import "HQEnum.h"
+#import "pinyin.h"
+#import <Foundation/Foundation.h>
+
+#import "HQHelper.h"
+#import "HQUserManager.h"
+#import "TFUserLoginCModel+CoreDataClass.h"
+
+#import "UILabel+Extension.h"
+
+#import "NSString+Regular.h"
+#import "UIView+Extension.h"
+#import "NSObject+HQNull.h"
+#import "NSObject+Equel.h"
+
+#import "MBProgressHUD.h"
+#import "MBProgressHUD+Add.h"
+
+/** 极光聊天 */
+#import <JMessage/JMessage.h>
+#import "Masonry.h"
+#import "HQChatConstants.h"
+#import "DataBaseHandle.h"
+
+#import "UIImageView+WebCache.h"
+#import "UIButton+WebCache.h"
+#import "HQBaseNavigationController.h"
+#import "LiuqsKeyBoardHeader.pch"
+
+#import "TFNotification.h"
+#import <ReactiveObjC/ReactiveObjC.h>
+#import "TFUrl.h"
+
+#define NSEaseLocalizedString(key, comment) [[NSBundle bundleWithURL:[[NSBundle mainBundle] URLForResource:@"EaseUIResource" withExtension:@"bundle"]] localizedStringForKey:(key) value:@"" table:nil]
+
+
+
+#ifdef DEBUG // 调试状态, 打开LOG功能
+#define HQLog(...) NSLog(__VA_ARGS__)
+#else // 发布状态, 关闭LOG功能
+#define HQLog(...)
+#endif
+
+
+/**
+ * 事件回调处理函数
+ */
+typedef void(^ActionHandler)(void);
+
+/**
+ * 事件回调处理函数(带参数)
+ */
+typedef void(^Action)(NSString *time);
+/**
+ * 事件回调处理函数(带参数)
+ */
+typedef void(^gradeAction)(NSDictionary *dict);
+/**
+ * 事件回调处理函数(带参数)
+ */
+typedef void(^ActionArray)(NSArray *array);
+
+/**
+ * stop
+ */
+typedef void(^ActionStop)(BOOL *stop);
+
+/**
+ * parameter  传参数
+ */
+typedef void(^ActionParameter)(id parameter);
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif /* PrefixHeader_pch */
+
+
+//LBXScan 如果需要使用LBXScanViewController控制器代码，那么下载了那些模块，请定义对应的宏
+#define LBXScan_Define_Native  //包含native库
+#define LBXScan_Define_ZXing   //包含ZXing库
+#define LBXScan_Define_ZBar   //包含ZBar库
+#define LBXScan_Define_UI     //包含界面库
+
+#endif

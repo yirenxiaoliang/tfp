@@ -1,0 +1,447 @@
+/* 重置样式 */
+body{ margin:0px; padding:0px;}
+img{ margin:0px; padding:0px; border:none; display:block;}
+ul,li{ margin:0px; padding:0px; list-style:none;}
+a{ text-decoration:none;}
+
+/*help1*/
+.help1{background-color:#e4e3ea;}
+.help1 .invitation{ width: 100%;}
+.help1 .invitation .page{ overflow: hidden;position: relative; width:270px; margin: auto;}
+.help1 .invitation .page .in_imgbox{ }
+.help1 .invitation .page .in_imgbox img{ width: 100%;}
+.help1 .invitation .page .guide{ position: absolute;width: 75px;height: 75px;}
+.help1 .invitation .page .guide1{top: 54px;right: -17px;}
+.help1 .invitation .page .guide2{top: 82px;right:   2px;}
+.help1 .invitation .page .guide3{top:230px;left:    8px;}
+.help1 .invitation .page .guide4{top: 60px;right: -17px;}
+.help1 .invitation .page .guide5{top:260px;right: 92px;}
+.help1 .invitation .page .guide6{top: 54px;right: -10px;}
+.help1 .invitation .hand{width: 75px;height: 75px; position:absolute;}
+.help1 .invitation .hand1{background: url(finger1.png) center; background-size:75px; }
+.help1 .invitation .hand2{background: url(finger2.png) center; background-size:75px;  }
+.help1 .invitation .hand3{background: url(finger3.png) center; background-size:75px;  }
+.help1 .page .info{ position:absolute; background-color: #ffb545;padding: 6px 20px; border-radius: 6px;opacity: 0.88;color: #fff;}
+.help1 .page .info1{ top:180px;left: 28px; display:none;}
+.help1 .page .info2{ top:180px;left: 28px; display:none;}
+.help1 .page .info3{ top:360px;left: 28px; display:none;}
+.help1 .page .info4{ top:360px;left: 28px; display:none;}
+.help1 .page .info5{ top:360px;left: 28px; display:none;}
+.help1 .page .info6{ top:360px;left: 28px; display:none;}
+.help1 .page .info7{ top:360px;left: 28px; display:none;}
+.help1 .footer{ width:100%; height:46px; background-color:#fff; position:fixed; bottom:0px; text-align:center; line-height:46px; font-size:18px;}
+
+
+/*help2*/
+.help2{background-color:#e4e3ea;}
+.help2 .invitation{ width: 100%;}
+.help2 .invitation .page{ overflow: hidden;position: relative; width:270px; margin: auto;}
+.help2 .invitation .page .in_imgbox{ }
+.help2 .invitation .page .in_imgbox img{ width: 100%;}
+.help2 .invitation .page .guide{ position: absolute;width: 75px;height: 75px;}
+.help2 .invitation .page .guide1{bottom: -8px;left: 58px;}
+.help2 .invitation .page .guide2{top: 122px;left: 20px;}
+.help2 .invitation .page .guide3{top:160px;left:    8px;}
+.help2 .invitation .hand{width: 75px;height: 75px; position:absolute;}
+.help2 .invitation .hand1{background: url(finger1.png) center; background-size:75px; }
+.help2 .invitation .hand2{background: url(finger2.png) center; background-size:75px;  }
+.help2 .invitation .hand3{background: url(finger3.png) center; background-size:75px;  }
+.help2 .page .info{ position:absolute; background-color: #ffb545;padding: 6px 20px; border-radius: 6px;opacity: 0.88;color: #fff;}
+.help2 .page .info1{ top:180px;left: 28px; display:none;}
+.help2 .page .info2{ top:260px;left: 28px; display:none;}
+.help2 .page .info3{ top:360px;left: 28px; display:none;}
+.help2 .footer{ width:100%; height:46px; background-color:#fff; position:fixed; bottom:0px; text-align:center; line-height:46px; font-size:18px;}
+
+/*help3*/
+.help3{background-color:#e4e3ea;}
+.help3 .invitation{ width: 100%;}
+.help3 .invitation .page{ overflow: hidden;position: relative; width:270px; margin: auto;}
+.help3 .invitation .page .in_imgbox{ }
+.help3 .invitation .page .in_imgbox img{ width: 100%;}
+.help3 .invitation .page .guide{ position: absolute;width: 75px;height: 75px;}
+.help3 .invitation .page .guide1{bottom: -12px; right:-8px;}
+.help3 .invitation .page .guide2{top:160px;left:  50px;}
+.help3 .invitation .page .guide3{top:206px;left:  50px;}
+.help3 .invitation .page .guide5{bottom: 110px; left:110px;}
+.help3 .invitation .hand{width: 75px;height: 75px; position:absolute;}
+.help3 .invitation .hand1{background: url(finger1.png) center; background-size:75px; }
+.help3 .invitation .hand2{background: url(finger2.png) center; background-size:75px;  }
+.help3 .invitation .hand3{background: url(finger3.png) center; background-size:75px;  }
+.help3 .page .info{ position:absolute; background-color: #ffb545;padding: 6px 20px; border-radius: 6px;opacity: 0.88;color: #fff;}
+.help3 .page .info1{ top:180px;left: 28px; display:none;}
+.help3 .page .info2{ top:360px;left: 28px; display:none;}
+.help3 .page .info3{ top:360px;left: 28px; display:none;}
+.help3 .page .info5{ top:180px;left: 28px; display:none;}
+.help3 .page .info6{ top:300px;left: 28px; display:none;}
+.help3 .footer{ width:100%; height:46px; background-color:#fff; position:fixed; bottom:0px; text-align:center; line-height:46px; font-size:18px;}
+
+
+/*help4*/
+.help4{background-color:#e4e3ea;}
+.help4 .invitation{ width: 100%;}
+.help4 .invitation .page{ overflow: hidden;position: relative; width:270px; margin: auto;}
+.help4 .invitation .page .in_imgbox{ }
+.help4 .invitation .page .in_imgbox img{ width: 100%;}
+.help4 .invitation .page .guide{ position: absolute;width: 75px;height: 75px;}
+.help4 .invitation .page .guide1{top:210px; left:30px;}
+.help4 .invitation .page .guide2{top:60px;  right: 8px;}
+.help4 .invitation .page .guide3{top:60px;  right: -17px;}
+.help4 .invitation .page .guide4{top: 150px; left: 110px;}
+.help4 .invitation .page .guide5{bottom: 0px; left:110px;}
+.help4 .invitation .page .guide6{bottom: 120px; left:160px;}
+.help4 .invitation .page .guide7{bottom: 0px; left:110px;}
+.help4 .invitation .page .guide8{top:200px; right:-10px;}
+.help4 .invitation .page .guide9{bottom: 150px; left:110px;}
+.help4 .invitation .page .guide10{top: 54px; right:-17px;}
+.help4 .invitation .hand{width: 75px;height: 75px; position:absolute;}
+.help4 .invitation .hand1{background: url(finger1.png) center; background-size:75px; }
+.help4 .invitation .hand2{background: url(finger2.png) center; background-size:75px;  }
+.help4 .invitation .hand3{background: url(finger3.png) center; background-size:75px;  }
+.help4 .page .info{ position:absolute; background-color: #ffb545;padding: 6px 20px; border-radius: 6px;opacity: 0.88;color: #fff;}
+.help4 .page .info1{ top:340px;left: 28px; display:none;}
+.help4 .page .info2{ top:360px;left: 28px; display:none;}
+.help4 .page .info3{ top:360px;left: 28px; display:none;}
+.help4 .page .info4{ top:360px;left: 28px; display:none;}
+.help4 .page .info5{ top:360px;left: 28px; display:none;}
+.help4 .page .info6{ top:100px;left: 28px; display:none;}
+.help4 .page .info7{ top:180px;left: 28px; display:none;}
+.help4 .page .info8{ top:400px;left: 28px; display:none;}
+.help4 .page .info9{ top:400px;left: 28px; display:none;}
+.help4 .page .info10{ top:180px;left: 28px; display:none;}
+.help4 .page .info11 { top:180px;left: 28px; display:none;}
+.help4 .footer{ width:100%; height:46px; background-color:#fff; position:fixed; bottom:0px; text-align:center; line-height:46px; font-size:18px;}
+
+/*help5*/
+.help5{background-color:#e4e3ea;}
+.help5 .invitation{ width: 100%;}
+.help5 .invitation .page{ overflow: hidden;position: relative; width:270px; margin: auto;}
+.help5 .invitation .page .in_imgbox{ }
+.help5 .invitation .page .in_imgbox img{ width: 100%;}
+.help5 .invitation .page .guide{ position: absolute;width: 75px;height: 75px;}
+.help5 .invitation .page .guide1{top:210px; left:30px;}
+.help5 .invitation .page .guide2{top:60px;  right: -18px;}
+.help5 .invitation .page .guide3{top:58px;  right: -10px;}
+.help5 .invitation .page .guide4{top: 142px;left: 20px;}
+.help5 .invitation .page .guide5{bottom:0px; left:110px;}
+.help5 .invitation .hand{width: 75px;height: 75px; position:absolute;}
+.help5 .invitation .hand1{background: url(finger1.png) center; background-size:75px; }
+.help5 .invitation .hand2{background: url(finger2.png) center; background-size:75px;  }
+.help5 .invitation .hand3{background: url(finger3.png) center; background-size:75px;  }
+.help5 .page .info{ position:absolute; background-color: #ffb545;padding: 6px 20px; border-radius: 6px;opacity: 0.88;color: #fff;}
+.help5 .page .info1{ top:180px;left: 28px; display:none;}
+.help5 .page .info2{ top:360px;left: 28px; display:none;}
+.help5 .page .info3{ top:360px;left: 28px; display:none;}
+.help5 .page .info4{ top:360px;left: 28px; display:none;}
+.help5 .page .info5{ top:360px;left: 28px; display:none;}
+.help5 .footer{ width:100%; height:46px; background-color:#fff; position:fixed; bottom:0px; text-align:center; line-height:46px; font-size:18px;}
+
+/*help6*/
+.help6{background-color:#e4e3ea;}
+.help6 .invitation{ width: 100%;}
+.help6 .invitation .page{ overflow: hidden;position: relative; width:270px; margin: auto;}
+.help6 .invitation .page .in_imgbox{ }
+.help6 .invitation .page .in_imgbox img{ width: 100%;}
+.help6 .invitation .page .guide{ position: absolute;width: 75px;height: 75px;}
+.help6 .invitation .page .guide1{top:210px; left:30px;}
+.help6 .invitation .page .guide4{top:260px; left:110px;}
+.help6 .invitation .page .guide5{top:370px;  left:34px;}
+.help6 .invitation .page .guide6{top:90px;  right: -17px;}
+.help6 .invitation .hand{width: 75px;height: 75px; position:absolute;}
+.help6 .invitation .hand1{background: url(finger1.png) center; background-size:75px; }
+.help6 .invitation .hand2{background: url(finger2.png) center; background-size:75px;  }
+.help6 .invitation .hand3{background: url(finger3.png) center; background-size:75px;  }
+.help6 .page .info{ position:absolute; background-color: #ffb545;padding: 6px 20px; border-radius: 6px;opacity: 0.88;color: #fff;}
+.help6 .page .info1{ top:340px;left: 28px; display:none;}
+.help6 .page .info4{ top:360px;left: 28px; display:none;}
+.help6 .page .info5{ top:160px;left: 28px; display:none;}
+.help6 .page .info6{ top:400px;left: 28px; display:none;}
+.help6 .footer{ width:100%; height:46px; background-color:#fff; position:fixed; bottom:0px; text-align:center; line-height:46px; font-size:18px;}
+
+
+/*help7*/
+.help7{background-color:#e4e3ea;}
+.help7 .invitation{ width: 100%;}
+.help7 .invitation .page{ overflow: hidden;position: relative; width:270px; margin: auto;}
+.help7 .invitation .page .in_imgbox{ }
+.help7 .invitation .page .in_imgbox img{ width: 100%;}
+.help7 .invitation .page .guide{ position: absolute;width: 75px;height: 75px;}
+.help7 .invitation .page .guide1{top:210px; left:30px;}
+.help7 .invitation .page .guide2{top:260px;  right: 90px;}
+.help7 .invitation .page .guide3{top:366px;  right:8px;}
+.help7 .invitation .page .guide4{top: 60px; right:-17px;}
+.help7 .invitation .page .guide5{top:50px;  right: -17px;}
+.help7 .invitation .hand{width: 75px;height: 75px; position:absolute;}
+.help7 .invitation .hand1{background: url(finger1.png) center; background-size:75px; }
+.help7 .invitation .hand2{background: url(finger2.png) center; background-size:75px;  }
+.help7 .invitation .hand3{background: url(finger3.png) center; background-size:75px;  }
+.help7 .page .info{ position:absolute; background-color: #ffb545;padding: 6px 20px; border-radius: 6px;opacity: 0.88;color: #fff;}
+.help7 .page .info1{ top:340px;left: 28px; display:none;}
+.help7 .page .info2{ top:200px;left: 28px; display:none;}
+.help7 .page .info3{ top:340px;left: 28px; display:none;}
+.help7 .page .info4{ top:360px;left: 28px; display:none;}
+.help7 .page .info5{ top:360px;left: 28px; display:none;}
+.help7 .footer{ width:100%; height:46px; background-color:#fff; position:fixed; bottom:0px; text-align:center; line-height:46px; font-size:18px;}
+
+/*help8*/
+.help8{background-color:#e4e3ea;}
+.help8 .invitation{ width: 100%;}
+.help8 .invitation .page{ overflow: hidden;position: relative; width:270px; margin: auto;}
+.help8 .invitation .page .in_imgbox{ }
+.help8 .invitation .page .in_imgbox img{ width: 100%;}
+.help8 .invitation .page .guide{ position: absolute;width: 75px;height: 75px;}
+.help8 .invitation .page .guide1{top:220px; left:190px;}
+.help8 .invitation .page .guide2{top:58px;  right:-17px;}
+.help8 .invitation .page .guide3{top:120px;  left:210px;}
+.help8 .invitation .page .guide4{top:50px;  right: -17px;}
+.help8 .invitation .page .guide5{top:50px;  right: -17px;}
+.help8 .invitation .hand{width: 75px;height: 75px; position:absolute;}
+.help8 .invitation .hand1{background: url(finger1.png) center; background-size:75px; }
+.help8 .invitation .hand2{background: url(finger2.png) center; background-size:75px;  }
+.help8 .invitation .hand3{background: url(finger3.png) center; background-size:75px;  }
+.help8 .page .info{ position:absolute; background-color: #ffb545;padding: 6px 20px; border-radius: 6px;opacity: 0.88;color: #fff;}
+.help8 .page .info1{ top:340px;left: 28px; display:none;}
+.help8 .page .info2{ top:200px;left: 28px; display:none;}
+.help8 .page .info3{ top:340px;left: 28px; display:none;}
+.help8 .page .info4{ top:360px;left: 28px; display:none;}
+.help8 .page .info5{ top:360px;left: 28px; display:none;}
+.help8 .footer{ width:100%; height:46px; background-color:#fff; position:fixed; bottom:0px; text-align:center; line-height:46px; font-size:18px;}
+
+/*help9*/
+.help9{background-color:#e4e3ea;}
+.help9 .invitation{ width: 100%;}
+.help9 .invitation .page{ overflow: hidden;position: relative; width:270px; margin: auto;}
+.help9 .invitation .page .in_imgbox{ }
+.help9 .invitation .page .in_imgbox img{ width: 100%;}
+.help9 .invitation .page .guide{ position: absolute;width: 75px;height: 75px;}
+.help9 .invitation .page .guide1{top:110px; left:30px;}
+.help9 .invitation .page .guide2{top:150px;  left:80px;}
+.help9 .invitation .page .guide3{top:450px;  left:50px;}
+.help9 .invitation .page .guide4{top:56px;  right: -17px;}
+.help9 .invitation .page .guide5{top:50px;  right: -17px;}
+.help9 .invitation .hand{width: 75px;height: 75px; position:absolute;}
+.help9 .invitation .hand1{background: url(finger1.png) center; background-size:75px; }
+.help9 .invitation .hand2{background: url(finger2.png) center; background-size:75px;  }
+.help9 .invitation .hand3{background: url(finger3.png) center; background-size:75px;  }
+.help9 .page .info{ position:absolute; background-color: #ffb545;padding: 6px 20px; border-radius: 6px;opacity: 0.88;color: #fff;}
+.help9 .page .info1{ top:340px;left: 28px; display:none;}
+.help9 .page .info2{ top:340px;left: 28px; display:none;}
+.help9 .page .info3{ top:340px;left: 28px; display:none;}
+.help9 .page .info4{ top:360px;left: 28px; display:none;}
+.help9 .page .info5{ top:360px;left: 28px; display:none;}
+.help9 .footer{ width:100%; height:46px; background-color:#fff; position:fixed; bottom:0px; text-align:center; line-height:46px; font-size:18px;}
+
+
+/*help10*/
+.help10{background-color:#e4e3ea;}
+.help10 .invitation{ width: 100%;}
+.help10 .invitation .page{ overflow: hidden;position: relative; width:270px; margin: auto;}
+.help10 .invitation .page .in_imgbox{ }
+.help10 .invitation .page .in_imgbox img{ width: 100%;}
+.help10 .invitation .page .guide{ position: absolute;width: 75px;height: 75px;}
+.help10 .invitation .page .guide1{top:110px; left:30px;}
+.help10 .invitation .page .guide2{top:150px;  left:80px;}
+.help10 .invitation .page .guide3{top:450px;  left:170px;}
+.help10 .invitation .page .guide4{top:270px;  right:90px;}
+.help10 .invitation .page .guide5{top:50px;  right: -17px;}
+.help10 .invitation .hand{width: 75px;height: 75px; position:absolute;}
+.help10 .invitation .hand1{background: url(finger1.png) center; background-size:75px; }
+.help10 .invitation .hand2{background: url(finger2.png) center; background-size:75px;  }
+.help10 .invitation .hand3{background: url(finger3.png) center; background-size:75px;  }
+.help10 .page .info{ position:absolute; background-color: #ffb545;padding: 6px 20px; border-radius: 6px;opacity: 0.88;color: #fff;}
+.help10 .page .info1{ top:340px;left: 28px; display:none;}
+.help10 .page .info2{ top:260px;left: 28px; display:none;}
+.help10 .page .info3{ top:340px;left: 28px; display:none;}
+.help10 .page .info4{ top:360px;left: 28px; display:none;}
+.help10 .page .info5{ top:360px;left: 28px; display:none;}
+.help10 .footer{ width:100%; height:46px; background-color:#fff; position:fixed; bottom:0px; text-align:center; line-height:46px; font-size:18px;}
+
+/*help11*/
+.help11{background-color:#e4e3ea;}
+.help11 .invitation{ width: 100%;}
+.help11 .invitation .page{ overflow: hidden;position: relative; width:270px; margin: auto;}
+.help11 .invitation .page .in_imgbox{ }
+.help11 .invitation .page .in_imgbox img{ width: 100%;}
+.help11 .invitation .page .guide{ position: absolute;width: 75px;height: 75px;}
+.help11 .invitation .page .guide1{top:220px; left:110px;}
+.help11 .invitation .page .guide2{top:58px;  right:-18px;}
+.help11 .invitation .page .guide3{top:80px;  right:-18px;}
+.help11 .invitation .page .guide4{top:50px;  right:-18px;}
+.help11 .invitation .page .guide5{top:50px;  right: -17px;}
+.help11 .invitation .hand{width: 75px;height: 75px; position:absolute;}
+.help11 .invitation .hand1{background: url(finger1.png) center; background-size:75px; }
+.help11 .invitation .hand2{background: url(finger2.png) center; background-size:75px;  }
+.help11 .invitation .hand3{background: url(finger3.png) center; background-size:75px;  }
+.help11 .page .info{ position:absolute; background-color: #ffb545;padding: 6px 20px; border-radius: 6px;opacity: 0.88;color: #fff;}
+.help11 .page .info1{ top:340px;left: 28px; display:none;}
+.help11 .page .info2{ top:200px;left: 28px; display:none;}
+.help11 .page .info3{ top:340px;left: 28px; display:none;}
+.help11 .page .info4{ top:360px;left: 28px; display:none;}
+.help11 .page .info5{ top:360px;left: 28px; display:none;}
+.help11 .footer{ width:100%; height:46px; background-color:#fff; position:fixed; bottom:0px; text-align:center; line-height:46px; font-size:18px;}
+
+/*help12*/
+.help12{background-color:#e4e3ea;}
+.help12 .invitation{ width: 100%;}
+.help12 .invitation .page{ overflow: hidden;position: relative; width:270px; margin: auto;}
+.help12 .invitation .page .in_imgbox{ }
+.help12 .invitation .page .in_imgbox img{ width: 100%;}
+.help12 .invitation .page .guide{ position: absolute;width: 75px;height: 75px;}
+.help12 .invitation .page .guide1{top:110px; left:30px;}
+.help12 .invitation .page .guide2{top:98px; left:14px;}
+.help12 .invitation .page .guide3{top:446px; left:26px;}
+.help12 .invitation .page .guide4{top:290px; left:156px;}
+.help12 .invitation .page .guide5{top:50px;  right: -17px;}
+.help12 .invitation .hand{width: 75px;height: 75px; position:absolute;}
+.help12 .invitation .hand1{background: url(finger1.png) center; background-size:75px; }
+.help12 .invitation .hand2{background: url(finger2.png) center; background-size:75px;  }
+.help12 .invitation .hand3{background: url(finger3.png) center; background-size:75px;  }
+.help12 .page .info{ position:absolute; background-color: #ffb545;padding: 6px 20px; border-radius: 6px;opacity: 0.88;color: #fff;}
+.help12 .page .info1{ top:340px;left: 28px; display:none;}
+.help12 .page .info2{ top:360px;left: 28px; display:none;}
+.help12 .page .info3{ top:400px;left: 28px; display:none;}
+.help12 .page .info4{ top:360px;left: 28px; display:none;}
+.help12 .page .info5{ top:360px;left: 28px; display:none;}
+.help12 .footer{ width:100%; height:46px; background-color:#fff; position:fixed; bottom:0px; text-align:center; line-height:46px; font-size:18px;}
+
+/*help13*/
+.help13{background-color:#e4e3ea;}
+.help13 .invitation{ width: 100%;}
+.help13 .invitation .page{ overflow: hidden;position: relative; width:270px; margin: auto;}
+.help13 .invitation .page .in_imgbox{ }
+.help13 .invitation .page .in_imgbox img{ width: 100%;}
+.help13 .invitation .page .guide{ position: absolute;width: 75px;height: 75px;}
+.help13 .invitation .page .guide1{top:210px; left:110px;}
+.help13 .invitation .page .guide2{top: 120px;  right: 163px;}
+.help13 .invitation .page .guide3{top: 103px;  right: 150px;}
+.help13 .invitation .page .guide4{top: 57px; left: 189px;}
+.help13 .invitation .page .guide5{bottom: 0px; left:110px;}
+.help13 .invitation .page .guide6{bottom: 16px; left:110px;}
+.help13 .invitation .page .guide7{bottom: 53px; left: 9px;}
+.help13 .invitation .page .guide8{top: 111px; right: 119px;}
+.help13 .invitation .page .guide9{bottom: 150px; left:110px;}
+.help13 .invitation .page .guide10{top: 54px; right:-17px;}
+.help13 .invitation .hand{width: 75px;height: 75px; position:absolute;}
+.help13 .invitation .hand1{background: url(finger1.png) center; background-size:75px; }
+.help13 .invitation .hand2{background: url(finger2.png) center; background-size:75px;  }
+.help13 .invitation .hand3{background: url(finger3.png) center; background-size:75px;  }
+.help13 .page .info{ position:absolute; background-color: #ffb545;padding: 6px 20px; border-radius: 6px;opacity: 0.88;color: #fff;}
+.help13 .page .info1{ top: 404px;left: 28px; display:none;}
+.help13 .page .info2{ top: 376px;left: 28px; display:none;}
+.help13 .page .info3{ top:360px;left: 28px; display:none;}
+.help13 .page .info4{ top:435px;left: 28px; display:none;}
+.help13 .page .info5{ top: 252px;left: 28px; display:none;}
+.help13 .page .info6{ top: 275px;left: 28px; display:none;}
+.help13 .page .info7{ top: 303px;left: 28px; display:none;}
+.help13 .page .info8{ top:400px;left: 28px; display:none;}
+.help13 .page .info9{ top: 186px;left: 28px; display:none;}
+.help13 .page .info10{ top:180px;left: 28px; display:none;}
+.help13 .page .info11 { top:180px;left: 28px; display:none;}
+.help13 .footer{ width:100%; height:46px; background-color:#fff; position:fixed; bottom:0px; text-align:center; line-height:46px; font-size:18px;}
+
+/*help14*/
+.help14{background-color:#e4e3ea;}
+.help14 .invitation{ width: 100%;}
+.help14 .invitation .page{ overflow: hidden;position: relative; width:270px; margin: auto;}
+.help14 .invitation .page .in_imgbox{ }
+.help14 .invitation .page .in_imgbox img{ width: 100%;}
+.help14 .invitation .page .guide{ position: absolute;width: 75px;height: 75px;}
+.help14 .invitation .page .guide1{top:226px; right:10px;}
+.help14 .invitation .page .guide2{top:60px; right:-17px;}
+.help14 .invitation .page .guide3{top:120px; right:-17px;}
+.help14 .invitation .page .guide4{top:450px; right:-12px;}
+.help14 .invitation .page .guide5{top:420px;  left: 20px;}
+.help14 .invitation .page .guide6{top:150px;  left: 10px;}
+.help14 .invitation .page .guide7{top:54px;  right: -17px;}
+.help14 .invitation .hand{width: 75px;height: 75px; position:absolute;}
+.help14 .invitation .hand1{background: url(finger1.png) center; background-size:75px; }
+.help14 .invitation .hand2{background: url(finger2.png) center; background-size:75px;  }
+.help14 .invitation .hand3{background: url(finger3.png) center; background-size:75px;  }
+.help14 .page .info{ position:absolute; background-color: #ffb545;padding: 6px 20px; border-radius: 6px;opacity: 0.88;color: #fff;}
+.help14 .page .info1{ top:340px;left: 28px; display:none;}
+.help14 .page .info2{ top:360px;left: 28px; display:none;}
+.help14 .page .info3{ top:400px;left: 28px; display:none;}
+.help14 .page .info4{ top:360px;left: 28px; display:none;}
+.help14 .page .info5{ top:300px;left: 28px; display:none;}
+.help14 .page .info6{ top:300px;left: 28px; display:none;}
+.help14 .page .info7{ top:300px;left: 28px; display:none;}
+.help14 .page .info8{ top:300px;left: 28px; display:none;}
+.help14 .footer{ width:100%; height:46px; background-color:#fff; position:fixed; bottom:0px; text-align:center; line-height:46px; font-size:18px;}
+
+
+/*help15*/
+.help15{background-color:#e4e3ea;}
+.help15 .invitation{ width: 100%;}
+.help15 .invitation .page{ overflow: hidden;position: relative; width:270px; margin: auto;}
+.help15 .invitation .page .in_imgbox{ }
+.help15 .invitation .page .in_imgbox img{ width: 100%;}
+.help15 .invitation .page .guide{ position: absolute;width: 75px;height: 75px;}
+.help15 .invitation .page .guide1{top:130px; right:86px;}
+.help15 .invitation .page .guide2{top:60px; right:10px;}
+.help15 .invitation .page .guide3{top:50px; right:-17px;}
+.help15 .invitation .page .guide4{top:450px; right:-12px;}
+.help15 .invitation .hand{width: 75px;height: 75px; position:absolute;}
+.help15 .invitation .hand1{background: url(finger1.png) center; background-size:75px; }
+.help15 .invitation .hand2{background: url(finger2.png) center; background-size:75px;  }
+.help15 .invitation .hand3{background: url(finger3.png) center; background-size:75px;  }
+.help15 .page .info{ position:absolute; background-color: #ffb545;padding: 6px 20px; border-radius: 6px;opacity: 0.88;color: #fff;}
+.help15 .page .info1{ top:340px;left: 28px; display:none;}
+.help15 .page .info2{ top:360px;left: 28px; display:none;}
+.help15 .page .info3{ top:400px;left: 28px; display:none;}
+.help15 .page .info4{ top:360px;left: 28px; display:none;}
+.help15 .footer{ width:100%; height:46px; background-color:#fff; position:fixed; bottom:0px; text-align:center; line-height:46px; font-size:18px;}
+
+/*help16*/
+.help16{background-color:#e4e3ea;}
+.help16 .invitation{ width: 100%;}
+.help16 .invitation .page{ overflow: hidden;position: relative; width:270px; margin: auto;}
+.help16 .invitation .page .in_imgbox{ }
+.help16 .invitation .page .in_imgbox img{ width: 100%;}
+.help16 .invitation .page .guide{ position: absolute;width: 75px;height: 75px;}
+.help16 .invitation .page .guide1{top:130px; right:86px;}
+.help16 .invitation .page .guide2{top:60px; right:-17px;}
+.help16 .invitation .page .guide3{top:56px; right:-17px;}
+.help16 .invitation .page .guide4{top:450px; right:-12px;}
+.help16 .invitation .hand{width: 75px;height: 75px; position:absolute;}
+.help16 .invitation .hand1{background: url(finger1.png) center; background-size:75px; }
+.help16 .invitation .hand2{background: url(finger2.png) center; background-size:75px;  }
+.help16 .invitation .hand3{background: url(finger3.png) center; background-size:75px;  }
+.help16 .page .info{ position:absolute; background-color: #ffb545;padding: 6px 20px; border-radius: 6px;opacity: 0.88;color: #fff;}
+.help16 .page .info1{ top:340px;left: 28px; display:none;}
+.help16 .page .info2{ top:360px;left: 28px; display:none;}
+.help16 .page .info3{ top:400px;left: 28px; display:none;}
+.help16 .page .info4{ top:360px;left: 28px; display:none;}
+.help16 .footer{ width:100%; height:46px; background-color:#fff; position:fixed; bottom:0px; text-align:center; line-height:46px; font-size:18px;}
+
+
+
+/*help17*/
+.help17{background-color:#e4e3ea;}
+.help17 .invitation{ width: 100%;}
+.help17 .invitation .page{ overflow: hidden;position: relative; width:270px; margin: auto;}
+.help17 .invitation .page .in_imgbox{ }
+.help17 .invitation .page .in_imgbox img{ width: 100%;}
+.help17 .invitation .page .guide{ position: absolute;width: 75px;height: 75px;}
+.help17 .invitation .page .guide1{top:280px; right:86px;}
+.help17 .invitation .page .guide2{top:64px; right:-20px;}
+.help17 .invitation .page .guide3{top:200px; right:80px;}
+.help17 .invitation .page .guide4{top:64px; right:-18px;}
+.help17 .invitation .hand{width: 75px;height: 75px; position:absolute;}
+.help17 .invitation .hand1{background: url(finger1.png) center; background-size:75px; }
+.help17 .invitation .hand2{background: url(finger2.png) center; background-size:75px;  }
+.help17 .invitation .hand3{background: url(finger3.png) center; background-size:75px;  }
+.help17 .page .info{ position:absolute; background-color: #ffb545;padding: 6px 20px; border-radius: 6px;opacity: 0.88;color: #fff;}
+.help17 .page .info1{ top:400px;left: 28px; display:none;}
+.help17 .page .info2{ top:360px;left: 28px; display:none;}
+.help17 .page .info3{ top:400px;left: 28px; display:none;}
+.help17 .page .info4{ top:360px;left: 28px; display:none;}
+.help17 .page .info5{ top:360px;left: 28px; display:none;}
+.help17 .footer{ width:100%; height:46px; background-color:#fff; position:fixed; bottom:0px; text-align:center; line-height:46px; font-size:18px;}
+
+ul{
+    margin: 20px;
+    font-size: 16px;
+}
+ul li{
+    line-height: 32px;
+    border-bottom: 1px solid #f5f5f5;
+}

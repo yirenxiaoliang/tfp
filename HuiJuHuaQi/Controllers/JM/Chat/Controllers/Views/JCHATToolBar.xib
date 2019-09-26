@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="JCHATChatViewController"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="JCHATToolBar">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="45"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rpU-3b-2dD" customClass="JCHATMessageTextView">
+                    <rect key="frame" x="47" y="5" width="189" height="36"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="send" enablesReturnKeyAutomatically="YES"/>
+                </textView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VuO-mV-udy">
+                    <rect key="frame" x="273" y="-1" width="47" height="47"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="47" id="2Wr-HL-v6u"/>
+                        <constraint firstAttribute="height" constant="47" id="V4b-qe-SqG"/>
+                    </constraints>
+                    <state key="normal" image="添加chat">
+                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <state key="highlighted" image="添加chat"/>
+                    <connections>
+                        <action selector="addBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="pbb-SA-CQS"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YCs-zm-hKL">
+                    <rect key="frame" x="0.0" y="-1" width="47" height="47"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="47" id="hqn-mr-WwU"/>
+                        <constraint firstAttribute="width" constant="47" id="pq5-AN-2Np"/>
+                    </constraints>
+                    <state key="normal">
+                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="voiceBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="jsz-Bu-lQG"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kGb-ng-sRo">
+                    <rect key="frame" x="236" y="0.0" width="47" height="45"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                    <state key="normal" title="@">
+                        <color key="titleColor" red="0.0" green="0.74509803919999995" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <state key="selected" title="@"/>
+                    <state key="highlighted" title="@"/>
+                    <connections>
+                        <action selector="heartBtnClicked:" destination="iN0-l3-epB" eventType="touchUpInside" id="Fra-rq-91C"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="VuO-mV-udy" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="2RI-hn-OwK"/>
+                <constraint firstItem="YCs-zm-hKL" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="3Sh-tX-tIC"/>
+                <constraint firstItem="kGb-ng-sRo" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="FR9-7m-wvG"/>
+                <constraint firstItem="VuO-mV-udy" firstAttribute="leading" secondItem="rpU-3b-2dD" secondAttribute="trailing" constant="37" id="ILu-91-9Uh"/>
+                <constraint firstItem="YCs-zm-hKL" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="SKu-EB-2Ey"/>
+                <constraint firstItem="kGb-ng-sRo" firstAttribute="leading" secondItem="rpU-3b-2dD" secondAttribute="trailing" id="Vvu-Fy-DRR"/>
+                <constraint firstItem="rpU-3b-2dD" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="5" id="W1Q-Gc-ke8"/>
+                <constraint firstItem="VuO-mV-udy" firstAttribute="leading" secondItem="kGb-ng-sRo" secondAttribute="trailing" constant="-10" id="Y3c-cW-Wey"/>
+                <constraint firstAttribute="trailing" secondItem="VuO-mV-udy" secondAttribute="trailing" id="fBX-Bl-jGB"/>
+                <constraint firstAttribute="bottom" secondItem="kGb-ng-sRo" secondAttribute="bottom" id="kvd-SY-HkM"/>
+                <constraint firstItem="rpU-3b-2dD" firstAttribute="leading" secondItem="YCs-zm-hKL" secondAttribute="trailing" id="o1K-RI-UVr"/>
+                <constraint firstAttribute="bottom" secondItem="rpU-3b-2dD" secondAttribute="bottom" constant="4" id="xTF-p2-3ge"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="addButton" destination="VuO-mV-udy" id="3e8-Gt-fIU"/>
+                <outlet property="heartBtn" destination="kGb-ng-sRo" id="10s-jw-eVw"/>
+                <outlet property="textView" destination="rpU-3b-2dD" id="VMC-2X-lFu"/>
+                <outlet property="textViewLeftW" destination="o1K-RI-UVr" id="Me8-kH-iwK"/>
+                <outlet property="textViewRightW" destination="ILu-91-9Uh" id="sA0-03-gb3"/>
+                <outlet property="voiceButton" destination="YCs-zm-hKL" id="Q4z-sK-tmo"/>
+            </connections>
+            <point key="canvasLocation" x="907" y="799.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="添加chat" width="25" height="25"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4_7.fullscreen"/>
+    </simulatedMetricsContainer>
+</document>

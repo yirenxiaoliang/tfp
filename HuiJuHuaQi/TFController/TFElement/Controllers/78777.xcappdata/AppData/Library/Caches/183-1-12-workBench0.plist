@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<string>{
+  "id" : 41,
+  "fromType" : 1,
+  "datetime_create_time" : 1534400070132,
+  "beanId" : 201,
+  "personnel_execution" : [
+    {
+      "id" : 12,
+      "post_name" : "",
+      "employee_name" : "赖测一",
+      "picture" : ""
+    }
+  ],
+  "complete_status" : "0",
+  "from" : 1,
+  "beanType" : 5,
+  "taskInfoId" : 41,
+  "check_status" : null,
+  "passed_status" : "0",
+  "task_id" : 128,
+  "dataType" : 2,
+  "datetime_deadline" : 1534348800000,
+  "project_labels_content" : "{\"disableLayout\":{\"rows\":[{\"field\":{\"editView\":\"1\",\"terminalPc\":\"1\",\"terminalApp\":\"1\",\"addView\":\"1\",\"structure\":\"1\"},\"typeText\":\"子表单\",\"name\":\"subform_tasktime\",\"width\":\"100%\",\"componentList\":[{\"field\":{\"fieldControl\":\"0\",\"editView\":\"1\",\"terminalPc\":\"1\",\"terminalApp\":\"1\",\"defaultValue\":\"\",\"defaultValueId\":\"0\",\"formatType\":\"yyyy-MM-dd\",\"addView\":\"1\",\"structure\":\"1\"},\"typeText\":\"日期\/时间\",\"name\":\"subform_datetime_date\",\"width\":\"50%\",\"label\":\"日期\",\"state\":\"0\",\"type\":\"datetime\",\"remove\":\"0\"},{\"field\":{\"fieldControl\":\"0\",\"editView\":\"1\",\"numberType\":\"0\",\"terminalPc\":\"1\",\"terminalApp\":\"1\",\"pointOut\":\"\",\"defaultValue\":\"\",\"numberLenth\":\"2\",\"betweenMax\":\"\",\"addView\":\"1\",\"betweenMin\":\"\",\"structure\":\"1\"},\"typeText\":\"数字\",\"name\":\"subform_number_worktime\",\"width\":\"50%\",\"label\":\"工时\",\"state\":\"0\",\"type\":\"number\",\"remove\":\"0\"},{\"field\":{\"fieldControl\":\"0\",\"editView\":\"1\",\"terminalPc\":\"1\",\"repeatCheck\":\"0\",\"terminalApp\":\"1\",\"pointOut\":\"\",\"defaultValue\":\"\",\"addView\":\"1\",\"structure\":\"1\"},\"typeText\":\"单行文本\",\"name\":\"subform_text_content\",\"width\":\"50%\",\"label\":\"内容\",\"state\":\"0\",\"type\":\"text\",\"remove\":\"1\"}],\"active\":\"1\",\"label\":\"任务工期\",\"state\":\"1\",\"source\":\"project_defined\",\"type\":\"subform\",\"remove\":\"1\"},{\"field\":{\"fieldControl\":\"0\",\"defaultEntrys\":[],\"editView\":\"1\",\"terminalPc\":\"1\",\"terminalApp\":\"1\",\"addView\":\"1\",\"structure\":\"1\",\"chooseType\":\"0\"},\"typeText\":\"下拉选项\",\"name\":\"picklist_priority\",\"width\":\"50%\",\"active\":\"1\",\"label\":\"优先级\",\"state\":\"1\",\"source\":\"project_defined\",\"type\":\"picklist\",\"remove\":\"1\",\"entrys\":[{\"color\":\"#F40808\",\"label\":\"高\",\"value\":\"0\"},{\"color\":\"#F8F40A\",\"label\":\"中\",\"value\":\"1\"},{\"color\":\"#0623F9\",\"label\":\"低\",\"value\":\"2\"}]}]},\"companyId\":\"1\",\"terminalPc\":1,\"terminalApp\":1,\"componentLayout\":{\"rows\":[{\"field\":{},\"typeText\":\"单行文本\",\"icon\":\"icon-danhangwenben\",\"active\":\"0\",\"label\":\"单行文本\",\"type\":\"text\",\"isDrag\":true,\"selected\":true},{\"field\":{},\"typeText\":\"多行文本\",\"icon\":\"icon-duohangwenben\",\"active\":\"0\",\"label\":\"多行文本\",\"type\":\"textarea\",\"isDrag\":true,\"selected\":true},{\"field\":{},\"typeText\":\"下拉选项\",\"icon\":\"icon-xialaxuanxiang\",\"active\":\"0\",\"label\":\"下拉选项\",\"type\":\"picklist\",\"isDrag\":true,\"selected\":true},{\"field\":{},\"typeText\":\"电话\",\"icon\":\"icon-dianhua\",\"active\":\"0\",\"label\":\"电话\",\"type\":\"phone\",\"isDrag\":true,\"selected\":true},{\"field\":{},\"typeText\":\"电子邮箱\",\"icon\":\"icon-youxiang\",\"active\":\"0\",\"label\":\"电子邮箱\",\"type\":\"email\",\"isDrag\":true,\"selected\":true},{\"field\":{},\"typeText\":\"数字\",\"icon\":\"icon-shuzi\",\"active\":\"0\",\"label\":\"数字\",\"type\":\"number\",\"isDrag\":true,\"selected\":true},{\"field\":{},\"typeText\":\"日期\/时间\",\"icon\":\"icon-riqishijian\",\"active\":\"0\",\"label\":\"日期\/时间\",\"type\":\"datetime\",\"isDrag\":true,\"selected\":true},{\"field\":{},\"typeText\":\"附件\",\"icon\":\"icon-fujian\",\"active\":\"0\",\"label\":\"附件\",\"type\":\"attachment\",\"isDrag\":true,\"selected\":true},{\"field\":{},\"typeText\":\"超链接\",\"icon\":\"icon-chaolianjie\",\"active\":\"0\",\"label\":\"超链接\",\"type\":\"url\",\"isDrag\":true,\"selected\":true},{\"field\":{},\"typeText\":\"定位\",\"icon\":\"icon-dingwei\",\"active\":\"0\",\"label\":\"定位\",\"type\":\"location\",\"isDrag\":true,\"selected\":true},{\"field\":{},\"typeText\":\"图片\",\"icon\":\"icon-tupian\",\"active\":\"0\",\"label\":\"图片\",\"type\":\"picture\",\"isDrag\":true,\"selected\":true},{\"field\":{},\"typeText\":\"复选框\",\"icon\":\"icon-fuxuankuang\",\"active\":\"0\",\"label\":\"复选框\",\"type\":\"multi\",\"isDrag\":true,\"selected\":true},{\"field\":{},\"typeText\":\"人员\",\"icon\":\"icon-renyuan\",\"active\":\"0\",\"label\":\"人员\",\"type\":\"personnel\",\"isDrag\":true,\"selected\":true},{\"field\":{},\"typeText\":\"多级下拉\",\"icon\":\"icon-duojixiala1\",\"active\":\"0\",\"label\":\"多级下拉\",\"type\":\"mutlipicklist\",\"isDrag\":true,\"selected\":true},{\"field\":{},\"typeText\":\"简单公式\",\"icon\":\"icon-jiandangongshi1\",\"active\":\"0\",\"label\":\"简单公式\",\"type\":\"formula\",\"isDrag\":true,\"selected\":true},{\"field\":{},\"typeText\":\"省市区\",\"icon\":\"icon-shengshiqu\",\"active\":\"0\",\"label\":\"省市区\",\"type\":\"area\",\"isDrag\":true,\"selected\":true},{\"field\":{},\"typeText\":\"富文本\",\"icon\":\"icon-danhangwenben\",\"active\":\"0\",\"label\":\"富文本\",\"type\":\"multitext\",\"isDrag\":true,\"selected\":true},{\"field\":{},\"typeText\":\"自动编号\",\"icon\":\"icon-zidongbianhao\",\"active\":\"0\",\"label\":\"自动编号\",\"type\":\"identifier\",\"isDrag\":true,\"selected\":true},{\"field\":{},\"typeText\":\"关联关系\",\"icon\":\"icon-guanlianguanxi\",\"active\":\"0\",\"label\":\"关联关系\",\"type\":\"reference\",\"isDrag\":true,\"selected\":true},{\"field\":{},\"typeText\":\"子表单\",\"icon\":\"icon-zibiaodan\",\"active\":\"0\",\"label\":\"子表单\",\"type\":\"subform\",\"isDrag\":true,\"selected\":true},{\"field\":{},\"typeText\":\"函数公式\",\"icon\":\"icon-hanshugongshi\",\"active\":\"0\",\"label\":\"函数公式\",\"type\":\"functionformula\",\"isDrag\":true,\"selected\":true},{\"field\":{},\"typeText\":\"高级公式\",\"icon\":\"icon-gaojigongshi\",\"active\":\"0\",\"label\":\"高级公式\",\"type\":\"seniorformula\",\"isDrag\":true,\"selected\":true}]},\"enableLayout\":{\"rows\":[{\"field\":{\"fieldControl\":\"0\",\"editView\":\"1\",\"terminalPc\":\"1\",\"repeatCheck\":\"0\",\"terminalApp\":\"1\",\"pointOut\":\"\",\"defaultValue\":\"\",\"isShowCard\":\"0\",\"isFillReason\":\"0\",\"addView\":\"1\",\"structure\":\"1\"},\"typeText\":\"单行文本\",\"name\":\"text_name\",\"width\":\"100%\",\"active\":\"1\",\"label\":\"名称\",\"state\":\"0\",\"type\":\"text\",\"remove\":\"0\"},{\"relevanceWhere\":[{\"fieldName\":\"\",\"fieldLabel\":\"\",\"operatorType\":\"\",\"value\":\"\"}],\"active\":\"0\",\"label\":\"关联\",\"type\":\"reference\",\"remove\":\"1\",\"field\":{\"fieldControl\":\"0\",\"editView\":\"1\",\"terminalPc\":\"1\",\"terminalApp\":\"1\",\"pointOut\":\"\",\"isShowCard\":\"1\",\"isFillReason\":\"0\",\"addView\":\"1\",\"structure\":\"1\"},\"relevanceModule\":{\"moduleName\":\"\",\"moduleLabel\":\"\"},\"typeText\":\"关联关系\",\"name\":\"reference_relation\",\"width\":\"100%\",\"relevanceField\":{\"fieldName\":\"\",\"fieldLabel\":\"\"},\"seniorWhere\":\"1 AND 2\",\"searchFields\":[],\"state\":\"0\"},{\"field\":{\"fieldControl\":\"0\",\"defaultEntrys\":[],\"editView\":\"1\",\"terminalPc\":\"1\",\"terminalApp\":\"1\",\"addView\":\"1\",\"structure\":\"1\",\"chooseType\":\"0\"},\"typeText\":\"下拉选项\",\"name\":\"picklist_difficulty\",\"width\":\"50%\",\"active\":\"0\",\"label\":\"难易度\",\"state\":\"1\",\"source\":\"project_defined\",\"type\":\"picklist\",\"remove\":\"1\",\"entrys\":[{\"color\":\"#FFFFFF\",\"label\":\"1\",\"value\":\"0\"},{\"color\":\"#FFFFFF\",\"label\":\"2\",\"value\":\"1\"},{\"color\":\"#FFFFFF\",\"label\":\"3\",\"value\":\"2\"},{\"color\":\"#FFFFFF\",\"label\":\"4\",\"value\":\"3\"},{\"color\":\"#FFFFFF\",\"label\":\"5\",\"value\":\"4\"}]},{\"field\":{\"fieldControl\":\"0\",\"editView\":\"1\",\"defaultEntrys\":[],\"terminalPc\":\"1\",\"terminalApp\":\"1\",\"addView\":\"1\",\"structure\":\"1\",\"chooseType\":\"1\"},\"typeText\":\"下拉选项\",\"name\":\"picklist_tag\",\"width\":\"100%\",\"active\":\"0\",\"label\":\"标签\",\"state\":\"0\",\"type\":\"picklist\",\"remove\":\"0\",\"entrys\":[{\"color\":\"\",\"label\":\"\",\"value\":\"\"}]},{\"field\":{\"fieldControl\":\"0\",\"countLimit\":\"1\",\"editView\":\"1\",\"maxSize\":\"0.001\",\"isShowCard\":\"0\",\"addView\":\"1\",\"maxCount\":\"2\",\"structure\":\"1\"},\"typeText\":\"附件\",\"name\":\"attachment_1536921740356\",\"width\":\"50%\",\"active\":\"0\",\"label\":\"附件\",\"state\":\"1\",\"type\":\"attachment\",\"remove\":\"1\"},{\"field\":{\"fieldControl\":\"0\",\"editView\":\"1\",\"terminalPc\":\"1\",\"terminalApp\":\"1\",\"defaultValue\":\"\",\"defaultValueId\":\"0\",\"formatType\":\"yyyy-MM-dd HH:mm\",\"addView\":\"1\",\"structure\":\"1\"},\"typeText\":\"日期\/时间\",\"name\":\"datetime_starttime\",\"width\":\"50%\",\"active\":\"0\",\"label\":\"开始时间\",\"state\":\"1\",\"source\":\"project_defined\",\"type\":\"datetime\",\"delete\":\"0\",\"remove\":\"0\"},{\"field\":{\"fieldControl\":\"0\",\"editView\":\"1\",\"terminalPc\":\"1\",\"terminalApp\":1,\"defaultValue\":\"\",\"defaultValueId\":\"0\",\"formatType\":\"yyyy-MM-dd HH:mm\",\"addView\":\"1\",\"structure\":\"1\"},\"typeText\":\"日期\/时间\",\"name\":\"datetime_deadline\",\"width\":\"50%\",\"active\":\"0\",\"label\":\"截止日期\",\"state\":\"0\",\"type\":\"datetime\",\"remove\":\"0\"},{\"field\":{\"fieldControl\":\"0\",\"countLimit\":\"1\",\"editView\":\"1\",\"maxSize\":\"1\",\"isShowCard\":\"0\",\"imageSize\":\"30px*30px\",\"addView\":\"1\",\"maxCount\":\"2\",\"structure\":\"1\"},\"typeText\":\"图片\",\"name\":\"picture_1536921735990\",\"width\":\"50%\",\"active\":\"0\",\"label\":\"图片\",\"state\":\"1\",\"type\":\"picture\",\"remove\":\"1\"},{\"field\":{\"defaultPersonnel\":[],\"fieldControl\":\"0\",\"editView\":\"1\",\"terminalPc\":\"1\",\"terminalApp\":1,\"chooseRange\":[],\"addView\":\"1\",\"structure\":\"1\",\"chooseType\":\"0\"},\"typeText\":\"人员\",\"name\":\"personnel_execution\",\"width\":\"50%\",\"active\":\"0\",\"label\":\"执行人\",\"state\":\"0\",\"type\":\"personnel\",\"remove\":\"0\"},{\"field\":{\"fieldControl\":\"0\",\"editView\":\"1\",\"repeatCheck\":\"2\",\"pointOut\":\"\",\"defaultValue\":\"\",\"isShowCard\":\"0\",\"isFillReason\":\"0\",\"addView\":\"0\",\"structure\":\"1\"},\"typeText\":\"单行文本\",\"name\":\"text_1536230338249\",\"width\":\"50%\",\"active\":\"0\",\"label\":\"单行文本\",\"state\":\"1\",\"type\":\"text\",\"remove\":\"1\"},{\"relevanceWhere\":[],\"active\":\"0\",\"label\":\"关联关系\",\"type\":\"reference\",\"remove\":\"1\",\"field\":{\"fieldControl\":\"0\",\"editView\":\"0\",\"pointOut\":\"000\",\"isShowCard\":\"0\",\"addView\":\"1\",\"structure\":\"1\"},\"relevanceModule\":{\"moduleName\":\"bean1529635156119\",\"moduleLabel\":\"招聘申请\"},\"typeText\":\"关联关系\",\"relevanceField\":{\"fieldName\":\"picklist_1529635393776\",\"fieldLabel\":\"招聘性质\"},\"seniorWhere\":\"\",\"name\":\"reference_1536231130493\",\"width\":\"50%\",\"searchFields\":[{\"fieldName\":\"picklist_1529635393776\",\"fieldLabel\":\"招聘性质\"}],\"state\":\"1\"},{\"field\":{\"fieldControl\":\"0\",\"defaultEntrys\":[],\"editView\":\"1\",\"isShowCard\":\"0\",\"addView\":\"1\",\"structure\":\"1\",\"chooseType\":\"0\"},\"typeText\":\"下拉选项\",\"name\":\"picklist_1537263144785\",\"width\":\"50%\",\"active\":\"0\",\"label\":\"下拉选项\",\"state\":\"1\",\"type\":\"picklist\",\"remove\":\"1\",\"entrys\":[{\"color\":\"#B80E0E\",\"label\":\"选项1\",\"value\":\"0\"},{\"color\":\"#144593\",\"label\":\"选项2\",\"value\":\"1\"},{\"color\":\"#80C525\",\"label\":\"选项3\",\"value\":\"2\"}]},{\"field\":{\"editView\":\"1\",\"formStyle\":\"1\",\"isShowCard\":\"0\",\"addView\":\"1\",\"structure\":\"1\"},\"typeText\":\"子表单\",\"name\":\"subform_1536221691677\",\"width\":\"100%\",\"componentList\":[{\"field\":{\"fieldControl\":\"0\",\"editView\":\"1\",\"defaultEntrys\":[],\"terminalPc\":\"1\",\"terminalApp\":\"1\",\"addView\":\"1\",\"structure\":\"1\",\"chooseType\":\"0\"},\"typeText\":\"下拉选项\",\"name\":\"subform_picklist_1537263169176\",\"width\":\"50%\",\"label\":\"这个是先啦选项\",\"state\":\"0\",\"type\":\"picklist\",\"remove\":\"1\",\"entrys\":[{\"color\":\"#BA3232\",\"label\":\"选项1\",\"value\":\"0\"},{\"color\":\"#CB21B7\",\"label\":\"选项2\",\"value\":\"1\"},{\"color\":\"#1B5AD0\",\"label\":\"选项3\",\"value\":\"2\"}]},{\"field\":{\"fieldControl\":\"0\",\"editView\":\"0\",\"terminalPc\":\"1\",\"terminalApp\":\"1\",\"pointOut\":\"\",\"defaultValue\":\"\",\"addView\":\"1\",\"structure\":\"1\"},\"typeText\":\"多行文本\",\"name\":\"subform_textarea_1537264701420\",\"width\":\"100%\",\"label\":\"多行文本\",\"state\":\"0\",\"type\":\"textarea\",\"remove\":\"1\"}],\"active\":\"0\",\"label\":\"子表单\",\"state\":\"1\",\"type\":\"subform\",\"remove\":\"1\"},{\"field\":{\"fieldControl\":\"0\",\"editView\":\"0\",\"repeatCheck\":\"0\",\"pointOut\":\"\",\"defaultValue\":\"\",\"isShowCard\":\"0\",\"isFillReason\":\"0\",\"addView\":\"1\",\"structure\":\"1\"},\"typeText\":\"单行文本\",\"name\":\"text_1537163873558\",\"width\":\"50%\",\"active\":\"0\",\"label\":\"单行文本请输入\",\"state\":\"1\",\"type\":\"text\",\"remove\":\"1\"},{\"field\":{\"editView\":\"1\",\"formStyle\":\"1\",\"isShowCard\":\"0\",\"addView\":\"1\",\"structure\":\"1\"},\"relevanceWhere\":[{\"show_type\":\"text\",\"selList\":[],\"operator_value\":\"CONTAIN\",\"operators\":[],\"field_label\":\"商品名称\",\"selTime\":[],\"field_value\":\"text_1535439299455:false\",\"result_label\":\"\",\"result_value\":\"1\",\"operator_label\":\"包含\",\"entrys\":[]},{\"show_type\":\"text\",\"operator_value\":\"CONTAIN\",\"operators\":[],\"sel_list\":[],\"field_label\":\"商品名称\",\"field_value\":\"text_1535439299455:false\",\"result_label\":\"\",\"result_value\":\"2\",\"sel_time\":[],\"operator_label\":\"包含\",\"entrys\":[]}],\"typeText\":\"子表单\",\"name\":\"subform_1537183421659\",\"width\":\"100%\",\"seniorWhere\":\"1 or 2\",\"componentList\":[{\"field\":{\"fieldControl\":\"0\",\"editView\":\"1\",\"terminalPc\":\"1\",\"terminalApp\":\"1\",\"pointOut\":\"\",\"defaultValue\":\"\",\"addView\":\"1\",\"structure\":\"1\"},\"typeText\":\"富文本\",\"name\":\"subform_multitext_1537183426875\",\"width\":\"100%\",\"label\":\"富文本\",\"state\":\"0\",\"type\":\"multitext\",\"remove\":\"1\"},{\"field\":{\"fieldControl\":\"0\",\"editView\":\"0\",\"defaultEntrys\":[],\"terminalPc\":\"1\",\"terminalApp\":\"1\",\"addView\":\"1\",\"structure\":\"1\",\"chooseType\":\"0\"},\"typeText\":\"下拉选项\",\"name\":\"subform_picklist_1537183432437\",\"width\":\"50%\",\"label\":\"选项1\",\"state\":\"0\",\"type\":\"picklist\",\"remove\":\"1\",\"entrys\":[{\"color\":\"#BA2121\",\"label\":\"选项1\",\"value\":\"0\"},{\"color\":\"#1EED6D\",\"label\":\"选项2\",\"value\":\"1\"},{\"color\":\"#FFFFFF\",\"label\":\"选项3\",\"value\":\"2\"}]},{\"field\":{\"fieldControl\":\"0\",\"editView\":\"1\",\"defaultEntrys\":[],\"terminalPc\":\"1\",\"terminalApp\":\"1\",\"addView\":\"0\",\"structure\":\"1\",\"chooseType\":\"0\"},\"typeText\":\"下拉选项\",\"name\":\"subform_picklist_1537183443392\",\"width\":\"50%\",\"label\":\"选项2\",\"state\":\"0\",\"type\":\"picklist\",\"remove\":\"1\",\"entrys\":[{\"color\":\"#B72C2C\",\"label\":\"选项1\",\"value\":\"0\"},{\"color\":\"#1A17C2\",\"label\":\"选项2\",\"value\":\"1\"},{\"color\":\"#1DB051\",\"label\":\"选项3\",\"value\":\"2\"}]},{\"field\":{\"fieldControl\":\"0\",\"editView\":\"1\",\"phoneType\":\"0\",\"terminalPc\":\"1\",\"repeatCheck\":\"0\",\"terminalApp\":\"1\",\"pointOut\":\"\",\"addView\":\"0\",\"phoneLenth\":\"0\",\"structure\":\"1\"},\"typeText\":\"电话\",\"name\":\"subform_phone_1537183453436\",\"width\":\"50%\",\"label\":\"电话02\",\"state\":\"0\",\"type\":\"phone\",\"remove\":\"1\"},{\"field\":{\"fieldControl\":\"0\",\"editView\":\"0\",\"phoneType\":\"0\",\"terminalPc\":\"1\",\"repeatCheck\":\"0\",\"terminalApp\":\"1\",\"pointOut\":\"\",\"addView\":\"1\",\"phoneLenth\":\"0\",\"structure\":\"1\"},\"typeText\":\"电话\",\"name\":\"subform_phone_1537183456091\",\"width\":\"50%\",\"label\":\"电话01\",\"state\":\"0\",\"type\":\"phone\",\"remove\":\"1\"},{\"relevanceWhere\":[{\"show_type\":\"text\",\"selList\":[],\"operator_value\":\"CONTAIN\",\"operators\":[],\"field_label\":\"商品名称\",\"selTime\":[],\"field_value\":\"text_1535439299455:false\",\"result_label\":\"\",\"result_value\":\"1\",\"operator_label\":\"包含\",\"entrys\":[]},{\"show_type\":\"text\",\"operator_value\":\"CONTAIN\",\"operators\":[],\"sel_list\":[],\"field_label\":\"商品名称\",\"field_value\":\"text_1535439299455:false\",\"result_label\":\"\",\"result_value\":\"2\",\"sel_time\":[],\"operator_label\":\"包含\",\"entrys\":[]}],\"label\":\"关联关系hgfdg \",\"type\":\"reference\",\"remove\":\"1\",\"field\":{\"fieldControl\":\"0\",\"editView\":\"1\",\"terminalPc\":\"1\",\"terminalApp\":\"1\",\"pointOut\":\"\",\"addView\":\"1\",\"structure\":\"1\"},\"relevanceModule\":{\"moduleName\":\"bean1537406070209\",\"moduleLabel\":\"商品信息0829\"},\"typeText\":\"关联关系\",\"name\":\"subform_reference_1537412412229\",\"width\":\"50%\",\"relevanceField\":{\"fieldName\":\"number_1535439680327\",\"fieldLabel\":\"单价\"},\"seniorWhere\":\"1 or 2\",\"searchFields\":[{\"fieldName\":\"text_1535439388967\",\"fieldLabel\":\"单位\"},{\"fieldName\":\"number_1535439680327\",\"fieldLabel\":\"单价\"},{\"fieldName\":\"text_1535439350860\",\"fieldLabel\":\"规格\/型号\"},{\"fieldName\":\"barcode_1535599903106\",\"fieldLabel\":\"条码\"},{\"fieldName\":\"identifier_1535439417745\",\"fieldLabel\":\"编号\"},{\"fieldName\":\"text_1535439403738\",\"fieldLabel\":\"厂家\"},{\"fieldName\":\"text_1535439299455\",\"fieldLabel\":\"商品名称\"}],\"state\":\"0\"},{\"defaultEntrys\":{\"twoDefaultValueId\":\"0\",\"oneDefaultValue\":\"一级选项1\",\"oneDefaultValueColor\":\"#FFFFFF\",\"twoDefaultValueColor\":\"#FFFFFF\",\"twoDefaultValue\":\"二级选项1\",\"threeDefaultValue\":\"三级选项1\",\"threeDefaultValueId\":\"0\",\"oneDefaultValueId\":\"0\",\"threeDefaultValueColor\":\"#FFFFFF\"},\"field\":{\"fieldControl\":\"0\",\"editView\":\"1\",\"terminalPc\":\"1\",\"terminalApp\":\"1\",\"selectType\":\"1\",\"addView\":\"1\",\"structure\":\"1\"},\"typeText\":\"多级下拉\",\"name\":\"subform_mutlipicklist_1537415454923\",\"width\":\"100%\",\"label\":\"多级下拉\",\"state\":\"0\",\"type\":\"mutlipicklist\",\"remove\":\"1\",\"entrys\":[{\"subList\":[{\"subList\":[{\"color\":\"#FFFFFF\",\"label\":\"三级选项1\",\"value\":\"0\"},{\"color\":\"#FFFFFF\",\"label\":\"三级选项2\",\"value\":\"1\"}],\"color\":\"#FFFFFF\",\"label\":\"二级选项1\",\"value\":\"0\"},{\"subList\":[{\"color\":\"#FFFFFF\",\"label\":\"三级选项1\",\"value\":\"0\"},{\"color\":\"#FFFFFF\",\"label\":\"三级选项2\",\"value\":\"1\"}],\"color\":\"#FFFFFF\",\"label\":\"二级选项2\",\"value\":\"1\"}],\"color\":\"#FFFFFF\",\"label\":\"一级选项1\",\"value\":\"0\"},{\"subList\":[{\"subList\":[{\"color\":\"#FFFFFF\",\"label\":\"三级选项1\",\"value\":\"0\"},{\"color\":\"#FFFFFF\",\"label\":\"三级选项2\",\"value\":\"1\"}],\"color\":\"#FFFFFF\",\"label\":\"二级选项1\",\"value\":\"0\"},{\"subList\":[{\"color\":\"#FFFFFF\",\"label\":\"三级选项1\",\"value\":\"0\"},{\"color\":\"#FFFFFF\",\"label\":\"三级选项2\",\"value\":\"1\"}],\"color\":\"#FFFFFF\",\"label\":\"二级选项2\",\"value\":\"1\"}],\"color\":\"#FFFFFF\",\"label\":\"一级选项2\",\"value\":\"1\"}]}],\"active\":\"0\",\"label\":\"子表单真实的\",\"state\":\"1\",\"type\":\"subform\",\"remove\":\"1\"},{\"field\":{\"fieldControl\":\"0\",\"editView\":\"1\",\"repeatCheck\":\"0\",\"pointOut\":\"\",\"defaultValue\":\"\",\"isShowCard\":\"0\",\"isFillReason\":\"0\",\"addView\":\"0\",\"structure\":\"1\"},\"typeText\":\"单行文本\",\"name\":\"text_1537163881198\",\"width\":\"50%\",\"active\":\"0\",\"label\":\"单行文本请仔细核对\",\"state\":\"1\",\"type\":\"text\",\"remove\":\"1\"}]},\"systemLayout\":{\"rows\":[{\"field\":{\"defaultPersonnel\":[],\"fieldControl\":\"0\",\"editView\":\"1\",\"terminalPc\":\"1\",\"terminalApp\":\"1\",\"chooseRange\":[],\"addView\":\"1\",\"structure\":\"1\",\"chooseType\":\"0\"},\"typeText\":\"人员\",\"name\":\"personnel_create_by\",\"width\":\"50%\",\"label\":\"创建人\",\"state\":\"0\",\"type\":\"personnel\",\"remove\":\"0\"},{\"field\":{\"fieldControl\":\"0\",\"editView\":\"1\",\"terminalPc\":\"1\",\"terminalApp\":\"1\",\"defaultValue\":\"\",\"defaultValueId\":\"\",\"formatType\":\"yyyy-MM-dd HH:mm:ss\",\"addView\":\"1\",\"structure\":\"1\"},\"typeText\":\"日期时间\",\"name\":\"datetime_create_time\",\"width\":\"50%\",\"label\":\"创建时间\",\"state\":\"0\",\"type\":\"datetime\",\"remove\":\"1\"},{\"field\":{\"defaultPersonnel\":[],\"fieldControl\":\"0\",\"editView\":\"1\",\"terminalPc\":\"1\",\"terminalApp\":\"1\",\"chooseRange\":[],\"addView\":\"1\",\"structure\":\"1\",\"chooseType\":\"0\"},\"typeText\":\"人员\",\"name\":\"personnel_modify_by\",\"width\":\"50%\",\"label\":\"修改人\",\"state\":\"0\",\"type\":\"personnel\",\"remove\":\"0\"},{\"field\":{\"fieldControl\":\"0\",\"editView\":\"1\",\"terminalPc\":\"1\",\"terminalApp\":\"1\",\"defaultValue\":\"\",\"defaultValueId\":\"\",\"formatType\":\"yyyy-MM-dd HH:mm:ss\",\"addView\":\"1\",\"structure\":\"1\"},\"typeText\":\"日期时间\",\"name\":\"datetime_modify_time\",\"width\":\"50%\",\"label\":\"修改时间\",\"state\":\"0\",\"type\":\"datetime\",\"remove\":\"1\"}]},\"layoutState\":\"enable\",\"_id\":{\"$oid\":\"5b5827e642b28e7eafc4e96a\"},\"version\":\"1.0.0\",\"pageNum\":\"0\",\"bean\":\"project_custom\"}",
+  "text_name" : "你能看见这个子任务么?",
+  "picklist_tag" : [
+
+  ],
+  "beanName" : "project_custom",
+  "timeId" : 840
+}</string>
+	<string>{
+  "timeId" : 1244,
+  "process_key" : "process1533192987859",
+  "beanId" : 18,
+  "dataType" : 4,
+  "task_name" : "新节点1",
+  "process_name" : "简单审批流",
+  "process_definition_id" : "605001",
+  "create_time" : 1535439412974,
+  "module_data_id" : "",
+  "task_id" : "605015",
+  "beanName" : "bean1533192874412",
+  "module_bean" : "bean1533192874412",
+  "process_v" : 395,
+  "id" : 1051,
+  "beanType" : 1,
+  "approval_data_id" : 18,
+  "process_field_v" : 1533894235619,
+  "begin_user_id" : 47,
+  "task_key" : "task1533192932011",
+  "begin_user_name" : "rxz",
+  "process_status" : 0
+}</string>
+	<string>{
+  "timeId" : 1163,
+  "process_key" : "process1533192987859",
+  "beanId" : 17,
+  "dataType" : 4,
+  "task_name" : "新节点1",
+  "process_name" : "简单审批流",
+  "process_definition_id" : "570001",
+  "create_time" : 1535076190390,
+  "module_data_id" : "",
+  "task_id" : "570015",
+  "beanName" : "bean1533192874412",
+  "module_bean" : "bean1533192874412",
+  "process_v" : 395,
+  "id" : 1005,
+  "beanType" : 1,
+  "approval_data_id" : 17,
+  "process_field_v" : 1533894235619,
+  "begin_user_id" : 2,
+  "task_key" : "task1533192932011",
+  "begin_user_name" : "赖志君",
+  "process_status" : 0
+}</string>
+	<string>{
+  "timeId" : 915,
+  "process_key" : "process1533192987859",
+  "beanId" : 16,
+  "dataType" : 4,
+  "task_name" : "新节点1",
+  "process_name" : "简单审批流",
+  "process_definition_id" : "502540",
+  "create_time" : 1534475143716,
+  "module_data_id" : "",
+  "task_id" : "502554",
+  "beanName" : "bean1533192874412",
+  "module_bean" : "bean1533192874412",
+  "process_v" : 395,
+  "id" : 929,
+  "beanType" : 1,
+  "approval_data_id" : 16,
+  "process_field_v" : 1533894235619,
+  "begin_user_id" : 22,
+  "task_key" : "task1533192932011",
+  "begin_user_name" : "洪得财",
+  "process_status" : 0
+}</string>
+	<string>{
+  "timeId" : 912,
+  "process_key" : "process1533192987859",
+  "beanId" : 15,
+  "dataType" : 4,
+  "task_name" : "新节点1",
+  "process_name" : "简单审批流",
+  "process_definition_id" : "502524",
+  "create_time" : 1534473664686,
+  "module_data_id" : "",
+  "task_id" : "502538",
+  "beanName" : "bean1533192874412",
+  "module_bean" : "bean1533192874412",
+  "process_v" : 395,
+  "id" : 928,
+  "beanType" : 1,
+  "approval_data_id" : 15,
+  "process_field_v" : 1533894235619,
+  "begin_user_id" : 22,
+  "task_key" : "task1533192932011",
+  "begin_user_name" : "洪得财",
+  "process_status" : 0
+}</string>
+	<string>{
+  "timeId" : 1534,
+  "process_key" : "process1533192987859",
+  "beanId" : 21,
+  "dataType" : 4,
+  "task_name" : "新节点1",
+  "process_name" : "简单审批流",
+  "process_definition_id" : "665020",
+  "create_time" : 1536546104307,
+  "module_data_id" : "",
+  "task_id" : "665034",
+  "beanName" : "bean1533192874412",
+  "module_bean" : "bean1533192874412",
+  "process_v" : 395,
+  "id" : 1097,
+  "beanType" : 1,
+  "approval_data_id" : 21,
+  "process_field_v" : 1533894235619,
+  "begin_user_id" : 17,
+  "task_key" : "task1533192932011",
+  "begin_user_name" : "赖测六",
+  "process_status" : 0
+}</string>
+	<string>{
+  "bean_type" : 6,
+  "beanName" : "bean1531359360066",
+  "dataType" : 3,
+  "row" : [
+    {
+      "name" : "datetime_modify_time",
+      "label" : "修改时间",
+      "value" : "1531359723922"
+    },
+    {
+      "name" : "datetime_create_time",
+      "label" : "创建时间",
+      "value" : "1531359723922"
+    },
+    {
+      "name" : "personnel_create_by",
+      "label" : "创建人",
+      "value" : "[{\"post_name\":\"\",\"name\":\"赖测一\",\"id\":12,\"picture\":\"\"}]"
+    },
+    {
+      "name" : "personnel_modify_by",
+      "label" : "修改人",
+      "value" : "[{\"post_name\":\"\",\"name\":\"赖测一\",\"id\":12,\"picture\":\"\"}]"
+    },
+    {
+      "name" : "seas_pool_id",
+      "label" : "公海池编号",
+      "value" : "0"
+    },
+    {
+      "name" : "del_status",
+      "label" : "删除状态",
+      "value" : "0"
+    },
+    {
+      "name" : "text_1531359360066",
+      "label" : "名称",
+      "value" : "第一条"
+    },
+    {
+      "name" : "personnel_principal",
+      "label" : "负责人",
+      "value" : "[{\"post_name\":\"\",\"name\":\"赖测一\",\"id\":12,\"picture\":\"\"}]"
+    },
+    {
+      "name" : "id",
+      "label" : "主键id",
+      "value" : "1"
+    }
+  ],
+  "beanId" : 1,
+  "icon_type" : "0",
+  "icon_url" : "icon-modules-library-1",
+  "module_name" : "审批依赖A",
+  "icon_color" : "rgba(255,141,1,1)",
+  "module_id" : 507,
+  "complete_status" : 0
+}</string>
+	<string>{
+  "bean_type" : 6,
+  "beanName" : "bean1531359360066",
+  "dataType" : 3,
+  "row" : [
+    {
+      "name" : "datetime_modify_time",
+      "label" : "修改时间",
+      "value" : "1531359743480"
+    },
+    {
+      "name" : "datetime_create_time",
+      "label" : "创建时间",
+      "value" : "1531359743480"
+    },
+    {
+      "name" : "personnel_create_by",
+      "label" : "创建人",
+      "value" : "[{\"post_name\":\"\",\"name\":\"赖测一\",\"id\":12,\"picture\":\"\"}]"
+    },
+    {
+      "name" : "personnel_modify_by",
+      "label" : "修改人",
+      "value" : "[{\"post_name\":\"\",\"name\":\"赖测一\",\"id\":12,\"picture\":\"\"}]"
+    },
+    {
+      "name" : "seas_pool_id",
+      "label" : "公海池编号",
+      "value" : "0"
+    },
+    {
+      "name" : "del_status",
+      "label" : "删除状态",
+      "value" : "0"
+    },
+    {
+      "name" : "text_1531359360066",
+      "label" : "名称",
+      "value" : "三条"
+    },
+    {
+      "name" : "personnel_principal",
+      "label" : "负责人",
+      "value" : "[{\"post_name\":\"\",\"name\":\"赖测一\",\"id\":12,\"picture\":\"\"}]"
+    },
+    {
+      "name" : "id",
+      "label" : "主键id",
+      "value" : "3"
+    }
+  ],
+  "beanId" : 3,
+  "icon_type" : "0",
+  "icon_url" : "icon-modules-library-1",
+  "module_name" : "审批依赖A",
+  "icon_color" : "rgba(255,141,1,1)",
+  "module_id" : 507,
+  "complete_status" : 0
+}</string>
+	<string>{
+  "bean_type" : 6,
+  "beanName" : "bean1531359360066",
+  "dataType" : 3,
+  "row" : [
+    {
+      "name" : "datetime_modify_time",
+      "label" : "修改时间",
+      "value" : "1531359737180"
+    },
+    {
+      "name" : "datetime_create_time",
+      "label" : "创建时间",
+      "value" : "1531359737180"
+    },
+    {
+      "name" : "personnel_create_by",
+      "label" : "创建人",
+      "value" : "[{\"post_name\":\"\",\"name\":\"赖测一\",\"id\":12,\"picture\":\"\"}]"
+    },
+    {
+      "name" : "personnel_modify_by",
+      "label" : "修改人",
+      "value" : "[{\"post_name\":\"\",\"name\":\"赖测一\",\"id\":12,\"picture\":\"\"}]"
+    },
+    {
+      "name" : "seas_pool_id",
+      "label" : "公海池编号",
+      "value" : "0"
+    },
+    {
+      "name" : "del_status",
+      "label" : "删除状态",
+      "value" : "0"
+    },
+    {
+      "name" : "text_1531359360066",
+      "label" : "名称",
+      "value" : "第2条"
+    },
+    {
+      "name" : "personnel_principal",
+      "label" : "负责人",
+      "value" : "[{\"post_name\":\"\",\"name\":\"赖测一\",\"id\":12,\"picture\":\"\"}]"
+    },
+    {
+      "name" : "id",
+      "label" : "主键id",
+      "value" : "2"
+    }
+  ],
+  "beanId" : 2,
+  "icon_type" : "0",
+  "icon_url" : "icon-modules-library-1",
+  "module_name" : "审批依赖A",
+  "icon_color" : "rgba(255,141,1,1)",
+  "module_id" : 507,
+  "complete_status" : 0
+}</string>
+</array>
+</plist>

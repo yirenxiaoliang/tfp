@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="TFNoteListBottomView">
+            <rect key="frame" x="0.0" y="0.0" width="392" height="64"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EfV-hK-jqX">
+                    <rect key="frame" x="336.5" y="15" width="35.5" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="TQD-8o-s37"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FED-Xm-cuu">
+                    <rect key="frame" x="20" y="0.0" width="60" height="64"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="60" id="nOq-2o-9dr"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R2R-vV-E0T">
+                    <rect key="frame" x="95" y="0.0" width="60" height="64"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="60" id="HkA-Sx-tSC"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <state key="normal" title="Button"/>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="FED-Xm-cuu" secondAttribute="bottom" id="0cC-36-OcV"/>
+                <constraint firstItem="EfV-hK-jqX" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="15" id="BMb-jZ-iPt"/>
+                <constraint firstItem="R2R-vV-E0T" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="LKU-OF-lAS"/>
+                <constraint firstItem="FED-Xm-cuu" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Tnm-9L-2kq"/>
+                <constraint firstAttribute="trailing" secondItem="EfV-hK-jqX" secondAttribute="trailing" constant="20" id="USj-DX-KnM"/>
+                <constraint firstItem="R2R-vV-E0T" firstAttribute="leading" secondItem="FED-Xm-cuu" secondAttribute="trailing" constant="15" id="cgA-oO-NbE"/>
+                <constraint firstAttribute="bottom" secondItem="R2R-vV-E0T" secondAttribute="bottom" id="u9b-Ud-1SX"/>
+                <constraint firstItem="FED-Xm-cuu" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="wdj-wq-8fs"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="oneBtn" destination="FED-Xm-cuu" id="4WQ-OD-9oW"/>
+                <outlet property="threeBtn" destination="EfV-hK-jqX" id="Aay-By-mrK"/>
+                <outlet property="twoBtn" destination="R2R-vV-E0T" id="ql7-p9-FNQ"/>
+            </connections>
+            <point key="canvasLocation" x="-15" y="-15"/>
+        </view>
+    </objects>
+</document>

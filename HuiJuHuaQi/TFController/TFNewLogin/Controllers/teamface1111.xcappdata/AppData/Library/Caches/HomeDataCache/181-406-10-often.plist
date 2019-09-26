@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<string>{"id":25,"icon_color":"#2EBCFF","application_id":6,"chinese_name":"汽车零件","del_status":"0","icon_url":"icon-modules-library-3","icon_type":"0","icon":"","english_name":"bean1561516109043","topper":"25"}</string>
+	<string>{"id":24,"icon_color":"#2CCCDA","application_id":6,"chinese_name":"汽车","del_status":"0","icon_url":"icon-modules-library-2","icon_type":"0","icon":"","english_name":"bean1561516005126","topper":"24"}</string>
+	<string>{"id":23,"icon_color":"#19BFA4","application_id":6,"chinese_name":"大数字","del_status":"0","icon_url":"icon-modules-library-1","icon_type":"0","icon":"","english_name":"bean1561443261390","topper":"23"}</string>
+	<string>{"id":7,"icon_color":"#7076FA","application_id":2,"chinese_name":"商机","del_status":"0","icon_url":"icon-modules-library-5","icon_type":"0","icon":"","english_name":"bean1558431280842","topper":"7"}</string>
+	<string>{"id":1,"icon_color":"#FFA416","application_id":1,"chinese_name":"市场活动1","del_status":"0","icon_url":"icon-modules-library-9","icon_type":"0","icon":"","english_name":"bean1561344936928","topper":"1"}</string>
+	<string>{"id":12,"icon_color":"#FF7748","application_id":2,"chinese_name":"产品","del_status":"0","icon_url":"icon-modules-library-11","icon_type":"0","icon":"","english_name":"bean1558432750926","topper":"12"}</string>
+	<string>{"id":35,"icon_color":"#FFA416","application_id":1,"chinese_name":"审批1111","del_status":"0","icon_url":"icon-modules-library-9","icon_type":"0","icon":"","english_name":"bean1561621316390","topper":"35"}</string>
+	<string>{"id":28,"icon_color":"#2CCCDA","application_id":7,"chinese_name":"Test2","del_status":"0","icon_url":"icon-modules-library-2","icon_type":"0","icon":"","english_name":"bean1557746876205","topper":"28"}</string>
+	<string>{"id":5,"icon_color":"#2EBCFF","application_id":2,"chinese_name":"联系人","del_status":"0","icon_url":"icon-modules-library-3","icon_type":"0","icon":"","english_name":"bean1558431270870","topper":"5"}</string>
+	<string>{"id":22,"icon_color":"#2CCCDA","application_id":5,"chinese_name":"删除流程问题","del_status":"0","icon_url":"icon-modules-library-2","icon_type":"0","icon":"","english_name":"bean1561430152301","topper":"22"}</string>
+	<string>{"id":4,"icon_color":"#2CCCDA","application_id":2,"chinese_name":"客户","del_status":"0","icon_url":"icon-modules-library-2","icon_type":"0","icon":"","english_name":"bean1558431265767","topper":"4"}</string>
+	<string>{"id":26,"icon_color":"#4E8AF9","application_id":6,"chinese_name":"购物单","del_status":"0","icon_url":"icon-modules-library-4","icon_type":"0","icon":"","english_name":"bean1561516181620","topper":"26"}</string>
+</array>
+</plist>

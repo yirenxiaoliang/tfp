@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="TFChildTaskProgressView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="28"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TFM-2u-lvJ">
+                    <rect key="frame" x="22" y="9" width="293" height="10"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W5W-53-8eK">
+                            <rect key="frame" x="0.0" y="0.0" width="100" height="10"/>
+                            <color key="backgroundColor" red="0.0" green="0.74509803919999995" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="100" id="03e-u8-rNz"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="W5W-53-8eK" firstAttribute="leading" secondItem="TFM-2u-lvJ" secondAttribute="leading" id="4QD-Hd-Lv8"/>
+                        <constraint firstItem="W5W-53-8eK" firstAttribute="top" secondItem="TFM-2u-lvJ" secondAttribute="top" id="4aP-M2-lpW"/>
+                        <constraint firstAttribute="bottom" secondItem="W5W-53-8eK" secondAttribute="bottom" id="f5I-gA-S8l"/>
+                        <constraint firstAttribute="height" constant="10" id="kif-B9-ChR"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uzt-gt-dQd">
+                    <rect key="frame" x="323" y="14" width="37" height="0.0"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="TFM-2u-lvJ" secondAttribute="trailing" constant="60" id="APm-bf-KyO"/>
+                <constraint firstItem="Uzt-gt-dQd" firstAttribute="leading" secondItem="TFM-2u-lvJ" secondAttribute="trailing" constant="8" id="FHu-hQ-heM"/>
+                <constraint firstItem="TFM-2u-lvJ" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="Gnl-Tn-oUs"/>
+                <constraint firstItem="TFM-2u-lvJ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="22" id="iZx-ER-pHF"/>
+                <constraint firstAttribute="trailing" secondItem="Uzt-gt-dQd" secondAttribute="trailing" constant="15" id="jhF-IU-UGQ"/>
+                <constraint firstItem="Uzt-gt-dQd" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="loI-1S-bX9"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="bgView" destination="TFM-2u-lvJ" id="06U-cz-8xb"/>
+                <outlet property="progressLabel" destination="Uzt-gt-dQd" id="lu4-Zj-yJv"/>
+                <outlet property="progressView" destination="W5W-53-8eK" id="7Ho-rS-yZs"/>
+                <outlet property="progressW" destination="03e-u8-rNz" id="SxH-GH-Efp"/>
+            </connections>
+            <point key="canvasLocation" x="52" y="-202"/>
+        </view>
+    </objects>
+</document>

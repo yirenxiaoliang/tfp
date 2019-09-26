@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<string>{"id":911,"icon_color":"#38BA5D","application_id":41,"chinese_name":"工作汇报","del_status":"0","icon_url":"icon-modules-library-2","icon_type":"0","icon":"","english_name":"bean1548677248604","topper":"1"}</string>
+	<string>{"id":180,"icon_color":"#FFD234","application_id":26,"chinese_name":"更新提交","del_status":"0","icon_url":"icon-modules-library-9","icon_type":"0","icon":"","english_name":"bean1533123406137","topper":"4"}</string>
+	<string>{"id":22,"icon_color":"#66C060","application_id":3,"chinese_name":"打卡补卡","del_status":"0","icon_url":"icon-modules-library-39","icon_type":"0","icon":"null","english_name":"bean1528283924805","topper":"11"}</string>
+	<string>{"id":149,"icon_color":"#FF7748","application_id":3,"chinese_name":"销假","del_status":"0","icon_url":"icon-modules-library-23","icon_type":"0","icon":"null","english_name":"bean1530515159744","topper":"15"}</string>
+	<string>{"id":154,"icon_color":"#FFA416","application_id":26,"chinese_name":"提BUG","del_status":"0","icon_url":"icon-modules-library-22","icon_type":"0","icon":"","english_name":"bean1531546167927","topper":"5"}</string>
+	<string>{"id":174,"icon_color":"#EF7EDE","application_id":26,"chinese_name":"异常记录","del_status":"0","icon_url":"icon-modules-library-42","icon_type":"0","icon":"","english_name":"bean1533095391532","topper":"11"}</string>
+	<string>{"id":132,"icon_color":"#98D75A","application_id":26,"chinese_name":"投诉建议","del_status":"0","icon_url":"icon-modules-library-33","icon_type":"0","icon":"null","english_name":"bean1529575710113","topper":"18"}</string>
+	<string>{"id":140,"icon_color":"#FA5A55","application_id":41,"chinese_name":"会议记录","del_status":"0","icon_url":"icon-modules-library-42","icon_type":"0","icon":"null","english_name":"bean1529918681360","topper":"7"}</string>
+	<string>{"id":21,"icon_color":"#7076FA","application_id":20,"chinese_name":"薪资调整","del_status":"0","icon_url":"icon-modules-library-7","icon_type":"0","icon":"null","english_name":"bean1528280652030","topper":"12"}</string>
+	<string>{"id":18,"icon_color":"#FC587B","application_id":41,"chinese_name":"用章申请","del_status":"0","icon_url":"icon-modules-library-8","icon_type":"0","icon":"null","english_name":"bean1528279586510","topper":"8"}</string>
+	<string>{"id":146,"icon_color":"#FFA416","application_id":3,"chinese_name":"出差外出","del_status":"0","icon_url":"icon-modules-library-11","icon_type":"0","icon":"null","english_name":"bean1530006778084","topper":"14"}</string>
+	<string>{"id":144,"icon_color":"#EF7EDE","application_id":41,"chinese_name":"奖惩记录","del_status":"0","icon_url":"icon-modules-library-7","icon_type":"0","icon":"null","english_name":"bean1530001465558","topper":"9"}</string>
+</array>
+</plist>

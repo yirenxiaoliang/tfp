@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<string>{"id":1,"name":"公司文件","status":"1"}</string>
+	<string>{"id":2,"name":"应用文件","status":"1"}</string>
+	<string>{"id":3,"name":"个人文件","status":"1"}</string>
+	<string>{"id":4,"name":"我共享的","status":"1"}</string>
+	<string>{"id":5,"name":"与我共享","status":"1"}</string>
+	<string>{"id":6,"name":"项目文件","status":"1"}</string>
+</array>
+</plist>

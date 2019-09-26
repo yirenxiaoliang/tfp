@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<string>ao_man</string>
+	<string>bao_bao</string>
+	<string>bao_you</string>
+	<string>ci_ya</string>
+	<string>da_xiao</string>
+	<string>hai_xiu</string>
+	<string>huan_ying</string>
+	<string>jing_dai</string>
+	<string>jing_kong</string>
+	<string>ke_ai</string>
+	<string>liu_han</string>
+	<string>qin_qin</string>
+	<string>se_se</string>
+	<string>shang_xin</string>
+	<string>sheng_li</string>
+	<string>sheng_qi</string>
+	<string>shi_luo</string>
+	<string>tiao_pi</string>
+	<string>wei_xiao</string>
+	<string>wu_yu</string>
+	<string>Emoticon_Delete</string>
+</array>
+</plist>

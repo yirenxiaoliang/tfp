@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<string>{"read_status":"1","cc_recipients":[],"is_plain":"0","ip_address":"","create_time":"1535937256552","mail_box_id":2,"subject":"Re:需回执","is_notification":"0","single_show":"0","from_recipient":"laizhijun0@163.com","is_emergent":"0","process_instance_id":0,"mail_content":"&lt;laizhijun0@163.com&gt;已经阅读了您于以下日期(2018-09-03 09:14:16)发送的主题为\"需回执\"的信函","bcc_setting":"0","to_recipients":[{"mail_account":"laizhijun0@163.com","employee_name":""}],"approval_status":"10","id":49,"bcc_recipients":[],"attachments_name":[],"is_track":"0","mail_tags":"","account_id":1,"draft_status":0,"embedded_images":"","timer_status":"0","mail_source":"0","timer_task_time":0,"send_status":1}</string>
+	<string>{"read_status":"1","cc_recipients":[],"is_plain":"0","ip_address":"","create_time":"1535937179126","mail_box_id":2,"subject":"Re:回执222","is_notification":"0","single_show":"0","from_recipient":"laizhijun0@163.com","is_emergent":"0","process_instance_id":0,"mail_content":"&lt;laizhijun0@163.com&gt;已经阅读了您于以下日期(2018-09-03 09:12:58)发送的主题为\"回执222\"的信函","bcc_setting":"0","to_recipients":[{"mail_account":"laizhijun0@163.com","employee_name":""}],"approval_status":"10","id":48,"bcc_recipients":[],"attachments_name":[],"is_track":"0","mail_tags":"","account_id":1,"draft_status":0,"embedded_images":"","timer_status":"0","mail_source":"0","timer_task_time":0,"send_status":1}</string>
+</array>
+</plist>

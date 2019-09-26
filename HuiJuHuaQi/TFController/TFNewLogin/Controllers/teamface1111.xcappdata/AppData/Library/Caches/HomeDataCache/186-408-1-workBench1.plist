@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<string>{
+  "timeId" : 2,
+  "project_status" : 0,
+  "picklist_status" : [
+    {
+      "color" : "#E5E5E5",
+      "label" : "未开始",
+      "value" : "0"
+    }
+  ],
+  "dataType" : 2,
+  "passed_status" : 0,
+  "beanName" : "project_custom_1",
+  "beanId" : 1,
+  "text_name" : "暑假里",
+  "personnel_principal" : [
+    {
+      "id" : 1,
+      "post_name" : "员工",
+      "employee_name" : "KY",
+      "picture" : "\/common\/file\/imageDownload?bean=company&amp;fileName=556\/image\/1561607644035\/blob&amp;fileSize=4418"
+    }
+  ],
+  "complete_status" : 0,
+  "project_name" : "测试",
+  "sub_task_complete_count" : 0,
+  "datetime_deadline" : "",
+  "id" : 1,
+  "project_id" : 1,
+  "check_status" : 0,
+  "picklist_priority" : [
+    {
+      "color" : "#0623F9",
+      "label" : "低",
+      "value" : "2"
+    }
+  ],
+  "beanType" : 2,
+  "sub_task_count" : 0,
+  "taskInfoId" : 1,
+  "picklist_tag" : [
+    {
+      "colour" : "#19BFA4",
+      "name" : "新任务",
+      "id" : 2
+    }
+  ],
+  "datetime_create_time" : 1561606927733
+}</string>
+</array>
+</plist>

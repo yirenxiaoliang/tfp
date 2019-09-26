@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="vhF-mn-hHu" customClass="HQPlayerView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="录音" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hfj-vE-J9f">
+                    <rect key="frame" x="0.0" y="14" width="32" height="16"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="16" id="civ-Bd-mtF"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <color key="textColor" red="0.1960784314" green="0.1960784314" blue="0.1960784314" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="kwY-fR-HpQ">
+                    <rect key="frame" x="77" y="21" width="74" height="2"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="2" id="4fd-7C-tJR"/>
+                        <constraint firstAttribute="width" constant="74" id="BzF-df-EsT"/>
+                    </constraints>
+                </progressView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="录音 60”" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cZ4-rN-Cd5">
+                    <rect key="frame" x="159" y="14" width="64" height="16"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="16" id="xSn-aX-T95"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <color key="textColor" red="0.1960784314" green="0.1960784314" blue="0.1960784314" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aRr-nG-ESx" userLabel="deleteBtn">
+                    <rect key="frame" x="328" y="5" width="35" height="35"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="35" id="7fZ-uC-yud"/>
+                        <constraint firstAttribute="width" constant="35" id="vg8-gh-pw6"/>
+                    </constraints>
+                    <state key="normal" image="deletedSound_img"/>
+                    <connections>
+                        <action selector="deleteVedioAction:" destination="vhF-mn-hHu" eventType="touchUpInside" id="Glt-Pw-JFM"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z0s-gJ-MFm" userLabel="playBtn">
+                    <rect key="frame" x="44" y="10" width="25" height="25"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="25" id="Lps-jc-6pO"/>
+                        <constraint firstAttribute="width" constant="25" id="r8H-Wd-oW2"/>
+                    </constraints>
+                    <state key="normal" image="soundRecording__small_btn"/>
+                    <state key="selected" image="pause_small"/>
+                    <connections>
+                        <action selector="playVedioAction:" destination="vhF-mn-hHu" eventType="touchUpInside" id="f7f-rZ-p22"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="cZ4-rN-Cd5" firstAttribute="leading" secondItem="kwY-fR-HpQ" secondAttribute="trailing" constant="8" id="35m-lZ-WNV"/>
+                <constraint firstItem="Hfj-vE-J9f" firstAttribute="leading" secondItem="vhF-mn-hHu" secondAttribute="leading" id="5l2-gr-oXD"/>
+                <constraint firstAttribute="trailing" secondItem="aRr-nG-ESx" secondAttribute="trailing" constant="12" id="9Lq-dD-arr"/>
+                <constraint firstItem="kwY-fR-HpQ" firstAttribute="centerY" secondItem="vhF-mn-hHu" secondAttribute="centerY" id="Lz8-g8-HUx"/>
+                <constraint firstItem="z0s-gJ-MFm" firstAttribute="leading" secondItem="Hfj-vE-J9f" secondAttribute="trailing" constant="12" id="Nbr-D1-Mkg"/>
+                <constraint firstItem="cZ4-rN-Cd5" firstAttribute="centerY" secondItem="vhF-mn-hHu" secondAttribute="centerY" id="Z7f-2Y-vEq"/>
+                <constraint firstItem="z0s-gJ-MFm" firstAttribute="centerY" secondItem="vhF-mn-hHu" secondAttribute="centerY" id="bRN-Nm-dIk"/>
+                <constraint firstItem="aRr-nG-ESx" firstAttribute="centerY" secondItem="vhF-mn-hHu" secondAttribute="centerY" id="bmG-D3-MV0"/>
+                <constraint firstItem="Hfj-vE-J9f" firstAttribute="centerY" secondItem="vhF-mn-hHu" secondAttribute="centerY" id="kxz-bk-Dqc"/>
+                <constraint firstItem="kwY-fR-HpQ" firstAttribute="leading" secondItem="z0s-gJ-MFm" secondAttribute="trailing" constant="8" id="zPS-7u-NxH"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="deleteBtn" destination="aRr-nG-ESx" id="cX7-eJ-qOe"/>
+                <outlet property="playAndTitleDisLayout" destination="Nbr-D1-Mkg" id="KSq-pS-AY6"/>
+                <outlet property="playBtn" destination="z0s-gJ-MFm" id="my1-h7-S6X"/>
+                <outlet property="progressView" destination="kwY-fR-HpQ" id="d6x-X3-82C"/>
+                <outlet property="timeLabel" destination="cZ4-rN-Cd5" id="Vl5-BH-g9S"/>
+                <outlet property="titleLabel" destination="Hfj-vE-J9f" id="5hg-zh-6xo"/>
+            </connections>
+            <point key="canvasLocation" x="640.5" y="25"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="deletedSound_img" width="45" height="45"/>
+        <image name="pause_small" width="24" height="24"/>
+        <image name="soundRecording__small_btn" width="32" height="32"/>
+    </resources>
+</document>

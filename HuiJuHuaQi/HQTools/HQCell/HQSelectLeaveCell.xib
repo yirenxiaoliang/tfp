@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="fmu-iw-Obe" customClass="HQSelectLeaveCell">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="66"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fmu-iw-Obe" id="zZJ-Ib-X1K">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="nameLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Rj-tf-Qvn">
+                        <rect key="frame" x="12" y="22" width="84" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.19607843137254902" green="0.19607843137254902" blue="0.19607843137254902" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="addContacts_select" translatesAutoresizingMaskIntoConstraints="NO" id="Bzg-3Z-yXe">
+                        <rect key="frame" x="335" y="19" width="28" height="28"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="28" id="Ncl-JA-PnD"/>
+                            <constraint firstAttribute="height" constant="28" id="ZHD-dD-YiT"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="3Rj-tf-Qvn" firstAttribute="leading" secondItem="zZJ-Ib-X1K" secondAttribute="leading" constant="12" id="A3X-ht-9wb"/>
+                    <constraint firstItem="3Rj-tf-Qvn" firstAttribute="centerY" secondItem="zZJ-Ib-X1K" secondAttribute="centerY" id="Zyc-ec-wku"/>
+                    <constraint firstAttribute="trailing" secondItem="Bzg-3Z-yXe" secondAttribute="trailing" constant="12" id="ht7-i1-ees"/>
+                    <constraint firstItem="Bzg-3Z-yXe" firstAttribute="centerY" secondItem="zZJ-Ib-X1K" secondAttribute="centerY" id="juO-am-APF"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="selectImg" destination="Bzg-3Z-yXe" id="rBI-AX-b7d"/>
+                <outlet property="titleLabel" destination="3Rj-tf-Qvn" id="pLK-0X-vlI"/>
+            </connections>
+            <point key="canvasLocation" x="231" y="264"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="addContacts_select" width="35" height="35"/>
+    </resources>
+</document>

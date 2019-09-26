@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<string>{
+  "timeId" : 2890,
+  "project_status" : 0,
+  "picklist_status" : [
+    {
+      "color" : "#E5E5E5",
+      "label" : "未开始",
+      "value" : "0"
+    }
+  ],
+  "dataType" : 2,
+  "passed_status" : 0,
+  "beanName" : "project_custom_72",
+  "beanId" : 175,
+  "text_name" : "【企信】普通消息和小助手已读和未读三端同步功能完善",
+  "personnel_principal" : [
+    {
+      "id" : 23,
+      "post_name" : "iOS工程师",
+      "employee_name" : "尹明亮",
+      "picture" : "\/common\/file\/imageDownload?bean=company&amp;fileName=23\/company\/1528279051420.201806061757300.jpg"
+    }
+  ],
+  "complete_status" : 0,
+  "project_name" : "自定义模块V1.0.3",
+  "sub_task_complete_count" : 0,
+  "datetime_deadline" : 1553855400000,
+  "id" : 175,
+  "project_id" : 72,
+  "check_status" : 0,
+  "picklist_priority" : [
+    {
+      "color" : "#F40808",
+      "label" : "高",
+      "value" : "0"
+    }
+  ],
+  "beanType" : 2,
+  "sub_task_count" : 0,
+  "taskInfoId" : 1668,
+  "picklist_tag" : [
+    {
+      "colour" : "#19BFA4",
+      "name" : "新增任务",
+      "id" : 26
+    }
+  ],
+  "datetime_create_time" : 1553758345181
+}</string>
+</array>
+</plist>

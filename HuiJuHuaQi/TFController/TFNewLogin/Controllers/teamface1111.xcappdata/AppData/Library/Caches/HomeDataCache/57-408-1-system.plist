@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<string>{"icon_color":"#FFFFFF","chinese_name":"审批","icon":"审批","english_name":"approval"}</string>
+	<string>{"icon_color":"#FFFFFF","chinese_name":"备忘录","icon":"备忘录","english_name":"memo"}</string>
+	<string>{"icon_color":"#FFFFFF","chinese_name":"文件库","icon":"文件库","english_name":"library"}</string>
+	<string>{"icon_color":"#FFFFFF","chinese_name":"协作","icon":"协作","english_name":"project"}</string>
+	<string>{"icon_color":"#FFFFFF","chinese_name":"邮件","icon":"邮件","english_name":"email"}</string>
+	<string>{"icon_color":"#FFFFFF","chinese_name":"知识库","icon":"知识库","english_name":"repository_libraries"}</string>
+	<string>{"icon_color":"#FFFFFF","chinese_name":"考勤","icon":"考勤","english_name":"attendance"}</string>
+</array>
+</plist>

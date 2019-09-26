@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1421" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TFPeopleManagePeopleCell" rowHeight="61" id="gyT-IX-bFb" customClass="TFPeopleManagePeopleCell">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="61"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gyT-IX-bFb" id="yMU-Lw-WZ4">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="61"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hJI-Rw-B6l">
+                        <rect key="frame" x="36" y="10" width="40" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="40" id="84N-w1-veC"/>
+                            <constraint firstAttribute="height" constant="40" id="zYA-Zp-DX8"/>
+                        </constraints>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ROh-GQ-wrR">
+                        <rect key="frame" x="86" y="30.5" width="0.0" height="0.0"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qz1-bt-wBS">
+                        <rect key="frame" x="94" y="14" width="30" height="34"/>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R12-sF-c2A">
+                        <rect key="frame" x="315" y="11" width="40" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="40" id="A2T-uv-olM"/>
+                            <constraint firstAttribute="height" constant="40" id="iuF-Yo-iIV"/>
+                        </constraints>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="ROh-GQ-wrR" firstAttribute="centerY" secondItem="yMU-Lw-WZ4" secondAttribute="centerY" id="1o6-E1-ZBH"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="R12-sF-c2A" secondAttribute="trailing" constant="12" id="Ddk-GY-sa3"/>
+                    <constraint firstItem="qz1-bt-wBS" firstAttribute="centerY" secondItem="yMU-Lw-WZ4" secondAttribute="centerY" id="Gql-3h-UDc"/>
+                    <constraint firstItem="hJI-Rw-B6l" firstAttribute="leading" secondItem="yMU-Lw-WZ4" secondAttribute="leadingMargin" constant="28" id="HOq-s1-CKA"/>
+                    <constraint firstItem="ROh-GQ-wrR" firstAttribute="leading" secondItem="hJI-Rw-B6l" secondAttribute="trailing" constant="10" id="OjE-lW-51w"/>
+                    <constraint firstItem="qz1-bt-wBS" firstAttribute="leading" secondItem="ROh-GQ-wrR" secondAttribute="trailing" constant="8" id="Uec-bE-HTH"/>
+                    <constraint firstItem="R12-sF-c2A" firstAttribute="centerY" secondItem="yMU-Lw-WZ4" secondAttribute="centerY" id="bJ8-EM-FsE"/>
+                    <constraint firstItem="hJI-Rw-B6l" firstAttribute="centerY" secondItem="yMU-Lw-WZ4" secondAttribute="centerY" id="tos-dW-epy"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="enterBtn" destination="R12-sF-c2A" id="y8A-kv-ZBU"/>
+                <outlet property="headBtn" destination="hJI-Rw-B6l" id="9vq-pp-Fuf"/>
+                <outlet property="nameLabel" destination="ROh-GQ-wrR" id="DB8-Xb-EpK"/>
+                <outlet property="positionBtn" destination="qz1-bt-wBS" id="Pwk-49-k7v"/>
+            </connections>
+            <point key="canvasLocation" x="-22.5" y="24.5"/>
+        </tableViewCell>
+    </objects>
+</document>

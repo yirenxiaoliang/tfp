@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="UKY-Fz-Nol" customClass="TFPunchSuccessTipView">
+            <rect key="frame" x="0.0" y="0.0" width="148" height="69"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="attandanceTip" translatesAutoresizingMaskIntoConstraints="NO" id="6qT-qx-3Ny">
+                    <rect key="frame" x="0.0" y="0.0" width="148" height="69"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="08:34" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zRc-bb-QI3">
+                    <rect key="frame" x="68" y="10" width="65.5" height="29"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                    <color key="textColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="打卡成功!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XYi-T6-wpk">
+                    <rect key="frame" x="74.5" y="39.5" width="53" height="14.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="6qT-qx-3Ny" secondAttribute="trailing" id="2eT-gi-A1e"/>
+                <constraint firstItem="XYi-T6-wpk" firstAttribute="centerX" secondItem="zRc-bb-QI3" secondAttribute="centerX" id="3EK-SY-QRD"/>
+                <constraint firstItem="6qT-qx-3Ny" firstAttribute="top" secondItem="UKY-Fz-Nol" secondAttribute="top" id="Rr6-ib-GPh"/>
+                <constraint firstItem="zRc-bb-QI3" firstAttribute="leading" secondItem="UKY-Fz-Nol" secondAttribute="leading" constant="68" id="TpE-LD-eSR"/>
+                <constraint firstItem="zRc-bb-QI3" firstAttribute="top" secondItem="UKY-Fz-Nol" secondAttribute="top" constant="10" id="W2W-eC-HuB"/>
+                <constraint firstItem="6qT-qx-3Ny" firstAttribute="leading" secondItem="UKY-Fz-Nol" secondAttribute="leading" id="Yo9-wr-u4N"/>
+                <constraint firstAttribute="bottom" secondItem="XYi-T6-wpk" secondAttribute="bottom" constant="15" id="inj-Br-BUP"/>
+                <constraint firstAttribute="bottom" secondItem="6qT-qx-3Ny" secondAttribute="bottom" id="u0X-PF-utL"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="timeLabel" destination="zRc-bb-QI3" id="5LF-Xa-QZF"/>
+            </connections>
+            <point key="canvasLocation" x="300.80000000000001" y="31.934032983508249"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="attandanceTip" width="149" height="72"/>
+    </resources>
+</document>

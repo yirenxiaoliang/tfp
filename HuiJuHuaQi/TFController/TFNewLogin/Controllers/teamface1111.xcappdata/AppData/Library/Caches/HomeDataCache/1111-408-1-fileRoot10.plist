@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<string>{"id":21,"preview":1,"model_id":0,"sign":"0","parent_id":0,"is_manage":0,"employee_name":"彭","table_id":1,"url":"company408\/21company\/","create_by":4,"siffix":"","color":"#F9B239","type":"0","size":0,"download":"0","create_time":1561617843831,"upload":0,"status":"0","name":"行政管理"}</string>
+	<string>{"id":14,"preview":1,"model_id":0,"sign":"0","parent_id":0,"is_manage":1,"employee_name":"KY","table_id":1,"url":"company408\/14company\/","create_by":1,"siffix":"","color":"#F9B239","type":"0","size":0,"download":"1","create_time":1561605218693,"upload":1,"status":"0","name":"12321"}</string>
+</array>
+</plist>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="17C88" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="FVE-nz-gCp" customClass="TFBlurItemView">
+            <rect key="frame" x="0.0" y="0.0" width="110" height="110"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IzD-gr-WEC">
+                    <rect key="frame" x="20" y="15" width="70" height="70"/>
+                    <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DPN-ea-kuJ">
+                    <rect key="frame" x="10" y="85" width="90" height="20"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eh2-te-0eq">
+                    <rect key="frame" x="78" y="7" width="20" height="20"/>
+                    <color key="backgroundColor" red="0.0" green="0.74509803919999995" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="20" id="8B4-eG-Xc2"/>
+                        <constraint firstAttribute="height" constant="20" id="pJj-IK-yyz"/>
+                    </constraints>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="DPN-ea-kuJ" firstAttribute="leading" secondItem="FVE-nz-gCp" secondAttribute="leading" constant="10" id="5jR-QK-JA4"/>
+                <constraint firstAttribute="bottom" secondItem="IzD-gr-WEC" secondAttribute="bottom" constant="25" id="7O0-RT-CWx"/>
+                <constraint firstAttribute="trailing" secondItem="DPN-ea-kuJ" secondAttribute="trailing" constant="10" id="9wI-SF-g35"/>
+                <constraint firstItem="IzD-gr-WEC" firstAttribute="top" secondItem="FVE-nz-gCp" secondAttribute="top" constant="15" id="ULN-NS-LX7"/>
+                <constraint firstItem="eh2-te-0eq" firstAttribute="top" secondItem="FVE-nz-gCp" secondAttribute="top" constant="7" id="X7Q-2c-n7J"/>
+                <constraint firstItem="eh2-te-0eq" firstAttribute="leading" secondItem="IzD-gr-WEC" secondAttribute="trailing" constant="-12" id="YRp-kf-A4V"/>
+                <constraint firstAttribute="trailing" secondItem="IzD-gr-WEC" secondAttribute="trailing" constant="20" id="deU-WP-YG4"/>
+                <constraint firstAttribute="bottom" secondItem="DPN-ea-kuJ" secondAttribute="bottom" constant="5" id="ggi-1i-DZf"/>
+                <constraint firstItem="DPN-ea-kuJ" firstAttribute="top" secondItem="IzD-gr-WEC" secondAttribute="bottom" id="ucN-jI-ADV"/>
+                <constraint firstItem="IzD-gr-WEC" firstAttribute="leading" secondItem="FVE-nz-gCp" secondAttribute="leading" constant="20" id="xvv-b8-OOF"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="addButton" destination="eh2-te-0eq" id="FaD-a5-5H0"/>
+                <outlet property="imageView" destination="IzD-gr-WEC" id="hTF-ha-c2k"/>
+                <outlet property="nameLabel" destination="DPN-ea-kuJ" id="z2N-CY-Ved"/>
+            </connections>
+            <point key="canvasLocation" x="-51" y="-28"/>
+        </view>
+    </objects>
+</document>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="r2O-3H-c5K" customClass="TFNoteTwoBtnBottomView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8CB-9b-ASd">
+                    <rect key="frame" x="0.0" y="0.0" width="60" height="49"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="60" id="mtc-lR-AWi"/>
+                    </constraints>
+                    <state key="normal" image="备忘录菜单"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ShS-r2-VUm">
+                    <rect key="frame" x="315" y="0.0" width="60" height="49"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="60" id="jNF-hR-9ke"/>
+                    </constraints>
+                    <state key="normal" image="备忘录新增"/>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fdg-gZ-3vZ">
+                    <rect key="frame" x="70" y="10" width="235" height="29"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" red="0.56470588235294117" green="0.56470588235294117" blue="0.56470588235294117" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="ShS-r2-VUm" firstAttribute="leading" secondItem="fdg-gZ-3vZ" secondAttribute="trailing" constant="10" id="0Wl-aR-aaA"/>
+                <constraint firstItem="ShS-r2-VUm" firstAttribute="top" secondItem="r2O-3H-c5K" secondAttribute="top" id="2MD-8U-vJI"/>
+                <constraint firstItem="8CB-9b-ASd" firstAttribute="top" secondItem="r2O-3H-c5K" secondAttribute="top" id="3to-NJ-kWa"/>
+                <constraint firstItem="fdg-gZ-3vZ" firstAttribute="leading" secondItem="8CB-9b-ASd" secondAttribute="trailing" constant="10" id="Bgi-vz-KRl"/>
+                <constraint firstItem="8CB-9b-ASd" firstAttribute="leading" secondItem="r2O-3H-c5K" secondAttribute="leading" id="EK1-rE-Wan"/>
+                <constraint firstAttribute="trailing" secondItem="ShS-r2-VUm" secondAttribute="trailing" id="LqW-8c-0Sd"/>
+                <constraint firstAttribute="bottom" secondItem="ShS-r2-VUm" secondAttribute="bottom" id="R7K-CB-R9y"/>
+                <constraint firstAttribute="bottom" secondItem="fdg-gZ-3vZ" secondAttribute="bottom" constant="10" id="T6G-Sr-M20"/>
+                <constraint firstItem="fdg-gZ-3vZ" firstAttribute="top" secondItem="r2O-3H-c5K" secondAttribute="top" constant="10" id="seh-Pw-uOU"/>
+                <constraint firstAttribute="bottom" secondItem="8CB-9b-ASd" secondAttribute="bottom" id="zVJ-eB-Krq"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="addBtn" destination="ShS-r2-VUm" id="LqX-aw-gW1"/>
+                <outlet property="countLab" destination="fdg-gZ-3vZ" id="UEG-dH-Uac"/>
+                <outlet property="moreBtn" destination="8CB-9b-ASd" id="QEA-8O-1y6"/>
+            </connections>
+            <point key="canvasLocation" x="-300" y="39"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="备忘录新增" width="25" height="25"/>
+        <image name="备忘录菜单" width="25" height="25"/>
+    </resources>
+</document>

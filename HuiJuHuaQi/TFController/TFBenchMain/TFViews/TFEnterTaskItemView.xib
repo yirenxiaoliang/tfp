@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="9cN-qa-v1Z" customClass="TFEnterTaskItemView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="238"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FrB-k3-kmE">
+                    <rect key="frame" x="167.5" y="76" width="40" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="hqE-V2-1QO"/>
+                        <constraint firstAttribute="width" constant="40" id="if5-yO-oZR"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oZU-Gp-eao">
+                    <rect key="frame" x="166.5" y="124" width="42" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OVt-9s-IOF">
+                    <rect key="frame" x="166.5" y="153" width="42" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="FrB-k3-kmE" firstAttribute="centerX" secondItem="9cN-qa-v1Z" secondAttribute="centerX" id="35D-kk-i7Y"/>
+                <constraint firstItem="OVt-9s-IOF" firstAttribute="top" secondItem="oZU-Gp-eao" secondAttribute="bottom" constant="8" id="3SC-M8-Okz"/>
+                <constraint firstItem="FrB-k3-kmE" firstAttribute="centerY" secondItem="9cN-qa-v1Z" secondAttribute="centerY" constant="-23" id="P3S-No-Vs1"/>
+                <constraint firstItem="OVt-9s-IOF" firstAttribute="centerX" secondItem="9cN-qa-v1Z" secondAttribute="centerX" id="U6b-2Y-b4U"/>
+                <constraint firstItem="oZU-Gp-eao" firstAttribute="top" secondItem="FrB-k3-kmE" secondAttribute="bottom" constant="8" id="YKn-9N-KXY"/>
+                <constraint firstItem="oZU-Gp-eao" firstAttribute="centerX" secondItem="9cN-qa-v1Z" secondAttribute="centerX" id="qgu-v8-AGv"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="headImage" destination="FrB-k3-kmE" id="zjX-2V-RRX"/>
+                <outlet property="nameLabel" destination="oZU-Gp-eao" id="AbO-P3-edZ"/>
+                <outlet property="numLabel" destination="OVt-9s-IOF" id="6xu-do-491"/>
+            </connections>
+            <point key="canvasLocation" x="222" y="213"/>
+        </view>
+    </objects>
+</document>

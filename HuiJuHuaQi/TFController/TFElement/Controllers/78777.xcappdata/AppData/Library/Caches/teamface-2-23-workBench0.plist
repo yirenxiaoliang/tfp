@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<string>{
+  "functionformula_1533363691844" : "",
+  "project_id" : 15,
+  "timeId" : 436,
+  "personnel_create_by" : "4",
+  "id" : 295,
+  "multitext_desc" : "&lt;p&gt;具体看下BUG ：&lt;span style='color: rgb(74, 74, 74); font-family: &amp;quot;Helvetica Neue&amp;quot;, &amp;quot;PingFang SC&amp;quot;, &amp;quot;Microsoft Yahei&amp;quot;, å¾®è½¯é›…é»‘, STXihei, åŽæ–‡ç»†é»‘, sans-serif; font-size: 14px; background-color: rgb(255, 255, 255);'&gt;bug0922&lt;\/span&gt;&lt;\/p&gt;",
+  "project_labels_content" : "[{\"numbering\":{\"dateValue\":\"yyyy-MM-dd\",\"serialValue\":\"001\",\"fixedValue\":\"RW\"},\"field\":{\"fieldControl\":\"1\",\"editView\":\"0\",\"defaultValue\":\"\",\"isShowCard\":\"0\",\"addView\":\"0\",\"structure\":\"1\"},\"typeText\":\"自动编号\",\"name\":\"identifier_1534817876011\",\"width\":\"100%\",\"active\":\"1\",\"label\":\"编号\",\"state\":\"1\",\"type\":\"identifier\",\"remove\":\"1\",\"isactive\":0},{\"field\":{\"fieldControl\":\"1\",\"formulaCalculates\":\"0\",\"editView\":\"0\",\"numberType\":\"0\",\"decimalLen\":\"2\",\"isShowCard\":\"0\",\"formulaCh\":\"\",\"addView\":\"0\",\"structure\":\"1\",\"formulaEn\":\"\"},\"typeText\":\"函数公式\",\"name\":\"functionformula_1533363691844\",\"width\":\"50%\",\"active\":\"1\",\"label\":\"状态\",\"state\":\"1\",\"type\":\"functionformula\",\"remove\":\"1\",\"isactive\":0}]",
+  "check_status" : "0",
+  "sub_task_complete_count" : 0,
+  "attachment_customnumber" : "",
+  "text_name" : "发送邮件时收件人\/抄送人\/密送人删除信息体验优化",
+  "picklist_1533362133717" : [
+    {
+      "color" : "#FFFFFF",
+      "label" : "暂停",
+      "value" : "1"
+    }
+  ],
+  "reference_relation" : [
+    {
+      "name" : "",
+      "id" : ""
+    }
+  ],
+  "seas_pool_id" : 0,
+  "functionformula_1534645359619" : "",
+  "sub_task_count" : 0,
+  "del_status" : "0",
+  "dataType" : 2,
+  "picklist_1533362133717_v" : "1",
+  "taskInfoId" : 408,
+  "passed_status" : "0",
+  "functionformula_1534645299132" : "",
+  "personnel_execution" : [
+    {
+      "id" : 23,
+      "post_name" : "IOS工程师",
+      "picture" : "https:\/\/file.teamface.cn\/custom-gateway\/common\/file\/imageDownload?bean=company&amp;fileName=23\/company\/1528279051420.201806061757300.jpg",
+      "name" : "尹明亮"
+    }
+  ],
+  "datetime_create_time" : 1536548715938,
+  "complete_status" : 0,
+  "formula_1536195475786" : 8,
+  "personnel_1534646255262" : "",
+  "datetime_deadline" : 1536748200000,
+  "identifier_1534817876011" : "RW20180910013",
+  "number_1536195390812" : 8,
+  "datetime_starttime" : 1536568200000,
+  "beanType" : 2,
+  "datetime_modify_time" : 1537527370486,
+  "functionformula_1533362222256" : "",
+  "personnel_modify_by" : "23",
+  "picklist_tag" : [
+
+  ],
+  "beanName" : "project_custom_15",
+  "functionformula_1534645658587" : "",
+  "picklist_tag_v" : "",
+  "beanId" : 295,
+  "seniorformula_1536195432088" : 0
+}</string>
+</array>
+</plist>
