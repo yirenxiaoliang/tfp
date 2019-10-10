@@ -23,9 +23,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  保存签名
 
- @return 保存在本地的图片路径
+ @return 图片
  */
-- (NSString *)saveTheSignatureWithError:(void(^)(NSString *errorMsg))errorBlock;
+- (UIImage *)saveTheSignatureWithError:(void(^)(NSString *errorMsg))errorBlock;
 @end
 
 NS_ASSUME_NONNULL_END

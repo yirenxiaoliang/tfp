@@ -967,6 +967,7 @@
 		A1FB92951C8D156E0048ADA1 /* FDActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = A1FB92941C8D156E0048ADA1 /* FDActionSheet.m */; };
 		B863FFDA234F11D70031EB8C /* UIImage+HJImage.m in Sources */ = {isa = PBXBuildFile; fileRef = B863FFD8234F11D70031EB8C /* UIImage+HJImage.m */; };
 		B863FFDD234F12030031EB8C /* HJSignatureView.m in Sources */ = {isa = PBXBuildFile; fileRef = B863FFDC234F12030031EB8C /* HJSignatureView.m */; };
+		B863FFE0234F14CB0031EB8C /* TFSignatureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B863FFDF234F14CB0031EB8C /* TFSignatureViewController.m */; };
 		D103624D1C3F46CE00432D76 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D103624C1C3F46CE00432D76 /* MessageUI.framework */; };
 		D10362511C3F471000432D76 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D10362501C3F471000432D76 /* Foundation.framework */; };
 		D10942D31C4C946800CC6986 /* pinyin.c in Sources */ = {isa = PBXBuildFile; fileRef = D10942D21C4C946800CC6986 /* pinyin.c */; };
@@ -3528,6 +3529,8 @@
 		B863FFD9234F11D70031EB8C /* UIImage+HJImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+HJImage.h"; sourceTree = "<group>"; };
 		B863FFDB234F12020031EB8C /* HJSignatureView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJSignatureView.h; sourceTree = "<group>"; };
 		B863FFDC234F12030031EB8C /* HJSignatureView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJSignatureView.m; sourceTree = "<group>"; };
+		B863FFDE234F14CB0031EB8C /* TFSignatureViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFSignatureViewController.h; sourceTree = "<group>"; };
+		B863FFDF234F14CB0031EB8C /* TFSignatureViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFSignatureViewController.m; sourceTree = "<group>"; };
 		D103624C1C3F46CE00432D76 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		D103624E1C3F470200432D76 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D10362501C3F471000432D76 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -9008,6 +9011,8 @@
 				57BC4B3721AF7E7C00748712 /* TFWebLinkListController.h */,
 				57BC4B3821AF7E7C00748712 /* TFWebLinkListController.m */,
 				572331282225177A008AFE29 /* TFProviceCityDistrictSelectController.swift */,
+				B863FFDE234F14CB0031EB8C /* TFSignatureViewController.h */,
+				B863FFDF234F14CB0031EB8C /* TFSignatureViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -12155,6 +12160,7 @@
 				D6B132341F98901D001A5C0C /* UIScrollView+MJExtension.m in Sources */,
 				D6CD82611EA6078D004CE772 /* TFCompanyCircleHeader.m in Sources */,
 				934DDA781C4CE3DC00A6B512 /* IQKeyboardManager.m in Sources */,
+				B863FFE0234F14CB0031EB8C /* TFSignatureViewController.m in Sources */,
 				D6CE8D1D1F41B002002DFFAB /* JHTableDataRowModel.m in Sources */,
 				D685C99220FD793D0039C42C /* TFProjectCustomSortController.m in Sources */,
 				93C3290F1C45FBB80021AF20 /* JSONModel.m in Sources */,

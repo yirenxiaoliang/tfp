@@ -27,4 +27,7 @@
 
 -(BOOL)haveNumber;
 
+/** 剪切首尾空白字符 */
+-(NSString *)trimEmptySpace;
+
 @end

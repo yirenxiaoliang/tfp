@@ -120,7 +120,7 @@
 }
 
 #pragma mark - 确认
-- (NSString *)saveTheSignatureWithError:(void(^)(NSString *errorMsg))errorBlock {
+- (UIImage *)saveTheSignatureWithError:(void(^)(NSString *errorMsg))errorBlock {
     if (self.isHaveSignature) {
         //开启上下文
         UIGraphicsBeginImageContextWithOptions(self.bounds.size,NO, [UIScreen mainScreen].scale);
@@ -145,13 +145,13 @@
         //压缩图片 将图片压缩到100kb以内
         NSData *imageData = [drawImage compressImageToSize:100 * 1024];
         //保存到本地
-        NSString *path = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES).firstObject;
-        NSString *fileName = [NSUUID UUID].UUIDString;
-        NSString *filePath = [path stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.png",fileName]];
-        [imageData writeToFile:filePath atomically:YES];
+//        NSString *path = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES).firstObject;
+//        NSString *fileName = [NSUUID UUID].UUIDString;
+//        NSString *filePath = [path stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.png",fileName]];
+//        [imageData writeToFile:filePath atomically:YES];
         //清除签名
         [self clear];
-        return filePath;
+        return [UIImage imageWithData:imageData];
     } else {
         if (errorBlock) {
             errorBlock(@"签名不存在");
