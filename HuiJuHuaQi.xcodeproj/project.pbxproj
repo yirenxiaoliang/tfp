@@ -965,6 +965,8 @@
 		A1EC11B51C8AC84D00931E58 /* MWZoomingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = A1EC117A1C8AC3BD00931E58 /* MWZoomingScrollView.m */; };
 		A1EC11BB1C8AE9C200931E58 /* ZYQAssetPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1EC11B91C8AE9C200931E58 /* ZYQAssetPickerController.m */; };
 		A1FB92951C8D156E0048ADA1 /* FDActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = A1FB92941C8D156E0048ADA1 /* FDActionSheet.m */; };
+		B863FFDA234F11D70031EB8C /* UIImage+HJImage.m in Sources */ = {isa = PBXBuildFile; fileRef = B863FFD8234F11D70031EB8C /* UIImage+HJImage.m */; };
+		B863FFDD234F12030031EB8C /* HJSignatureView.m in Sources */ = {isa = PBXBuildFile; fileRef = B863FFDC234F12030031EB8C /* HJSignatureView.m */; };
 		D103624D1C3F46CE00432D76 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D103624C1C3F46CE00432D76 /* MessageUI.framework */; };
 		D10362511C3F471000432D76 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D10362501C3F471000432D76 /* Foundation.framework */; };
 		D10942D31C4C946800CC6986 /* pinyin.c in Sources */ = {isa = PBXBuildFile; fileRef = D10942D21C4C946800CC6986 /* pinyin.c */; };
@@ -3522,6 +3524,10 @@
 		A1EC11B91C8AE9C200931E58 /* ZYQAssetPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYQAssetPickerController.m; sourceTree = "<group>"; };
 		A1FB92931C8D156E0048ADA1 /* FDActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDActionSheet.h; sourceTree = "<group>"; };
 		A1FB92941C8D156E0048ADA1 /* FDActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDActionSheet.m; sourceTree = "<group>"; };
+		B863FFD8234F11D70031EB8C /* UIImage+HJImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+HJImage.m"; sourceTree = "<group>"; };
+		B863FFD9234F11D70031EB8C /* UIImage+HJImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+HJImage.h"; sourceTree = "<group>"; };
+		B863FFDB234F12020031EB8C /* HJSignatureView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJSignatureView.h; sourceTree = "<group>"; };
+		B863FFDC234F12030031EB8C /* HJSignatureView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJSignatureView.m; sourceTree = "<group>"; };
 		D103624C1C3F46CE00432D76 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		D103624E1C3F470200432D76 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D10362501C3F471000432D76 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -7236,6 +7242,8 @@
 				5715EBF522B346C0007D97FD /* NSObject+Equel.m */,
 				575D055222C06B8B00A6F1A2 /* NSString+AES.h */,
 				575D055322C06B8B00A6F1A2 /* NSString+AES.m */,
+				B863FFD9234F11D70031EB8C /* UIImage+HJImage.h */,
+				B863FFD8234F11D70031EB8C /* UIImage+HJImage.m */,
 			);
 			path = HQCategory;
 			sourceTree = "<group>";
@@ -7352,6 +7360,8 @@
 				9351429E1D372B220059D12C /* PopoverView.m */,
 				934B2A9E1D768E5600E57275 /* HQSearchView.h */,
 				934B2A9F1D768E5600E57275 /* HQSearchView.m */,
+				B863FFDB234F12020031EB8C /* HJSignatureView.h */,
+				B863FFDC234F12030031EB8C /* HJSignatureView.m */,
 			);
 			path = HQPublicView;
 			sourceTree = "<group>";
@@ -12421,6 +12431,8 @@
 				58E464E220F2FB9800FC5BD1 /* TFProjectFileMainModel.m in Sources */,
 				57AB7E5921F2CBFF0086A5B5 /* TFWorkEnterCell.m in Sources */,
 				57E890D322CC3DEB00059E6C /* TFPluginCell.m in Sources */,
+				B863FFDD234F12030031EB8C /* HJSignatureView.m in Sources */,
+				B863FFDA234F11D70031EB8C /* UIImage+HJImage.m in Sources */,
 				D685CA5020FD8D9E0039C42C /* TFCreateProjectModel.m in Sources */,
 				D1E8651C1C48F5D9007E89C7 /* UIButton+WebCache.m in Sources */,
 				D6CD824B1EA59D97004CE772 /* TFSingleChatDetailController.m in Sources */,
