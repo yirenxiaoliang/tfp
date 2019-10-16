@@ -21,6 +21,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationItem.title = @"手写签名";
+    self.enablePanGesture = NO;
     self.customBL = [TFCustomBL build];
     self.customBL.delegate = self;
     [self setupSignatureView];
@@ -85,8 +87,8 @@
         
         NSArray *images = resp.body;
         
-        if (self.imagePath) {
-            self.imagePath(images.firstObject);
+        if (self.images) {
+            self.images(images);
             [self.navigationController popViewControllerAnimated:YES];
         }
         

@@ -7,54 +7,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "0559BA6E-8D58-4CAE-9127-0834EBBFC02C"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "HuiJuHuaQi/TFController/TFElement/Controllers/TFNewCustomDetailController.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2173"
-            endingLineNumber = "2173"
-            landmarkName = "-finishedHandle:response:"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "0559BA6E-8D58-4CAE-9127-0834EBBFC02C - a37502927e8d09af"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[TFNewCustomDetailController finishedHandle:response:]"
-                  moduleName = "HuiJuHuaQi"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/daidan/Desktop/tfp/HuiJuHuaQi/TFController/TFElement/Controllers/TFNewCustomDetailController.m"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "2173"
-                  endingLineNumber = "2173"
-                  offsetFromSymbolStart = "4452">
-               </Location>
-               <Location
-                  uuid = "0559BA6E-8D58-4CAE-9127-0834EBBFC02C - a37502927e8d09af"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[TFNewCustomDetailController finishedHandle:response:]"
-                  moduleName = "HuiJuHuaQi"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/daidan/Desktop/tfp/HuiJuHuaQi/TFController/TFElement/Controllers/TFNewCustomDetailController.m"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "2173"
-                  endingLineNumber = "2173"
-                  offsetFromSymbolStart = "4480">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "5AEEA6CB-9200-4601-9835-026981998D36"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"

@@ -17,6 +17,8 @@
 @property (weak, nonatomic) IBOutlet UIImageView *circleImage;
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomLineW;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *imageH;
+@property (weak, nonatomic) IBOutlet UIImageView *signImage;
 
 @end
 
@@ -59,14 +61,20 @@
     
     self.headMargin = 64;
     self.line.backgroundColor = CellSeparatorColor;
-    
+    self.signImage.backgroundColor = WhiteColor;
 //    self.headImage.image = PlaceholderHeadImage;
 //    self.nameLabel.text = @"亮亮同学";
 //    self.positionLabel.text = @"(iOS工程师)";
 //    self.contentLabel.text = @"哈大家开始对方将空的手";
 //    self.timeLabel.text = [HQHelper nsdateToTime:[HQHelper getNowTimeSp] formatStr:@"yyyy-MM-dd HH:mm"];
 //    [self.statuesBtn setTitle:@"审批通过" forState:UIControlStateNormal];
-    
+    self.signImage.userInteractionEnabled = YES;
+    [self.signImage addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imageClicked:)]];
+}
+- (void)imageClicked:(UITapGestureRecognizer *)tap{
+    if ([self.delegate respondsToSelector:@selector(approvalFlowDidImageView:)]) {
+        [self.delegate approvalFlowDidImageView:(UIImageView *)tap.view];
+    }
 }
 
 + (instancetype)approvalFlowCell
@@ -223,6 +231,16 @@
         self.headImage.hidden = NO;
     }
     
+    if (model.approval_signature.count) {
+        self.signImage.hidden = NO;
+        self.imageH.constant = 45;
+        TFFileModel *file = model.approval_signature.firstObject;
+        [self.signImage sd_setImageWithURL:[HQHelper URLWithString:file.file_url]];
+    }else{
+        self.signImage.hidden = YES;
+        self.imageH.constant = 0;
+    }
+    
 }
 + (CGFloat)refreshApprovalCellHeightWithModel:(TFApprovalFlowModel *)model{
    
@@ -249,17 +267,22 @@
         return 64;
         
     }else if ([model.task_status_id isEqualToString:@"2"]) {// 通过
-        
+
+        CGFloat height = 0;
         if (model.approval_message && ![model.approval_message isEqualToString:@""]) {
             
             CGSize size = [HQHelper sizeWithFont:FONT(14) maxSize:(CGSize){SCREEN_WIDTH-110,MAXFLOAT} titleStr:model.approval_message];
         
-            return 92 + size.height;
+            height = 92 + size.height;
             
         }else{
-            return 88;
+            height = 88;
+        }
+        if (model.approval_signature.count) {
+            height += 45;
         }
         
+        return height;
         
     }else if ([model.task_status_id isEqualToString:@"4"]) {// 撤销
         if (model.approval_message && ![model.approval_message isEqualToString:@""]) {

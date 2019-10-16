@@ -9,7 +9,7 @@
 #import "TFApprovalFlowProgramCell.h"
 #import "TFApprovalFlowCell.h"
 
-@interface TFApprovalFlowProgramCell ()<UITableViewDelegate,UITableViewDataSource>
+@interface TFApprovalFlowProgramCell ()<UITableViewDelegate,UITableViewDataSource,TFApprovalFlowCellDelegate>
 /** tableView */
 @property (nonatomic, weak) UITableView *tableView;
 
@@ -164,11 +164,17 @@
         cell.bottomLineImage.hidden = NO;
         cell.line.hidden = NO;
     }
-    
+    cell.delegate = self;
     return cell;
     
 }
 
+#pragma mark - TFApprovalFlowCellDelegate
+- (void)approvalFlowDidImageView:(UIImageView *)imageView{
+    if ([self.delegate respondsToSelector:@selector(approvalFlowClickedImageView:)]) {
+        [self.delegate approvalFlowClickedImageView:imageView];
+    }
+}
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];// 取消选中

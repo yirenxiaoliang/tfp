@@ -78,8 +78,11 @@
 #import "HuiJuHuaQi-Swift.h"
 #import "TFCustomDepartmentCell.h"
 #import "TFRequest.h"
+#import "TFCustomSignatureCell.h"
+#import "TFSignatureViewController.h"
+#import "KSPhotoBrowser.h"
 
-@interface TFAddCustomController ()<UITableViewDelegate,UITableViewDataSource,HQTFInputCellDelegate,FDActionSheetDelegate,TFFileElementCellDelegate,UIDocumentInteractionControllerDelegate,MWPhotoBrowserDelegate,UITextViewDelegate,TFSubformCellDelegate,TFSingleTextCellDelegate,TFCustomLocationCellDelegate,UINavigationControllerDelegate, ZYQAssetPickerControllerDelegate, UIImagePickerControllerDelegate ,SendMessageDelegate,HQBLDelegate,TFSubformSectionViewDelegate,TFSubformAddViewDelegate,TFSubformHeadCellDelegate,TFColumnViewDelegate,HQSelectTimeCellDelegate,TFCustomOptionCellDelegate,TFSelectPeopleCellDelegate,HQSwitchCellDelegate,TFGeneralSingleCellDelegate,TFCustomSelectOptionCellDelegate,TFCustomAttachmentsCellDelegate,TFCustomAlertViewDelegate,TFCustomImageCellDelegate,TFCustomAttributeTextCellDelegate,TFCustomMultiSelectCellDelegate,UIActionSheetDelegate,UIAlertViewDelegate,TFCustomDepartmentCellDelegate,TFTCustomSubformHeaderCellDelegate>
+@interface TFAddCustomController ()<UITableViewDelegate,UITableViewDataSource,HQTFInputCellDelegate,FDActionSheetDelegate,TFFileElementCellDelegate,UIDocumentInteractionControllerDelegate,MWPhotoBrowserDelegate,UITextViewDelegate,TFSubformCellDelegate,TFSingleTextCellDelegate,TFCustomLocationCellDelegate,UINavigationControllerDelegate, ZYQAssetPickerControllerDelegate, UIImagePickerControllerDelegate ,SendMessageDelegate,HQBLDelegate,TFSubformSectionViewDelegate,TFSubformAddViewDelegate,TFSubformHeadCellDelegate,TFColumnViewDelegate,HQSelectTimeCellDelegate,TFCustomOptionCellDelegate,TFSelectPeopleCellDelegate,HQSwitchCellDelegate,TFGeneralSingleCellDelegate,TFCustomSelectOptionCellDelegate,TFCustomAttachmentsCellDelegate,TFCustomAlertViewDelegate,TFCustomImageCellDelegate,TFCustomAttributeTextCellDelegate,TFCustomMultiSelectCellDelegate,UIActionSheetDelegate,UIAlertViewDelegate,TFCustomDepartmentCellDelegate,TFTCustomSubformHeaderCellDelegate,TFCustomSignatureCellDelegate,KSPhotoBrowserDelegate>
 /** tableView */
 @property (nonatomic, weak) UITableView *tableView;
 
@@ -399,7 +402,7 @@
     BOOL required = YES;
     if ([model.field.fieldControl isEqualToString:@"2"]) {// 必填
         
-        if ([model.type isEqualToString:@"picture"] || [model.type isEqualToString:@"attachment"] || [model.type isEqualToString:@"resumeanalysis"] || [model.type isEqualToString:@"picklist"] || [model.type isEqualToString:@"multi"] || [model.type isEqualToString:@"mutlipicklist"]) {
+        if ([model.type isEqualToString:@"picture"] || [model.type isEqualToString:@"attachment"] || [model.type isEqualToString:@"resumeanalysis"] || [model.type isEqualToString:@"picklist"] || [model.type isEqualToString:@"multi"] || [model.type isEqualToString:@"mutlipicklist"] || [model.type isEqualToString:@"signature"]) {
             
             if (!model.selects.count) {
                 
@@ -844,7 +847,7 @@
     }
     
     
-    if ([model.type isEqualToString:@"attachment"] || [model.type isEqualToString:@"resumeanalysis"] || [model.type isEqualToString:@"picture"]) {// 附件，图片
+    if ([model.type isEqualToString:@"attachment"] || [model.type isEqualToString:@"resumeanalysis"] || [model.type isEqualToString:@"picture"] || [model.type isEqualToString:@"signature"]) {// 附件，图片
         
         if (model.selects.count) {
             
@@ -2041,6 +2044,17 @@
         }
         [self hiddenBottomLineForCell:cell indexPath:indexPath layout:layout];
         return cell;
+    }else if ([model.type isEqualToString:@"signature"]){
+        TFCustomSignatureCell *cell = [TFCustomSignatureCell customSignatureCellWithTableView:tableView];
+        cell.delegate = self;
+        cell.model = model;
+        if (self.type != 1) {// 非详情
+            cell.showEdit = YES;
+        }else{// 详情
+            cell.showEdit = NO;
+        }
+        [self hiddenBottomLineForCell:cell indexPath:indexPath layout:layout];
+        return cell;
     }
     
     static NSString *ID = @"cell";
@@ -2237,6 +2251,16 @@
         [self referenceHandleWithModel:model];
     }
     
+    if ([model.type isEqualToString:@"signature"]){// 手写签名
+        kWEAKSELF
+        TFSignatureViewController *sign = [[TFSignatureViewController alloc] init];
+        sign.bean = self.bean;
+        sign.images = ^(NSArray *parameter) {
+            model.selects = [NSMutableArray arrayWithArray:parameter];
+            [weakSelf.tableView reloadData];
+        };
+        [self.navigationController pushViewController:sign animated:YES];
+    }
     
 }
 
@@ -2293,32 +2317,36 @@
     TFCustomerLayoutModel *layout = self.layouts[indexPath.section];
     TFCustomerRowsModel *model = layout.rows[indexPath.row];
     TFCustomerFieldModel *field = model.field;
-    
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    cell.hidden = NO;
     // 1. 不显示某组
     if ([layout.terminalApp isEqualToString:@"0"]) {
-        
+        cell.hidden = YES;
         return 0;
     }
     
     // 新建or编辑不显示系统信息
     if (self.type != 1) {
         if ([layout.name isEqualToString:@"systemInfo"]) {
+            cell.hidden = YES;
             return 0;
         }
     }
     
     if (self.type == 1) {// 详情时显示
         if ([layout.isHideInDetail isEqualToString:@"1"]) {
+            cell.hidden = YES;
             return 0;
         }
     }else{// 新建or编辑
         if ([layout.isHideInCreate isEqualToString:@"1"]) {
+            cell.hidden = YES;
             return 0;
         }
     }
     
     if ([field.terminalApp isEqualToString:@"0"]) {
-        
+        cell.hidden = YES;
         return 0;
     }
     
@@ -2326,7 +2354,7 @@
     if (self.type == 0 || self.type == 3) {// 新增
         
         if ([field.addView isEqualToString:@"0"]) {
-            
+            cell.hidden = YES;
             return 0;
         }
         
@@ -2335,7 +2363,7 @@
     if (self.type == 1) {// 详情
         
         if ([field.detailView isEqualToString:@"0"]) {
-            
+            cell.hidden = YES;
             return 0;
         }
         
@@ -2343,14 +2371,14 @@
     if (self.type == 2 || self.type == 7) {// 编辑
         
         if ([field.editView isEqualToString:@"0"]) {
-            
+            cell.hidden = YES;
             return 0;
         }
     }
     
 #pragma mark - 选项字段控制隐藏
     if ([field.isOptionHidden isEqualToString:@"1"]) {
-        
+        cell.hidden = YES;
         return 0;
     }
     
@@ -2405,7 +2433,14 @@
      HQLog(@"multitext--height:%f",height);
      return [model.height floatValue]<150?150:[model.height floatValue];
      }
-    
+     if ([model.type isEqualToString:@"signature"]){
+        
+         if ([model.field.structure isEqualToString:@"1"]) {// 左右
+             return 75;
+         }else{// 上下
+             return 100;
+         }
+    }
     // 剩余组件
     return 75;
 }
@@ -2705,6 +2740,25 @@
     UIView *view = [[UIView alloc] init];
     view.backgroundColor = [UIColor clearColor];
     return view;
+}
+#pragma mark - TFCustomSignatureCellDelegate
+-(void)signatureClickedWithView:(UIImageView *)imageView{
+    NSMutableArray *items = @[].mutableCopy;
+    KSPhotoItem *item = [KSPhotoItem itemWithSourceView:imageView image:imageView.image];
+    [items addObject:item];
+    
+    KSPhotoBrowser *browser = [KSPhotoBrowser browserWithPhotoItems:items selectedIndex:0];
+    browser.delegate = self;
+    browser.dismissalStyle = KSPhotoBrowserInteractiveDismissalStyleScale;
+    browser.backgroundStyle = KSPhotoBrowserBackgroundStyleBlurPhoto;
+    browser.loadingStyle = KSPhotoBrowserImageLoadingStyleDeterminate;
+    browser.pageindicatorStyle = KSPhotoBrowserPageIndicatorStyleText;
+    browser.bounces = NO;
+    [browser showFromViewController:self];
+}
+
+- (void)ks_photoBrowser:(KSPhotoBrowser *)browser didSelectItem:(KSPhotoItem *)item atIndex:(NSUInteger)index {
+    HQLog(@"selected index: %ld", index);
 }
 
 #pragma mark - 省市区选择
@@ -7698,7 +7752,7 @@
             }
             
         }
-        else if ([model.type isEqualToString:@"attachment"] || [model.type isEqualToString:@"resumeanalysis"] || [model.type isEqualToString:@"picture"]){// 图片附件
+        else if ([model.type isEqualToString:@"attachment"] || [model.type isEqualToString:@"resumeanalysis"] || [model.type isEqualToString:@"picture"] || [model.type isEqualToString:@"signature"]){// 图片附件
           
             model.fieldValue = @"";
             

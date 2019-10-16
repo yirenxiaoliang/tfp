@@ -88,8 +88,10 @@
 #import "TFCustomDepartmentCell.h"
 #import "HuiJuHuaQi-Swift.h"
 #import "TFRequest.h"
+#import "TFCustomSignatureCell.h"
+#import "TFSignatureViewController.h"
 
-@interface TFApprovalDetailController ()<UITableViewDelegate,UITableViewDataSource,HQTFInputCellDelegate,FDActionSheetDelegate,TFFileElementCellDelegate,UIDocumentInteractionControllerDelegate,MWPhotoBrowserDelegate,UITextViewDelegate,TFSubformCellDelegate,TFSingleTextCellDelegate,TFCustomLocationCellDelegate,UINavigationControllerDelegate, ZYQAssetPickerControllerDelegate, UIImagePickerControllerDelegate ,SendMessageDelegate,HQBLDelegate,TFSubformSectionViewDelegate,TFSubformAddViewDelegate,TFSubformHeadCellDelegate,TFColumnViewDelegate,TFTwoBtnsViewDelegate,UIAlertViewDelegate,FDActionSheetDelegate,TFCustomOptionCellDelegate,TFGeneralSingleCellDelegate,TFCustomSelectOptionCellDelegate,TFCustomAttachmentsCellDelegate,TFCustomAlertViewDelegate,TFCustomImageCellDelegate,TFCustomAttributeTextCellDelegate,TFCustomMultiSelectCellDelegate,UIActionSheetDelegate,TFCommentTableViewDelegate,KSPhotoBrowserDelegate,LiuqsEmotionKeyBoardDelegate,TFCustomDepartmentCellDelegate,TFTCustomSubformHeaderCellDelegate>
+@interface TFApprovalDetailController ()<UITableViewDelegate,UITableViewDataSource,HQTFInputCellDelegate,FDActionSheetDelegate,TFFileElementCellDelegate,UIDocumentInteractionControllerDelegate,MWPhotoBrowserDelegate,UITextViewDelegate,TFSubformCellDelegate,TFSingleTextCellDelegate,TFCustomLocationCellDelegate,UINavigationControllerDelegate, ZYQAssetPickerControllerDelegate, UIImagePickerControllerDelegate ,SendMessageDelegate,HQBLDelegate,TFSubformSectionViewDelegate,TFSubformAddViewDelegate,TFSubformHeadCellDelegate,TFColumnViewDelegate,TFTwoBtnsViewDelegate,UIAlertViewDelegate,FDActionSheetDelegate,TFCustomOptionCellDelegate,TFGeneralSingleCellDelegate,TFCustomSelectOptionCellDelegate,TFCustomAttachmentsCellDelegate,TFCustomAlertViewDelegate,TFCustomImageCellDelegate,TFCustomAttributeTextCellDelegate,TFCustomMultiSelectCellDelegate,UIActionSheetDelegate,TFCommentTableViewDelegate,KSPhotoBrowserDelegate,LiuqsEmotionKeyBoardDelegate,TFCustomDepartmentCellDelegate,TFTCustomSubformHeaderCellDelegate,TFCustomSignatureCellDelegate,KSPhotoBrowserDelegate,TFApprovalFlowProgramCellDelegate>
 /** tableView */
 @property (nonatomic, weak) UITableView *tableView;
 
@@ -627,7 +629,7 @@
     BOOL required = YES;
     if ([model.field.fieldControl isEqualToString:@"2"]) {// 必填
         
-        if ([model.type isEqualToString:@"picture"] || [model.type isEqualToString:@"attachment"] || [model.type isEqualToString:@"resumeanalysis"] || [model.type isEqualToString:@"picklist"] || [model.type isEqualToString:@"multi"] || [model.type isEqualToString:@"mutlipicklist"]) {
+        if ([model.type isEqualToString:@"picture"] || [model.type isEqualToString:@"attachment"] || [model.type isEqualToString:@"resumeanalysis"] || [model.type isEqualToString:@"picklist"] || [model.type isEqualToString:@"multi"] || [model.type isEqualToString:@"mutlipicklist"]|| [model.type isEqualToString:@"signature"]) {
             
             if (!model.selects.count) {
                 if (!IsStrEmpty(model.subformName)) {
@@ -999,7 +1001,7 @@
     }
     
     
-    if ([model.type isEqualToString:@"attachment"] || [model.type isEqualToString:@"resumeanalysis"] || [model.type isEqualToString:@"picture"]) {// 附件，图片
+    if ([model.type isEqualToString:@"attachment"] || [model.type isEqualToString:@"resumeanalysis"] || [model.type isEqualToString:@"picture"]|| [model.type isEqualToString:@"signature"]) {// 附件，图片
         
         if (model.selects.count) {
             
@@ -2167,6 +2169,7 @@
         
         [cell refreshApprovalFlowProgramCellWithModels:model.selects];
         [self hiddenBottomLineForCell:cell indexPath:indexPath layout:layout];
+        cell.delegate = self;
         return cell;
         
     }else if ([model.type isEqualToString:@"barcode"]){
@@ -2205,6 +2208,22 @@
             cell.showEdit = NO;
         }
         
+        [self hiddenBottomLineForCell:cell indexPath:indexPath layout:layout];
+        return cell;
+    }else if ([model.type isEqualToString:@"signature"]){
+        TFCustomSignatureCell *cell = [TFCustomSignatureCell customSignatureCellWithTableView:tableView];
+        cell.model = model;
+        
+        if (self.listType == 1 && self.isSelf && [self.currentTaskKey isEqualToString:self.approvalItem.task_key]) {
+            if ([field.fieldControl isEqualToString:@"1"]) {
+                cell.showEdit = NO;
+            }else{
+                cell.showEdit = YES;
+            }
+        }else{// 详情
+            cell.showEdit = NO;
+        }
+        cell.delegate = self;
         [self hiddenBottomLineForCell:cell indexPath:indexPath layout:layout];
         return cell;
     }
@@ -2338,7 +2357,8 @@
                 return;
             }
             
-        }else{
+        }
+        else{
             
             // 超链接跳转
             if ([model.type isEqualToString:@"url"]) {
@@ -2426,6 +2446,17 @@
         [self referenceHandleWithModel:model];
     }
     
+
+      if ([model.type isEqualToString:@"signature"]){// 手写签名
+          kWEAKSELF
+          TFSignatureViewController *sign = [[TFSignatureViewController alloc] init];
+          sign.bean = self.approvalItem.module_bean;
+          sign.images = ^(NSArray *parameter) {
+              model.selects = [NSMutableArray arrayWithArray:parameter];
+              [weakSelf.tableView reloadData];
+          };
+          [self.navigationController pushViewController:sign animated:YES];
+      }
     
 }
 
@@ -2628,7 +2659,14 @@
         return [TFApprovalFlowProgramCell refreshApprovalFlowProgramCellHeightWithModels:model.selects];
     }
     
-    
+    if ([model.type isEqualToString:@"signature"]){
+           
+        if ([model.field.structure isEqualToString:@"1"]) {// 左右
+            return 75;
+        }else{// 上下
+            return 100;
+        }
+    }
     // 剩余组件
     return 75;
 }
@@ -2908,6 +2946,30 @@
     UIView *view = [[UIView alloc] init];
     view.backgroundColor = [UIColor clearColor];
     return view;
+}
+#pragma mark - TFApprovalFlowProgramCellDelegate
+-(void)approvalFlowClickedImageView:(UIImageView *)imageView{
+    [self signatureClickedWithView:imageView];
+}
+
+#pragma mark - TFCustomSignatureCellDelegate
+-(void)signatureClickedWithView:(UIImageView *)imageView{
+    NSMutableArray *items = @[].mutableCopy;
+    KSPhotoItem *item = [KSPhotoItem itemWithSourceView:imageView image:imageView.image];
+    [items addObject:item];
+    
+    KSPhotoBrowser *browser = [KSPhotoBrowser browserWithPhotoItems:items selectedIndex:0];
+    browser.delegate = self;
+    browser.dismissalStyle = KSPhotoBrowserInteractiveDismissalStyleScale;
+    browser.backgroundStyle = KSPhotoBrowserBackgroundStyleBlurPhoto;
+    browser.loadingStyle = KSPhotoBrowserImageLoadingStyleDeterminate;
+    browser.pageindicatorStyle = KSPhotoBrowserPageIndicatorStyleText;
+    browser.bounces = NO;
+    [browser showFromViewController:self];
+}
+
+- (void)ks_photoBrowser:(KSPhotoBrowser *)browser didSelectItem:(KSPhotoItem *)item atIndex:(NSUInteger)index {
+    HQLog(@"selected index: %ld", index);
 }
 
 #pragma mark - 人员组件
@@ -7888,7 +7950,7 @@
         }
         
     }
-    else if ([model.type isEqualToString:@"attachment"] || [model.type isEqualToString:@"resumeanalysis"] || [model.type isEqualToString:@"picture"]){// 图片附件
+    else if ([model.type isEqualToString:@"attachment"] || [model.type isEqualToString:@"resumeanalysis"] || [model.type isEqualToString:@"picture"]|| [model.type isEqualToString:@"signature"]){// 图片附件
         
         model.fieldValue = @"";
         
@@ -8883,9 +8945,6 @@
     
 }
 
-- (void)ks_photoBrowser:(KSPhotoBrowser *)browser didSelectItem:(KSPhotoItem *)item atIndex:(NSUInteger)index {
-    HQLog(@"selected index: %ld", index);
-}
 
 - (void)commentTableViewDidClickFile:(TFFileModel *)file{
     

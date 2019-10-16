@@ -65,7 +65,8 @@
 @property (nonatomic, strong) NSNumber <Optional>*process_type;
 /** normal */
 @property (nonatomic, strong) NSNumber <Optional>*normal;
-
+/** 签名 */
+@property (nonatomic, strong) NSArray <Ignore,TFFileModel>*approval_signature;
 
 /** 上个颜色 0:灰色 1：绿色 2：红色 3:虚线 4:黄色 */
 @property (nonatomic, assign) NSNumber <Ignore>*previousColor;

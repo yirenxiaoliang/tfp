@@ -88,6 +88,8 @@
 #import "TFEmailsNewController.h"
 #import "TFCustomDepartmentCell.h"
 #import "HuiJuHuaQi-Swift.h"
+#import "TFCustomSignatureCell.h"
+#import "TFSignatureViewController.h"
 
 @interface TFAddTaskController ()<UITableViewDelegate,UITableViewDataSource,HQTFInputCellDelegate,FDActionSheetDelegate,TFFileElementCellDelegate,UIDocumentInteractionControllerDelegate,MWPhotoBrowserDelegate,UITextViewDelegate,TFSubformCellDelegate,TFSingleTextCellDelegate,TFCustomLocationCellDelegate,UINavigationControllerDelegate, ZYQAssetPickerControllerDelegate, UIImagePickerControllerDelegate ,SendMessageDelegate,HQBLDelegate,TFSubformSectionViewDelegate,TFSubformAddViewDelegate,TFSubformHeadCellDelegate,TFColumnViewDelegate,HQSelectTimeCellDelegate,TFCustomOptionCellDelegate,TFSelectPeopleCellDelegate,HQSwitchCellDelegate,TFAttributeTextCellDelegate,TFGeneralSingleCellDelegate,TFCustomSelectOptionCellDelegate,TFCustomAttachmentsCellDelegate,TFCustomAlertViewDelegate,TFCustomImageCellDelegate,TFCustomAttributeTextCellDelegate,TFGeneralSingleCellDelegate,TFCustomSelectOptionCellDelegate,TFCustomAttachmentsCellDelegate,TFCustomAlertViewDelegate,TFCustomImageCellDelegate,TFCustomAttributeTextCellDelegate,UIActionSheetDelegate,UIAlertViewDelegate,TFCustomDepartmentCellDelegate,TFTCustomSubformHeaderCellDelegate>
 /** tableView */
@@ -346,7 +348,7 @@
     BOOL required = YES;
     if ([model.field.fieldControl isEqualToString:@"2"]) {// 必填
         
-        if ([model.type isEqualToString:@"picture"] || [model.type isEqualToString:@"attachment"] || [model.type isEqualToString:@"resumeanalysis"] || [model.type isEqualToString:@"picklist"] || [model.type isEqualToString:@"multi"] || [model.type isEqualToString:@"mutlipicklist"]) {
+        if ([model.type isEqualToString:@"picture"] || [model.type isEqualToString:@"attachment"] || [model.type isEqualToString:@"resumeanalysis"] || [model.type isEqualToString:@"picklist"] || [model.type isEqualToString:@"multi"] || [model.type isEqualToString:@"mutlipicklist"]|| [model.type isEqualToString:@"signature"]) {
             
             if (!model.selects.count) {
                 
@@ -787,7 +789,7 @@
     }
     
     
-    if ([model.type isEqualToString:@"attachment"] || [model.type isEqualToString:@"resumeanalysis"] || [model.type isEqualToString:@"picture"]) {// 附件，图片
+    if ([model.type isEqualToString:@"attachment"] || [model.type isEqualToString:@"resumeanalysis"] || [model.type isEqualToString:@"picture"]|| [model.type isEqualToString:@"signature"]) {// 附件，图片
         
         if (model.selects.count) {
             
@@ -2131,6 +2133,16 @@
         cell.bottomLine.hidden = YES;
         return cell;
         
+    }else if ([model.type isEqualToString:@"signature"]){
+        TFCustomSignatureCell *cell = [TFCustomSignatureCell customSignatureCellWithTableView:tableView];
+        cell.model = model;
+        if (self.type != 1) {// 非详情
+            cell.showEdit = YES;
+        }else{// 详情
+            cell.showEdit = NO;
+        }
+        [self hiddenBottomLineForCell:cell indexPath:indexPath layout:layout];
+        return cell;
     }
     
     static NSString *ID = @"cell";
@@ -2293,7 +2305,16 @@
         [self referenceHandleWithModel:model];
     }
     
-    
+    if ([model.type isEqualToString:@"signature"]){// 手写签名
+           kWEAKSELF
+           TFSignatureViewController *sign = [[TFSignatureViewController alloc] init];
+           sign.bean = self.bean;
+           sign.images = ^(NSArray *parameter) {
+               model.selects = [NSMutableArray arrayWithArray:parameter];
+               [weakSelf.tableView reloadData];
+           };
+           [self.navigationController pushViewController:sign animated:YES];
+       }
 }
 
 /** 消除该pickList以下的pickList控制的组件 */
@@ -2486,6 +2507,14 @@
         return 44;
     }
     
+     if ([model.type isEqualToString:@"signature"]){
+        
+         if ([model.field.structure isEqualToString:@"1"]) {// 左右
+             return 75;
+         }else{// 上下
+             return 100;
+         }
+    }
     // 剩余组件
     return 75;
 }
@@ -7306,7 +7335,7 @@
             model.fieldValue = [[dict valueForKey:model.name] description];
         }
         
-    }else if ([model.type isEqualToString:@"attachment"] || [model.type isEqualToString:@"resumeanalysis"] || [model.type isEqualToString:@"picture"]){// 图片附件
+    }else if ([model.type isEqualToString:@"attachment"] || [model.type isEqualToString:@"resumeanalysis"] || [model.type isEqualToString:@"picture"]|| [model.type isEqualToString:@"signature"]){// 图片附件
         
         model.fieldValue = @"";
         

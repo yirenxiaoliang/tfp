@@ -17,6 +17,9 @@
 #import "TFEmployModel.h"
 #import "TFMutilStyleSelectPeopleController.h"
 #import "TFChangeHelper.h"
+#import "TFCustomerRowsModel.h"
+#import "TFCustomSignatureCell.h"
+#import "TFSignatureViewController.h"
 
 @interface TFApprovalPassController ()<UITableViewDelegate,UITableViewDataSource,UITextViewDelegate,FDActionSheetDelegate,HQBLDelegate>
 /** tableView */
@@ -37,17 +40,27 @@
 
 /** processType 审批类型 0：固定 1：自由 */
 @property (nonatomic, strong) NSNumber *processType;
+/** approvalSignature 审批签名 0：不需， 1：一定，2：可签 */
+@property (nonatomic, strong) NSNumber *approvalSignature;
 
 /** ApprovalFlag 是否有审批人 0：没有（需选人） 1：有（不需） */
 @property (nonatomic, strong) NSNumber *approvalFlag;
 
 /** 固定审批需选人 */
 @property (nonatomic, strong) NSMutableArray *employeeList;
-
+@property (nonatomic, strong) TFCustomerRowsModel *signRow;
 
 @end
 
 @implementation TFApprovalPassController
+
+-(TFCustomerRowsModel *)signRow{
+    if (!_signRow) {
+        _signRow = [[TFCustomerRowsModel alloc] init];
+        _signRow.label = @"签名";
+    }
+    return _signRow;
+}
 
 -(NSMutableArray *)employeeList{
     if (!_employeeList) {
@@ -243,7 +256,14 @@
                 }
             }
         }
-        
+        if (self.type < 3 && [self.approvalSignature integerValue] == 1) {
+                   
+           if (self.signRow.selects == 0) {
+               
+               [MBProgressHUD showError:@"签名不能为空" toView:self.view];
+               return;
+           }
+        }
         NSMutableDictionary *dict = [NSMutableDictionary dictionary];
         
         // 数据bean
@@ -322,6 +342,19 @@
         }
 //        NSString *ssss = [HQHelper dictionaryToJson:ddd];
         [dict setObject:ddd forKey:@"paramFields"];
+        if (self.type < 3) {
+            if (self.signRow.selects) {
+                       TFFileModel *file = self.signRow.selects.firstObject;
+                       NSDictionary *dd6 = [file toDictionary];
+                       if (dd6) {
+                           [dict setObject:@[dd6] forKey:@"signature_picture"];
+                       }else{
+                           [dict setObject:@[] forKey:@"signature_picture"];
+                       }
+                   }else{
+                       [dict setObject:@[] forKey:@"signature_picture"];
+                   }
+        }
         
         self.navigationItem.rightBarButtonItem.enabled = NO;
         [self.view endEditing:YES];
@@ -374,6 +407,12 @@
         NSDictionary *dict = resp.body;
         
         self.processType = [dict valueForKey:@"processType"];
+        self.approvalSignature = [dict valueForKey:@"approvalSignature"];
+        TFCustomerFieldModel *field = [[TFCustomerFieldModel alloc] init];
+        field.fieldControl = [[self.approvalSignature description] isEqualToString:@"1"] ? @"2" : @"0";
+        field.structure = @"1";
+        self.signRow.field = field;
+        
         self.approvalFlag = [dict valueForKey:@"approvalFlag"];
         NSArray *arr = [dict valueForKey:@"employeeList"];
         
@@ -441,11 +480,11 @@
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
     if (self.type == 0) {
-        return 1;
+        return 1 + 1;
     }else if (self.type == 1){
-        return 2;
+        return 2 + 1;
     }else if (self.type == 2){
-        return 3;
+        return 3 + 1;
     }else if (self.type == 3){
         return 2;
     }else{
@@ -458,19 +497,32 @@
     
     if (self.type == 0) {
         
-        TFManyLableCell *cell = [TFManyLableCell creatManyLableCellWithTableView:tableView];
-        cell.titleLab.text = @"审批意见";
-        cell.textVeiw.delegate = self;
-        cell.textVeiw.placeholder = @"请输入200字以内（选填）";
-        cell.textVeiw.placeholderColor = PlacehoderColor;
-        cell.textVeiw.tag = 0x777 *indexPath.section + indexPath.row;
-        cell.textVeiw.text = self.approvalAdvise;
-        cell.textVeiw.textColor = BlackTextColor;
-        cell.structure = @"0";
-        cell.fieldControl = @"0";
-        cell.textVeiw.userInteractionEnabled = YES;
-        
-        return cell;
+        if (indexPath.row == 0) {
+
+            TFManyLableCell *cell = [TFManyLableCell creatManyLableCellWithTableView:tableView];
+            cell.titleLab.text = @"审批意见";
+            cell.textVeiw.delegate = self;
+            cell.textVeiw.placeholder = @"请输入200字以内（选填）";
+            cell.textVeiw.placeholderColor = PlacehoderColor;
+            cell.textVeiw.tag = 0x777 *indexPath.section + indexPath.row;
+            cell.textVeiw.text = self.approvalAdvise;
+            cell.textVeiw.textColor = BlackTextColor;
+            cell.structure = @"0";
+            cell.fieldControl = @"0";
+            cell.textVeiw.userInteractionEnabled = YES;
+            if ([self.approvalSignature integerValue] > 0) {
+                cell.bottomLine.hidden = NO;
+            }else{
+                cell.bottomLine.hidden = YES;
+            }
+            return cell;
+            
+        }else{
+            TFCustomSignatureCell *cell = [TFCustomSignatureCell customSignatureCellWithTableView:tableView];
+            cell.model = self.signRow;
+            cell.showEdit = YES;
+            return cell;
+        }
         
         
     }
@@ -492,15 +544,25 @@
             
             return cell;
             
-        }else{
+        }else if (indexPath.row == 1) {
             
             TFSelectPeopleCell *cell = [TFSelectPeopleCell selectPeopleCellWithTableView:tableView];
             cell.titleLabel.text = @"下一节点审批人";
             cell.fieldControl = @"2";
             [cell refreshSelectPeopleCellWithPeoples:self.approvals structure:@"0" chooseType:@"0" showAdd:YES clear:NO];
             
+            if ([self.approvalSignature integerValue] > 0) {
+                cell.bottomLine.hidden = NO;
+            }else{
+                cell.bottomLine.hidden = YES;
+            }
             return cell;
             
+        }else{
+            TFCustomSignatureCell *cell = [TFCustomSignatureCell customSignatureCellWithTableView:tableView];
+            cell.model = self.signRow;
+            cell.showEdit = YES;
+            return cell;
         }
         
     }
@@ -536,15 +598,25 @@
             
             return cell;
             
-        }else{
+        }else if (indexPath.row == 2){
             
             TFSelectPeopleCell *cell = [TFSelectPeopleCell selectPeopleCellWithTableView:tableView];
             cell.titleLabel.text = @"下一节点审批人";
             cell.fieldControl = @"2";
             [cell refreshSelectPeopleCellWithPeoples:self.approvals structure:@"0" chooseType:@"0" showAdd:YES clear:NO];
             
+            if ([self.approvalSignature integerValue] > 0) {
+                cell.bottomLine.hidden = NO;
+            }else{
+                cell.bottomLine.hidden = YES;
+            }
             return cell;
             
+        }else{
+            TFCustomSignatureCell *cell = [TFCustomSignatureCell customSignatureCellWithTableView:tableView];
+            cell.model = self.signRow;
+            cell.showEdit = YES;
+            return cell;
         }
         
     }
@@ -602,7 +674,17 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];// 取消选中
-    
+    if (self.type == 0 && indexPath.row == 1) {
+        
+        kWEAKSELF
+        TFSignatureViewController *sign = [[TFSignatureViewController alloc] init];
+        sign.bean = self.approvalItem.module_bean;
+        sign.images = ^(NSArray *parameter) {
+            self.signRow.selects = [NSMutableArray arrayWithArray:parameter];
+            [weakSelf.tableView reloadData];
+        };
+        [self.navigationController pushViewController:sign animated:YES];
+    }
     if (self.type == 1) {
         if (indexPath.row == 1) {// 选人
             
@@ -623,6 +705,17 @@
             [self.navigationController pushViewController:select animated:YES];
             
         }
+        if (indexPath.row == 2) {
+               
+               kWEAKSELF
+               TFSignatureViewController *sign = [[TFSignatureViewController alloc] init];
+               sign.bean = self.approvalItem.module_bean;
+               sign.images = ^(NSArray *parameter) {
+                   self.signRow.selects = [NSMutableArray arrayWithArray:parameter];
+                   [weakSelf.tableView reloadData];
+               };
+               [self.navigationController pushViewController:sign animated:YES];
+           }
     }
     
     if (self.type == 2) {
@@ -660,6 +753,16 @@
 //            
 //            [self.navigationController pushViewController:select animated:YES];
             
+        }else if (indexPath.row == 3) {
+            
+            kWEAKSELF
+            TFSignatureViewController *sign = [[TFSignatureViewController alloc] init];
+            sign.bean = self.approvalItem.module_bean;
+            sign.images = ^(NSArray *parameter) {
+                self.signRow.selects = [NSMutableArray arrayWithArray:parameter];
+                [weakSelf.tableView reloadData];
+            };
+            [self.navigationController pushViewController:sign animated:YES];
         }
     }
     
@@ -713,16 +816,29 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     if (self.type == 0) {
-        
-        return 227;
+        if (indexPath.row == 0) {
+            return 227;
+        }else{
+            if ([self.approvalSignature integerValue] > 0) {
+                return 75;
+            }else{
+                return 0;
+            }
+        }
     }else if (self.type == 1){
         
         if (indexPath.row == 0) {
             
             return 227;
-        }else{
+        }else if (indexPath.row == 1) {
             
             return [TFSelectPeopleCell refreshSelectPeopleCellHeightWithStructure:@"0"];
+        }else{
+            if ([self.approvalSignature integerValue] > 0) {
+                return 75;
+            }else{
+                return 0;
+            }
         }
     }else if (self.type == 2){
         
@@ -732,12 +848,18 @@
         }else if (indexPath.row == 1) {
             
             return 227;
-        }else{
+        }else if (indexPath.row == 2) {
             
             if (self.passWay == 0) {
                 return 0;
             }
             return [TFSelectPeopleCell refreshSelectPeopleCellHeightWithStructure:@"0"];
+        }else{
+            if ([self.approvalSignature integerValue] > 0) {
+                return 75;
+            }else{
+                return 0;
+            }
         }
     }else if (self.type == 3){
         if (indexPath.row == 0) {

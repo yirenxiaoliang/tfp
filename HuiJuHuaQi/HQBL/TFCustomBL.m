@@ -2496,8 +2496,25 @@
                 NSArray *arr = data[kData];
                 NSMutableArray *models = [NSMutableArray array];
                 for (NSDictionary *dict in arr) {
-                    TFApprovalFlowModel *model = [[TFApprovalFlowModel alloc] initWithDictionary:dict error:nil];
-                    [models addObject:model];
+                    NSError *errer;
+                    TFApprovalFlowModel *model = [[TFApprovalFlowModel alloc] initWithDictionary:dict error:&errer];
+                    NSMutableArray<Ignore,TFFileModel>  *ss = [NSMutableArray<Ignore,TFFileModel>  array];
+                    if ([@"" isEqualToString:[dict valueForKey:@"approval_signature"]]) {
+                        model.approval_signature = ss;
+                    }else{
+                        NSArray *aa = [dict valueForKey:@"approval_signature"];
+                        for (NSDictionary *dd in aa) {
+                            TFFileModel *file = [[TFFileModel alloc] initWithDictionary:dd error:nil];
+                            if (file) {
+                                [ss addObject:file];
+                            }
+                        }
+                        model.approval_signature = ss;
+                        
+                    }
+                    if (model) {
+                        [models addObject:model];
+                    }
                 }
                 resp = [HQResponseEntity responseFromCmdId:cmdId sid:sid body:models];
             }

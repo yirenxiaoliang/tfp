@@ -45,7 +45,9 @@
 }
 
 - (void)drawRect:(CGRect)rect {
-    self.signaturePath.lineWidth = 2;
+    self.signaturePath.lineWidth = 3;
+    self.signaturePath.lineCapStyle = kCGLineCapRound;
+    self.signaturePath.lineJoinStyle = kCGLineJoinRound;
     [[UIColor blackColor] setStroke];
     [self.signaturePath stroke];
 }

@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** 模块标识 */
 @property (nonatomic, copy) NSString *bean;
 /** 图片url回调 */
-@property (nonatomic, copy) ActionParameter imagePath;
+@property (nonatomic, copy) ActionParameter images;
 
 @end
 

@@ -9,8 +9,15 @@
 #import "HQBaseCell.h"
 #import "TFApprovalFlowModel.h"
 
-@interface TFApprovalFlowCell : HQBaseCell
+@protocol TFApprovalFlowCellDelegate <NSObject>
 
+@optional
+-(void)approvalFlowDidImageView:(UIImageView *)imageView;
+
+@end
+
+@interface TFApprovalFlowCell : HQBaseCell
+@property (nonatomic, weak) id <TFApprovalFlowCellDelegate>delegate;
 @property (weak, nonatomic) IBOutlet UIImageView *topLineImage;
 @property (weak, nonatomic) IBOutlet UIImageView *bottomLineImage;
 @property (weak, nonatomic) IBOutlet UIView *line;

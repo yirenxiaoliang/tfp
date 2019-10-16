@@ -8,8 +8,15 @@
 
 #import "HQBaseCell.h"
 
-@interface TFApprovalFlowProgramCell : HQBaseCell
+@protocol TFApprovalFlowProgramCellDelegate <NSObject>
 
+@optional
+-(void)approvalFlowClickedImageView:(UIImageView *)imageView;
+
+@end
+
+@interface TFApprovalFlowProgramCell : HQBaseCell
+@property (nonatomic, weak) id <TFApprovalFlowProgramCellDelegate>delegate;
 + (TFApprovalFlowProgramCell *)approvalFlowProgramCellWithTableView:(UITableView *)tableView;
 
 - (void)refreshApprovalFlowProgramCellWithModels:(NSArray *)models;
