@@ -24,6 +24,7 @@
     self.customBL = [TFCustomBL build];
     self.customBL.delegate = self;
     [self setupSignatureView];
+    
 }
 
 - (void)setupSignatureView{

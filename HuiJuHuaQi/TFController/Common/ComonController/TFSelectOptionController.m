@@ -364,17 +364,17 @@
             
             TFCustomerOptionModel *model = self.entrys[indexPath.row];
             
-//            if ([model.open isEqualToNumber:@1]) {
-//                model.open = @0;
-//            }else{
-//
-//                for (TFCustomerOptionModel *model in self.entrys) {
-//                    model.open = @0;
-//                }
-//                model.open = @1;
-//            }
-//
-//            [self.tableView reloadData];
+            if ([model.open isEqualToNumber:@1]) {
+                model.open = @0;
+            }else{
+
+                for (TFCustomerOptionModel *model in self.entrys) {
+                    model.open = @0;
+                }
+                model.open = @1;
+            }
+
+            [self.tableView reloadData];
             
             model.open = @1;
             [self.tableView reloadData];

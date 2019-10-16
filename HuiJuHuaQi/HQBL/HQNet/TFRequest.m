@@ -151,6 +151,9 @@ static dispatch_once_t oncetoKen;
            success:(void (^)(id))success
            failure:(void (^)(NSError *))failure{
     
+    // 处理
+//    body = [self handleStringEmptyParameter:body];
+    
     NSData *data=[NSJSONSerialization dataWithJSONObject:body?:@{} options:NSJSONWritingPrettyPrinted error:nil];
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:URLString]];
@@ -523,6 +526,41 @@ static dispatch_once_t oncetoKen;
     
     return dict;
 }
+
+/** 处理参数中的字符串首尾空白字符 */
+- (id)handleStringEmptyParameter:(id)parameter{
+    
+    if ([parameter isKindOfClass:[NSDictionary class]]) {
+        NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithDictionary:parameter];
+        for (NSString *key in dict.allKeys) {
+            id obj = [dict valueForKey:key];
+            if ([obj isKindOfClass:[NSString class]]) {
+                NSString *str = obj;
+                [dict setObject:str.trimEmptySpace forKey:key];
+            }else{
+                [dict setObject:[self handleStringEmptyParameter:obj] forKey:key];
+            }
+        }
+        return dict;
+        
+    }else if ([parameter isKindOfClass:[NSArray class]]){
+        
+        NSArray *arr = parameter;
+        NSMutableArray *arrs = [NSMutableArray array];
+        for (id obj in arr) {
+            [arrs addObject:[self handleStringEmptyParameter:obj]];
+        }
+        return arrs;
+    }else if ([parameter isKindOfClass:[NSString class]]){
+        
+        NSString *str = parameter;
+        
+        return str.trimEmptySpace;
+    }
+    return parameter;
+    
+}
+
 
 #pragma mark - AFNetworkingReachabilityDidChangeNotification
 //网络连接 监听方法
