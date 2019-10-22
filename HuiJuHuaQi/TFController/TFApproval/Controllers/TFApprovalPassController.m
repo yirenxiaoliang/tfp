@@ -40,7 +40,7 @@
 
 /** processType 审批类型 0：固定 1：自由 */
 @property (nonatomic, strong) NSNumber *processType;
-/** approvalSignature 审批签名 0：不需， 1：一定，2：可签 */
+/** approvalSignature 审批签名 0：不需，1：可签, 2：一定 */
 @property (nonatomic, strong) NSNumber *approvalSignature;
 
 /** ApprovalFlag 是否有审批人 0：没有（需选人） 1：有（不需） */
@@ -58,6 +58,10 @@
     if (!_signRow) {
         _signRow = [[TFCustomerRowsModel alloc] init];
         _signRow.label = @"签名";
+        TFCustomerFieldModel *field = [[TFCustomerFieldModel alloc] init];
+        field.fieldControl = @"0";
+        field.structure = @"1";
+        _signRow.field = field;
     }
     return _signRow;
 }
@@ -78,6 +82,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.processType = @0;
+    self.approvalFlag = @0;
+    self.approvalSignature = @0;
     [self setupTableView];
     [self setupNavi];
     
@@ -256,7 +263,7 @@
                 }
             }
         }
-        if (self.type < 3 && [self.approvalSignature integerValue] == 1) {
+        if (self.type < 3 && [self.approvalSignature integerValue] == 2) {
                    
            if (self.signRow.selects == 0) {
                
@@ -407,11 +414,10 @@
         NSDictionary *dict = resp.body;
         
         self.processType = [dict valueForKey:@"processType"];
-        self.approvalSignature = [dict valueForKey:@"approvalSignature"];
-        TFCustomerFieldModel *field = [[TFCustomerFieldModel alloc] init];
-        field.fieldControl = [[self.approvalSignature description] isEqualToString:@"1"] ? @"2" : @"0";
-        field.structure = @"1";
-        self.signRow.field = field;
+        if (!([dict valueForKey:@"approvalSignature"] == [NSNull null])) {
+            self.approvalSignature = @([[dict valueForKey:@"approvalSignature"] integerValue] + 1);
+        }
+        self.signRow.field.fieldControl = [[self.approvalSignature description] isEqualToString:@"2"] ? @"2" : @"0";;
         
         self.approvalFlag = [dict valueForKey:@"approvalFlag"];
         NSArray *arr = [dict valueForKey:@"employeeList"];

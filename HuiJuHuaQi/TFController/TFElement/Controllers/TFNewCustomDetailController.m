@@ -2171,6 +2171,9 @@
         NSMutableArray *arr = [NSMutableArray array];
         
         for (TFCustomAuthModel *model in resp.body) {
+            if ([model.data_auth integerValue] == 0) {
+                continue;
+            }
             
             switch ([model.auth_code integerValue]) {
                 case 1:
@@ -2213,6 +2216,9 @@
         BOOL have = NO;
         for (TFCustomAuthModel *model in resp.body) {
             
+            if ([model.data_auth integerValue] == 0) {
+                continue;
+            }
             if ([model.auth_code isEqualToNumber:@1]) {
                 have = YES;
                 break;

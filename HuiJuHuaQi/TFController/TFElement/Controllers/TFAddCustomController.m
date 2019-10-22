@@ -4052,7 +4052,7 @@
             }
         }
         
-        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+//        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         
         [self.customBL requestGetLinkageFieldListWithDict:dict];
     }
@@ -6507,8 +6507,37 @@
         // 值
         NSDictionary *dict = resp.body;
         
-        // 处理联动
-        [self handleLinkageFieldWithDict:dict currentModel:self.attachmentModel];
+        if ([dict valueForKey:@"currentSubIndex"]) {// 子表单中的联动
+            NSArray *keys = dict.allKeys;
+            NSString *desK = nil;
+            for (NSString *kk in keys) {
+                if ([kk containsString:@"subform_"]) {
+                    desK = kk;
+                    break;
+                }
+            }
+            TFCustomerRowsModel *subform = [self getRowWithName:desK];
+            NSNumber *bun = [dict valueForKey:@"currentSubIndex"];
+            NSDictionary *subDict = [dict valueForKey:desK];
+            if ([bun integerValue] < subform.subforms.count) {
+                NSArray *ooo = [subform.subforms objectAtIndex:[bun integerValue]];
+                NSArray *subKeys = [subDict allKeys];
+                for (NSString *subKey in subKeys) {
+                    for (TFCustomerRowsModel *rr in ooo) {
+                        if ([rr.name isEqualToString:subKey]) {
+                            [self customerRowsModel:rr WithDict:subDict];
+                            break;
+                        }
+                    }
+                }
+                
+            }
+            
+            
+        }else{
+            // 处理联动
+            [self handleLinkageFieldWithDict:dict currentModel:self.attachmentModel];
+        }
         
         // 刷新
         [self.tableView reloadData];
@@ -7499,7 +7528,7 @@
         if ([model.type isEqualToString:@"picklist"] || [model.type isEqualToString:@"multi"]) {
             
             
-            NSMutableArray *selects = [NSMutableArray array];
+            NSMutableArray<Optional,TFCustomerOptionModel> *selects = [NSMutableArray<Optional,TFCustomerOptionModel> array];
             NSString *str = @"";
             if ([[dict valueForKey:model.name] isKindOfClass:[NSArray class]]) {
                 
@@ -7529,6 +7558,10 @@
                 [self restoreHiddenWithModel:model];
                 
                 model.selects = selects;
+                // 默认子表单下拉的值
+                if (model.field.defaultEntrys.count == 0) {
+                    model.field.defaultEntrys = selects;
+                }
                 
                 // 选项控制
                 if (selects.count) {
