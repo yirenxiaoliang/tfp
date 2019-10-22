@@ -3111,6 +3111,30 @@
     }
 }
 
+/** 处理图片 */
+- (NSArray *)handlePicture:(NSString *)pictureStr{
+    
+    if (!pictureStr || pictureStr.length == 0) {
+        return @[];
+    }
+    NSArray *pictures = [pictureStr componentsSeparatedByString:@"#teamface#"];
+    NSMutableArray *files = [NSMutableArray array];
+    for (NSString *str in pictures) {
+        NSArray *arr = [str componentsSeparatedByString:@"&teamface&"];
+        NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+        [dict setObject:arr[0] forKey:@"file_name"];
+        [dict setObject:arr[1] forKey:@"file_url"];
+        [dict setObject:arr[2] forKey:@"file_type"];
+        [dict setObject:arr[3] forKey:@"file_size"];
+        [dict setObject:arr[4] forKey:@"serial_number"];
+        [dict setObject:arr[5] forKey:@"upload_by"];
+        [dict setObject:arr[6] forKey:@"upload_time"];
+        [files addObject:dict];
+    }
+    
+    return files;
+}
+
 #pragma mark - 关联组件选择
 -(void)referenceHandleWithModel:(TFCustomerRowsModel *)model{
     
@@ -3182,6 +3206,21 @@
         if ([obj isKindOfClass:[NSArray class]]) {// 选多个
             
             NSMutableArray *list = obj;// 转化为数据
+            
+            // 将图片和附件字符串转为数组
+            for (TFReferenceListModel *lm in list) {
+                NSMutableDictionary *relaDict = (NSMutableDictionary *)lm.relationField;
+                NSArray *keys = relaDict.allKeys;
+                for (NSString *key in keys) {
+                    if ([key containsString:@"attachment_"] || [key containsString:@"picture_"]) {
+                        if ([[relaDict valueForKey:key] isKindOfClass:[NSString class]]) {
+                            [relaDict setObject:[self handlePicture:[relaDict valueForKey:key]] forKey:key];
+                        }
+                    }
+                }
+                
+            }
+            
             // 判断是否需要增加栏目，增加多少栏目
             // 将已有的赋值，剩下的增加栏目，若没有剩余就无需插入
             
@@ -3357,6 +3396,19 @@
         }
         else{
             TFReferenceListModel *parameter = obj;
+            
+            // 将图片和附件字符串转为数组
+            NSMutableDictionary *relaDict = (NSMutableDictionary *)parameter.relationField;
+            NSArray *keys = relaDict.allKeys;
+            for (NSString *key in keys) {
+                if ([key containsString:@"attachment_"] || [key containsString:@"picture_"]) {
+                    if ([[relaDict valueForKey:key] isKindOfClass:[NSString class]]) {
+                        [relaDict setObject:[self handlePicture:[relaDict valueForKey:key]] forKey:key];
+                    }
+                }
+            }
+                
+            
 #pragma mark - 回填关联映射
             // 回填关联映射
             [self handleReferanceMapFieldWithDict:parameter.relationField currentModel:model];
@@ -6518,13 +6570,18 @@
             }
             TFCustomerRowsModel *subform = [self getRowWithName:desK];
             NSNumber *bun = [dict valueForKey:@"currentSubIndex"];
-            NSDictionary *subDict = [dict valueForKey:desK];
+            NSMutableDictionary *subDict = [NSMutableDictionary dictionaryWithDictionary:[dict valueForKey:desK]];
             if ([bun integerValue] < subform.subforms.count) {
                 NSArray *ooo = [subform.subforms objectAtIndex:[bun integerValue]];
                 NSArray *subKeys = [subDict allKeys];
                 for (NSString *subKey in subKeys) {
                     for (TFCustomerRowsModel *rr in ooo) {
                         if ([rr.name isEqualToString:subKey]) {
+                            if ([[subDict valueForKey:subKey] isKindOfClass:[NSString class]]) {
+                                if ([subKey containsString:@"picture_"] || [subKey containsString:@"attachment_"]) {
+                                    [subDict setObject:[self handlePicture:[subDict valueForKey:subKey]] forKey:subKey];
+                                }
+                            }
                             [self customerRowsModel:rr WithDict:subDict];
                             break;
                         }
