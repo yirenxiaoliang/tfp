@@ -2271,7 +2271,7 @@
 //    NSArray *picklistRows = [self getPickListRows];
 //    BOOL start = NO;
 //    for (TFCustomerRowsModel *pickRow in picklistRows) {
-//        
+//
 //        if ([pickRow.name isEqualToString:model.name]) {// 2.当前组件以下
 //            start = YES;
 //            continue;
@@ -2287,7 +2287,7 @@
 //                    pickRow.selects = nil;
 //                }
 //            }
-//            
+//
 //        }
 //    }
     
@@ -3626,11 +3626,11 @@
 #pragma mark - 设置选项依赖的选项
         [self relevanceWithOption:option];
         
-        if (option.hidenFields.count) {
+//        if (option.hidenFields.count) {
             
             // 消除该组件下面的所有下拉控制
             [self cancelPicklistUnderWithModel:model];
-        }
+//        }
         
 #pragma mark - 设置选项控制字段隐藏及显示
         // 当前下拉控制选项是否隐藏组件
