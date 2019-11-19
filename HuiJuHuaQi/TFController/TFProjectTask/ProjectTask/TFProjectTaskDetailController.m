@@ -1508,7 +1508,7 @@
         [MBProgressHUD hideHUDForView:self.view animated:YES];
         NSDictionary *dict = resp.body;
         
-        if (![[dict valueForKey:@"readAuth"] isEqualToNumber:@1]) {
+        if ([[dict valueForKey:@"readAuth"] isEqualToNumber:@0] || [[dict valueForKey:@"readAuth"] isEqualToNumber:@2]) {
             [MBProgressHUD showError:@"暂无数据权限" toView:self.view];
             return;
         }
@@ -4908,6 +4908,11 @@
                         member.projectId = self.projectId;
                         if (self.checkPeople) {
                             member.selectPeoples = @[self.checkPeople];
+                        }
+
+                        NSDictionary *dict = [self.detailDict valueForKey:@"customArr"];
+                        if (dict) {
+                            member.noselectPeoples = [dict valueForKey:@"personnel_principal"];
                         }
                         member.parameterAction = ^(NSArray *parameter) {
                             

@@ -168,6 +168,25 @@
             }
             
         }
+        
+        if (self.noselectPeoples) {
+
+            for (NSDictionary *dd in self.noselectPeoples) {
+                BOOL have = NO;
+                for (TFProjectPeopleModel *pe in self.menbers) {
+                    
+                    if ([dd valueForKey:@"id"] && [[pe.employee_id description] isEqualToString:[[dd valueForKey:@"id"] description]]) {
+                        [self.menbers removeObject:pe];
+                        have = YES;
+                        break;
+                    }
+                }
+                if (have) {
+                    break;
+                }
+            }
+        }
+        
         [self.tableView reloadData];
         
     }

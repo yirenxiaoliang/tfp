@@ -113,7 +113,7 @@
 @property (nonatomic, strong) TFCustomerRowsModel *attachmentModel;
 
 /** 详情数据 */
-@property (nonatomic, strong) NSDictionary *detailDict;
+@property (nonatomic, strong) NSMutableDictionary *detailDict;
 /** HQAreaManager */
 @property (nonatomic, strong) HQAreaManager *areaManager;
 
@@ -3209,7 +3209,7 @@
             
             // 将图片和附件字符串转为数组
             for (TFReferenceListModel *lm in list) {
-                NSMutableDictionary *relaDict = (NSMutableDictionary *)lm.relationField;
+                NSMutableDictionary *relaDict = [NSMutableDictionary dictionaryWithDictionary:lm.relationField];
                 NSArray *keys = relaDict.allKeys;
                 for (NSString *key in keys) {
                     if ([key containsString:@"attachment_"] || [key containsString:@"picture_"]) {
@@ -3218,6 +3218,7 @@
                         }
                     }
                 }
+                lm.relationField = relaDict;
                 
             }
             
@@ -6098,7 +6099,65 @@
                     
                     NSArray *arr = [self.detailDict valueForKey:row.name];
                     
-                    if (!arr) continue;
+                    if (!arr || arr.count == 0) {
+
+                        if (row.defaultSubform.count && self.type == 2) {
+                            // 将默认值附上
+                            [self.detailDict setObject:row.defaultSubform forKey:row.name];
+                            
+                            row.subforms = nil;
+                            for (NSInteger i = 0 ; i < row.defaultSubform.count; i ++) {
+                                
+                                // 将子表单中组件定义为一个布局
+                                TFCustomerLayoutModel *sublay = [[TFCustomerLayoutModel alloc] init];
+                                sublay.level = [NSString stringWithFormat:@"%ld",(long)level];
+                                sublay.virValue = @"1";
+                                sublay.name = row.type;
+                                sublay.fieldName = row.name;
+                                sublay.fieldControl = row.field.fieldControl;
+                                // 该分栏不显示大于组件不显示
+                                if ([layout.terminalApp isEqualToString:@"0"]) {
+                                    sublay.terminalApp = layout.terminalApp;
+                                }else{
+                                    sublay.terminalApp = row.field.terminalApp;
+                                }
+                                sublay.isHideInCreate = layout.isHideInCreate;
+                                sublay.isHideInDetail = layout.isHideInDetail;
+                                sublay.isHideColumnName = @"0";
+                                sublay.position = @(i+1);
+                                sublay.isSpread = layout.isSpread?:@"0";
+                                if (!layout.isHideColumnName || [layout.isHideColumnName isEqualToString:@"1"]) {
+                                    sublay.isSpread = @"0";
+                                }
+                                
+                                NSMutableArray<TFCustomerRowsModel,Optional> *subforms = [NSMutableArray<TFCustomerRowsModel,Optional> array];
+                                for (TFCustomerRowsModel *sub in row.componentList) {
+                                    TFCustomerRowsModel *copSub = [sub copy];
+                                    copSub.subformName = row.name;
+                                    copSub.position = sublay.position;
+    //                                if ([row.field.fieldControl isEqualToString:@"1"]) {// 子表单组件为只读，子组件听从子表单的
+    //                                    copSub.field.fieldControl = row.field.fieldControl;
+    //                                }
+                                    [subforms addObject:copSub];
+                                }
+                                if (!row.subforms) {
+                                    row.subforms = [NSMutableArray arrayWithObject:subforms];
+                                }else{
+                                    if (i <= row.subforms.count-1) {
+                                        [row.subforms replaceObjectAtIndex:i withObject:subforms];
+                                    }else{
+                                        [row.subforms addObject:subforms];
+                                    }
+                                }
+                                
+                                sublay.rows = subforms;
+                                
+                                [layouts addObject:sublay];
+                                index += 1;
+                            }
+                            
+                        }
+                    }
                     
                     if (arr.count) {
                         
@@ -6650,7 +6709,7 @@
         
         
         NSDictionary *valueDict = resp.body;
-        self.detailDict = valueDict;
+        self.detailDict = [NSMutableDictionary dictionaryWithDictionary:valueDict];
         
         if (!self.layouts) {
             [self.customBL requestCustomLayoutWithBean:self.bean taskKey:self.taskKey operationType:self.oprationType dataId:[self.dataId description] isSeasPool:self.isSeasPool processFieldV:self.processFieldV];

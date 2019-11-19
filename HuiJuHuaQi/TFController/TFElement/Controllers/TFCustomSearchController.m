@@ -431,6 +431,7 @@
 //            TFCustomDetailController *detail = [[TFCustomDetailController alloc] init];
             TFNewCustomDetailController *detail = [[TFNewCustomDetailController alloc] init];
             detail.bean = self.bean;
+            detail.dataAuth = model.auth;
             detail.dataId = [NSNumber numberWithInteger:[model.id.value integerValue]];
             detail.isSeasAdmin = self.isSeasAdmin;
             detail.seaPoolId = self.seaPoolId;

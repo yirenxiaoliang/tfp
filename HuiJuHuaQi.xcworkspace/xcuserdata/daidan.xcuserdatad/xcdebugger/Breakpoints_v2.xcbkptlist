@@ -7,144 +7,32 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "87984302-5ED8-417A-A9B4-84B9E2C0A609"
+            uuid = "94C5EE61-6FF3-4E0D-AB63-145A6F03A1F9"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "HuiJuHuaQi/TFController/TFApproval/Controllers/TFApprovalPassController.m"
+            filePath = "HuiJuHuaQi/TFController/TFElement/Controllers/TFAddCustomController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "560"
-            endingLineNumber = "560"
-            landmarkName = "-tableView:cellForRowAtIndexPath:"
+            startingLineNumber = "3229"
+            endingLineNumber = "3229"
+            landmarkName = "-referenceHandleWithModel:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "26F078F9-27BA-4146-BDEE-EDAE45702803"
+            uuid = "BF24FF26-44FC-4136-B4A8-7DFF0CAA3D4A"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "HuiJuHuaQi/TFController/TFApproval/Controllers/TFApprovalPassController.m"
+            filePath = "HuiJuHuaQi/TFController/TFProjectTask/ProjectTask/TFProjectTaskDetailController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "614"
-            endingLineNumber = "614"
-            landmarkName = "-tableView:cellForRowAtIndexPath:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "6E2CC624-F35E-4C33-AE92-E225F4E448EC"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "HuiJuHuaQi/TFController/TFApproval/Controllers/TFApprovalPassController.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "784"
-            endingLineNumber = "784"
+            startingLineNumber = "4945"
+            endingLineNumber = "4945"
             landmarkName = "-tableView:didSelectRowAtIndexPath:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "A7F5E36E-50E0-4655-B71C-E68724D9FD5C"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "HuiJuHuaQi/TFController/TFApproval/Controllers/TFApprovalPassController.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "843"
-            endingLineNumber = "843"
-            landmarkName = "-tableView:heightForRowAtIndexPath:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "08576E52-28E5-4217-8C6F-CE2604561A1B"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "HuiJuHuaQi/TFController/TFApproval/Controllers/TFApprovalPassController.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "437"
-            endingLineNumber = "437"
-            landmarkName = "-finishedHandle:response:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "144ED6C1-1535-482E-B4FE-627994E1C4EA"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "HuiJuHuaQi/TFController/TFApproval/Controllers/TFApprovalPassController.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "441"
-            endingLineNumber = "441"
-            landmarkName = "-finishedHandle:response:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "F5C2BAC8-AC5E-41B5-AD6E-9C1EA1F81503"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "HuiJuHuaQi/TFController/TFApproval/Controllers/TFApprovalPassController.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "448"
-            endingLineNumber = "448"
-            landmarkName = "-finishedHandle:response:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "CB56B0E2-DE9A-4C93-8234-B5A514CCC684"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "HuiJuHuaQi/TFController/TFElement/Controllers/TFAddCustomController.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "3622"
-            endingLineNumber = "3622"
-            landmarkName = "-picklistOptionControlAndHiddenWithModel:parameter:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "43DE2984-3362-413A-8D96-7348E0CA6536"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "HuiJuHuaQi/TFController/TFElement/Controllers/TFAddCustomController.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "3637"
-            endingLineNumber = "3637"
-            landmarkName = "-picklistOptionControlAndHiddenWithModel:parameter:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -73,6 +73,8 @@
 /** select */
 @property (nonatomic, strong) NSNumber <Ignore>*select;
 
+/** theme_content */
+@property (nonatomic, copy) NSString <Optional>*theme_content;
 
 
 @end

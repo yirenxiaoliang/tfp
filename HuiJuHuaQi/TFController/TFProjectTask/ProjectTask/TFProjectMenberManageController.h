@@ -28,6 +28,8 @@
 
 /** selectPeoples */
 @property (nonatomic, strong) NSArray *selectPeoples;
+/** 不能选的人 */
+@property (nonatomic, strong) NSArray *noselectPeoples;
 
 @property (nonatomic, assign) BOOL isTransfer;
 

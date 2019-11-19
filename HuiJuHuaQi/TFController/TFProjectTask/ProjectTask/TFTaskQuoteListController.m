@@ -1139,19 +1139,14 @@
             [MBProgressHUD showError:@"无权查看或数据已删除！" toView:self.view];
             return;
         }
-        else if ([authStr isEqualToNumber:@1]) {
-            
-            [self taskRelationListDidClickedModel:self.selectTask];
-        }
         else if ([authStr isEqualToNumber:@2]) {
             
             [MBProgressHUD showError:@"无权查看或数据已删除！" toView:self.view];
             return;
         }
-        else if ([authStr isEqualToNumber:@3]) {
+        else{
             
-            [MBProgressHUD showError:@"无权查看或数据已删除！" toView:self.view];
-            return;
+            [self taskRelationListDidClickedModel:self.selectTask];
         }
         
     }

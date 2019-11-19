@@ -169,6 +169,11 @@
             self.isMutil = YES;
         }
     }
+
+    if (self.isSingleSelect) {
+        
+        self.navigationItem.rightBarButtonItem = nil;
+    }
 }
 
 - (void)sure{

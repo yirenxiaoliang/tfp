@@ -14,7 +14,7 @@
 
 #import "HQEmployModel.h"
 #import "TFManagePersonsModel.h"
-
+#import "TFSelectFirstLevelPeopleController.h"
 #import "TFFileBL.h"
 
 @interface TFManagerSetController ()<UITableViewDelegate,UITableViewDataSource,HQBLDelegate,TFAddPersonsCellDelegate>
@@ -125,6 +125,45 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];// 取消选中
     
     if (indexPath.row == 0) {
+        
+        // 只能选一级目录的成员
+        TFSelectFirstLevelPeopleController *people = [[TFSelectFirstLevelPeopleController alloc] init];
+        people.style = self.style;
+        people.lastfolderId = self.parentId;
+        people.actionParameter = ^(id parameter) {
+            
+            NSString *manage = @"";
+            
+            for (HQEmployModel *model in parameter) {
+                
+                BOOL have = NO;
+                for (TFManageItemModel *itemModel in _peoples) {
+                    
+                    if ([model.id isEqualToNumber:itemModel.employee_id]) {
+                        
+                        have = YES;
+                        break;
+                    }
+                }
+                if (!have) {
+                    
+                    manage = [manage stringByAppendingFormat:@",%@", model.id];
+                }
+                
+            }
+            
+            if (![manage isEqualToString:@""]) {
+                
+                manage = [manage substringFromIndex:1];
+                
+                [self.fileBL requestSavaManageStaffWithData:self.parentId manage:manage fileLevel:@(self.fileSeries)];
+            }
+            
+        };
+        
+        [self.navigationController pushViewController:people animated:YES];
+        
+        return;
         
 //        TFMutilStyleSelectPeopleController *selectPeople = [[TFMutilStyleSelectPeopleController alloc] init];
 //        
@@ -268,6 +307,46 @@
 #pragma mark TFAddPersonsCellDelegate
 - (void)addManagers:(NSInteger)tag {
 
+
+    // 只能选一级目录的成员
+    TFSelectFirstLevelPeopleController *people = [[TFSelectFirstLevelPeopleController alloc] init];
+    people.style = self.style;
+    people.lastfolderId = self.parentId;
+    people.actionParameter = ^(id parameter) {
+        
+        NSString *manage = @"";
+        
+        for (HQEmployModel *model in parameter) {
+            
+            BOOL have = NO;
+            for (TFManageItemModel *itemModel in _peoples) {
+                
+                if ([model.id isEqualToNumber:itemModel.employee_id]) {
+                    
+                    have = YES;
+                    break;
+                }
+            }
+            if (!have) {
+                
+                manage = [manage stringByAppendingFormat:@",%@", model.id];
+            }
+            
+        }
+        
+        if (![manage isEqualToString:@""]) {
+            
+            manage = [manage substringFromIndex:1];
+            
+            [self.fileBL requestSavaManageStaffWithData:self.parentId manage:manage fileLevel:@(self.fileSeries)];
+        }
+        
+    };
+    
+    [self.navigationController pushViewController:people animated:YES];
+    
+    return;
+    
     TFSelectChatPeopleController *selectPeople = [[TFSelectChatPeopleController alloc] init];
     
     selectPeople.type = 1;

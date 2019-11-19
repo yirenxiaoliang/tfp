@@ -149,7 +149,7 @@
         NSDictionary *dict = resp.body;
         NSString *readAuth = [[dict valueForKey:@"readAuth"] description];
         
-        if ([readAuth isEqualToString:@"1"]) {
+        if (!([readAuth isEqualToString:@"0"] || [readAuth isEqualToString:@"2"])) {
             
             TFEmailsDetailController *emailsDetaiVC = [[TFEmailsDetailController alloc] init];
             emailsDetaiVC.emailId = self.model.id;

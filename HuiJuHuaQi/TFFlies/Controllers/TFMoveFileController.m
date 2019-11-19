@@ -16,6 +16,7 @@
 #import "TFMainListModel.h"
 
 #import "TFFileBL.h"
+#import "TFOneLevelFolderController.h"
 
 @interface TFMoveFileController ()<UITableViewDelegate,UITableViewDataSource,TFFilePathViewDelegate,HQBLDelegate,TFSelectFolderCellDelegate>
 
@@ -315,7 +316,18 @@
         
         [[NSNotificationCenter defaultCenter] postNotificationName:MoveFileSuccessNotification object:nil];
         
-        [self.navigationController popViewControllerAnimated:YES];
+        UIViewController *deVc = nil;
+        for (UIViewController *vc in self.navigationController.childViewControllers) {
+            if ([vc isKindOfClass:[TFOneLevelFolderController class]]) {
+                deVc = vc;
+            }
+        }
+        if (deVc) {
+            
+            [self.navigationController popToViewController:deVc animated:YES];
+        }else{
+            [self.navigationController popViewControllerAnimated:YES];
+        }
     }
     
     if (resp.cmdId == HQCMD_copyFileLibrary) {

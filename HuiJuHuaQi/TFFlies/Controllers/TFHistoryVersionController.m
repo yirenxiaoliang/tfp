@@ -138,7 +138,8 @@
         if ([self.model.suffix isEqualToString:@"jpg"] || [self.model.suffix isEqualToString:@"jpeg"] || [self.model.suffix isEqualToString:@"png"] ||[self.model.suffix isEqualToString:@"gif"]) {
             
 //            NSString *string = [NSString stringWithFormat:@"%@%@%@?id=%@",kServerAddress,ServerAdress,@"/library/file/download",self.fileId];
-            NSString *string = [NSString stringWithFormat:@"%@%@?id=%@",kServerAddress,@"/library/file/download",self.fileId];
+//            /library/file/downloadHistoryFile?id=1139
+            NSString *string = [NSString stringWithFormat:@"%@%@?id=%@",kServerAddress,@"/library/file/downloadHistoryFile",self.model.id];
             NSString *fileName = [NSString stringWithFormat:@"%@.%@",[HQHelper stringForMD5WithString:string],self.model.suffix];
             [HQHelper cacheFileWithUrl:string fileName:fileName completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
                 

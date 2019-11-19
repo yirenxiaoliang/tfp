@@ -17,6 +17,8 @@
 
 @interface TFCustomListItemModel : JSONModel
 
+/** 权限 */
+@property (nonatomic, copy) NSString <Optional>*auth;
 /** 颜色 */
 @property (nonatomic, copy) NSString <Optional>*color;
 

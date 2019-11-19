@@ -1385,6 +1385,10 @@
         operationArr = @[@"发送到聊天"];
     }
     
+    if (self.style == 2) { //应用文件夹
+        
+        operationArr = @[@"发送到聊天"];
+    }
     if (self.style == 3) { //个人文件
         
         

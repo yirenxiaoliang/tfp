@@ -1096,7 +1096,7 @@
     
     self.navigationItem.title = TEXT(self.layout.title);
     
-    if (self.isSeasAdmin) {
+    if (self.seaPoolId) {
         
         self.navigationItem.rightBarButtonItem = [self itemWithTarget:self action:@selector(highseaClick) image:@"菜单白色" highlightImage:@"菜单白色"];
         
@@ -1118,7 +1118,7 @@
             
         }
         
-        if (self.auths.count) {
+        if (self.auths.count && (![self.dataAuth isEqualToString:@"0"] || !self.dataAuth)) {
             self.navigationItem.rightBarButtonItem = [self itemWithTarget:self action:@selector(rightClick) image:@"菜单白色" highlightImage:@"菜单白色"];
         }
     }
@@ -2171,9 +2171,9 @@
         NSMutableArray *arr = [NSMutableArray array];
         
         for (TFCustomAuthModel *model in resp.body) {
-            if ([model.data_auth integerValue] == 0) {
-                continue;
-            }
+//            if ([model.data_auth integerValue] == 0) {
+//                continue;
+//            }
             
             switch ([model.auth_code integerValue]) {
                 case 1:
@@ -2216,9 +2216,9 @@
         BOOL have = NO;
         for (TFCustomAuthModel *model in resp.body) {
             
-            if ([model.data_auth integerValue] == 0) {
-                continue;
-            }
+//            if ([model.data_auth integerValue] == 0) {
+//                continue;
+//            }
             if ([model.auth_code isEqualToNumber:@1]) {
                 have = YES;
                 break;

@@ -968,6 +968,7 @@
 		B863FFDA234F11D70031EB8C /* UIImage+HJImage.m in Sources */ = {isa = PBXBuildFile; fileRef = B863FFD8234F11D70031EB8C /* UIImage+HJImage.m */; };
 		B863FFDD234F12030031EB8C /* HJSignatureView.m in Sources */ = {isa = PBXBuildFile; fileRef = B863FFDC234F12030031EB8C /* HJSignatureView.m */; };
 		B863FFE0234F14CB0031EB8C /* TFSignatureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B863FFDF234F14CB0031EB8C /* TFSignatureViewController.m */; };
+		B8AB31AD237E52DC00DB8C58 /* TFSelectFirstLevelPeopleController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8AB31AC237E52DC00DB8C58 /* TFSelectFirstLevelPeopleController.m */; };
 		B8C8CC912356A862007CBCCD /* TFCustomSignatureCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B8C8CC902356A862007CBCCD /* TFCustomSignatureCell.m */; };
 		D103624D1C3F46CE00432D76 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D103624C1C3F46CE00432D76 /* MessageUI.framework */; };
 		D10362511C3F471000432D76 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D10362501C3F471000432D76 /* Foundation.framework */; };
@@ -3532,6 +3533,8 @@
 		B863FFDC234F12030031EB8C /* HJSignatureView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJSignatureView.m; sourceTree = "<group>"; };
 		B863FFDE234F14CB0031EB8C /* TFSignatureViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFSignatureViewController.h; sourceTree = "<group>"; };
 		B863FFDF234F14CB0031EB8C /* TFSignatureViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFSignatureViewController.m; sourceTree = "<group>"; };
+		B8AB31AB237E52DC00DB8C58 /* TFSelectFirstLevelPeopleController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFSelectFirstLevelPeopleController.h; sourceTree = "<group>"; };
+		B8AB31AC237E52DC00DB8C58 /* TFSelectFirstLevelPeopleController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFSelectFirstLevelPeopleController.m; sourceTree = "<group>"; };
 		B8C8CC8F2356A862007CBCCD /* TFCustomSignatureCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFCustomSignatureCell.h; sourceTree = "<group>"; };
 		B8C8CC902356A862007CBCCD /* TFCustomSignatureCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFCustomSignatureCell.m; sourceTree = "<group>"; };
 		D103624C1C3F46CE00432D76 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
@@ -5650,6 +5653,8 @@
 				586617A01FF23D2600BF3DF9 /* TFManageFolderController.m */,
 				58246D5B1FF4935200FEBFB0 /* TFManagerSetController.h */,
 				58246D5C1FF4935200FEBFB0 /* TFManagerSetController.m */,
+				B8AB31AB237E52DC00DB8C58 /* TFSelectFirstLevelPeopleController.h */,
+				B8AB31AC237E52DC00DB8C58 /* TFSelectFirstLevelPeopleController.m */,
 				582D46E91FF387A40014D52F /* TFFileAuthController.h */,
 				582D46EA1FF387A40014D52F /* TFFileAuthController.m */,
 				58246D6D1FF4C46D00FEBFB0 /* TFAuthAssignController.h */,
@@ -11709,6 +11714,7 @@
 				D62CB4C51DE6F38B00D0365B /* JCHATGroupMemberCollectionViewCell.m in Sources */,
 				D685C8E220FD76FF0039C42C /* TFStatisticsItemModel.m in Sources */,
 				D69E21C51EADAD45005EB7E1 /* HQBenchCollectionCell.m in Sources */,
+				B8AB31AD237E52DC00DB8C58 /* TFSelectFirstLevelPeopleController.m in Sources */,
 				D6A9F6EE1E6FEA5900C063FA /* HQSegmentLineView.m in Sources */,
 				D685C99D20FD793D0039C42C /* TFProjectTaskDetailController.m in Sources */,
 				D685C8A920FD76FE0039C42C /* TFModuleModel.m in Sources */,
@@ -13020,6 +13026,7 @@
 					"$(PROJECT_DIR)/HuiJuHuaQi/ThirdPart/UMSocialSDK/UMSocialSDKPlugin",
 					"$(PROJECT_DIR)/HuiJuHuaQi/ThirdPart/UMSocialSDK/SocialLibraries/Sina",
 				);
+				MARKETING_VERSION = 5.2;
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lxml2",
@@ -13125,6 +13132,7 @@
 					"$(PROJECT_DIR)/HuiJuHuaQi/ThirdPart/UMSocialSDK/UMSocialSDKPlugin",
 					"$(PROJECT_DIR)/HuiJuHuaQi/ThirdPart/UMSocialSDK/SocialLibraries/Sina",
 				);
+				MARKETING_VERSION = 5.2;
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lxml2",

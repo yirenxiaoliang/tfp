@@ -144,7 +144,7 @@
 //            fid = [model.id integerValue];
 //        }
 //        NSURL *url = [HQHelper URLWithString:[NSString stringWithFormat:@"%@%@%@?id=%ld&type=1&url=%@&width=64&height=64",kServerAddress,ServerAdress,@"/library/file/downloadCompressedPicture",fid,model.url]];
-        NSURL *url = [HQHelper URLWithString:[NSString stringWithFormat:@"%@%@?id=%ld&type=1&url=%@&width=64&height=64",kServerAddress,@"/library/file/downloadCompressedPicture",fid,model.url]];
+        NSURL *url = [HQHelper URLWithString:[NSString stringWithFormat:@"%@%@?id=%ld&type=1&url=%@&width=64&height=64",kServerAddress,@"/library/file/downloadCompressedPicture",fid,model.picture]];
         
         [self.typeImg sd_setImageWithURL:url placeholderImage:IMG(@"未知文件")];
     }

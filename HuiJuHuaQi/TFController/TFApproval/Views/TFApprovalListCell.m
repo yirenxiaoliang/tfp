@@ -94,7 +94,12 @@
 
 -(void)refreshCellWithModel:(TFApprovalListItemModel *)model{
     
-    self.titleLab.text = [NSString stringWithFormat:@"%@-%@",model.begin_user_name,model.process_name];
+    if (model.theme_content && model.theme_content.length != 0) {
+
+        self.titleLab.text = [NSString stringWithFormat:@"%@-%@-%@",model.begin_user_name,model.process_name,model.theme_content];
+    }else{
+        self.titleLab.text = [NSString stringWithFormat:@"%@-%@",model.begin_user_name,model.process_name];
+    }
     // 0待审批 1审批中 2审批通过 3审批驳回 4已撤销 5流程结束 6待提交
     if ([model.process_status isEqualToNumber:@0]) {
         

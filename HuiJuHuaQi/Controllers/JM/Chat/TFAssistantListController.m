@@ -838,7 +838,7 @@
         
         NSNumber *authStr = [dict valueForKey:@"readAuth"];
 
-        if ([[authStr description] isEqualToString:@"1"]) {
+        if (!([[authStr description] isEqualToString:@"0"] || [[authStr description] isEqualToString:@"2"])) {
             
             TFFMDBModel *model = self.assistants[_index];
             

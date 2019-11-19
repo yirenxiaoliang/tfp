@@ -6081,7 +6081,8 @@
         [MBProgressHUD hideHUDForView:self.view animated:YES];
         NSDictionary *dict = resp.body;
         
-        if (![[dict valueForKey:@"readAuth"] isEqualToNumber:@1]) {
+        NSString *readAuth = [[dict valueForKey:@"readAuth"] description];
+        if ([readAuth isEqualToString:@"0"] || [readAuth isEqualToString:@"2"]) {
             [MBProgressHUD showError:@"你无权限" toView:self.view];
             return;
         }

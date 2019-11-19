@@ -16,6 +16,8 @@
 /** id */
 @property (nonatomic, strong) NSNumber *moduleId;
 
+/** dataAuth 此条数据的权限 */
+@property (nonatomic, copy) NSString *dataAuth;
 /** id */
 @property (nonatomic, strong) NSNumber *dataId;
 

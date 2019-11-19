@@ -1932,7 +1932,7 @@
     NSString *url = [super urlFromCmd:HQCMD_getTabDataList];
     
     HQRequestItem *requestItem = [RM requestToURL:url
-                                           method:@"GET"
+                                           method:@"SELFPOST"
                                      requestParam:dict
                                             cmdId:HQCMD_getTabDataList
                                          delegate:self

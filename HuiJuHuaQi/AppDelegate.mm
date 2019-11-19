@@ -206,9 +206,9 @@ void uncaughtExceptionHandler(NSException *exception) {
     
     // Open the debug mode to print the sdk log message.
     // Default value is NO, please DISABLE it in your RELEASE version.
-    //#if DEBUG
+    #if DEBUG
     config.debugMode = YES;
-    //#endif
+    #endif
     
     // Open the customized log record and report, BuglyLogLevelWarn will report Warn, Error log message.
     // Default value is BuglyLogLevelSilent that means DISABLE it.

@@ -288,7 +288,9 @@
     
     [UIApplication sharedApplication].statusBarStyle =  UIStatusBarStyleLightContent;
 
-    
+    // 判断切换公司后从新判断
+    self.punchSwitch = nil;
+    self.benchSwitch = nil;
    // 自动打卡
     [self autoPunchFunction];
     

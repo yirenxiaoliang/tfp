@@ -228,6 +228,7 @@
     TFNewCustomDetailController *detail = [[TFNewCustomDetailController alloc] init];
     detail.bean = self.bean;
     detail.dataId = [NSNumber numberWithInteger:[model.id.value integerValue]];
+    detail.dataAuth = model.auth;
     [self.navigationController pushViewController:detail animated:YES];
     
 }

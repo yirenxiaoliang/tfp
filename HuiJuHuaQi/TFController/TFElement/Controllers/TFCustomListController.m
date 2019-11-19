@@ -457,6 +457,7 @@
     detail.isSeasAdmin = self.typeModel.is_seas_admin;
     detail.seaPoolId = self.seaPoolId;
     detail.moduleId = self.module.id;
+    detail.dataAuth = model.auth;
     detail.deleteAction = ^{
       
         [self.lists removeObject:model];

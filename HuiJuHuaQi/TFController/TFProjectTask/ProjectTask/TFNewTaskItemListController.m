@@ -161,9 +161,12 @@
             [data setObject:[dict valueForKey:@"text"] forKey:@"name"];
             [data setObject:[dict valueForKey:@"text"] forKey:@"text_name"];
         }
+        [data setObject:UM.userLoginInfo.employee.id forKey:@"personnel_principal"];
+
         NSMutableDictionary *total = [NSMutableDictionary dictionary];
         [total setObject:data forKey:@"data"];
         [total setObject:@"project_custom" forKey:@"bean"];
+        
         // 新建任务
         [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         [self.customBL requestSavePersonnelDataWithData:total];

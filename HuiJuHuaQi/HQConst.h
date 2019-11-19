@@ -1110,7 +1110,7 @@
 #define empWhetherFabulous @"/employee/whetherFabulous"
 
 /** 获取最近登录公司密码策略 */
-#define GetCompanySet @"/user/getCompanySet"
+#define GetCompanySet @"/user/getCompanySetResetPwd"
 
 /** 更换手机号 */
 #define ChangeTelephone @"/user/modifyPhone"

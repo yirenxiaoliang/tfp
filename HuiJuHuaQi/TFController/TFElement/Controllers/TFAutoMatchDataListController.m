@@ -280,6 +280,7 @@
     TFNewCustomDetailController *detail = [[TFNewCustomDetailController alloc] init];
     detail.bean = self.relevance.target_bean;
     detail.dataId = [NSNumber numberWithInteger:[model.id.value integerValue]];
+    detail.dataAuth = model.auth;
     //    detail.moduleId = self.module.id;
     detail.deleteAction = ^{
         

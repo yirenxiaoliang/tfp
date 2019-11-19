@@ -524,7 +524,8 @@
                 }
                 
                 
-            }else if ([approval isEqualToString:@"approval"]){// 审批
+            }
+            else if ([approval isEqualToString:@"approval"]){// 审批
                 
                 
 //                NSString *ids = @"";
@@ -558,14 +559,16 @@
                     row.process_definition_id = item.process_definition_id;
                     row.process_status = item.process_status;
                     row.bean_name = bean;
-
+                    row.bean_type = @4;
                     model.projectRow = row;
 
                     [self.createNoteModel.relations addObject:model];
                 }
+
+                /** (数据类型 1备忘录 2任务 3自定义模块数据 4审批数据 5邮件) */
                 
-                
-            }else{// 自定义
+            }
+            else{// 自定义
                 
                 for (TFCustomListItemModel *item in list) {
                     
@@ -581,7 +584,7 @@
                     row.icon_type = @([item.icon_type integerValue]);
                     row.icon_color = item.icon_color;
                     row.module_bean = bean;
-                    
+                    row.bean_type = @3;
                     model.projectRow = row;
                     
                     [self.createNoteModel.relations addObject:model];
@@ -1366,15 +1369,19 @@
             for (TFProjectRowFrameModel *model in self.createNoteModel.relations) {
                 NSMutableDictionary *di = [NSMutableDictionary dictionary];
                 if (model.projectRow.bean_id) {
-                    [di setObject:model.projectRow.bean_id forKey:@"ids"];
+                    [di setObject:model.projectRow.bean_id forKey:@"relation_id"];
                 }
                 if (model.projectRow.bean_name) {
-                    [di setObject:model.projectRow.bean_name forKey:@"bean"];
+                    [di setObject:model.projectRow.bean_name forKey:@"bean_name"];
                 }
-                if (model.projectRow.from) {// 个人任务
-                    [di setObject:@5 forKey:@"type"];
-                }else{
-                    [di setObject:@2 forKey:@"type"];
+                /** bean_type:1备忘录、2项目任务、3自定义、4审批、5个人任务 */
+//                if (model.projectRow.from) {// 个人任务
+//                    [di setObject:@5 forKey:@"bean_type"];
+//                }else{
+//                    [di setObject:@2 forKey:@"bean_type"];
+//                }
+                if (model.projectRow.bean_type) {
+                    [di setObject:model.projectRow.bean_type forKey:@"bean_type"];
                 }
                 [relas addObject:di];
             }
@@ -1574,19 +1581,14 @@
             [MBProgressHUD showError:@"无权查看或数据已删除！" toView:self.view];
             return;
         }
-        else if ([authStr isEqualToNumber:@1]) {
-            
-            [self taskRelationListDidClickedModel:self.selectTask];
-        }
         else if ([authStr isEqualToNumber:@2]) {
             
             [MBProgressHUD showError:@"无权查看或数据已删除！" toView:self.view];
             return;
         }
-        else if ([authStr isEqualToNumber:@3]) {
+        else {
             
-            [MBProgressHUD showError:@"无权查看或数据已删除！" toView:self.view];
-            return;
+            [self taskRelationListDidClickedModel:self.selectTask];
         }
         
     }
@@ -1594,6 +1596,14 @@
     if (resp.cmdId == HQCMD_findRelationList) {
         
         NSArray *items = resp.body;
+        NSMutableArray *arrss = [NSMutableArray array];
+        for (NSDictionary *ddd in items) {
+            NSArray *ii = [ddd valueForKey:@"moduleDataList"];
+            if (ii && [ii isKindOfClass:[NSArray class]]) {
+                [arrss addObjectsFromArray:ii];
+            }
+        }
+        
         
         NSMutableArray *notes = [NSMutableArray array];
         NSMutableArray *tasks = [NSMutableArray array];
@@ -1601,7 +1611,7 @@
         NSMutableArray *approvals = [NSMutableArray array];
         NSMutableArray *emails = [NSMutableArray array];
         
-        for (NSDictionary *dd in items) {
+        for (NSDictionary *dd in arrss) {
             
             TFProjectRowFrameModel *model = [[TFProjectRowFrameModel alloc] init];
             TFProjectRowModel *row = [HQHelper projectRowWithTaskDict:dd];

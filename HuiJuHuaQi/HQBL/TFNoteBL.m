@@ -284,7 +284,7 @@
                 
                 NSDictionary *dic = data[kData];
                 
-                NSArray *arr = [dic valueForKey:@"moduleDataList"];
+                NSArray *arr = [dic valueForKey:@"dataList"];
                 
                 resp = [HQResponseEntity responseFromCmdId:cmdId sid:sid body:arr];
             }
