@@ -12949,6 +12949,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 0;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 2ZT3U7CV84;
@@ -13026,7 +13027,7 @@
 					"$(PROJECT_DIR)/HuiJuHuaQi/ThirdPart/UMSocialSDK/UMSocialSDKPlugin",
 					"$(PROJECT_DIR)/HuiJuHuaQi/ThirdPart/UMSocialSDK/SocialLibraries/Sina",
 				);
-				MARKETING_VERSION = 5.2;
+				MARKETING_VERSION = 5.2.1;
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lxml2",
@@ -13055,6 +13056,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Shenzhen Huijuhuaqi Technology Co.,Ltd (2ZT3U7CV84)";
 				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Distribution: Shenzhen Huijuhuaqi Technology Co.,Ltd (2ZT3U7CV84)";
 				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 0;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 2ZT3U7CV84;
 				ENABLE_BITCODE = NO;
@@ -13132,7 +13134,7 @@
 					"$(PROJECT_DIR)/HuiJuHuaQi/ThirdPart/UMSocialSDK/UMSocialSDKPlugin",
 					"$(PROJECT_DIR)/HuiJuHuaQi/ThirdPart/UMSocialSDK/SocialLibraries/Sina",
 				);
-				MARKETING_VERSION = 5.2;
+				MARKETING_VERSION = 5.2.1;
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lxml2",
@@ -13213,11 +13215,13 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer: JIAN YANG (U3R5H9DK9G)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: JIAN YANG (U3R5H9DK9G)";
 				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 0;
 				DEVELOPMENT_TEAM = 2ZT3U7CV84;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = HuiQiWiget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MARKETING_VERSION = 5.2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.TeamFaceCustom.HJHQ.Wiget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "db58449d-b8f6-41bb-bdd0-4df6e5a62656";
@@ -13235,11 +13239,13 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Shenzhen Huijuhuaqi Technology Co.,Ltd (2ZT3U7CV84)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Shenzhen Huijuhuaqi Technology Co.,Ltd (2ZT3U7CV84)";
 				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 0;
 				DEVELOPMENT_TEAM = 2ZT3U7CV84;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = HuiQiWiget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MARKETING_VERSION = 5.2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.TeamFaceCustom.HJHQ.Wiget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "cf004058-9807-422c-b21e-e36d3c8c5518";

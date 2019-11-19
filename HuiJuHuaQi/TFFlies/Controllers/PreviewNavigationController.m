@@ -83,7 +83,8 @@
     activityVC.excludedActivityTypes = @[UIActivityTypePrint, UIActivityTypeCopyToPasteboard,
                                          
                                          UIActivityTypeAssignToContact,UIActivityTypeSaveToCameraRoll];
-    
+    activityVC.modalPresentationStyle = UIModalPresentationFullScreen;
+
     [self presentViewController:activityVC animated:TRUE completion:nil];
 }
 

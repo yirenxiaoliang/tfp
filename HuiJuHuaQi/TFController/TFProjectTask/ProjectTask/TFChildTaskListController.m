@@ -101,6 +101,8 @@
             }
         };
         UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:childTask];
+        navi.modalPresentationStyle = UIModalPresentationFullScreen;
+
         [self presentViewController:navi animated:YES completion:nil];
     }
     if (self.taskType == 2 || self.taskType == 3) {
@@ -132,6 +134,8 @@
             }
         };
         UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:childTask];
+        navi.modalPresentationStyle = UIModalPresentationFullScreen;
+
         [self presentViewController:navi animated:YES completion:nil];
     }
 }
@@ -338,6 +342,8 @@
     select.refresh = ^{
         [self.tableView reloadData];
     };
+    navi.modalPresentationStyle = UIModalPresentationFullScreen;
+
     [self presentViewController:navi animated:YES completion:nil];
 }
 /*

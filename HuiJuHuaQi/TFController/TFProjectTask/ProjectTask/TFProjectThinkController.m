@@ -299,6 +299,8 @@
             
             [self.projectTaskBL requestAllNodeWithProjectId:self.projectId limitNodeType:nil filterParam:self.filterParam];// 项目所有节点
         };
+        navi.modalPresentationStyle = UIModalPresentationFullScreen;
+
         [self presentViewController:navi animated:YES completion:nil];
         
 //        if ([self.selectNode.node_type isEqualToNumber:@3]) {// 子任务

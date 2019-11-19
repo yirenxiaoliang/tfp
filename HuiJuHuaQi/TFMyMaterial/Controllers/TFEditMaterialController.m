@@ -189,7 +189,8 @@
             return YES;
         }
     }];
-    
+    picker.modalPresentationStyle = UIModalPresentationFullScreen;
+
     [self.navigationController presentViewController:picker animated:YES completion:NULL];
 }
 #pragma mark - ZYQAssetPickerControllerDelegate
@@ -215,6 +216,8 @@
         UIImagePickerController *picker = [[UIImagePickerController alloc] init];
         picker.sourceType = UIImagePickerControllerSourceTypeCamera;
         picker.delegate = self;
+        picker.modalPresentationStyle = UIModalPresentationFullScreen;
+
         [self presentViewController:picker animated:YES completion:nil];
     }
 }

@@ -490,7 +490,8 @@
         
         
         [previewNavigationController pushViewController:self.qlpreView animated:YES];
-        
+        previewNavigationController.modalPresentationStyle = UIModalPresentationFullScreen;
+
         [self presentViewController:previewNavigationController animated:YES completion:nil];
         
         dispatch_async(dispatch_get_main_queue(), ^{

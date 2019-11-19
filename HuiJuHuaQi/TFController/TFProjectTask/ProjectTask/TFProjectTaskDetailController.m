@@ -4565,6 +4565,8 @@
                 }
                 
             };
+            navi.modalPresentationStyle = UIModalPresentationFullScreen;
+
             [self presentViewController:navi animated:YES completion:nil];
         }
 //        if (indexPath.row == 1) {// 状态
@@ -5072,6 +5074,8 @@
                             [self.projectTaskBL requestUpdateTaskWithDict:[self taskHandle]];
                         };
                         UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:select];
+                        navi.modalPresentationStyle = UIModalPresentationFullScreen;
+
                         [self presentViewController:navi animated:YES completion:nil];
                         
                     }else{
@@ -5113,6 +5117,8 @@
                             [self.projectTaskBL requestUpdateSubTaskWithDict:[self taskHandle]];
                         };
                         UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:select];
+                        navi.modalPresentationStyle = UIModalPresentationFullScreen;
+
                         [self presentViewController:navi animated:YES completion:nil];
                     }else{
                         [MBProgressHUD showError:@"完成的任务不能编辑" toView:self.view];
@@ -5151,6 +5157,8 @@
                             [self.projectTaskBL requestEditPersonnelTaskWithDict:[self taskHandle]];
                         };
                         UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:select];
+                        navi.modalPresentationStyle = UIModalPresentationFullScreen;
+
                         [self presentViewController:navi animated:YES completion:nil];
                     }else{
                         [MBProgressHUD showError:@"完成的任务不能编辑" toView:self.view];
@@ -5187,6 +5195,8 @@
                             [self.projectTaskBL requestEditPersonnelSubTaskWithDict:[self taskHandle]];
                         };
                         UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:select];
+                        navi.modalPresentationStyle = UIModalPresentationFullScreen;
+
                         [self presentViewController:navi animated:YES completion:nil];
                     }else{
                         [MBProgressHUD showError:@"完成的任务不能编辑" toView:self.view];
@@ -7461,6 +7471,8 @@
             };
             
             UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:scan];
+            navi.modalPresentationStyle = UIModalPresentationFullScreen;
+
             [self presentViewController:navi animated:YES completion:nil];
             
         }else{// 查看条形码
@@ -9193,7 +9205,8 @@
             return YES;
         }
     }];
-    
+    picker.modalPresentationStyle = UIModalPresentationFullScreen;
+
     [self.navigationController presentViewController:picker animated:YES completion:NULL];
 }
 #pragma mark - ZYQAssetPickerControllerDelegate
@@ -9243,6 +9256,8 @@
         picker.sourceType = UIImagePickerControllerSourceTypeCamera;
         picker.delegate = self;
         //        picker.allowsEditing = YES;
+        picker.modalPresentationStyle = UIModalPresentationFullScreen;
+
         [self presentViewController:picker animated:YES completion:nil];
     }
 }

@@ -469,7 +469,8 @@
             return YES;
         }
     }];
-    
+    picker.modalPresentationStyle = UIModalPresentationFullScreen;
+
     [self.navigationController presentViewController:picker animated:YES completion:NULL];
 }
 #pragma mark - ZYQAssetPickerControllerDelegate
@@ -514,6 +515,8 @@
         picker.sourceType = UIImagePickerControllerSourceTypeCamera;
         picker.delegate = self;
         picker.allowsEditing = YES;
+        picker.modalPresentationStyle = UIModalPresentationFullScreen;
+
         [self presentViewController:picker animated:YES completion:nil];
     }
 }

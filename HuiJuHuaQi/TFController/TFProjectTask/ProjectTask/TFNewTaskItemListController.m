@@ -491,6 +491,8 @@
     select.refresh = ^{
         [self.tableView reloadData];
     };
+    navi.modalPresentationStyle = UIModalPresentationFullScreen;
+
     [self presentViewController:navi animated:YES completion:nil];
 }
 

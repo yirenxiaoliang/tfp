@@ -623,6 +623,8 @@ static const NSTimeInterval kSpringAnimationDuration = 0.5;
         CGPoint point = [longPress locationInView:longPress.view];
         activityViewController.popoverPresentationController.sourceRect = CGRectMake(point.x, point.y, 1, 1);
     }
+    activityViewController.modalPresentationStyle = UIModalPresentationFullScreen;
+
     [self presentViewController:activityViewController animated:YES completion:nil];
 }
 

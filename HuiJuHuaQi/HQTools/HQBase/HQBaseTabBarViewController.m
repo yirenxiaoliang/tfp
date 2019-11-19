@@ -219,6 +219,8 @@
         
         [self jumpWithModel:model];
     };
+    plusVc.modalPresentationStyle = UIModalPresentationFullScreen;
+
     [self presentViewController:plusVc animated:NO completion:nil];
     
 }

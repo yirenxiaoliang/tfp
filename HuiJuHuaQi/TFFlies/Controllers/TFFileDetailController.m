@@ -1674,7 +1674,8 @@
             return YES;
         }
     }];
-    
+    picker.modalPresentationStyle = UIModalPresentationFullScreen;
+
     [self.navigationController presentViewController:picker animated:YES completion:NULL];
 }
 

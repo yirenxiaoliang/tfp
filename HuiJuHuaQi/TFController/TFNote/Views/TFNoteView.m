@@ -697,7 +697,8 @@
             return YES;
         }
     }];
-    
+    picker.modalPresentationStyle = UIModalPresentationFullScreen;
+
     AppDelegate *delegate = [AppDelegate shareAppDelegate];
     [delegate.window.rootViewController presentViewController:picker animated:YES completion:NULL];
 }
@@ -708,7 +709,8 @@
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
         UIImagePickerController *picker = [[UIImagePickerController alloc] init];
         picker.sourceType = UIImagePickerControllerSourceTypeCamera;
-        picker.delegate = self;
+        picker.delegate = self;    picker.modalPresentationStyle = UIModalPresentationFullScreen;
+
         AppDelegate *delegate = [AppDelegate shareAppDelegate];
         [delegate.window.rootViewController presentViewController:picker animated:YES completion:nil];
     }

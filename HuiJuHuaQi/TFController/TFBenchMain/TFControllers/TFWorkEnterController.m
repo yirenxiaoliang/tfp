@@ -927,6 +927,8 @@
     select.refresh = ^{
         [workSheet refreshData];
     };
+    navi.modalPresentationStyle = UIModalPresentationFullScreen;
+
     [self presentViewController:navi animated:YES completion:nil];
     
 }

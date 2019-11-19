@@ -294,6 +294,7 @@ void uncaughtExceptionHandler(NSException *exception) {
     HQTFLoginMainController *TF = [[HQTFLoginMainController alloc] init];
 //    TFNewLoginController *TF = [[TFNewLoginController alloc] init];
     HQBaseNavigationController *navi = [[HQBaseNavigationController alloc] initWithRootViewController:TF];
+    navi.modalPresentationStyle = UIModalPresentationFullScreen;
     [self.window.rootViewController presentViewController:navi animated:NO completion:nil];
     
 }
@@ -663,6 +664,7 @@ void uncaughtExceptionHandler(NSException *exception) {
     
     UIViewController *viewVC = [self getCurrentVC];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:viewCtrl];
+    nav.modalPresentationStyle = UIModalPresentationFullScreen;
     [viewVC presentViewController:nav animated:YES completion:nil];
 }
 
