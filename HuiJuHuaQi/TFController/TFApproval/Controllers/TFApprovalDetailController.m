@@ -709,7 +709,12 @@
                                 for (NSArray *rowArr in model.subforms) {
                                     
                                     for (TFCustomerRowsModel *row in rowArr) {
-                                        
+                                        if (![row.field.terminalApp isEqualToString:@"1"]) {
+                                            continue;
+                                        }
+                                        if ([row.field.addView isEqualToString:@"0"]){
+                                            continue;
+                                        }
                                         rowRequire = [self chechRequireWithModel:row];
                                         if (rowRequire == NO) {
                                             required = NO;
@@ -750,7 +755,13 @@
                                 for (NSArray *rowArr in model.subforms) {
                                     
                                     for (TFCustomerRowsModel *row in rowArr) {
-                                        
+                                        if (![row.field.terminalApp isEqualToString:@"1"]) {
+                                            continue;
+                                        }
+
+                                        if ([row.field.editView isEqualToString:@"0"]) {
+                                            continue;
+                                        }
                                         rowRequire = [self chechRequireWithModel:row];
                                         if (rowRequire == NO) {
                                             required = NO;
@@ -2773,7 +2784,7 @@
                 // 该组的头部为上组的尾巴（添加栏目受上面组的隐藏控制）
                 if (section-1>=0) {
                     TFCustomerLayoutModel *lastLa = self.layouts[section-1];
-                    if ([lastLa.isOptionHidden isEqualToString:@"1"]) {// 上组隐藏了，那么该头部也隐藏
+                    if ([lastLa.isOptionHidden isEqualToString:@"1"] || [lastLa.terminalApp isEqualToString:@"0"]) {// 上组隐藏了，那么该头部也隐藏
                         
                         if ([UIDevice currentDevice].systemVersion.floatValue < 11.0) {
                             return 0.5;
@@ -6749,7 +6760,13 @@
                             }else{
                                 sublay.terminalApp = row.field.terminalApp;
                             }
-                            sublay.isHideInCreate = layout.isHideInCreate;
+                            
+                            // 子表单组件编辑隐藏时，那么该组编辑时要隐藏
+                            if ([row.field.editView isEqualToString:@"0"]) {
+                                sublay.isHideInCreate = @"1";
+                            }else{
+                                sublay.isHideInCreate = layout.isHideInCreate;
+                            }
                             sublay.isHideInDetail = layout.isHideInDetail;
                             sublay.isHideColumnName = @"0";
                             sublay.position = @(i+1);
@@ -6805,7 +6822,13 @@
                             }else{
                                 sublay.terminalApp = row.field.terminalApp;
                             }
-                            sublay.isHideInCreate = layout.isHideInCreate;
+                            
+                            // 子表单组件编辑隐藏时，那么该组编辑时要隐藏
+                            if ([row.field.editView isEqualToString:@"0"]) {
+                                sublay.isHideInCreate = @"1";
+                            }else{
+                                sublay.isHideInCreate = layout.isHideInCreate;
+                            }
                             sublay.isHideInDetail = layout.isHideInDetail;
                             sublay.isHideColumnName = @"0";
                             sublay.position = @(1);

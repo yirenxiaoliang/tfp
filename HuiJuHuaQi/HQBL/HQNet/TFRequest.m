@@ -152,7 +152,7 @@ static dispatch_once_t oncetoKen;
            failure:(void (^)(NSError *))failure{
     
     // 处理
-//    body = [self handleStringEmptyParameter:body];
+    body = [self handleStringEmptyParameter:body];
     
     NSData *data=[NSJSONSerialization dataWithJSONObject:body?:@{} options:NSJSONWritingPrettyPrinted error:nil];
     

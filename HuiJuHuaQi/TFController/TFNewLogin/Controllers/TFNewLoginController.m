@@ -385,6 +385,7 @@
     [registerBtn setTitleColor:HexColor(0xf17200) forState:UIControlStateNormal];
     [registerBtn setTitleColor:HexColor(0xf17200) forState:UIControlStateHighlighted];
     self.registerBtn = registerBtn;
+    registerBtn.hidden = YES;
     
     // 忘记密码
     UIButton *forgetBtn = [HQHelper buttonWithFrame:CGRectMake(SCREEN_WIDTH-80-30, CGRectGetMaxY(footer.frame) + 10, 80, 44) target:self action:@selector(forgetPasswordClicked)];

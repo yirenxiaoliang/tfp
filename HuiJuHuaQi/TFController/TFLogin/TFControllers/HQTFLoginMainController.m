@@ -135,7 +135,8 @@
     for (NSInteger i = 0; i < 2; i ++) {
         
         UIButton *registerBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        registerBtn.frame = CGRectMake((SCREEN_WIDTH-2*btnW)/3 * (i + 1) + i * btnW, SCREEN_HEIGHT - BHeight + (BHeight- btnH)/2, btnW, btnH);
+//        registerBtn.frame = CGRectMake((SCREEN_WIDTH-2*btnW)/3 * (i + 1) + i * btnW, SCREEN_HEIGHT - BHeight + (BHeight- btnH)/2, btnW, btnH);
+        registerBtn.frame = CGRectMake((SCREEN_WIDTH-2*btnW)/3, SCREEN_HEIGHT - BHeight + (BHeight- btnH)/2, SCREEN_WIDTH - 2 *(SCREEN_WIDTH-2*btnW)/3, btnH);
         [self.view addSubview:registerBtn];
         registerBtn.layer.cornerRadius = 5;
         registerBtn.layer.masksToBounds = YES;
@@ -154,6 +155,7 @@
             registerBtn.layer.borderColor = WhiteColor.CGColor;
             registerBtn.layer.borderWidth = 1;
             self.registerBtn = registerBtn;
+            registerBtn.hidden = YES;
         }else{
             [registerBtn setTitle:@"登录" forState:UIControlStateNormal];
             [registerBtn setTitle:@"登录" forState:UIControlStateHighlighted];

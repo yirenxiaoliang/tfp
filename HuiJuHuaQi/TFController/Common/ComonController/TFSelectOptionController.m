@@ -170,7 +170,7 @@
         }
     }
 
-    if (self.isSingleSelect) {
+    if (self.isSingleSelect && !self.isMutil) {
         
         self.navigationItem.rightBarButtonItem = nil;
     }

@@ -443,7 +443,7 @@ static dispatch_once_t oncetoKen;
     __weak typeof(self) wSelf = self;
     
     // 处理
-//    requestItem.requestParam = [self handleStringEmptyParameter:requestItem.requestParam];
+    requestItem.requestParam = [self handleStringEmptyParameter:requestItem.requestParam];
     
     NSData *data=[NSJSONSerialization dataWithJSONObject:requestItem.requestParam?:@{} options:NSJSONWritingPrettyPrinted error:nil];
     
