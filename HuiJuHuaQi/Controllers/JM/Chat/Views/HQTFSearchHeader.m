@@ -107,6 +107,9 @@
                                  self.button.width = self.width-30;
                              }];
     }
+    if ([self.delegate respondsToSelector:@selector(searchHeaderTextEditEnd:)]) {
+        [self.delegate searchHeaderTextEditEnd:textField];
+    }
     
 }
 
@@ -213,8 +216,8 @@
             break;
         case SearchHeaderTypeSearch:
         {
-            self.button.hidden = NO;
-            self.button.backgroundColor = BackGroudColor;
+            self.button.hidden = YES;
+//            self.button.backgroundColor = BackGroudColor;
             self.backgroundColor = [UIColor clearColor];
             self.textField.backgroundColor = WhiteColor;
             self.image.backgroundColor = WhiteColor;

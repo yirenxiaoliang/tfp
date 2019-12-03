@@ -131,7 +131,7 @@
         [self.statusBtn setTitleColor:LightBlackTextColor forState:UIControlStateNormal];
         if ([option.value integerValue] == 0) {// 未进行
             [self.statusBtn setImage:IMG(@"task未开始") forState:UIControlStateNormal];
-            [self.statusBtn setBackgroundImage:[HQHelper createImageWithColor:HexColor(0xE5E5E5)] forState:UIControlStateNormal];
+            [self.statusBtn setBackgroundImage:[HQHelper createImageWithColor:[HQHelper colorWithHexString:option.color alpha:0.5]] forState:UIControlStateNormal];
             
             if (model.startTime && !IsStrEmpty([model.startTime description])  && ![[model.startTime description] isEqualToString:@"0"]) {
                 if ([model.startTime longLongValue] < [HQHelper getNowTimeSp]) {
@@ -149,29 +149,35 @@
             }
         }else if ([option.value integerValue] == 1){// 进行中
             [self.statusBtn setImage:IMG(@"task进行中") forState:UIControlStateNormal];
-            [self.statusBtn setBackgroundImage:[HQHelper createImageWithColor:HexColor(0xDAEDFF)] forState:UIControlStateNormal];
+            [self.statusBtn setBackgroundImage:[HQHelper createImageWithColor:[HQHelper colorWithHexString:option.color alpha:0.5]] forState:UIControlStateNormal];
         }else if ([option.value integerValue] == 2){// 暂停
             [self.statusBtn setImage:IMG(@"task暂停") forState:UIControlStateNormal];
-            [self.statusBtn setBackgroundImage:[HQHelper createImageWithColor:HexColor(0xE5E5E5)] forState:UIControlStateNormal];
+            [self.statusBtn setBackgroundImage:[HQHelper createImageWithColor:[HQHelper colorWithHexString:option.color alpha:0.5]] forState:UIControlStateNormal];
         }else if ([option.value integerValue] == 3){// 完成
             [self.statusBtn setImage:IMG(@"task已完成") forState:UIControlStateNormal];
-            [self.statusBtn setBackgroundImage:[HQHelper createImageWithColor:HexColor(0xEFF8E8)] forState:UIControlStateNormal];
+            [self.statusBtn setBackgroundImage:[HQHelper createImageWithColor:[HQHelper colorWithHexString:option.color alpha:0.5]] forState:UIControlStateNormal];
+        }else if ([option.value integerValue] == 4){// 待检验
+            [self.statusBtn setImage:IMG(@"task待校验") forState:UIControlStateNormal];
+            [self.statusBtn setBackgroundImage:[HQHelper createImageWithColor:[HQHelper colorWithHexString:option.color alpha:0.5]] forState:UIControlStateNormal];
+        }else if ([option.value integerValue] == 5){// 检验驳回
+            [self.statusBtn setImage:IMG(@"task待校验") forState:UIControlStateNormal];
+            [self.statusBtn setBackgroundImage:[HQHelper createImageWithColor:[HQHelper colorWithHexString:option.color alpha:0.5]] forState:UIControlStateNormal];
         }
         
     }else{
         self.statusBtn.hidden = YES;
     }
-    if (!model.from && !model.task_id) {// 非个人任务，非子任务
-        if ([[model.complete_status description] isEqualToString:@"1"] && [[model.check_status description] isEqualToString:@"1"]){
-            if (!model.passed_status || [[model.passed_status description] isEqualToString:@"0"]) {// 当需要校验的时候
-                [self.statusBtn setTitle:[NSString stringWithFormat:@" %@",@"待检验"] forState:UIControlStateNormal];
-                [self.statusBtn setBackgroundImage:[HQHelper createImageWithColor:HexColor(0xFFEDD0)] forState:UIControlStateNormal];
-                [self.statusBtn setTitleColor:BlackTextColor forState:UIControlStateNormal];
-                self.statusBtn.layer.borderColor = ClearColor.CGColor;
-                [self.statusBtn setImage:IMG(@"task待校验") forState:UIControlStateNormal];
-            }
-        }
-    }
+//    if (!model.from && !model.task_id) {// 非个人任务，非子任务
+//        if ([[model.complete_status description] isEqualToString:@"1"] && [[model.check_status description] isEqualToString:@"1"]){
+//            if (!model.passed_status || [[model.passed_status description] isEqualToString:@"0"]) {// 当需要校验的时候
+//                [self.statusBtn setTitle:[NSString stringWithFormat:@" %@",@"待检验"] forState:UIControlStateNormal];
+//                [self.statusBtn setBackgroundImage:[HQHelper createImageWithColor:HexColor(0xFFEDD0)] forState:UIControlStateNormal];
+//                [self.statusBtn setTitleColor:BlackTextColor forState:UIControlStateNormal];
+//                self.statusBtn.layer.borderColor = ClearColor.CGColor;
+//                [self.statusBtn setImage:IMG(@"task待校验") forState:UIControlStateNormal];
+//            }
+//        }
+//    }
     
     // 标题
     self.titleLabel.text = model.taskName;

@@ -32,11 +32,18 @@
 @property (nonatomic, strong) TFAllSelectView *allSelectView ;
 
 @property (nonatomic, assign) BOOL containSub;
-
+@property (nonatomic, weak) HQTFSearchHeader *header;
+@property (nonatomic, copy) NSString *headerStr;
+@property (nonatomic, strong) NSMutableArray *allDatas;
 @end
 
 @implementation TFContactsDepartmentController
-
+-(NSMutableArray *)allDatas{
+    if (!_allDatas) {
+        _allDatas = [NSMutableArray array];
+    }
+    return _allDatas;
+}
 
 -(NSMutableArray *)fourSelects{
     if (!_fourSelects) {
@@ -118,6 +125,10 @@
     if (self.isSingleSelect) {
         self.allSelectView.hidden = YES;
         self.tableView.height = self.tableViewHeight>0?self.tableViewHeight:SCREEN_HEIGHT-NaviHeight;
+    }
+    if (self.department) {
+        [self.allDatas removeAllObjects];
+        [self.allDatas addObjectsFromArray:self.department.childList];
     }
 }
 
@@ -327,13 +338,56 @@
     }
     
     self.tableView.tableHeaderView = headerView;
+    self.header = header;
 }
 
 #pragma mark - HQTFSearchHeaderDelegate
 - (void)searchHeaderClicked{
-    
-    
+    self.header.type = SearchHeaderTypeSearch;
+    [self.header.textField becomeFirstResponder];
+    self.header.textField.text = self.headerStr;
 }
+- (void)searchHeaderTextChange:(UITextField *)textField{
+    
+    self.headerStr = textField.text;
+    
+    if (textField.text.length == 0) {
+        if (self.department) {
+            self.department.childList = [NSMutableArray<TFDepartmentModel,Optional> arrayWithArray:self.allDatas];
+        }else{
+            self.dataList = [NSMutableArray arrayWithArray:self.allDatas];
+        }
+        [self.tableView reloadData];
+        return;
+    }
+    UITextRange *textRange = [textField markedTextRange];// 高亮文字范围
+    NSString *highStr = [textField textInRange:textRange];
+    if (highStr.length <= 0) {
+        NSMutableArray<TFDepartmentModel,Optional> *arr = [NSMutableArray<TFDepartmentModel,Optional> array];
+        for (TFDepartmentModel *model in self.allDatas) {
+            if ([model.name containsString:textField.text]) {
+                [arr addObject:model];
+            }
+        }
+        
+        if (self.department) {
+            self.department.childList = arr;
+        }else{
+            self.dataList = [NSMutableArray arrayWithArray:arr];
+        }
+        [self.tableView reloadData];
+    }
+}
+- (void)searchHeaderTextEditEnd:(UITextField *)textField{
+    
+    self.header.backgroundColor = WhiteColor;
+}
+
+-(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
+    
+    [self.header.textField resignFirstResponder];
+}
+
 
 #pragma mark - TFFilePathViewDelegate
 - (void)selectFilePathWithModel:(TFFilePathModel *)mdoel{
@@ -797,6 +851,9 @@
         [self showIsAllSelect];
         
         [self.tableView reloadData];
+        
+        [self.allDatas removeAllObjects];
+        [self.allDatas addObjectsFromArray:self.dataList];
     }
     
 }

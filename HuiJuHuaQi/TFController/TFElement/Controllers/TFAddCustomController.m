@@ -2419,11 +2419,22 @@
      [model.type isEqualToString:@"personnel"] ||
      [model.type isEqualToString:@"barcode"] ||
      [model.type isEqualToString:@"location"] ||
-     [model.type isEqualToString:@"textarea"] ||
-     [model.type isEqualToString:@"department"] ) {
+     [model.type isEqualToString:@"textarea"]) {
      
      return [TFGeneralSingleCell refreshGeneralSingleCellHeightWithModel:model];
      }
+    if ([model.type isEqualToString:@"department"] ) {
+    
+        if (self.type == 1) {
+            return [TFGeneralSingleCell refreshGeneralSingleCellHeightWithModel:model];
+        }else{
+            if ([model.field.structure isEqualToString:@"1"]) {// 左右
+                return [model.height floatValue] < 44 ? 44 : [model.height floatValue];
+            }else{
+                return [model.height floatValue] < 75 ? 75 : [model.height floatValue];
+            }
+        }
+    }
      
      if ([model.type isEqualToString:@"picklist"] ||
      [model.type isEqualToString:@"mutlipicklist"] ||
@@ -2928,7 +2939,25 @@
     }else{// 多选
         isSingle = NO;
     }
-    
+
+    if (model.field.chooseRange.count){// 选择部门范围
+         
+         TFCustomRangePeopleController *frameWork = [[TFCustomRangePeopleController alloc] init];
+        frameWork.isDepartment = YES;
+         frameWork.isSingleSelect = isSingle;
+         frameWork.peoples = model.selects;
+         frameWork.rangePeople = model.field.chooseRange;
+         frameWork.actionParameter = ^(NSArray *parameter) {
+             
+             model.fieldValue = [self handlePeopleTooLongWithDepartment:parameter model:model];
+             model.selects = [NSMutableArray arrayWithArray:parameter];
+             [self.tableView reloadData];
+             // 联动
+             [self generalSingleCellWithModel:model];
+         };
+         [self.navigationController pushViewController:frameWork animated:YES];
+        return;
+     }
     
     TFContactsDepartmentController *scheduleVC = [[TFContactsDepartmentController alloc] init];
     scheduleVC.isSingleUse = YES;
@@ -3062,6 +3091,30 @@
     }
     if (people.count > index) {
         str = [str stringByAppendingString:[NSString stringWithFormat:@"  等%ld人",people.count]];
+    }
+    
+    return str;
+}
+/** 处理部门过长问题 */
+-(NSString *)handlePeopleTooLongWithDepartment:(NSArray *)people model:(TFCustomerRowsModel *)model{
+    NSString *str = @"";
+    NSInteger index = 0;
+    
+    if ([model.field.structure isEqualToString:@"1"]) {// 左右结构
+        index = 3;
+        
+    }else{// 上下结构
+        index = 6;
+    }
+    for (NSInteger i = 0; i < (people.count > index ? index : people.count); i ++) {
+        TFDepartmentModel *em = people[i];
+        str = [str stringByAppendingString:[NSString stringWithFormat:@"%@、",em.name]];
+    }
+    if (str.length) {
+        str = [str substringToIndex:str.length - 1];
+    }
+    if (people.count > index) {
+        str = [str stringByAppendingString:[NSString stringWithFormat:@"  等%ld部门",people.count]];
     }
     
     return str;
@@ -6244,55 +6297,56 @@
                         
                     }
                     else{
-                        
-                        if (self.type == 2 && [row.field.fieldControl isEqualToString:@"2"]) {// 编辑状态
-                            
-                            // 将子表单中组件定义为一个布局
-                            TFCustomerLayoutModel *sublay = [[TFCustomerLayoutModel alloc] init];
-                            sublay.level = [NSString stringWithFormat:@"%ld",(long)level];
-                            sublay.virValue = @"1";
-                            sublay.fieldName = row.name;
-                            sublay.name = row.type;
-                            sublay.fieldControl = row.field.fieldControl;
-                            // 该分栏不显示大于组件不显示
-                            if ([layout.terminalApp isEqualToString:@"0"]) {
-                                sublay.terminalApp = layout.terminalApp;
-                            }else{
-                                sublay.terminalApp = row.field.terminalApp;
-                            }
-                            // 子表单组件编辑隐藏时，那么该组编辑时要隐藏
-                            if ([row.field.editView isEqualToString:@"0"]) {
-                                sublay.isHideInCreate = @"1";
-                            }else{
-                                sublay.isHideInCreate = layout.isHideInCreate;
-                            }
-                            sublay.isHideInDetail = layout.isHideInDetail;
-                            sublay.isHideColumnName = @"0";
-                            sublay.position = @(1);
-                            sublay.isSpread = layout.isSpread?:@"0";
-                            if (!layout.isHideColumnName || [layout.isHideColumnName isEqualToString:@"1"]) {
-                                sublay.isSpread = @"0";
-                            }
-                            
-                            NSMutableArray<TFCustomerRowsModel,Optional> *subforms = [NSMutableArray<TFCustomerRowsModel,Optional> array];
-                            for (TFCustomerRowsModel *sub in row.componentList) {
-                                //                            [subforms addObject:[sub copy]];
-                                
-                                TFCustomerRowsModel *copSub = [sub copy];
-                                copSub.subformName = row.name;
-                                copSub.position = sublay.position;
-//                                if ([row.field.fieldControl isEqualToString:@"1"]) {// 子表单组件为只读，子组件听从子表单的
-//                                    copSub.field.fieldControl = row.field.fieldControl;
-//                                }
-                                [subforms addObject:copSub];
-                            }
-                            row.subforms = [NSMutableArray arrayWithObject:subforms];
-                            
-                            sublay.rows = subforms;
-                            
-                            [layouts addObject:sublay];
-                            index += 1;
-                        }
+                        // 编辑自定义数据，当子表单必填，且没有栏目时默认增加空白的一栏
+//                        if (self.type == 2 && [row.field.fieldControl isEqualToString:@"2"]) {// 编辑状态
+//
+//                            // 将子表单中组件定义为一个布局
+//                            TFCustomerLayoutModel *sublay = [[TFCustomerLayoutModel alloc] init];
+//                            sublay.level = [NSString stringWithFormat:@"%ld",(long)level];
+//                            sublay.virValue = @"1";
+//                            sublay.fieldName = row.name;
+//                            sublay.name = row.type;
+//                            sublay.fieldControl = row.field.fieldControl;
+//                            // 该分栏不显示大于组件不显示
+//                            if ([layout.terminalApp isEqualToString:@"0"]) {
+//                                sublay.terminalApp = layout.terminalApp;
+//                            }else{
+//                                sublay.terminalApp = row.field.terminalApp;
+//                            }
+//                            // 子表单组件编辑隐藏时，那么该组编辑时要隐藏
+//                            if ([row.field.editView isEqualToString:@"0"]) {
+//                                sublay.isHideInCreate = @"1";
+//                            }else{
+//                                sublay.isHideInCreate = layout.isHideInCreate;
+//                            }
+//                            sublay.isHideInDetail = layout.isHideInDetail;
+//                            sublay.isHideColumnName = @"0";
+//                            sublay.position = @(1);
+//                            sublay.isSpread = layout.isSpread?:@"0";
+//                            if (!layout.isHideColumnName || [layout.isHideColumnName isEqualToString:@"1"]) {
+//                                sublay.isSpread = @"0";
+//                            }
+//
+//                            NSMutableArray<TFCustomerRowsModel,Optional> *subforms = [NSMutableArray<TFCustomerRowsModel,Optional> array];
+//                            for (TFCustomerRowsModel *sub in row.componentList) {
+//                                //                            [subforms addObject:[sub copy]];
+//
+//                                TFCustomerRowsModel *copSub = [sub copy];
+//                                copSub.subformName = row.name;
+//                                copSub.position = sublay.position;
+////                                if ([row.field.fieldControl isEqualToString:@"1"]) {// 子表单组件为只读，子组件听从子表单的
+////                                    copSub.field.fieldControl = row.field.fieldControl;
+////                                }
+//                                [subforms addObject:copSub];
+//                            }
+//                            row.subforms = [NSMutableArray arrayWithObject:subforms];
+//
+//                            sublay.rows = subforms;
+//
+//                            [layouts addObject:sublay];
+//                            index += 1;
+//                        }
+//
                     }
                     
                 }

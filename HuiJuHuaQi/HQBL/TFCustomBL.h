@@ -144,7 +144,10 @@
 - (void)requestHaveAuthWithModuleId:(NSNumber *)moduleId;
 
 /** 获取自定义选择范围人员 */
-- (void)requestCustomRangePeopleWithRangePeople:(NSArray *)rangePeople;
+-(void)requestCustomRangePeopleWithRangePeople:(NSArray *)rangePeople;
+
+/** 获取自定义选择范围部门 */
+-(void)requestCustomRangeDepartmentWithRangeDepartment:(NSArray *)rangeDepartment;
 
 /** 判断模块是否有阅读权限 */
 - (void)requestHaveReadAuthWithModuleBean:(NSString *)bean withDataId:(NSNumber *)dataId;

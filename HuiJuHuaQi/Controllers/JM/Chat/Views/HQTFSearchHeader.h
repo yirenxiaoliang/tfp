@@ -21,6 +21,7 @@ typedef enum {
 - (void)searchHeaderClicked;
 - (void)searchHeaderCancelClicked;
 - (void)searchHeaderTextChange:(UITextField *)textField;
+- (void)searchHeaderTextEditEnd:(UITextField *)textField;
 
 - (void)searchHeaderleftBtnClicked;
 - (void)searchHeaderRightBtnClicked;

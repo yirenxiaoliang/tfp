@@ -90,6 +90,7 @@
 #import "TFRequest.h"
 #import "TFCustomSignatureCell.h"
 #import "TFSignatureViewController.h"
+#import "TFCustomRangePeopleController.h"
 
 @interface TFApprovalDetailController ()<UITableViewDelegate,UITableViewDataSource,HQTFInputCellDelegate,FDActionSheetDelegate,TFFileElementCellDelegate,UIDocumentInteractionControllerDelegate,MWPhotoBrowserDelegate,UITextViewDelegate,TFSubformCellDelegate,TFSingleTextCellDelegate,TFCustomLocationCellDelegate,UINavigationControllerDelegate, ZYQAssetPickerControllerDelegate, UIImagePickerControllerDelegate ,SendMessageDelegate,HQBLDelegate,TFSubformSectionViewDelegate,TFSubformAddViewDelegate,TFSubformHeadCellDelegate,TFColumnViewDelegate,TFTwoBtnsViewDelegate,UIAlertViewDelegate,FDActionSheetDelegate,TFCustomOptionCellDelegate,TFGeneralSingleCellDelegate,TFCustomSelectOptionCellDelegate,TFCustomAttachmentsCellDelegate,TFCustomAlertViewDelegate,TFCustomImageCellDelegate,TFCustomAttributeTextCellDelegate,TFCustomMultiSelectCellDelegate,UIActionSheetDelegate,TFCommentTableViewDelegate,KSPhotoBrowserDelegate,LiuqsEmotionKeyBoardDelegate,TFCustomDepartmentCellDelegate,TFTCustomSubformHeaderCellDelegate,TFCustomSignatureCellDelegate,KSPhotoBrowserDelegate,TFApprovalFlowProgramCellDelegate>
 /** tableView */
@@ -1093,7 +1094,9 @@
             for (TFCustomerRowsModel *row in subs) {// 子表单进行递归
                 
                 [self getDataWithModel:row withDict:subDict];
-                
+                if (row.subformItemId) {
+                    [subDict setObject:row.subformItemId forKey:@"id"];
+                }
             }
             [subforms addObject:subDict];
         }
@@ -2314,20 +2317,36 @@
         
         if ([model.name containsString:@"personnel"]) {
             
+            if (self.listType == 1 && self.isSelf && [self.currentTaskKey isEqualToString:self.approvalItem.task_key]) {
+
+                [self personnelHandleWithModel:model];
+                return;
+            }else{
+
+                TFApprovalCopyerController *copyer = [[TFApprovalCopyerController alloc] init];
+                copyer.naviTitle = model.label;
+                copyer.employees = model.selects;
+                copyer.actionParameter = ^(id parameter) {
+                    
+                    model.selects = parameter;
+                    [self.tableView reloadData];
+                };
+                [self.navigationController pushViewController:copyer animated:YES];
                 
-            TFApprovalCopyerController *copyer = [[TFApprovalCopyerController alloc] init];
-            copyer.naviTitle = model.label;
-            copyer.employees = model.selects;
-            copyer.actionParameter = ^(id parameter) {
-                
-                model.selects = parameter;
-                [self.tableView reloadData];
-            };
-            [self.navigationController pushViewController:copyer animated:YES];
-            
-            return;
+                return;
+            }
             
         }
+
+        if ([model.type isEqualToString:@"department"]) {
+
+            if (self.listType == 1 && self.isSelf && [self.currentTaskKey isEqualToString:self.approvalItem.task_key]) {
+
+                [self departmentHandleWithModel:model];
+                return;
+            }
+        }
+        
         
         if (self.listType == 1 && self.isSelf && [self.currentTaskKey isEqualToString:self.approvalItem.task_key]) {
             
@@ -2570,7 +2589,8 @@
     }
     
     if ([model.type isEqualToString:@"department"]){
-        if (self.type != 1) {
+        
+        if (self.listType == 1 && self.isSelf && [self.currentTaskKey isEqualToString:self.approvalItem.task_key])  {
             
             if ([model.field.structure isEqualToString:@"1"]) {
                 return model.height.floatValue < 44 ? 44 : model.height.floatValue;
@@ -3033,6 +3053,30 @@
     
     [self.navigationController pushViewController:select animated:YES];
 }
+/** 处理部门过长问题 */
+-(NSString *)handlePeopleTooLongWithDepartment:(NSArray *)people model:(TFCustomerRowsModel *)model{
+    NSString *str = @"";
+    NSInteger index = 0;
+    
+    if ([model.field.structure isEqualToString:@"1"]) {// 左右结构
+        index = 3;
+        
+    }else{// 上下结构
+        index = 6;
+    }
+    for (NSInteger i = 0; i < (people.count > index ? index : people.count); i ++) {
+        TFDepartmentModel *em = people[i];
+        str = [str stringByAppendingString:[NSString stringWithFormat:@"%@、",em.name]];
+    }
+    if (str.length) {
+        str = [str substringToIndex:str.length - 1];
+    }
+    if (people.count > index) {
+        str = [str stringByAppendingString:[NSString stringWithFormat:@"  等%ld部门",people.count]];
+    }
+    
+    return str;
+}
 
 #pragma mark - 部门组件
 - (void)departmentHandleWithModel:(TFCustomerRowsModel *)model{
@@ -3049,6 +3093,24 @@
         isSingle = NO;
     }
     
+    if (model.field.chooseRange.count){// 选择部门范围
+         
+         TFCustomRangePeopleController *frameWork = [[TFCustomRangePeopleController alloc] init];
+        frameWork.isDepartment = YES;
+         frameWork.isSingleSelect = isSingle;
+         frameWork.peoples = model.selects;
+         frameWork.rangePeople = model.field.chooseRange;
+         frameWork.actionParameter = ^(NSArray *parameter) {
+             
+             model.fieldValue = [self handlePeopleTooLongWithDepartment:parameter model:model];
+             model.selects = [NSMutableArray arrayWithArray:parameter];
+             [self.tableView reloadData];
+             // 联动
+             [self generalSingleCellWithModel:model];
+         };
+         [self.navigationController pushViewController:frameWork animated:YES];
+        return;
+     }
     
     TFContactsDepartmentController *scheduleVC = [[TFContactsDepartmentController alloc] init];
     scheduleVC.isSingleUse = YES;
@@ -7870,6 +7932,9 @@
                     for (TFCustomerRowsModel *row in arrs) {
                         
                         [self customerRowsModel:row WithDict:dic];
+                        if ([dic valueForKey:@"id"]) {
+                            row.subformItemId = [dic valueForKey:@"id"];
+                        }
                     }
                 }
             }

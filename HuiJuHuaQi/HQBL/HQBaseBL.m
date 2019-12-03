@@ -460,6 +460,9 @@
         case HQCMD_customRangePeople:    // 自定义人员选择范围
             pathURL = CustomRangePeople;
             break;
+        case HQCMD_customRangeDepartment:    // 自定义人员选择范围
+            pathURL = CustomRangeDepartment;
+            break;
         case HQCMD_quickAdd:    // 快速新增
             pathURL = QuickAdd;
             break;

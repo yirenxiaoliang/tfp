@@ -111,4 +111,10 @@ typedef enum {
 //企信视频缩略图
 @property (nonatomic, copy) NSString <Optional>*video_thumbnail_url;
 
+@property (nonatomic, strong) NSNumber <Optional>*data_id;
+@property (nonatomic, copy) NSString <Optional>*bean;
+@property (nonatomic, copy) NSString <Optional>*idx;
+@property (nonatomic, strong) NSNumber <Optional>*del_status;
+@property (nonatomic, strong) NSNumber <Optional>*approval_flag;
+
 @end

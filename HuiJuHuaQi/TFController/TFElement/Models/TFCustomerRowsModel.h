@@ -122,5 +122,7 @@
 @property (nonatomic, copy) NSString <Ignore>*linkage;
 /** 第几个栏目 */
 @property (nonatomic, strong) NSNumber <Ignore>*position;
+/** subformItemId */
+@property (nonatomic, strong) NSNumber <Optional>*subformItemId;
 
 @end

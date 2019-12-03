@@ -109,7 +109,8 @@
             sys = @[@"协作",@"备忘录",@"审批"];
             beans = @[@"project",@"memo",@"approval"];
             icon = @[@"协作",@"备忘录",@"审批"];
-        }else if (self.type == 7){
+        }
+        else if (self.type == 7){
             sys = @[@"审批"];
             icon = @[@"审批"];
             beans = @[@"approval"];
@@ -403,6 +404,17 @@
                             continue;
                         }
                     }
+                    
+                    TFModuleModel *mu = [[TFModuleModel alloc] init];
+                    [self.systemApplication.modules addObject:mu];
+                    mu.chinese_name = [dict valueForKey:@"name"];
+                    mu.english_name = [dict valueForKey:@"bean"];
+                    mu.icon = [dict valueForKey:@"name"];
+                    mu.icon_type = 0;
+                    mu.icon_color = @"#FFFFFF";
+                }
+                // 将备忘录引用添加备忘录
+                if ([[dict valueForKey:@"bean"] isEqualToString:@"memo"] && self.type == 7) {
                     
                     TFModuleModel *mu = [[TFModuleModel alloc] init];
                     [self.systemApplication.modules addObject:mu];
@@ -819,7 +831,7 @@
     }
     else if ([module.english_name isEqualToString:@"memo"]){
         
-        if (self.type == 3 || self.type == 6) {
+        if (self.type == 3 || self.type == 6 || self.type == 7) {
             TFSelectMemoListController *memo = [[TFSelectMemoListController alloc] init];
             memo.parameterAction = ^(NSArray *parameter) {
                 

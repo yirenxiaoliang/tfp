@@ -3218,18 +3218,18 @@
                     }
                 }
             }
-            if (self.taskType == 0) {
-                
-                if ([[[self.detailDict valueForKey:@"complete_status"] description] isEqualToString:@"1"] && [[[self.detailDict valueForKey:@"check_status"] description] isEqualToString:@"1"]){
-                    if (![self.detailDict valueForKey:@"passed_status"] || [[[self.detailDict valueForKey:@"passed_status"] description] isEqualToString:@"0"]) {// 当需要校验的时候
-                        [cell.statusBtn setTitle:[NSString stringWithFormat:@" %@",@"待检验"] forState:UIControlStateNormal];
-                        cell.statusBtn.backgroundColor =HexColor(0xFFEDD0);
-                        [cell.statusBtn setTitleColor:BlackTextColor forState:UIControlStateNormal];
-                        cell.statusBtn.layer.borderColor = ClearColor.CGColor;
-                        [cell.statusBtn setImage:IMG(@"task待校验") forState:UIControlStateNormal];
-                    }
-                }
-            }
+//            if (self.taskType == 0) {
+//
+//                if ([[[self.detailDict valueForKey:@"complete_status"] description] isEqualToString:@"1"] && [[[self.detailDict valueForKey:@"check_status"] description] isEqualToString:@"1"]){
+//                    if (![self.detailDict valueForKey:@"passed_status"] || [[[self.detailDict valueForKey:@"passed_status"] description] isEqualToString:@"0"]) {// 当需要校验的时候
+//                        [cell.statusBtn setTitle:[NSString stringWithFormat:@" %@",@"待检验"] forState:UIControlStateNormal];
+//                        cell.statusBtn.backgroundColor =HexColor(0xFFEDD0);
+//                        [cell.statusBtn setTitleColor:BlackTextColor forState:UIControlStateNormal];
+//                        cell.statusBtn.layer.borderColor = ClearColor.CGColor;
+//                        [cell.statusBtn setImage:IMG(@"task待校验") forState:UIControlStateNormal];
+//                    }
+//                }
+//            }
             return cell;
         }else  if (indexPath.row == 2){
             TFTaskDetailCheckPeopleCell *cell = [TFTaskDetailCheckPeopleCell taskDetailCheckPeopleCellWithTableView:tableView];

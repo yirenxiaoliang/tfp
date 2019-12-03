@@ -370,6 +370,7 @@
 #define ModuleHaveReadAuth @"/moduleDataAuth/getFuncAuthWithCommunal"
 /** 自定义人员选择范围 */
 #define CustomRangePeople @"/employee/queryRangeEmployeeList"
+#define CustomRangeDepartment @"/employee/queryRangeDepartmentList"
 /** 快速新增 */
 #define QuickAdd @"/module/queryModuleStatistics"
 /** 生成条形码 */

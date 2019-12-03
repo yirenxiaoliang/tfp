@@ -45,6 +45,7 @@
 #import "TFNewProjectTaskItemCell.h"
 #import "TFProjectTaskDetailController.h"
 #import "TFApprovalDetailController.h"
+#import "TFNoteDataListModel.h"
 
 @interface TFCreateNoteController ()<UITableViewDelegate,UITableViewDataSource,UITextViewDelegate,TFNoteAccessoryViewDelegate,TFNoteViewDelegate,TFTwoBtnsViewDelegate,HQBLDelegate,UIAlertViewDelegate,HQSelectTimeCellDelegate,TFNoteDetailCardCellDelegate>
 /** tableView */
@@ -546,6 +547,7 @@
                     TFProjectRowModel *row = [[TFProjectRowModel alloc] init];
                     row.dataType = @4;
                     row.id = @([item.approval_data_id longLongValue]);
+                    row.bean_id = @([item.approval_data_id longLongValue]);
                     row.process_name = item.process_name;
                     row.process_field_v = item.process_field_v;
                     row.task_id = @([item.task_id integerValue]);
@@ -566,6 +568,30 @@
                 }
 
                 /** (数据类型 1备忘录 2任务 3自定义模块数据 4审批数据 5邮件) */
+                
+            }
+            else if ([bean isEqualToString:@"memo"]){// 备忘录
+                
+                for (TFNoteDataListModel *item in list) {
+                    
+                    TFProjectRowFrameModel *model = [[TFProjectRowFrameModel alloc] initBorder];
+                    TFProjectRowModel *row = [[TFProjectRowModel alloc] init];
+                    row.dataType = @1;
+                    row.id = item.id;
+                    row.bean_id = item.id;
+                    row.bean_name = bean;
+                    row.bean_type = @1;
+                    row.remind_time = item.remind_time;
+                    row.title = item.title;
+                    row.create_time = item.create_time;
+                    row.share_ids = item.share_ids;
+                    row.create_by = item.create_by;
+                    row.picture = item.createObj.picture;
+                    row.begin_user_name = item.createObj.employee_name;
+                    
+                    model.projectRow = row;
+                    [self.createNoteModel.relations addObject:model];
+                }
                 
             }
             else{// 自定义
@@ -1411,24 +1437,46 @@
         
         if (self.type == 2) {
             
-            NSMutableArray *relas = [NSMutableArray array];
-            for (TFProjectRowFrameModel *model in self.createNoteModel.relations) {
-                NSMutableDictionary *di = [NSMutableDictionary dictionary];
-                if (model.projectRow.bean_id) {
-                    [di setObject:model.projectRow.bean_id forKey:@"ids"];
+            if (self.createNoteModel.relations.count > 0) {
+                        
+                NSMutableArray *relas = [NSMutableArray array];
+                for (TFProjectRowFrameModel *model in self.createNoteModel.relations) {
+                    NSMutableDictionary *di = [NSMutableDictionary dictionary];
+                    if (model.projectRow.bean_id) {
+                        [di setObject:model.projectRow.bean_id forKey:@"relation_id"];
+                    }
+                    if (model.projectRow.bean_name) {
+                        [di setObject:model.projectRow.bean_name forKey:@"bean_name"];
+                    }
+                    /** bean_type:1备忘录、2项目任务、3自定义、4审批、5个人任务 */
+    //                if (model.projectRow.from) {// 个人任务
+    //                    [di setObject:@5 forKey:@"bean_type"];
+    //                }else{
+    //                    [di setObject:@2 forKey:@"bean_type"];
+    //                }
+                    if (model.projectRow.bean_type) {
+                        [di setObject:model.projectRow.bean_type forKey:@"bean_type"];
+                    }
+                    [relas addObject:di];
                 }
-                if (model.projectRow.bean_name) {
-                    [di setObject:model.projectRow.bean_name forKey:@"bean"];
-                }
-                if (model.projectRow.from) {// 个人任务
-                    [di setObject:@5 forKey:@"type"];
-                }else{
-                    [di setObject:@2 forKey:@"type"];
-                }
-                [relas addObject:di];
+
+                [self.noteBL requestUpdateRelationByIdWithJsonStr:[self.detailDict valueForKey:@"id"] status:@"0" beanArr:relas];
             }
-            [self.noteBL requestUpdateRelationByIdWithJsonStr:[self.detailDict valueForKey:@"id"] status:@"0" beanArr:relas];
-            
+            else {
+                
+                if (self.refreshAction) {
+                    self.refreshAction();
+                    [MBProgressHUD showImageSuccess:@"编辑成功！" toView:self.view];
+                    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                        
+                        [self.navigationController popViewControllerAnimated:YES];
+                    });
+                }
+                if (self.dataAction) {
+                    [self.navigationController popViewControllerAnimated:NO];
+                    self.dataAction(resp.body);
+                }
+            }
             
         }
         else {
@@ -1634,6 +1682,7 @@
         [self.createNoteModel.relations removeAllObjects];
         [self.createNoteModel.relations addObjectsFromArray:tasks];
         [self.createNoteModel.relations addObjectsFromArray:approvals];
+        [self.createNoteModel.relations addObjectsFromArray:notes];
         [self.createNoteModel.relations addObjectsFromArray:customs];
         [self.tableView reloadData];
     }
