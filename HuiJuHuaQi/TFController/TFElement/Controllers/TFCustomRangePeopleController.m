@@ -59,6 +59,8 @@
     [self setupTableViewHeader];
     if (self.isSingleSelect == NO) {
         [self setupAllSelectView];
+    }else{
+        self.tableView.height = SCREEN_HEIGHT - BottomHeight;
     }
     self.customBL = [TFCustomBL build];
     self.customBL.delegate = self;

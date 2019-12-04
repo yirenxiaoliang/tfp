@@ -3006,21 +3006,15 @@
 #pragma mark - 人员组件
 -(void)personnelHandleWithModel:(TFCustomerRowsModel *)model{
     
-    if ([model.name isEqualToString:@"copyer"]) {
-        return;
-    }
-    
     if (self.employ) {
-        [MBProgressHUD showError:@"不可编辑" toView:self.view];
+        [MBProgressHUD showError:@"不可编辑" toView:KeyWindow];
         return;
     }
     
     if ([model.field.fieldControl isEqualToString:@"1"]) {
-        [MBProgressHUD showError:@"不可编辑" toView:self.view];
+        [MBProgressHUD showError:@"不可编辑" toView:KeyWindow];
         return;
     }
-    
-    
     
     BOOL isSingle ;
     if (!model.field.chooseType || [model.field.chooseType isEqualToString:@"0"]) {// 单选
@@ -3029,29 +3023,96 @@
         isSingle = NO;
     }
     
-    
-    TFSelectChatPeopleController *select = [[TFSelectChatPeopleController alloc] init];
-    select.type = 1;
-    select.isSingle = isSingle;
-    select.peoples = model.selects;
-    select.actionParameter = ^(NSArray *parameter) {
+    NSMutableArray *arrss = [NSMutableArray array];
+    for (TFEmployModel *ee in model.field.choosePersonnel) {
         
-        NSString *str = @"";
-        for (HQEmployModel *em in parameter) {
-            str = [str stringByAppendingString:[NSString stringWithFormat:@"%@、",em.employeeName?:em.employee_name]];
-        }
-        if (str.length) {
-            str = [str substringToIndex:str.length - 1];
-        }
+        HQEmployModel *eeee = [TFChangeHelper tfEmployeeToHqEmployee:ee];
         
-        model.fieldValue = str;
-        model.selects = [NSMutableArray arrayWithArray:parameter];
-        [self.tableView reloadData];
-        // 联动
-        [self generalSingleCellWithModel:model];
-    };
+        if (eeee) {
+            [arrss addObject:eeee];
+        }
+    }
     
-    [self.navigationController pushViewController:select animated:YES];
+    if (arrss.count) {// 审批人人员范围
+        
+        TFSelectChatPeopleController *select = [[TFSelectChatPeopleController alloc] init];
+        select.type = 1;
+        select.isSingle = isSingle;
+        select.peoples = model.selects;
+        select.dataPeoples = arrss;
+        select.actionParameter = ^(NSArray *parameter) {
+            
+            model.fieldValue = [self handlePeopleTooLongWithPeople:parameter model:model];
+            model.selects = [NSMutableArray arrayWithArray:parameter];
+            [self.tableView reloadData];
+            // 联动
+            [self generalSingleCellWithModel:model];
+        };
+        
+        [self.navigationController pushViewController:select animated:YES];
+        
+    } else if (model.field.chooseRange.count){// 选择人员范围
+        
+        TFCustomRangePeopleController *frameWork = [[TFCustomRangePeopleController alloc] init];
+        
+        frameWork.isSingleSelect = isSingle;
+        frameWork.peoples = model.selects;
+        frameWork.rangePeople = model.field.chooseRange;
+        frameWork.actionParameter = ^(NSArray *parameter) {
+            
+            model.fieldValue = [self handlePeopleTooLongWithPeople:parameter model:model];
+            model.selects = [NSMutableArray arrayWithArray:parameter];
+            [self.tableView reloadData];
+            // 联动
+            [self generalSingleCellWithModel:model];
+        };
+        [self.navigationController pushViewController:frameWork animated:YES];
+        
+    }else{
+        
+        
+        TFMutilStyleSelectPeopleController *scheduleVC = [[TFMutilStyleSelectPeopleController alloc] init];
+        scheduleVC.selectType = 1;
+        scheduleVC.isSingleSelect = isSingle;
+        scheduleVC.defaultPoeples = model.selects;
+        //            scheduleVC.noSelectPoeples = model.selects;
+        scheduleVC.actionParameter = ^(NSArray *parameter) {
+            
+            model.fieldValue = [self handlePeopleTooLongWithPeople:parameter model:model];
+            model.selects = [NSMutableArray arrayWithArray:parameter];
+            [self.tableView reloadData];
+            // 联动
+            [self generalSingleCellWithModel:model];
+            
+        };
+        [self.navigationController pushViewController:scheduleVC animated:YES];
+        
+    }
+}
+
+/** 处理人员过长问题 */
+-(NSString *)handlePeopleTooLongWithPeople:(NSArray *)people model:(TFCustomerRowsModel *)model{
+    NSString *str = @"";
+    NSInteger index = 0;
+    
+    if ([model.field.structure isEqualToString:@"1"]) {// 左右结构
+        index = 3;
+        
+    }else{// 上下结构
+        index = 6;
+    }
+    for (NSInteger i = 0; i < (people.count > index ? index : people.count); i ++) {
+        HQEmployModel *em = people[i];
+        str = [str stringByAppendingString:[NSString stringWithFormat:@"%@、",em.employee_name?:em.employeeName]];
+    }
+    if (str.length) {
+        str = [str substringToIndex:str.length - 1];
+    }
+    if (people.count > index) {
+        str = [str stringByAppendingString:[NSString stringWithFormat:@"  等%ld人",people.count]];
+    }
+    
+    return str;
 }
 /** 处理部门过长问题 */
 -(NSString *)handlePeopleTooLongWithDepartment:(NSArray *)people model:(TFCustomerRowsModel *)model{

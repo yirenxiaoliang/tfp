@@ -3058,6 +3058,9 @@
         
         
     }
+    else if ([field.name containsString:@"multitext"]){
+        str = field.value;
+    }
     else if ([field.name containsString:@"department"]) {
         
         NSArray *arr = [HQHelper dictionaryWithJsonString:field.value];
@@ -3347,6 +3350,10 @@
         
         
     }
+    
+    else if ([name containsString:@"multitext"]){
+        str = TEXT([dict valueForKey:@"value"]);
+    }
     else if ([name containsString:@"picklist"] || [name containsString:@"multi"] || [name containsString:@"mutlipicklist"]){
         
         NSArray *arr = [dict valueForKey:@"value"];
@@ -3452,7 +3459,7 @@
             }
             
         }
-        else if ([field.type containsString:@"textarea"]) {
+        else if ([field.type containsString:@"textarea"] || [field.type containsString:@"multitext"]) {
             
             
             if (field.field_value && ![field.field_value isEqualToString:@""]) {
