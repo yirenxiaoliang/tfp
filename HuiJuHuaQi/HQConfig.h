@@ -45,7 +45,7 @@
 //#define DisFlag
 
 /** Are you want to show name of controller ? */
-#define ShowNameOfController 0
+#define ShowNameOfController 1
 #define CurrentTime @"2019-07-22 10:30"
 
 /************************     接口头部    ***********************/

@@ -7,7 +7,7 @@
 //
 
 #import "HQEmployHeadView.h"
-#import "UIButton+WebCache.h"
+#import <SDWebImage/SDWebImage.h>
 
 @interface HQEmployHeadView ()
 {

@@ -37,8 +37,7 @@
 #import "HQChatConstants.h"
 #import "DataBaseHandle.h"
 
-#import "UIImageView+WebCache.h"
-#import "UIButton+WebCache.h"
+#import <SDWebImage/SDWebImage.h>
 #import "HQBaseNavigationController.h"
 #import "LiuqsKeyBoardHeader.pch"
 

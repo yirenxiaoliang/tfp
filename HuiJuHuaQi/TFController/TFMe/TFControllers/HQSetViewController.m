@@ -17,6 +17,7 @@
 #import "HQSelectTimeCell.h"
 #import "HQSwitchCell.h"
 #import "HQTFThreeLabelCell.h"
+#import <SDWebImage/SDWebImage.h>
 
 
 @interface HQSetViewController ()<UITableViewDelegate,UITableViewDataSource,UIAlertViewDelegate,HQSwitchCellDelegate>
@@ -168,7 +169,7 @@
         
     }else if (indexPath.section == 3){
         
-        NSInteger size = [[[SDWebImageManager sharedManager] imageCache] getSize];
+        NSInteger size = [[SDImageCache sharedImageCache] totalDiskSize];
         NSString *str = @"清空缓存";
         NSString *str1 = @"";
         if (size > 0) {
@@ -355,7 +356,7 @@
         if (buttonIndex == 1) {
             
             // 清理缓存
-            [[[SDWebImageManager sharedManager] imageCache] clearDiskOnCompletion:^{
+            [[[SDWebImageManager sharedManager] imageCache] clearWithCacheType:SDImageCacheTypeAll completion:^{
                 [self.tableview reloadData];
             }];
             

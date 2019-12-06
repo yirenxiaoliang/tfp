@@ -7,7 +7,7 @@
 //
 
 #import "TFPeopleManagePeopleCell.h"
-#import "UIButton+WebCache.h"
+#import <SDWebImage/SDWebImage.h>
 
 @interface TFPeopleManagePeopleCell ()
 

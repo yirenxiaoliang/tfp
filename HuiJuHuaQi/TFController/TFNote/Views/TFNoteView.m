@@ -680,9 +680,145 @@
     
 }
 
+/** 选择照片处理 */
+-(void)handleImages:(NSArray *)arr{
+    
+    if (arr.count == 0) {
+        return;
+    }
 
-#pragma mark - 打开相机
+        
+    if (arr.count) {
+        
+        if (self.cursorModel == nil) {
+            self.cursorModel = self.noteItems.lastObject;
+        }
+        
+        if (self.cursorModel.check > 0 || self.cursorModel.num > 0 || self.cursorModel.type == 1) {
+            
+            UIImage *image = arr[0];
+            TFNoteImageView *noteImageView = [[TFNoteImageView alloc] initWithFrame:CGRectZero];
+            [self.bgView addSubview:noteImageView];
+            noteImageView.textView.textColor = BlackTextColor;
+            noteImageView.textView.font = FONT(17);
+            noteImageView.textView.delegate = self;
+            noteImageView.textView.backgroundColor = ClearColor;
+            noteImageView.textView.textAlignment = NSTextAlignmentJustified;
+            noteImageView.textView.text = @"";
+            noteImageView.textView.inputAccessoryView = self.accessoryView;
+            noteImageView.tag = self.cursorModel.noteTextView.tag + 1;
+            
+            TFNoteModel *model = [[TFNoteModel alloc] init];
+            model.noteImageView = noteImageView;
+            model.type = 1;
+            model.check = 0;
+            model.num = 0;
+            model.image = image;
+            self.imageModel = model;
+            
+            [self.noteItems insertObject:model atIndex:self.cursorModel.noteTextView.tag + 1];
+            
+            
+            // 加入item为最后一个，需在下方加入输入框
+            if (model == self.noteItems.lastObject) {
+                
+                
+                TFNoteTextView *noteTextView = [[TFNoteTextView alloc] initWithFrame:CGRectZero];
+                [self.bgView addSubview:noteTextView];
+                noteTextView.textColor = BlackTextColor;
+                noteTextView.font = FONT(17);
+                noteTextView.delegate = self;
+                noteTextView.noteDelegate = self;
+                noteTextView.backgroundColor = ClearColor;
+                noteTextView.textAlignment = NSTextAlignmentJustified;
+                noteTextView.inputAccessoryView = self.accessoryView;
+                noteTextView.tag = noteImageView.textView.tag + 1;
+                
+                TFNoteModel *model1 = [[TFNoteModel alloc] init];
+                model1.noteTextView = noteTextView;
+                model1.type = 0;
+                model1.check = self.cursorModel.check;
+                model1.num = self.cursorModel.num == 0 ? 0 : self.cursorModel.num + 1;
+                
+                [self.noteItems addObject:model1];
+                
+            }
+            
+            
+        }else{// 纯文本，分裂成为三个
+            
+            // 加入图片
+            UIImage *image = arr[0];
+            TFNoteImageView *noteImageView = [[TFNoteImageView alloc] initWithFrame:CGRectZero];
+            [self.bgView addSubview:noteImageView];
+            noteImageView.textView.textColor = BlackTextColor;
+            noteImageView.textView.font = FONT(17);
+            noteImageView.textView.delegate = self;
+            noteImageView.textView.backgroundColor = ClearColor;
+            noteImageView.textView.textAlignment = NSTextAlignmentJustified;
+            noteImageView.textView.text = @"";
+            noteImageView.textView.inputAccessoryView = self.accessoryView;
+            noteImageView.tag = self.cursorModel.noteTextView.tag + 1;
+            
+            TFNoteModel *model = [[TFNoteModel alloc] init];
+            model.noteImageView = noteImageView;
+            model.type = 1;
+            model.check = 0;
+            model.num = 0;
+            model.image = image;
+            self.imageModel = model;
+            
+            [self.noteItems insertObject:model atIndex:self.cursorModel.noteTextView.tag + 1];
+            
+            
+            TFNoteTextView *noteTextView = [[TFNoteTextView alloc] initWithFrame:CGRectZero];
+            [self.bgView addSubview:noteTextView];
+            noteTextView.textColor = BlackTextColor;
+            noteTextView.font = FONT(17);
+            noteTextView.delegate = self;
+            noteTextView.noteDelegate = self;
+            noteTextView.backgroundColor = ClearColor;
+            noteTextView.textAlignment = NSTextAlignmentJustified;
+            noteTextView.text = [self.cursorModel.noteTextView.text substringFromIndex:self.cursorPosition];
+            noteTextView.inputAccessoryView = self.accessoryView;
+            noteTextView.tag = self.cursorModel.noteTextView.tag + 2;
+            
+            TFNoteModel *model1 = [[TFNoteModel alloc] init];
+            model1.noteTextView = noteTextView;
+            model1.type = 0;
+            model1.check = 0;
+            model1.num = 0;
+            
+            [self.noteItems insertObject:model1 atIndex:self.cursorModel.noteTextView.tag + 2];
+            
+//            [noteTextView becomeFirstResponder];// 会调用textViewShouldBeginEditing:
+            self.cursorModel.noteTextView.text = [self.cursorModel.noteTextView.text substringToIndex:self.cursorPosition];
+            
+        }
+        
+//        [self setNeedsLayout];
+        [MBProgressHUD showHUDAddedTo:KeyWindow animated:YES];
+        [self.noteBL chatFileWithImages:arr withVioces:@[] bean:@"memo"];
+        
+    }
+        
+}
+
+
+#pragma mark - 打开相册
 - (void)openAlbum{
+    
+    kWEAKSELF
+    ZLPhotoActionSheet *sheet =[HQHelper takeHPhotoWithBlock:^(NSArray<UIImage *> *images) {
+        [weakSelf handleImages:images];
+    }];
+    //图片数量
+    sheet.configuration.maxSelectCount = 1;
+    //如果调用的方法没有传sender，则该属性必须提前赋值
+    AppDelegate *delegate1 = [AppDelegate shareAppDelegate];
+    sheet.sender = delegate1.window.rootViewController;
+    [sheet showPhotoLibrary];
+    return;
     
     ZYQAssetPickerController *picker = [[ZYQAssetPickerController alloc] init];
     picker.maximumNumberOfSelection = 1 ; // 选择图片最大数量

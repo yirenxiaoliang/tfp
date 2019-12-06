@@ -942,8 +942,31 @@
     
 }
 
+/** 选择照片处理 */
+-(void)handleImages:(NSArray *)arr{
+    
+    if (arr.count == 0) {
+        return;
+    }
+    // 选择照片上传
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [self.knowledgeBL chatFileWithImages:arr withVioces:@[] bean:@"repository_libraries"];
+}
+
+
 #pragma mark - 打开相册
 - (void)openAlbum{
+    
+    kWEAKSELF
+    ZLPhotoActionSheet *sheet =[HQHelper takeHPhotoWithBlock:^(NSArray<UIImage *> *images) {
+        [weakSelf handleImages:images];
+    }];
+    //图片数量
+    sheet.configuration.maxSelectCount = 9;
+    //如果调用的方法没有传sender，则该属性必须提前赋值
+    sheet.sender = self;
+    [sheet showPhotoLibrary];
+    return;
     
     ZYQAssetPickerController *picker = [[ZYQAssetPickerController alloc] init];
     

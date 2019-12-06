@@ -10,7 +10,7 @@
 #import "WPTappableLabel.h"
 #import "WPAttributedStyleAction.h"
 #import "NSString+WPAttributedMarkup.h"
-#import "UIButton+WebCache.h"
+#import <SDWebImage/SDWebImage.h>
 
 @interface TFCompanyCircleDetailCommentCell ()
 

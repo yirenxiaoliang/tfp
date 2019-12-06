@@ -7,7 +7,7 @@
 //
 
 #import "HQPictureView.h"
-#import "UIButton+WebCache.h"
+#import <SDWebImage/SDWebImage.h>
 
 @interface HQPictureView ()
 

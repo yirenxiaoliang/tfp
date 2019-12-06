@@ -5329,8 +5329,60 @@
     [self.customBL uploadFileWithImages:@[] withAudios:@[voicePath] bean:self.bean];
 }
 
+/** 选择照片处理 */
+-(void)handleImages:(NSArray *)arr{
+    
+    if (arr.count == 0) {
+        return;
+    }
+    if ([self.attachmentModel.type isEqualToString:@"resumeanalysis"]){// 简历解析
+        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        [self.customBL requestResumeWithBean:self.bean files:arr];
+    }else{
+        if ([self.attachmentModel.field.countLimit isEqualToString:@"1"]) {// 限制图片大小
+            NSArray *fits = [HQHelper caculateImageSizeWithImages:arr maxSize:[self.attachmentModel.field.maxSize floatValue]];
+            if (arr.count != fits.count)  {
+                [MBProgressHUD showError:[NSString stringWithFormat:@"有%ld张不符合上传条件的图片",arr.count-fits.count] toView:KeyWindow];
+            }
+            if (fits.count) {
+                [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+                [self.customBL uploadFileWithImages:fits withAudios:@[] bean:self.bean];
+            }
+        }else{
+            [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+            [self.customBL uploadFileWithImages:arr withAudios:@[] bean:self.bean];
+        }
+    }
+    
+}
+
+
 #pragma mark - 打开相册
 - (void)openAlbum{
+    
+    kWEAKSELF
+    ZLPhotoActionSheet *sheet =[HQHelper takeHPhotoWithBlock:^(NSArray<UIImage *> *images) {
+        [weakSelf handleImages:images];
+    }];
+    //图片数量
+    if ([self.attachmentModel.field.countLimit isEqualToString:@"1"]) {// 限制图片大小
+        
+        if (self.attachmentModel.field.maxCount && ![self.attachmentModel.field.maxCount isEqualToString:@""]) {
+            
+            NSInteger num = [self.attachmentModel.field.maxCount integerValue] - self.attachmentModel.selects.count;
+            if (num <= 0) {
+                return;
+            }
+            sheet.configuration.maxSelectCount = num; // 选择图片最大数量
+        }
+    }else{
+        sheet.configuration.maxSelectCount = 1000000; // 选择图片最大数量
+    }
+//    sheet.configuration.maxSelectCount = 9;
+    //如果调用的方法没有传sender，则该属性必须提前赋值
+    sheet.sender = self;
+    [sheet showPhotoLibrary];
+    return;
     
     ZYQAssetPickerController *picker = [[ZYQAssetPickerController alloc] init];
     

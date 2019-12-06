@@ -8,7 +8,7 @@
 
 #import "HQTFTaskDynamicCell.h"
 #import "HQTFImageCollectionViewCell.h"
-#import "UIButton+WebCache.h"
+#import <SDWebImage/SDWebImage.h>
 #import "YYLabel.h"
 
 #define CollectionItemWidth ((SCREEN_WIDTH - Long(105))/3.0)

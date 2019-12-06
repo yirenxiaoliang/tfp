@@ -23,6 +23,7 @@
 #import <NetworkExtension/NetworkExtension.h>
 #import "FileManager.h"
 #import <sys/utsname.h>
+#import <SDWebImage/SDWebImage.h>
 
 @implementation HQHelper
 
@@ -2382,7 +2383,7 @@
         folderSize += [self fileSizeAtPath:fileAbsolutePath];
     }
     
-    NSString * currentVolum = [NSString stringWithFormat:@"%@",[self fileSizeWithInterge:[[SDImageCache sharedImageCache] getSize]]];
+    NSString * currentVolum = [NSString stringWithFormat:@"%@",[self fileSizeWithInterge:[[SDImageCache sharedImageCache] totalDiskSize]]];
     
     CGFloat sdCache=[currentVolum floatValue];
     if([currentVolum rangeOfString:@"K"].length>0)
@@ -4366,5 +4367,51 @@
         return newstring;
     }
 }
+
+
++ (ZLPhotoActionSheet *)takeHPhotoWithBlock:(void (^) (NSArray<UIImage *> *images))block
+{
+    ZLPhotoActionSheet *actionSheet = [[ZLPhotoActionSheet alloc] init];
+    
+    actionSheet.configuration.allowSelectImage = YES;
+    actionSheet.configuration.maxSelectCount = 9;
+//    actionSheet.configuration.maxVideoSelectCountInMix = 3;
+//    actionSheet.configuration.minVideoSelectCountInMix = 1;
+    //是否允许框架解析图片
+    actionSheet.configuration.shouldAnialysisAsset = NO;
+    actionSheet.configuration.allowSelectVideo = NO;
+    actionSheet.configuration.allowSelectLivePhoto = NO;
+    //设置相册内部显示拍照按钮
+    actionSheet.configuration.allowTakePhotoInLibrary = NO;
+    
+    [actionSheet setSelectImageBlock:^(NSArray<UIImage *> * _Nonnull images, NSArray<PHAsset *> * _Nonnull assets, BOOL isOriginal) {
+        [ZLPhotoManager anialysisAssets:assets original:NO completion:^(NSArray<UIImage *> *assetimages) {
+            if (block) {
+                block(assetimages);
+            }
+        }];
+    }];
+    
+    actionSheet.selectImageRequestErrorBlock = ^(NSArray<PHAsset *> * _Nonnull errorAssets, NSArray<NSNumber *> * _Nonnull errorIndex) {
+        HQLog(@"图片解析出错的索引为: %@, 对应assets为: %@", errorIndex, errorAssets);
+    };
+    
+    actionSheet.cancleBlock = ^{
+        HQLog(@"取消选择图片");
+    };
+    
+    return actionSheet;
+}
+
+
+
+
+
+
+
+
+
+
+
 
 @end

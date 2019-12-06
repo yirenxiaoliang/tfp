@@ -316,8 +316,41 @@
     }
 }
 
-#pragma mark - 打开相机
+/** 选择照片处理 */
+-(void)handleImages:(NSArray *)arr{
+    
+    if (arr.count == 0) {
+        return;
+    }
+    [self.photoMutArr addObjectsFromArray:arr];
+   
+   
+   if (self.photoMutArr.count > 7) {// 3行
+       self.remarkCellHeight = self.contentTextViewHeight +  3 *(self.imageWidth + ImageMargin) + ImageMargin;
+   } else if(self.photoMutArr.count > 3){// 2行
+       self.remarkCellHeight = self.contentTextViewHeight +  2 *(self.imageWidth + ImageMargin) + ImageMargin;
+   }else{// 1行
+       self.remarkCellHeight = self.contentTextViewHeight +  1 *(self.imageWidth + ImageMargin) + ImageMargin;
+   }
+   
+   HQSendFriendCell *cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+   
+   [cell freshPhotoWithArr:self.photoMutArr urlArr:nil];
+   [self.tableView reloadData];
+}
+#pragma mark - 打开相册
 - (void)openAlbum{
+    
+    kWEAKSELF
+    ZLPhotoActionSheet *sheet =[HQHelper takeHPhotoWithBlock:^(NSArray<UIImage *> *images) {
+        [weakSelf handleImages:images];
+    }];
+    //图片数量
+    sheet.configuration.maxSelectCount = 9 - self.photoMutArr.count ; // 选择图片最大数量;
+    //如果调用的方法没有传sender，则该属性必须提前赋值
+    sheet.sender = self;
+    [sheet showPhotoLibrary];
+    return;
     
     ZYQAssetPickerController *picker = [[ZYQAssetPickerController alloc] init];
     picker.maximumNumberOfSelection = 9 - self.photoMutArr.count ; // 选择图片最大数量

@@ -16,6 +16,8 @@
 #import "TFAssistantFieldInfoModel.h"
 #import "TFProjectRowModel.h"
 #import "TFFileModel.h"
+#import <Photos/Photos.h>
+#import <ZLPhotoBrowser/ZLPhotoBrowser.h>
 
 
 @interface HQHelper : NSObject
@@ -661,4 +663,6 @@
 /** 是否为有意义的数字 */
 +(BOOL)judgeNumberWithStr:(NSString *)str;
 
+/** 照片选择器 */
++ (ZLPhotoActionSheet *)takeHPhotoWithBlock:(void (^) (NSArray<UIImage *> *images))block;
 @end
