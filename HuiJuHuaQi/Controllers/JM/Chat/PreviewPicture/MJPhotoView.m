@@ -8,7 +8,6 @@
 #import "MJPhotoView.h"
 #import "MJPhoto.h"
 #import "MJPhotoLoadingView.h"
-#import <SDWebImage/SDWebImage.h>
 #import <QuartzCore/QuartzCore.h>
 #import "JCHATChatModel.h"
 //#import "JChatConstants.h"

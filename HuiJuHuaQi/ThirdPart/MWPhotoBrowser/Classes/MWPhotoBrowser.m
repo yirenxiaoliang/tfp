@@ -10,7 +10,6 @@
 #import "MWCommon.h"
 #import "MWPhotoBrowser.h"
 #import "MWPhotoBrowserPrivate.h"
-#import <SDWebImage/SDWebImage.h>
 #import "UIImage+MWPhotoBrowser.h"
 
 #define PADDING                  10

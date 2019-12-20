@@ -380,7 +380,8 @@
 /** 条形码图片 */
 #define BarcodePicture @"/barcode/getBarcodeMsg"
 /** 获取某模块数据条件字段列表 */
-#define GetCustomConditionField @"/layout/getLinkageFieldsForCustom"
+#define GetCustomConditionField @"/layout/getRelationFieldsForCustom"
+//#define GetCustomConditionField @"/layout/getLinkageFieldsForCustom"
 /** 条件字段value变更触发获取联动字段列表和value */
 //#define GetLinkageFieldList @"/aggregationLinkage/findAggregationDataLinkageList"
 #define GetLinkageFieldList @"/aggregationLinkage/getLinkageData"

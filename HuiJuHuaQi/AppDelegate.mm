@@ -12,7 +12,7 @@
 #import "AlertView.h"
 #import <AMapFoundationKit/AMapFoundationKit.h>
 #import <AdSupport/AdSupport.h>
-#import <SDWebImage/SDWebImage.h>
+#import "SDImageCache.h"
 
 #import "HQTabBar.h"
 #import "UITabBar+RedPoint.h"

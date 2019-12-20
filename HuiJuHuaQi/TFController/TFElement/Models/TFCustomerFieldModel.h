@@ -18,6 +18,9 @@
  "defaultValue": "0",
  "length": "1",
  "entrys": */
+ @property (nonatomic, copy) NSString <Optional>*add;
+ @property (nonatomic, copy) NSString <Optional>*adelete;
+ @property (nonatomic, copy) NSString <Optional>*mustFill ;
 
 
 /** 详情显示 */

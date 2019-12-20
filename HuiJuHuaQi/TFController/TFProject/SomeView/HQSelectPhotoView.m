@@ -7,7 +7,6 @@
 //
 
 #import "HQSelectPhotoView.h"
-#import <SDWebImage/SDWebImage.h>
 
 
 @interface HQSelectPhotoView ()

@@ -23,8 +23,6 @@
 #import <NetworkExtension/NetworkExtension.h>
 #import "FileManager.h"
 #import <sys/utsname.h>
-#import <SDWebImage/SDWebImage.h>
-
 @implementation HQHelper
 
 
@@ -2383,7 +2381,8 @@
         folderSize += [self fileSizeAtPath:fileAbsolutePath];
     }
     
-    NSString * currentVolum = [NSString stringWithFormat:@"%@",[self fileSizeWithInterge:[[SDImageCache sharedImageCache] totalDiskSize]]];
+    NSString * currentVolum = [NSString stringWithFormat:@"%@",[self fileSizeWithInterge:[[[SDWebImageManager sharedManager] imageCache] getSize]]];
+    
     
     CGFloat sdCache=[currentVolum floatValue];
     if([currentVolum rangeOfString:@"K"].length>0)

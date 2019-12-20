@@ -7,7 +7,6 @@
 //
 
 #import "HQEmployHeadView.h"
-#import <SDWebImage/SDWebImage.h>
 
 @interface HQEmployHeadView ()
 {

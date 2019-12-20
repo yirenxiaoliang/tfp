@@ -630,6 +630,9 @@
 -(void)setTitle:(NSString *)title{
     _title = title;
     self.titleLabel.text = title;
+    if ([self.model.height floatValue] == 0 || [self.model.field.isOptionHidden isEqualToString:@"1"]) {
+        self.titleLabel.text = @"";
+    }
 }
 /** 内容 */
 -(void)setContent:(NSString *)content{
@@ -672,6 +675,10 @@
             make.width.mas_equalTo(0);
         }];
         self.rightBtn.hidden = YES;
+    }
+    if ([self.model.height floatValue] == 0 || [self.model.field.isOptionHidden isEqualToString:@"1"]) {
+        [self.rightBtn setImage:nil forState:UIControlStateNormal];
+        [self.rightBtn setImage:nil forState:UIControlStateHighlighted];
     }
 }
 /** 左图片 */

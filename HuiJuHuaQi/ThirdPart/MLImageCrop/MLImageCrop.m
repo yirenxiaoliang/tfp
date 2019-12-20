@@ -7,7 +7,6 @@
 //
 
 #import "MLImageCrop.h"
-#import <SDWebImage/SDWebImage.h>
 //#import "Debug.h"
 
 #define kDefualRatioOfWidthAndHeight 1.0f

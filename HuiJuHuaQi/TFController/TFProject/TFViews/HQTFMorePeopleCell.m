@@ -9,7 +9,6 @@
 #import "HQTFMorePeopleCell.h"
 #import "HQTFPeopleView.h"
 #import "HQEmployModel.h"
-#import <SDWebImage/SDWebImage.h>
 #import "TFEmployModel.h"
 #import "TFChangeHelper.h"
 

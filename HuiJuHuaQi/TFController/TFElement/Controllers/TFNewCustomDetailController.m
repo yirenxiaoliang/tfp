@@ -1153,9 +1153,26 @@
         if ([self.lockedState isEqualToString:@"1"]) {
             
             NSMutableArray *arr = [NSMutableArray array];
+            NSString *authStr = [self.detailDict valueForKey:@"lock_auth"];
+            NSArray *authCodes = @[];
+            if ([authStr isKindOfClass:[NSString class]]) {
+                authCodes = [authStr componentsSeparatedByString:@","];
+            }
+
             for (TFCustomAuthModel *model in self.auths) {
-                if ([model.auth_code isEqualToNumber:@9]) {
+                BOOL have = NO;
+                for (NSNumber *code in authCodes) {
+                    if ([model.auth_code integerValue] == [code integerValue]) {
+                        have = YES;
+                        break;
+                    }
+                }
+                if (!have) {
                     [arr addObject:model];
+                }else{
+                    if ([model.auth_code isEqualToNumber:@9]) {
+                        [arr addObject:model];
+                    }
                 }
             }
             self.auths = arr;

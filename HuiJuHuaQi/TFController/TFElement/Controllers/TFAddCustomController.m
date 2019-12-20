@@ -137,7 +137,8 @@
 
 /** 联动条件字段 */
 @property (nonatomic, strong) NSArray *linkageConditions;
-
+/** 联动人员字段 */
+@property (nonatomic, strong) NSArray *persons;
 /** 记录初始值 */
 @property (nonatomic, copy) NSString *startDict;
 
@@ -2000,6 +2001,14 @@
         
         TFTCustomSubformHeaderCell *cell = [TFTCustomSubformHeaderCell customSubformHeaderCellWithTableView:tableView];
         cell.title = model.label;
+        /** 字段控制(0都不选 1只读 2必填) */
+        if ([field.mustFill isEqualToString:@"0"]&&[field.add isEqualToString:@"1"]&&[field.adelete isEqualToString:@"1"]) {
+            field.fieldControl = @"0";
+        }else if ([field.mustFill isEqualToString:@"1"]) {
+            field.fieldControl = @"2";
+        }else if ([field.mustFill isEqualToString:@"0"]&&[field.add isEqualToString:@"0"]&&[field.adelete isEqualToString:@"0"]) {
+            field.fieldControl = @"1";
+        }
         cell.fieldControl = [self detailHiddenRequireWithField:field];
         cell.model = model;
         cell.delegate = self;
@@ -2334,6 +2343,7 @@
     // 1. 不显示某组
     if ([layout.terminalApp isEqualToString:@"0"]) {
         cell.hidden = YES;
+        model.height = @0;
         return 0;
     }
     
@@ -2341,6 +2351,7 @@
     if (self.type != 1) {
         if ([layout.name isEqualToString:@"systemInfo"]) {
             cell.hidden = YES;
+            model.height = @0;
             return 0;
         }
     }
@@ -2348,17 +2359,20 @@
     if (self.type == 1) {// 详情时显示
         if ([layout.isHideInDetail isEqualToString:@"1"]) {
             cell.hidden = YES;
+            model.height = @0;
             return 0;
         }
     }else{// 新建or编辑
         if ([layout.isHideInCreate isEqualToString:@"1"]) {
             cell.hidden = YES;
+            model.height = @0;
             return 0;
         }
     }
     
     if ([field.terminalApp isEqualToString:@"0"]) {
         cell.hidden = YES;
+        model.height = @0;
         return 0;
     }
     
@@ -2367,6 +2381,7 @@
         
         if ([field.addView isEqualToString:@"0"]) {
             cell.hidden = YES;
+            model.height = @0;
             return 0;
         }
         
@@ -2376,6 +2391,7 @@
         
         if ([field.detailView isEqualToString:@"0"]) {
             cell.hidden = YES;
+            model.height = @0;
             return 0;
         }
         
@@ -2384,6 +2400,7 @@
         
         if ([field.editView isEqualToString:@"0"]) {
             cell.hidden = YES;
+            model.height = @0;
             return 0;
         }
     }
@@ -2391,6 +2408,7 @@
 #pragma mark - 选项字段控制隐藏
     if ([field.isOptionHidden isEqualToString:@"1"]) {
         cell.hidden = YES;
+        model.height = @0;
         return 0;
     }
     
@@ -2640,6 +2658,12 @@
                 }
                 return 0;
             }
+            if ([layout.add isEqualToString:@"0"]) {
+                if ([UIDevice currentDevice].systemVersion.floatValue < 11.0) {
+                    return 0.5;
+                }
+                return 0;
+            }
             return 40;
         }else{
             if ([UIDevice currentDevice].systemVersion.floatValue < 11.0) {
@@ -2736,6 +2760,7 @@
         view.titleLabel.text = [NSString stringWithFormat:@"栏目%ld",(long)[layout.position integerValue]];
         view.delegate = self;
         view.isEdit = self.type != 1 ? ([layout.fieldControl isEqualToString:@"1"] ? NO : YES) : NO;
+        view.isEdit = self.type != 1 ? ([layout.adelete isEqualToString:@"0"] ? NO : YES) : NO;
         return view;
         
     }
@@ -3466,15 +3491,27 @@
             // 将图片和附件字符串转为数组
             NSMutableDictionary *relaDict = (NSMutableDictionary *)parameter.relationField;
             NSArray *keys = relaDict.allKeys;
+            NSMutableArray *subKeys = [NSMutableArray array];
             for (NSString *key in keys) {
                 if ([key containsString:@"attachment_"] || [key containsString:@"picture_"]) {
                     if ([[relaDict valueForKey:key] isKindOfClass:[NSString class]]) {
                         [relaDict setObject:[self handlePicture:[relaDict valueForKey:key]] forKey:key];
                     }
                 }
+                if ([key containsString:@"subform_"]) {
+                    [subKeys addObject:key];
+                }
             }
-                
-            
+
+            // 主表关联关系映射子表单,需删除已有的再添加新的
+            NSArray *lays = [NSArray arrayWithArray:self.layouts];
+            for (NSString *key in subKeys) {
+                for (TFCustomerLayoutModel *lla in lays) {
+                    if ([lla.fieldName isEqualToString:key] && [lla.virValue isEqualToString:@"1"]) {
+                        [self.layouts removeObject:lla];
+                    }
+                }
+            }
 #pragma mark - 回填关联映射
             // 回填关联映射
             [self handleReferanceMapFieldWithDict:parameter.relationField currentModel:model];
@@ -4141,7 +4178,7 @@
 -(void)generalSingleCellWithModel:(TFCustomerRowsModel *)model{
     
     
-    if ([model.linkage isEqualToString:@"1"]) {
+    if ([model.linkage isEqualToString:@"1"] || [model.linkage isEqualToString:@"2"]) {
         
         self.attachmentModel = model;
         
@@ -4794,6 +4831,16 @@
                 
                 mo.field.isOptionHidden = @"1";
                 mo.field.optionHiddenName = model.name;
+                // 若是关联组件隐藏，则字表选项映射也隐藏
+                if ([mo.type isEqualToString:@"reference"]) {
+                    NSArray *subs = [self getSubformElement];
+                    for (TFCustomerRowsModel *sub in subs) {
+                        if (sub.subformRelation) { if([sub.subformRelation.controlField  isEqualToString:mo.name]) {
+                                sub.controlFieldHide = @"1";
+                            }
+                        }
+                    }
+                }
             }
         }
     }
@@ -4890,6 +4937,8 @@
                 sublay.fieldName = row.name;
                 sublay.position = @(row.subforms.count + 1);
                 sublay.name = row.type;
+                sublay.add = row.field.add;
+                sublay.adelete = row.field.adelete;
                 
                 // 该分栏不显示大于组件不显示
                 if ([layout.terminalApp isEqualToString:@"0"]) {
@@ -6139,6 +6188,8 @@
                             sublay.name = row.type;
                             sublay.fieldName = row.name;
                             sublay.fieldControl = row.field.fieldControl;
+                            sublay.add = row.field.add;
+                            sublay.adelete = row.field.adelete;
                             // 该分栏不显示大于组件不显示
                             if ([layout.terminalApp isEqualToString:@"0"]) {
                                 sublay.terminalApp = layout.terminalApp;
@@ -6189,6 +6240,8 @@
                         sublay.name = row.type;
                         sublay.fieldName = row.name;
                         sublay.fieldControl = row.field.fieldControl;
+                        sublay.add = row.field.add;
+                        sublay.adelete = row.field.adelete;
                         // 该分栏不显示大于组件不显示
                         if ([layout.terminalApp isEqualToString:@"0"]) {
                             sublay.terminalApp = layout.terminalApp;
@@ -6241,6 +6294,8 @@
                                 sublay.name = row.type;
                                 sublay.fieldName = row.name;
                                 sublay.fieldControl = row.field.fieldControl;
+                                sublay.add = row.field.add;
+                                sublay.adelete = row.field.adelete;
                                 // 该分栏不显示大于组件不显示
                                 if ([layout.terminalApp isEqualToString:@"0"]) {
                                     sublay.terminalApp = layout.terminalApp;
@@ -6297,6 +6352,8 @@
                             sublay.name = row.type;
                             sublay.fieldName = row.name;
                             sublay.fieldControl = row.field.fieldControl;
+                            sublay.add = row.field.add;
+                            sublay.adelete = row.field.adelete;
                             // 该分栏不显示大于组件不显示
                             if ([layout.terminalApp isEqualToString:@"0"]) {
                                 sublay.terminalApp = layout.terminalApp;
@@ -6408,6 +6465,10 @@
                 model.level = [NSString stringWithFormat:@"%ld",(long)level];
                 model.virValue = @"2";
                 model.fieldControl = row.field.fieldControl;
+                model.add = row.field.add;
+                model.adelete = row.field.adelete;
+                model.add = row.field.add;
+                model.adelete = row.field.adelete;
                 model.terminalApp = layout.terminalApp;
                 model.isHideInCreate = layout.isHideInCreate;
                 model.isHideInDetail = layout.isHideInDetail;
@@ -6623,6 +6684,24 @@
         
         TFCustomBaseModel *model = resp.body;
         self.customModel = model;
+    //控制字段被隐藏时，“子表选项映射”按钮对应隐藏（隐藏包含：下拉选项控制、新建或编辑时隐藏、字段无权限-子页面）2019.12.20
+        NSArray *subs = [self getSubformElement];
+        NSArray *refs = [self getReferenceRows];
+        for (TFCustomerRowsModel *sub in subs) {
+            for (TFCustomerRowsModel *mo in refs) {
+                if (sub.subformRelation) { if([sub.subformRelation.controlField  isEqualToString:mo.name]) {
+                        if ([mo.field.terminalApp isEqualToString:@"0"]){
+                            sub.controlFieldHide = @"1";
+                        }else if ([mo.field.addView isEqualToString:@"0"] && (self.type == 0 || self.type == 3)){
+                            sub.controlFieldHide = @"1";
+                        }else if ([mo.field.editView isEqualToString:@"0"] && self.type == 2){
+                            sub.controlFieldHide = @"1";
+                        }
+                    }
+                }
+            }
+        }
+        
         self.customDict = resp.data;
         if (self.layoutBlock) {
             self.layoutBlock(model);
@@ -6717,6 +6796,25 @@
                 model.linkage = @"1";
             }
         }
+        
+        // 记录联动条件字段
+            for (NSString *field in self.persons) {
+                
+                if ([field containsString:@"subform"]) {// 子组件
+                    NSArray *subforms = [self getSubformElement];
+                    for (TFCustomerRowsModel *subform in subforms) {
+                        for (TFCustomerRowsModel *row in subform.componentList) {
+                            if ([field isEqualToString:row.name]) {
+                                row.linkage = @"2";
+                            }
+                        }
+                    }
+                    
+                }else{
+                    TFCustomerRowsModel *model = [self getRowWithName:field];// 找不到子表单里的子组件
+                    model.linkage = @"2";
+                }
+            }
         // 记录初始值
         self.startDict = [[self dictData] description];
         
@@ -6724,7 +6822,9 @@
     
     if (resp.cmdId == HQCMD_getCustomConditionField) {// 获取联动条件字段
         
-        self.linkageConditions = resp.body;
+//        self.linkageConditions = resp.body;
+        self.linkageConditions = [resp.body valueForKey:@"linkage"];
+        self.persons = [resp.body valueForKey:@"person"];
         
         if (self.customModel) {
             
@@ -6746,6 +6846,25 @@
                     model.linkage = @"1";
                 }
             }
+
+        // 记录联动条件字段
+            for (NSString *field in self.persons) {
+                
+                if ([field containsString:@"subform"]) {// 子组件
+                    NSArray *subforms = [self getSubformElement];
+                    for (TFCustomerRowsModel *subform in subforms) {
+                        for (TFCustomerRowsModel *row in subform.componentList) {
+                            if ([field isEqualToString:row.name]) {
+                                row.linkage = @"2";
+                            }
+                        }
+                    }
+                    
+                }else{
+                    TFCustomerRowsModel *model = [self getRowWithName:field];// 找不到子表单里的子组件
+                    model.linkage = @"2";
+                }
+            }
         }
     }
     
@@ -6754,47 +6873,76 @@
         [MBProgressHUD hideHUDForView:self.view animated:YES];
         
         // 值
-        NSDictionary *dict = resp.body;
+        NSDictionary *dict1 = resp.body;
         
-        if ([dict valueForKey:@"currentSubIndex"]) {// 子表单中的联动
-            NSArray *keys = dict.allKeys;
-            NSString *desK = nil;
-            for (NSString *kk in keys) {
-                if ([kk containsString:@"subform_"]) {
-                    desK = kk;
-                    break;
-                }
-            }
-            TFCustomerRowsModel *subform = [self getRowWithName:desK];
-            NSNumber *bun = [dict valueForKey:@"currentSubIndex"];
-            NSMutableDictionary *subDict = [NSMutableDictionary dictionaryWithDictionary:[dict valueForKey:desK]];
-            if ([bun integerValue] < subform.subforms.count) {
-                NSArray *ooo = [subform.subforms objectAtIndex:[bun integerValue]];
-                NSArray *subKeys = [subDict allKeys];
-                for (NSString *subKey in subKeys) {
-                    for (TFCustomerRowsModel *rr in ooo) {
-                        if ([rr.name isEqualToString:subKey]) {
-                            if ([[subDict valueForKey:subKey] isKindOfClass:[NSString class]]) {
-                                if ([subKey containsString:@"picture_"] || [subKey containsString:@"attachment_"]) {
-                                    [subDict setObject:[self handlePicture:[subDict valueForKey:subKey]] forKey:subKey];
-                                }
-                            }
-                            [self customerRowsModel:rr WithDict:subDict];
-                            break;
-                        }
+        void(^handleBlock)(NSDictionary *) = ^(NSDictionary *dict) {
+
+            if ([dict valueForKey:@"currentSubIndex"]) {// 子表单中的联动
+                NSArray *keys = dict.allKeys;
+                NSString *desK = nil;
+                for (NSString *kk in keys) {
+                    if ([kk containsString:@"subform_"]) {
+                        desK = kk;
+                        break;
                     }
                 }
+                TFCustomerRowsModel *subform = [self getRowWithName:desK];
+                NSNumber *bun = [dict valueForKey:@"currentSubIndex"];
+                NSMutableDictionary *subDict = [NSMutableDictionary dictionaryWithDictionary:[dict valueForKey:desK]];
+                if ([bun integerValue] < subform.subforms.count) {
+                    NSArray *ooo = [subform.subforms objectAtIndex:[bun integerValue]];
+                    NSArray *subKeys = [subDict allKeys];
+                    for (NSString *subKey in subKeys) {
+                        for (TFCustomerRowsModel *rr in ooo) {
+                            if ([rr.name isEqualToString:subKey]) {
+                                if ([[subDict valueForKey:subKey] isKindOfClass:[NSString class]]) {
+                                    if ([subKey containsString:@"picture_"] || [subKey containsString:@"attachment_"]) {
+                                        [subDict setObject:[self handlePicture:[subDict valueForKey:subKey]] forKey:subKey];
+                                    }
+                                }
+                                [self customerRowsModel:rr WithDict:subDict];
+                                break;
+                            }
+                        }
+                    }
+                    
+                }
+                
                 
             }
-            
-            
-        }else{
-            // 处理联动
-            [self handleLinkageFieldWithDict:dict currentModel:self.attachmentModel];
-        }
+            else{
+                // 处理联动
+                [self handleLinkageFieldWithDict:dict currentModel:self.attachmentModel];
+            }
+        };
+        handleBlock(dict1);
         
         // 刷新
         [self.tableView reloadData];
+         
+       if ([self.attachmentModel.linkage isEqualToString:@"2"]) {
+           NSMutableDictionary *userDict = [NSMutableDictionary dictionary];
+           if (self.bean) {
+               [userDict setObject:self.bean forKey:@"bean"];
+           }
+           if (self.attachmentModel.name) {
+               [userDict setObject:self.attachmentModel.name forKey:@"field"];
+           }
+           if (self.attachmentModel.selects.count) {
+               HQEmployModel *em = self.attachmentModel.selects.firstObject;
+               [userDict setObject:em.id forKey:@"employeeId"];
+           }
+           [[TFRequest sharedManager] requestGET:[NSString stringWithFormat:@"%@%@%@",[AppDelegate shareAppDelegate].baseUrl,[AppDelegate shareAppDelegate].serverAddress,@"/user/getPersonInfo"] parameters:userDict progress:nil success:^(id response) {
+               NSDictionary *dd = [response valueForKey:@"data"];
+               
+               handleBlock(dd);
+               [self.tableView reloadData];
+               
+           } failure:^(NSError *error) {
+               
+           }];
+           
+       }
     }
     
     if (resp.cmdId == HQCMD_customSave) {
@@ -7703,7 +7851,17 @@
                                 
                                 mo.field.isOptionHidden = @"1";
                                 mo.field.optionHiddenName = model.name;
-                                
+
+                                // 若是关联组件隐藏，则字表选项映射也隐藏
+                                if ([mo.type isEqualToString:@"reference"]) {
+                                    NSArray *subs = [self getSubformElement];
+                                    for (TFCustomerRowsModel *sub in subs) {
+                                        if (sub.subformRelation) { if([sub.subformRelation.controlField  isEqualToString:mo.name]) {
+                                                sub.controlFieldHide = @"1";
+                                            }
+                                        }
+                                    }
+                                }
                             }
                         }
                     }

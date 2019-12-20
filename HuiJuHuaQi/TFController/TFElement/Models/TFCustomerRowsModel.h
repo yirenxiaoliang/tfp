@@ -124,5 +124,7 @@
 @property (nonatomic, strong) NSNumber <Ignore>*position;
 /** subformItemId */
 @property (nonatomic, strong) NSNumber <Optional>*subformItemId;
+/** 控制字段隐藏，子表单选项映射也隐藏 */
+@property (nonatomic, copy) NSString <Optional>*controlFieldHide;
 
 @end

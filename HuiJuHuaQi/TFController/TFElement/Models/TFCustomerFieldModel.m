@@ -9,6 +9,11 @@
 #import "TFCustomerFieldModel.h"
 
 @implementation TFCustomerFieldModel
++(JSONKeyMapper *)keyMapper{
+    return [[JSONKeyMapper alloc] initWithDictionary:@{
+        @"delete": @"adelete"
+    }];
+}
 
 -(id)copyWithZone:(NSZone *)zone{
     
@@ -63,6 +68,11 @@
     model.chooseRange = [self.chooseRange copy];
     model.numberDelimiter = self.numberDelimiter;
     model.editorShowDefault = self.editorShowDefault;
+    
+    
+    model.add = self.add;
+    model.adelete = self.adelete;
+    model.mustFill = self.mustFill;
     return model;
     
 }
@@ -121,6 +131,9 @@
     model.numberDelimiter = self.numberDelimiter;
     model.editorShowDefault = self.editorShowDefault;
     
+    model.add = self.add;
+    model.adelete = self.adelete;
+    model.mustFill = self.mustFill;
     return model;
     
 }

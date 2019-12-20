@@ -7,7 +7,6 @@
 //
 
 #import "HQPictureView.h"
-#import <SDWebImage/SDWebImage.h>
 
 @interface HQPictureView ()
 

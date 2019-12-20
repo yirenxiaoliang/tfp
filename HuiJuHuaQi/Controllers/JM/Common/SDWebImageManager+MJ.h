@@ -6,7 +6,7 @@
 //  Copyright (c) 2013年 itcast. All rights reserved.
 //
 
-#import <SDWebImage/SDWebImage.h>
+#import "SDWebImageManager.h"
 
 @interface SDWebImageManager (MJ)
 + (void)downloadWithURL:(NSURL *)url;

@@ -7,7 +7,6 @@
 //
 
 #import "TFPeopleManagePeopleCell.h"
-#import <SDWebImage/SDWebImage.h>
 
 @interface TFPeopleManagePeopleCell ()
 
