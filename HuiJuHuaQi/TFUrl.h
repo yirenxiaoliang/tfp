@@ -90,6 +90,7 @@ static NSString *customChart = @"#/echarts";
 //static NSString *thinkUrl = @"https://page.teamface.cn/#/hierarchyPreview";
 static NSString *thinkUrl = @"#/hierarchyPreview";
 //static NSString *thinkUrl = @"http://192.168.1.145:8787/#/hierarchyPreview";
+static NSString *salaryUrl = @"#/salary";
 
 
 #endif /* TFUrl_h */

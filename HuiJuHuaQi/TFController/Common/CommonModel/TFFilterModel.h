@@ -46,5 +46,7 @@ typedef enum {
 @property (nonatomic, copy) NSString <Ignore>*modelLabel;
 /** modelOpen */
 @property (nonatomic, strong) NSNumber <Ignore>*modelOpen;
+//formatType
+@property (nonatomic, copy) NSString <Optional>*formatType;
 
 @end

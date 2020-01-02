@@ -36,6 +36,7 @@
 #import "TFLoginBL.h"
 #import "TFEndlessView.h"
 #import "TFRefresh.h"
+#import "TFSalaryController.h"
 
 #define ADHEIGHT 160
 
@@ -395,7 +396,8 @@
                     if (self.type == 6 || self.type == 7) {// 知识库引用的时候不需要文件库,知识库,考勤
                         if ([[dict valueForKey:@"bean"] isEqualToString:@"library"] ||
                             [[dict valueForKey:@"bean"] isEqualToString:@"repository_libraries"] ||
-                            [[dict valueForKey:@"bean"] isEqualToString:@"attendance"]) {
+                            [[dict valueForKey:@"bean"] isEqualToString:@"attendance"] ||
+                            [[dict valueForKey:@"bean"] isEqualToString:@"salary"]) {
                             continue;
                         }
                     }
@@ -970,6 +972,11 @@
     else if ([module.english_name isEqualToString:@"repository_libraries"]) { // 知识库
         
         TFKnowledgeListController *att = [[TFKnowledgeListController alloc] init];
+        [self.navigationController pushViewController:att animated:YES];
+    }
+    else if ([module.english_name isEqualToString:@"salary"]) { // 薪酬
+        
+        TFSalaryController *att = [[TFSalaryController alloc] init];
         [self.navigationController pushViewController:att animated:YES];
     }
     else{

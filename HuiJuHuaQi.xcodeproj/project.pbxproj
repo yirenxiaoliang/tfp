@@ -968,6 +968,7 @@
 		B863FFDA234F11D70031EB8C /* UIImage+HJImage.m in Sources */ = {isa = PBXBuildFile; fileRef = B863FFD8234F11D70031EB8C /* UIImage+HJImage.m */; };
 		B863FFDD234F12030031EB8C /* HJSignatureView.m in Sources */ = {isa = PBXBuildFile; fileRef = B863FFDC234F12030031EB8C /* HJSignatureView.m */; };
 		B863FFE0234F14CB0031EB8C /* TFSignatureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B863FFDF234F14CB0031EB8C /* TFSignatureViewController.m */; };
+		B86DC22E23BD8D5A006C8205 /* TFSalaryController.m in Sources */ = {isa = PBXBuildFile; fileRef = B86DC22D23BD8D5A006C8205 /* TFSalaryController.m */; };
 		B8AB31AD237E52DC00DB8C58 /* TFSelectFirstLevelPeopleController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8AB31AC237E52DC00DB8C58 /* TFSelectFirstLevelPeopleController.m */; };
 		B8C8CC912356A862007CBCCD /* TFCustomSignatureCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B8C8CC902356A862007CBCCD /* TFCustomSignatureCell.m */; };
 		B8FE79D42399DC01004D56C9 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58323069200D9505006FE165 /* Photos.framework */; };
@@ -3549,6 +3550,8 @@
 		B863FFDC234F12030031EB8C /* HJSignatureView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJSignatureView.m; sourceTree = "<group>"; };
 		B863FFDE234F14CB0031EB8C /* TFSignatureViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFSignatureViewController.h; sourceTree = "<group>"; };
 		B863FFDF234F14CB0031EB8C /* TFSignatureViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFSignatureViewController.m; sourceTree = "<group>"; };
+		B86DC22C23BD8D5A006C8205 /* TFSalaryController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFSalaryController.h; sourceTree = "<group>"; };
+		B86DC22D23BD8D5A006C8205 /* TFSalaryController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFSalaryController.m; sourceTree = "<group>"; };
 		B8AB31AB237E52DC00DB8C58 /* TFSelectFirstLevelPeopleController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFSelectFirstLevelPeopleController.h; sourceTree = "<group>"; };
 		B8AB31AC237E52DC00DB8C58 /* TFSelectFirstLevelPeopleController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFSelectFirstLevelPeopleController.m; sourceTree = "<group>"; };
 		B8C8CC8F2356A862007CBCCD /* TFCustomSignatureCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFCustomSignatureCell.h; sourceTree = "<group>"; };
@@ -10638,6 +10641,8 @@
 				5842EB1F2126813900F9AD38 /* TFEditMobilAndMailController.m */,
 				9AD0A3C922DEB87600CC2352 /* TFVersionViewController.h */,
 				9AD0A3CA22DEB87600CC2352 /* TFVersionViewController.m */,
+				B86DC22C23BD8D5A006C8205 /* TFSalaryController.h */,
+				B86DC22D23BD8D5A006C8205 /* TFSalaryController.m */,
 			);
 			path = TFControllers;
 			sourceTree = "<group>";
@@ -12206,6 +12211,7 @@
 				D685C89720FD76FE0039C42C /* TFCustomAuthModel.m in Sources */,
 				580E11CE212AA6DF00DC2A3A /* TFCustomAlertView.m in Sources */,
 				D6B869A91EA865610094D4FD /* TFCompanyCircleDetailStarCell.m in Sources */,
+				B86DC22E23BD8D5A006C8205 /* TFSalaryController.m in Sources */,
 				D62CB3F31DE6D66B00D0365B /* JCHATRecordAnimationView.m in Sources */,
 				D685CA3320FD8D9E0039C42C /* TFProjectFilterView.m in Sources */,
 				93C329DE1C4651100021AF20 /* LCProgressHUD.m in Sources */,

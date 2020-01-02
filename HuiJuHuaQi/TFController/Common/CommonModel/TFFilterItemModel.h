@@ -39,6 +39,8 @@
 
 /** title */
 @property (nonatomic, copy) NSString <Optional>*maxValue;
+/** formatType */
+@property (nonatomic, copy) NSString <Optional>*formatType;
 
 
 

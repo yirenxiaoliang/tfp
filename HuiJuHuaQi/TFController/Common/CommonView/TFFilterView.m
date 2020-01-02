@@ -21,6 +21,8 @@
 #import "TFEmployModel.h"
 #import "TFChangeHelper.h"
 #import "TFDepartmentModel.h"
+#import "TFSelectDateView.h"
+#import "TFSelectCalendarView.h"
 
 #define MarginWidth 55
 #define Color RGBColor(0x3d, 0xb8, 0xc1)
@@ -206,6 +208,7 @@
                 item.label = names[k];
                 item.type = @0;
                 item.selectState = @0;
+                item.formatType = model.formatType;
                 
                 if (k == names.count-2 || k == names.count - 1) {
                     item.type = @2;
@@ -947,10 +950,29 @@
                 cell.timeTitle.textColor = WhiteColor;
                 cell.time.textColor = WhiteColor;
                 if (!item.timeSp || [item.timeSp isEqualToNumber:@0]) {
-                    
-                    cell.time.text = @"年-月-日";
+                    NSString *type = @"";
+                    if ([item.formatType isEqualToString:@"yyyy-MM-dd"]) {
+                        type = @"年-月-日";
+                    }else if ([item.formatType isEqualToString:@"yyyy-MM"]) {
+                        type = @"年-月";
+                    }else if ([item.formatType isEqualToString:@"yyyy"]) {
+                        type = @"年";
+                    }else if ([item.formatType isEqualToString:@"yyyy-MM-dd HH"]) {
+                        type = @"年-月-日 时";
+                    }else if ([item.formatType isEqualToString:@"yyyy-MM-dd HH:mm"]) {
+                        type = @"年-月-日 时：分";
+                    }else if ([item.formatType isEqualToString:@"yyyy-MM-dd HH:mm:ss"]) {
+                        type = @"年-月-日 时：分：秒";
+                    }else if ([item.formatType isEqualToString:@"HH:mm:ss"]) {
+                        type = @"时：分：秒";
+                    }else if ([item.formatType isEqualToString:@"HH:mm"]) {
+                        type = @"时：分";
+                    }else if ([item.formatType isEqualToString:@"HH"]) {
+                        type = @"时";
+                    }
+                    cell.time.text = type;
                 }else{
-                    cell.time.text = [HQHelper nsdateToTime:[item.timeSp longLongValue] formatStr:@"yyyy年MM月dd日"];
+                    cell.time.text = [HQHelper nsdateToTime:[item.timeSp longLongValue] formatStr:item.formatType];
                 }
                 if ([item.selectState isEqualToNumber:@1]) {
                     [cell.arrow setImage:nil];
@@ -1218,16 +1240,66 @@
                     for (TFFilterItemModel *secItem in model.entrys) {// 选择时间时，取消时间点选择
                         secItem.selectState = @0;
                     }
+                    DateViewType type = DateViewType_YearMonthDay;
+                    NSInteger index = 0;
+                    if ([item.formatType isEqualToString:@"yyyy-MM-dd"]) {
+                        type = DateViewType_YearMonthDay;
+                    }else if ([item.formatType isEqualToString:@"yyyy-MM"]) {
+                        type = DateViewType_YearMonth;
+                    }else if ([item.formatType isEqualToString:@"yyyy"]) {
+                        type = DateViewType_Year;
+                    }else if ([item.formatType isEqualToString:@"yyyy-MM-dd HH"]) {
+                        type = DateViewType_Hour;
+                        index = 1;
+                    }else if ([item.formatType isEqualToString:@"yyyy-MM-dd HH:mm"]) {
+                        type = DateViewType_HourMinute;
+                        index = 1;
+                    }else if ([item.formatType isEqualToString:@"yyyy-MM-dd HH:mm:ss"]) {
+                        type = DateViewType_HourMinuteSecond;
+                        index = 1;
+                    }else if ([item.formatType isEqualToString:@"HH:mm:ss"]) {
+                        type = DateViewType_HourMinuteSecond;
+                    }else if ([item.formatType isEqualToString:@"HH:mm"]) {
+                        type = DateViewType_HourMinute;
+                    }else if ([item.formatType isEqualToString:@"HH"]) {
+                        type = DateViewType_Hour;
+                    }
                     
-                    [HQSelectTimeView selectTimeViewWithType:SelectTimeViewType_YearMonthDay timeSp:(!item.timeSp || [item.timeSp isEqualToNumber:@0])?[HQHelper getNowTimeSp]:[item.timeSp longLongValue] LeftTouched:^{
+                    if (index == 0) {
                         
-                    } onRightTouched:^(NSString *time) {
+                        long long timeSp = (!item.timeSp || [item.timeSp isEqualToNumber:@0])?[HQHelper getNowTimeSp]:[item.timeSp longLongValue];
                         
-                        item.timeSp = [NSNumber numberWithLongLong:[HQHelper changeTimeToTimeSp:time formatStr:@"yyyy-MM-dd"]];
+                        [TFSelectDateView selectDateViewWithType:type timeSp:timeSp<=0?[HQHelper getNowTimeSp]:timeSp onRightTouched:^(NSString *time) {
+
+                            item.timeSp = [NSNumber numberWithLongLong:[HQHelper changeTimeToTimeSp:time formatStr:item.formatType]];
+                            
+                            //                        [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+                            [tableView reloadSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:UITableViewRowAnimationNone];
+                            
+                        }];
+                    }else{
                         
-//                        [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
-                        [tableView reloadSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:UITableViewRowAnimationNone];
-                    }];
+                        long long timeSp = (!item.timeSp || [item.timeSp isEqualToNumber:@0])?[HQHelper getNowTimeSp]:[item.timeSp longLongValue];
+                        
+                        [TFSelectCalendarView selectCalendarViewWithType:type timeSp:timeSp<=0?[HQHelper getNowTimeSp]:timeSp onRightTouched:^(NSString *time) {
+
+                                item.timeSp = [NSNumber numberWithLongLong:[HQHelper changeTimeToTimeSp:time formatStr:item.formatType]];
+        
+        //                        [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+                                [tableView reloadSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:UITableViewRowAnimationNone];
+                            
+                        }];
+                    }
+
+//                    [HQSelectTimeView selectTimeViewWithType:SelectTimeViewType_YearMonthDay timeSp:(!item.timeSp || [item.timeSp isEqualToNumber:@0])?[HQHelper getNowTimeSp]:[item.timeSp longLongValue] LeftTouched:^{
+//
+//                    } onRightTouched:^(NSString *time) {
+//
+//                        item.timeSp = [NSNumber numberWithLongLong:[HQHelper changeTimeToTimeSp:time formatStr:@"yyyy-MM-dd"]];
+//
+////                        [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+//                        [tableView reloadSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:UITableViewRowAnimationNone];
+//                    }];
                 }
             }
             

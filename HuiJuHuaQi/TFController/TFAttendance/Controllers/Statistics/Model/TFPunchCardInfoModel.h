@@ -38,6 +38,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSNumber <Optional>*expectPunchcardTime;
 /** 实际打卡时间 */
 @property (nonatomic, strong) NSNumber <Optional>*realPunchcardTime;
+// 关联审批名称
+@property (nonatomic, copy) NSString <Optional>*relevanceApproveName;
 
 
 @end
