@@ -374,12 +374,12 @@
 
 - (void)setupChild{
     
-    UIView *bgview = [[UIView alloc] initWithFrame:(CGRect){0,0,MarginWidth,SCREEN_HEIGHT}];
+    UIView *bgview = [[UIView alloc] initWithFrame:(CGRect){0,0,MarginWidth,self.height}];
     [self addSubview:bgview];
     
     [self setupTableView];
 
-    UIView *headView = [[UIView alloc] initWithFrame:(CGRect){MarginWidth,SCREEN_HEIGHT-BottomHeight-NaviHeight,SCREEN_WIDTH-MarginWidth,BottomHeight}];
+    UIView *headView = [[UIView alloc] initWithFrame:(CGRect){MarginWidth,self.height-BottomHeight,SCREEN_WIDTH-MarginWidth,BottomHeight}];
     headView.backgroundColor = WhiteColor;
     [self addSubview:headView];
     
@@ -711,7 +711,7 @@
 - (void)setupTableView
 {
     
-    UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(MarginWidth, 0, SCREEN_WIDTH-MarginWidth, SCREEN_HEIGHT-NaviHeight) style:UITableViewStylePlain];
+    UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(MarginWidth, 0, SCREEN_WIDTH-MarginWidth, self.height-BottomHeight) style:UITableViewStylePlain];
     tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     tableView.dataSource = self;
     tableView.delegate = self;

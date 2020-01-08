@@ -478,7 +478,19 @@
         
         wifiName = [info[@"SSID"] nullProcess];// WIFI名
         macAddress = [info[@"BSSID"] nullProcess];// MAC地址
-        HQLog(@"支持的WiFiName%@ => MacAddress%@", wifiName, macAddress);
+        NSArray *macItems = [macAddress componentsSeparatedByString:@":"];
+        NSString *totalMac = @"";
+        for (NSInteger i = 0; i < macItems.count; i++) {
+            NSString *str = macItems[i];
+            if (str.length == 1) {
+                str = [NSString stringWithFormat:@"0%@",str];
+            }
+            totalMac = [totalMac stringByAppendingString:[NSString stringWithFormat:@"%@:",str]];
+        }
+        if (totalMac.length > 0) {
+            macAddress = [totalMac substringToIndex:totalMac.length-1];
+        }
+        HQLog(@"支持的WiFiName == %@ ; MacAddress == %@", wifiName, macAddress);
         
         if (info && [info count]) break;
     }

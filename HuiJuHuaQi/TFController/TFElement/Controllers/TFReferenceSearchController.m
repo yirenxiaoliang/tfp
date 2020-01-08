@@ -229,7 +229,8 @@
             
             NSMutableDictionary *dict = [NSMutableDictionary dictionary];
             if (self.searchField) {
-                [dict setObject:self.searchField forKey:@"controlField"];
+                NSDictionary *fff = @{@"controlName":self.searchField,@"controlValue":@(self.searchFieldId)};
+                [dict setObject:fff forKey:@"controlField"];
             }
             if (self.bean) {
                 [dict setObject:self.bean forKey:@"beanName"];
@@ -242,6 +243,7 @@
             }
             [dict setObject:@{@"pageSize":@(self.pageSize),@"pageNum":@(self.pageNum)} forKey:@"pageInfo"];
             [self.customBL requestSubformRalationWithDict:dict];
+
         }
     }];
     
@@ -257,7 +259,8 @@
             
             NSMutableDictionary *dict = [NSMutableDictionary dictionary];
             if (self.searchField) {
-                [dict setObject:self.searchField forKey:@"controlField"];
+                NSDictionary *fff = @{@"controlName":self.searchField,@"controlValue":@(self.searchFieldId)};
+                [dict setObject:fff forKey:@"controlField"];
             }
             if (self.bean) {
                 [dict setObject:self.bean forKey:@"beanName"];

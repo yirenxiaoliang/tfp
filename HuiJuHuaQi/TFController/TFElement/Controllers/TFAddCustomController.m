@@ -2280,7 +2280,10 @@
             model.selects = [NSMutableArray arrayWithArray:parameter];
             [weakSelf.tableView reloadData];
         };
-        [self.navigationController pushViewController:sign animated:YES];
+//        [self.navigationController pushViewController:sign animated:YES];
+
+        sign.modalPresentationStyle = UIModalPresentationFullScreen;
+        [self presentViewController:sign animated:NO completion:nil];
     }
     
 }
@@ -3509,6 +3512,8 @@
                 for (TFCustomerLayoutModel *lla in lays) {
                     if ([lla.fieldName isEqualToString:key] && [lla.virValue isEqualToString:@"1"]) {
                         [self.layouts removeObject:lla];
+                        TFCustomerRowsModel *subRow = [self getRowWithName:key];
+                        [subRow.subforms removeAllObjects];// 清空子表单栏目
                     }
                 }
             }
@@ -7169,7 +7174,8 @@
                     }
                 }
             }
-        }else if ([row.type isEqualToString:@"subform"]){// 非model所在的子表单,该子表单的所有栏目都赋值
+        }
+        else if ([row.type isEqualToString:@"subform"]){// 非model所在的子表单,该子表单的所有栏目都赋值
             
 #pragma mark - 联动子表单批量插入
             
@@ -7254,7 +7260,21 @@
 //                }
 //            }
             
-        }else{// 一般字段
+        }
+        // 此种情况为子表单中的映射人员
+        else if ([row.name containsString:@"subform"] && [model.subformName isEqualToString:row.subformName]) {
+
+            TFCustomerRowsModel *subformRow = [self getRowWithName:row.subformName];
+            if (subformRow.subforms.count > ([model.position integerValue]-1)) {// 确保找对了子表单，有该栏目
+                NSArray *rows = subformRow.subforms[[model.position integerValue] - 1];
+                for (TFCustomerRowsModel *subRow in rows) {
+                    if ([dict valueForKey:subRow.name]) {
+                        [self customerRowsModel:subRow WithDict:dict];// 赋值
+                    }
+                }
+            }
+        }
+        else{// 一般字段
             
             if ([dict valueForKey:row.name]) {
                 [self customerRowsModel:row WithDict:dict];// 赋值
@@ -8065,9 +8085,9 @@
         }
         else if ([model.type isEqualToString:@"datetime"]) {
             // 2019.3.14 加的条件
-            if ([[dict valueForKey:model.name] isKindOfClass:[NSNumber class]]) {
-                model.fieldValue = [HQHelper nsdateToTime:[[dict valueForKey:model.name] longLongValue] formatStr:model.field.formatType];
-            }
+//            if ([[dict valueForKey:model.name] isKindOfClass:[NSNumber class]]) {
+                model.fieldValue = [HQHelper nsdateToTime:[NUMBER([dict valueForKey:model.name]) longLongValue] formatStr:model.field.formatType];
+//            }
         }
         else if ([model.type isEqualToString:@"reference"]) {
             

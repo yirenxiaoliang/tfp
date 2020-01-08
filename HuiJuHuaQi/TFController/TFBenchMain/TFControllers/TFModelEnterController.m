@@ -389,8 +389,13 @@
         self.systemApplication = nil;
         for (NSInteger i = 0; i < arr.count; i ++) {
             NSDictionary *dict = arr[i];
+            if (repositoryLibrariesHidden) {
+                if ([[dict valueForKey:@"bean"] isEqualToString:@"repository_libraries"]) {
+                    continue;
+                }
+            }
             if ([[[dict valueForKey:@"onoff_status"] description] isEqualToString:@"1"]) {
-                
+
                 if (!([[dict valueForKey:@"bean"] isEqualToString:@"approval"] || [[dict valueForKey:@"bean"] isEqualToString:@"workbench"] || [[dict valueForKey:@"bean"] isEqualToString:@"memo"])) {
                     
                     if (self.type == 6 || self.type == 7) {// 知识库引用的时候不需要文件库,知识库,考勤

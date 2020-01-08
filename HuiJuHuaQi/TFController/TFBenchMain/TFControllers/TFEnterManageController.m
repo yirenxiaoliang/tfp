@@ -162,6 +162,11 @@
             if ([model.english_name isEqualToString:@"workbench"]) {
                 continue;
             }
+            if (repositoryLibrariesHidden) {
+                if ([model.english_name isEqualToString:@"repository_libraries"]) {
+                    continue;
+                }
+            }
             BOOL have = NO;
             for (TFModuleModel *mo in self.minus) {
                 if ([model.english_name isEqualToString:mo.english_name]) {

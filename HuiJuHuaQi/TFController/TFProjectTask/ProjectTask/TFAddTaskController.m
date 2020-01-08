@@ -2313,7 +2313,10 @@
                model.selects = [NSMutableArray arrayWithArray:parameter];
                [weakSelf.tableView reloadData];
            };
-           [self.navigationController pushViewController:sign animated:YES];
+//           [self.navigationController pushViewController:sign animated:YES];
+
+            sign.modalPresentationStyle = UIModalPresentationFullScreen;
+            [self presentViewController:sign animated:NO completion:nil];
        }
 }
 

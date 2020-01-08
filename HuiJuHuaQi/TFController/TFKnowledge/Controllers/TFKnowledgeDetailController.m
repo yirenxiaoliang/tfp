@@ -2023,12 +2023,12 @@
 -(void)handAuth{
     
     // 此处为创建人
-    if ([UM.userLoginInfo.employee.id isEqualToNumber:self.knowledgeDetail.create_by.id]) {
+    if ([[UM.userLoginInfo.employee.id description] isEqualToString:[self.knowledgeDetail.create_by.id description]]) {
         self.auth = 1;
     }
     // 此处为管理员
     for (TFEmployModel *model in self.knowledgeDetail.allot_manager) {
-        if ([UM.userLoginInfo.employee.id isEqualToNumber:model.id]) {
+        if ([[UM.userLoginInfo.employee.id description] isEqualToNumber:[model.id description]]) {
             self.auth = 2;
             break;
         }

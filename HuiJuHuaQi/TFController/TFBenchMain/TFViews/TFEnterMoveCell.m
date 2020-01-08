@@ -80,6 +80,8 @@
         [self.headImage setBackgroundImage:IMG(@"审批") forState:UIControlStateNormal];
     }else if ([module.english_name isEqualToString:@"attendance"]){
         [self.headImage setBackgroundImage:IMG(@"考勤") forState:UIControlStateNormal];
+    }else if ([module.english_name isEqualToString:@"salary"]){
+        [self.headImage setBackgroundImage:IMG(@"薪酬") forState:UIControlStateNormal];
     }else if ([module.english_name containsString:@"bean"]){
         if ([module.icon_type isEqualToString:@"1"]) {// 网络图片
             [self.headImage sd_setBackgroundImageWithURL:[HQHelper URLWithString:module.icon_url] forState:UIControlStateNormal];
