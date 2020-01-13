@@ -2882,6 +2882,146 @@
     
 }
 
+/** 0:@"本月",1:@"上月",2:@"本季度",3:@"上季度" */
++ (NSDictionary *)monthPeriodWithIndex:(NSInteger)index{
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    
+    switch (index) {
+        case 0:// 本月
+        {
+            long long startSp = [[[NSDate date] firstDayOfTheMonth] getTimeSp];
+            long long endSp = [self getNowTimeSp];
+            [dict setObject:@(startSp) forKey:@"startTime"];
+            [dict setObject:@(endSp) forKey:@"endTime"];
+        }
+            break;
+        case 1:// 上月
+        {
+            long long endSp = [[[NSDate date] firstDayOfTheMonth] getTimeSp];
+            long long startSp = endSp - (long long)30 * 24 * 60 * 60 * 1000;
+            [dict setObject:@(startSp) forKey:@"startTime"];
+            [dict setObject:@(endSp) forKey:@"endTime"];
+        }
+            break;
+        case 2:// 本季度
+        {
+            NSInteger month = [[self nsdateToTime:[self getNowTimeSp] formatStr:@"MM"] integerValue];
+            
+            NSInteger season = month / 3 + 1;
+            
+            if (season == 1) {
+                long long startSp = [self changeTimeToTimeSp:[NSString stringWithFormat:@"%@-01-01",[self nsdateToTime:[self getNowTimeSp] formatStr:@"yyyy"]] formatStr:@"yyyy-MM-dd"];
+                long long endSp = [self getNowTimeSp];
+                
+                [dict setObject:@(startSp) forKey:@"startTime"];
+                [dict setObject:@(endSp) forKey:@"endTime"];
+                
+            }else if (season == 2){
+                long long startSp = [self changeTimeToTimeSp:[NSString stringWithFormat:@"%@-04-01",[self nsdateToTime:[self getNowTimeSp] formatStr:@"yyyy"]] formatStr:@"yyyy-MM-dd"];
+                long long endSp = [self getNowTimeSp];
+                
+                [dict setObject:@(startSp) forKey:@"startTime"];
+                [dict setObject:@(endSp) forKey:@"endTime"];
+                
+            }else if (season == 3){
+                
+                long long startSp = [self changeTimeToTimeSp:[NSString stringWithFormat:@"%@-07-01",[self nsdateToTime:[self getNowTimeSp] formatStr:@"yyyy"]] formatStr:@"yyyy-MM-dd"];
+                long long endSp = [self getNowTimeSp];
+                
+                [dict setObject:@(startSp) forKey:@"startTime"];
+                [dict setObject:@(endSp) forKey:@"endTime"];
+            }else{
+                
+                long long startSp = [self changeTimeToTimeSp:[NSString stringWithFormat:@"%@-10-01",[self nsdateToTime:[self getNowTimeSp] formatStr:@"yyyy"]] formatStr:@"yyyy-MM-dd"];
+                long long endSp = [self getNowTimeSp];
+                
+                [dict setObject:@(startSp) forKey:@"startTime"];
+                [dict setObject:@(endSp) forKey:@"endTime"];
+            }
+            
+        }
+            break;
+        case 3:
+        {
+            NSInteger month = [[self nsdateToTime:[self getNowTimeSp] formatStr:@"MM"] integerValue];
+            
+            NSInteger season = month / 3 + 1;
+            
+            if (season == 1) {
+                long long endSp = [self changeTimeToTimeSp:[NSString stringWithFormat:@"%@-01-01",[self nsdateToTime:[self getNowTimeSp] formatStr:@"yyyy"]] formatStr:@"yyyy-MM-dd"];
+                long long startSp = endSp - (long long)3 * 30 * 24 * 60 * 60 * 1000;
+                
+                [dict setObject:@(startSp) forKey:@"startTime"];
+                [dict setObject:@(endSp) forKey:@"endTime"];
+                
+            }else if (season == 2){
+                long long endSp = [self changeTimeToTimeSp:[NSString stringWithFormat:@"%@-04-01",[self nsdateToTime:[self getNowTimeSp] formatStr:@"yyyy"]] formatStr:@"yyyy-MM-dd"];
+                long long startSp = endSp - (long long)3 * 30 * 24 * 60 * 60 * 1000;
+                
+                [dict setObject:@(startSp) forKey:@"startTime"];
+                [dict setObject:@(endSp) forKey:@"endTime"];
+                
+            }else if (season == 3){
+                
+                long long endSp = [self changeTimeToTimeSp:[NSString stringWithFormat:@"%@-07-01",[self nsdateToTime:[self getNowTimeSp] formatStr:@"yyyy"]] formatStr:@"yyyy-MM-dd"];
+                long long startSp = endSp - (long long)3 * 30 * 24 * 60 * 60 * 1000;
+                
+                [dict setObject:@(startSp) forKey:@"startTime"];
+                [dict setObject:@(endSp) forKey:@"endTime"];
+            }else{
+                
+                long long endSp = [self changeTimeToTimeSp:[NSString stringWithFormat:@"%@-10-01",[self nsdateToTime:[self getNowTimeSp] formatStr:@"yyyy"]] formatStr:@"yyyy-MM-dd"];
+                long long startSp = endSp - (long long)3 * 30 * 24 * 60 * 60 * 1000;
+                
+                [dict setObject:@(startSp) forKey:@"startTime"];
+                [dict setObject:@(endSp) forKey:@"endTime"];
+            }
+            
+
+        }
+            break;
+            
+        default:
+            break;
+    }
+    
+    return dict;
+}
+
+/** 0:@"本年",1:@"上年"*/
++ (NSDictionary *)yearPeriodWithIndex:(NSInteger)index{
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    
+    switch (index) {
+        case 0:// 本年
+        {
+            NSString *start = [self nsdateToTime:[self getNowTimeSp] formatStr:@"yyyy"];// 去掉时分
+            long long startSp = [self changeTimeToTimeSp:start formatStr:@"yyyy"];
+            long long year = (long long)356 * 24 * 60 * 60 * 1000;
+            long long endSp = startSp + year;
+            
+            [dict setObject:@(startSp) forKey:@"startTime"];
+            [dict setObject:@(endSp) forKey:@"endTime"];
+            
+        }
+            break;
+        case 1:// 上年
+        {
+            NSString *end = [self nsdateToTime:[self getNowTimeSp] formatStr:@"yyyy"];// 去掉时分
+            long long endSp = [self changeTimeToTimeSp:end formatStr:@"yyyy"];
+            long long year = (long long)356 * 24 * 60 * 60 * 1000;
+            long long startSp = endSp - year;
+            [dict setObject:@(startSp) forKey:@"startTime"];
+            [dict setObject:@(endSp) forKey:@"endTime"];
+        }
+            break;
+        
+        default:
+            break;
+    }
+    
+    return dict;
+}
 /** 0:@"今天",1:@"昨天",2:@"过去7天",3:@"过去30天",4:@"本月",5:@"上月",6:@"本季度",7:@"上季度" */
 + (NSDictionary *)timePeriodWithIndex:(NSInteger)index{
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];

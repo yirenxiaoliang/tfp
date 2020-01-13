@@ -48,7 +48,7 @@
     [self createBottomView];
     self.loginBL = [TFLoginBL build];
     self.loginBL.delegate = self;
-    [self.loginBL requestGetCompanySetWithPhone:UM.userLoginInfo.employee.phone];
+    [self.loginBL requestGetCompanySetWithPhone:UM.userLoginInfo.employee.phone?:self.phone];
     
     self.peopleBL = [TFPeopleBL build];
     self.peopleBL.delegate = self;
@@ -84,6 +84,7 @@
         return;
     }
     if (!self.setDict) {
+        [MBProgressHUD showError:@"获取密码策略失败" toView:KeyWindow];
         return;
     }
     /** 密码在没有规则时的默认规则：

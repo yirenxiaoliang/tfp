@@ -13,4 +13,6 @@
 /** 传值 */
 @property (nonatomic, copy) ActionParameter action;
 
+@property (nonatomic, copy) NSString *phone;
+
 @end

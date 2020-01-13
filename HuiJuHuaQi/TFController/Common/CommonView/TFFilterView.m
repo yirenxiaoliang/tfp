@@ -201,6 +201,11 @@
         if ([model.type isEqualToString:@"datetime"]) {
             
             NSArray *names = @[@"今天",@"昨天",@"过去7天",@"过去30天",@"本月",@"上月",@"本季度",@"上季度",@"开始时间",@"结束时间"];
+            if ([model.formatType isEqualToString:@"yyyy-MM"]) {
+                names = @[@"本月",@"上月",@"本季度",@"上季度",@"开始时间",@"结束时间"];
+            }else if ([model.formatType isEqualToString:@"yyyy"]) {
+                names = @[@"本年",@"上年",@"开始时间",@"结束时间"];
+            }
             NSMutableArray *arr = [NSMutableArray array];
             
             for (NSInteger k = 0; k < names.count; k ++) {
@@ -256,6 +261,11 @@
             if ([model.type isEqualToString:@"datetime"]) {
                 
                 NSArray *names = @[@"今天",@"昨天",@"过去7天",@"过去30天",@"本月",@"上月",@"本季度",@"上季度",@"开始时间",@"结束时间"];
+                if ([model.formatType isEqualToString:@"yyyy-MM"]) {
+                    names = @[@"本月",@"上月",@"本季度",@"上季度",@"开始时间",@"结束时间"];
+                }else if ([model.formatType isEqualToString:@"yyyy"]) {
+                    names = @[@"本年",@"上年",@"开始时间",@"结束时间"];
+                }
                 NSMutableArray *arr = [NSMutableArray array];
                 
                 for (NSInteger k = 0; k < names.count; k ++) {
@@ -610,9 +620,19 @@
                 if ([item.type isEqualToNumber:@0]) {// 选item
                     
                     if ([item.selectState isEqualToNumber:@1]) {// 选中
-                        // 时间转化
-                        [dict setObject:[HQHelper timePeriodWithIndex:i] forKey:model.id];
-                        break;
+                        if ([item.formatType isEqualToString:@"yyyy"]) {
+                            // 时间转化
+                            [dict setObject:[HQHelper yearPeriodWithIndex:i] forKey:model.id];
+                            break;
+                        }else if ([item.formatType isEqualToString:@"yyyy-MM"]){
+                            // 时间转化
+                            [dict setObject:[HQHelper monthPeriodWithIndex:i] forKey:model.id];
+                            break;
+                        }else{
+                            // 时间转化
+                            [dict setObject:[HQHelper timePeriodWithIndex:i] forKey:model.id];
+                            break;
+                        }
                     }
                 }
                 

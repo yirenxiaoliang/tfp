@@ -56,7 +56,7 @@
         
         self.punchLabel.text = [NSString stringWithFormat:@"%@",TEXT(model.relevanceApproveName)];
     }
-    /** 打卡状态 0未打卡, 1正常, 2迟到, 3早退, 4旷工, 5缺卡, 6外勤打卡, 7关联审批, 8未到打卡时间; */
+    /**  打卡状态   0:未打卡,1:正常,2:迟到,3:早退,4:旷工,5:缺卡，7：请假，8：出差，9：外出 10:迟到旷工 11：早退旷工  */
     if ([[model.punchcardState description] isEqualToString:@"0"]) {
         
         self.statusImage.image = IMG(@"未打卡");
@@ -93,20 +93,30 @@
         [self.statusBtn setTitle:@"缺卡" forState:UIControlStateNormal];
         [self.statusBtn setTitleColor:kUIColorFromRGB(0xF63F3F) forState:UIControlStateNormal];
         self.statusBtn.layer.borderColor = kUIColorFromRGB(0xF63F3F).CGColor;
-    }else if ([[model.punchcardState description] isEqualToString:@"6"]) {//, 6外勤打卡, 7关联审批, 8未到打卡时间
-        self.statusImage.image = IMG(@"打卡正常");
-        [self.statusBtn setTitle:@"外勤" forState:UIControlStateNormal];
+    }else if ([[model.punchcardState description] isEqualToString:@"7"]) {// 7：请假，8：出差，9：外出 10:迟到旷工 11：早退旷工
+        self.statusImage.image = IMG(@"打卡缺卡");
+        [self.statusBtn setTitle:@"请假" forState:UIControlStateNormal];
         [self.statusBtn setTitleColor:kUIColorFromRGB(0xF63F3F) forState:UIControlStateNormal];
         self.statusBtn.layer.borderColor = kUIColorFromRGB(0xF63F3F).CGColor;
-    }else if ([[model.punchcardState description] isEqualToString:@"7"]) {
-        self.statusImage.image = IMG(@"打卡正常");
-        [self.statusBtn setTitle:@"审批" forState:UIControlStateNormal];
+    }else if ([[model.punchcardState description] isEqualToString:@"8"]) {
+        self.statusImage.image = IMG(@"打卡缺卡");
+        [self.statusBtn setTitle:@"出差" forState:UIControlStateNormal];
         [self.statusBtn setTitleColor:kUIColorFromRGB(0xF63F3F) forState:UIControlStateNormal];
         self.statusBtn.layer.borderColor = kUIColorFromRGB(0xF63F3F).CGColor;
         
-    }else if ([[model.punchcardState description] isEqualToString:@"8"]) {
-        self.statusImage.image = IMG(@"未打卡");
-        [self.statusBtn setTitle:@"未打卡" forState:UIControlStateNormal];
+    }else if ([[model.punchcardState description] isEqualToString:@"9"]) {
+        self.statusImage.image = IMG(@"打卡缺卡");
+        [self.statusBtn setTitle:@"外出" forState:UIControlStateNormal];
+        [self.statusBtn setTitleColor:kUIColorFromRGB(0xB2B2B2) forState:UIControlStateNormal];
+        self.statusBtn.layer.borderColor = kUIColorFromRGB(0xB2B2B2).CGColor;
+    }else if ([[model.punchcardState description] isEqualToString:@"10"]) {
+        self.statusImage.image = IMG(@"打卡旷工");
+        [self.statusBtn setTitle:@"迟到旷工" forState:UIControlStateNormal];
+        [self.statusBtn setTitleColor:kUIColorFromRGB(0xB2B2B2) forState:UIControlStateNormal];
+        self.statusBtn.layer.borderColor = kUIColorFromRGB(0xB2B2B2).CGColor;
+    }else if ([[model.punchcardState description] isEqualToString:@"11"]) {
+        self.statusImage.image = IMG(@"打卡旷工");
+        [self.statusBtn setTitle:@"早退旷工" forState:UIControlStateNormal];
         [self.statusBtn setTitleColor:kUIColorFromRGB(0xB2B2B2) forState:UIControlStateNormal];
         self.statusBtn.layer.borderColor = kUIColorFromRGB(0xB2B2B2).CGColor;
     }

@@ -24,7 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
  "expectPunchcardTime":1552266000000,
  "realPunchcardTime":1552296791478
  */
-/** 打卡状态（1迟到, 2早退, 3缺卡, 4旷工, 5外勤打卡, 6关联审批, 7正常, 8未到打卡时间） */
+/**打卡状态   0:未打卡,1:正常,2:迟到,3:早退,4:旷工,5:缺卡，7：请假，8：出差，9：外出 10:迟到旷工 11：早退旷工 */
 @property (nonatomic, strong) NSNumber <Optional>*punchcardState;
 /** 打卡类型（1:上班卡,2:下班卡） */
 @property (nonatomic, strong) NSNumber <Optional>*punchcardType;
