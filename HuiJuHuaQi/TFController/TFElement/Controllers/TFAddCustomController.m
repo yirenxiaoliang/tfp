@@ -2460,22 +2460,22 @@
      if ([model.type isEqualToString:@"picklist"] ||
      [model.type isEqualToString:@"mutlipicklist"] ||
      [model.type isEqualToString:@"multi"]){
-     return [TFCustomSelectOptionCell refreshCustomSelectOptionCellHeightWithModel:model showEdit:self.type!=1?YES:NO];
+         return [TFCustomSelectOptionCell refreshCustomSelectOptionCellHeightWithModel:model showEdit:self.type!=1?YES:NO];
      }
     
      if ([model.type isEqualToString:@"attachment"] || [model.type isEqualToString:@"resumeanalysis"]) {
-     return [TFCustomAttachmentsCell refreshCustomAttachmentsCellHeightWithModel:model type:self.type == 1?AttachmentsCellDetail:AttachmentsCellEdit];
+         return [TFCustomAttachmentsCell refreshCustomAttachmentsCellHeightWithModel:model type:self.type == 1?AttachmentsCellDetail:AttachmentsCellEdit];
      }
      if ([model.type isEqualToString:@"subform"]) {
-     return [TFTCustomSubformHeaderCell refreshCustomSubformHeaderCellHeightWithModel:model];
+         return [TFTCustomSubformHeaderCell refreshCustomSubformHeaderCellHeightWithModel:model];
      }
      if ([model.type isEqualToString:@"picture"]) {
-     return [TFCustomImageCell refreshCustomImageHeightWithModel:model withType:self.type != 1 ? 1 :0 withColumn:6];
+         return [TFCustomImageCell refreshCustomImageHeightWithModel:model withType:self.type != 1 ? 1 :0 withColumn:6];
      }
      if ([model.type isEqualToString:@"multitext"]) {
-     CGFloat height = [model.height floatValue];
-     HQLog(@"multitext--height:%f",height);
-     return [model.height floatValue]<150?150:[model.height floatValue];
+         CGFloat height = [model.height floatValue];
+         HQLog(@"multitext--height:%f",height);
+         return [model.height floatValue]<150?150:[model.height floatValue];
      }
      if ([model.type isEqualToString:@"signature"]){
         

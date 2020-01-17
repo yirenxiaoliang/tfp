@@ -965,6 +965,9 @@
 		A1EC11B51C8AC84D00931E58 /* MWZoomingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = A1EC117A1C8AC3BD00931E58 /* MWZoomingScrollView.m */; };
 		A1EC11BB1C8AE9C200931E58 /* ZYQAssetPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1EC11B91C8AE9C200931E58 /* ZYQAssetPickerController.m */; };
 		A1FB92951C8D156E0048ADA1 /* FDActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = A1FB92941C8D156E0048ADA1 /* FDActionSheet.m */; };
+		B84C4A4C23D1901D009D015D /* teamface.cer in Resources */ = {isa = PBXBuildFile; fileRef = B84C4A4B23D1901D009D015D /* teamface.cer */; };
+		B84C4A4F23D1909E009D015D /* teamface.pem in Resources */ = {isa = PBXBuildFile; fileRef = B84C4A4D23D1909D009D015D /* teamface.pem */; };
+		B84C4A5023D1909E009D015D /* teamface.key in Resources */ = {isa = PBXBuildFile; fileRef = B84C4A4E23D1909D009D015D /* teamface.key */; };
 		B863FFDA234F11D70031EB8C /* UIImage+HJImage.m in Sources */ = {isa = PBXBuildFile; fileRef = B863FFD8234F11D70031EB8C /* UIImage+HJImage.m */; };
 		B863FFDD234F12030031EB8C /* HJSignatureView.m in Sources */ = {isa = PBXBuildFile; fileRef = B863FFDC234F12030031EB8C /* HJSignatureView.m */; };
 		B863FFE0234F14CB0031EB8C /* TFSignatureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B863FFDF234F14CB0031EB8C /* TFSignatureViewController.m */; };
@@ -3544,6 +3547,9 @@
 		A1EC11B91C8AE9C200931E58 /* ZYQAssetPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYQAssetPickerController.m; sourceTree = "<group>"; };
 		A1FB92931C8D156E0048ADA1 /* FDActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDActionSheet.h; sourceTree = "<group>"; };
 		A1FB92941C8D156E0048ADA1 /* FDActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDActionSheet.m; sourceTree = "<group>"; };
+		B84C4A4B23D1901D009D015D /* teamface.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = teamface.cer; sourceTree = "<group>"; };
+		B84C4A4D23D1909D009D015D /* teamface.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = teamface.pem; sourceTree = "<group>"; };
+		B84C4A4E23D1909D009D015D /* teamface.key */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = teamface.key; sourceTree = "<group>"; };
 		B863FFD8234F11D70031EB8C /* UIImage+HJImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+HJImage.m"; sourceTree = "<group>"; };
 		B863FFD9234F11D70031EB8C /* UIImage+HJImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+HJImage.h"; sourceTree = "<group>"; };
 		B863FFDB234F12020031EB8C /* HJSignatureView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJSignatureView.h; sourceTree = "<group>"; };
@@ -7141,6 +7147,9 @@
 		934E2DA51C8929F000C137CB /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				B84C4A4E23D1909D009D015D /* teamface.key */,
+				B84C4A4D23D1909D009D015D /* teamface.pem */,
+				B84C4A4B23D1901D009D015D /* teamface.cer */,
 				578414ED220145BC0002134D /* server.cer */,
 				D63231642025CCCD007A189D /* ssl.cer */,
 				D620A0391F469B8500087B1A /* httpsSSL.cer */,
@@ -10889,6 +10898,7 @@
 				58667F801FE3DC75005C0504 /* 35.png in Resources */,
 				D62CB4B11DE6EE7700D0365B /* JCHATChangeNameViewController.xib in Resources */,
 				D616C8F31DD5D00700BDD8FF /* 3-6.png in Resources */,
+				B84C4A5023D1909E009D015D /* teamface.key in Resources */,
 				58667F5A1FE3DC74005C0504 /* 18.png in Resources */,
 				58667FE51FE3DC75005C0504 /* RecordingSignal002@2x.png in Resources */,
 				58667FD21FE3DC75005C0504 /* 72.png in Resources */,
@@ -11222,6 +11232,7 @@
 				587C01E11FCE8B75000AEC1B /* emoNames.plist in Resources */,
 				D616C8C51DD5D00700BDD8FF /* 1-4.png in Resources */,
 				58E7CB58206759140077A84D /* TFNoteDetailHeadView.xib in Resources */,
+				B84C4A4C23D1901D009D015D /* teamface.cer in Resources */,
 				58667FAD1FE3DC75005C0504 /* 56.gif in Resources */,
 				5797A205224A26F5006D2DA2 /* TFReferanceTimeCell.xib in Resources */,
 				58667F591FE3DC74005C0504 /* 18.gif in Resources */,
@@ -11303,6 +11314,7 @@
 				58667FBB1FE3DC75005C0504 /* 62.gif in Resources */,
 				9383224D1CFC268900DA1CD0 /* relation.html in Resources */,
 				57002D1321F56C75005E69DF /* TFEnterPeopleView.xib in Resources */,
+				B84C4A4F23D1909E009D015D /* teamface.pem in Resources */,
 				D616C8FE1DD5D00700BDD8FF /* 5-3.png in Resources */,
 				D616C9051DD5D00700BDD8FF /* 7-3.png in Resources */,
 				D63A27A421BFA07600EB4590 /* TFKnowledgeAnswerCell.xib in Resources */,
@@ -13059,7 +13071,7 @@
 					"$(PROJECT_DIR)/HuiJuHuaQi/ThirdPart/UMSocialSDK/UMSocialSDKPlugin",
 					"$(PROJECT_DIR)/HuiJuHuaQi/ThirdPart/UMSocialSDK/SocialLibraries/Sina",
 				);
-				MARKETING_VERSION = 5.2.2;
+				MARKETING_VERSION = 5.3.1;
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lxml2",
@@ -13167,7 +13179,7 @@
 					"$(PROJECT_DIR)/HuiJuHuaQi/ThirdPart/UMSocialSDK/UMSocialSDKPlugin",
 					"$(PROJECT_DIR)/HuiJuHuaQi/ThirdPart/UMSocialSDK/SocialLibraries/Sina",
 				);
-				MARKETING_VERSION = 5.2.2;
+				MARKETING_VERSION = 5.3.1;
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lxml2",
@@ -13255,7 +13267,7 @@
 				INFOPLIST_FILE = HuiQiWiget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				MARKETING_VERSION = 5.2.2;
+				MARKETING_VERSION = 5.3.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.TeamFaceCustom.HJHQ.Wiget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "db58449d-b8f6-41bb-bdd0-4df6e5a62656";
@@ -13279,7 +13291,7 @@
 				INFOPLIST_FILE = HuiQiWiget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				MARKETING_VERSION = 5.2.2;
+				MARKETING_VERSION = 5.3.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.TeamFaceCustom.HJHQ.Wiget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "cf004058-9807-422c-b21e-e36d3c8c5518";

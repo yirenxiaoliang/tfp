@@ -51,6 +51,7 @@
 #import "TFPluginModel.h"
 #import "TFRequest.h"
 #import "TFCachePlistManager.h"
+#import "TFSalaryController.h"
 
 #define Empty 30
 
@@ -1303,6 +1304,9 @@
         [self.navigationController pushViewController:chart animated:YES];
     }else if ([module.english_name isEqualToString:@"attendance"]){
         TFAttendanceTabbarController *attendanceTabbar = [[TFAttendanceTabbarController alloc] init];
+        [self.navigationController pushViewController:attendanceTabbar animated:YES];
+    }else if ([module.english_name isEqualToString:@"salary"]){
+        TFSalaryController *attendanceTabbar = [[TFSalaryController alloc] init];
         [self.navigationController pushViewController:attendanceTabbar animated:YES];
     }else if ([module.english_name containsString:@"bean"]){
         TFCustomListController *custom = [[TFCustomListController alloc] init];

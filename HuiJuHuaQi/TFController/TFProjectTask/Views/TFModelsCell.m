@@ -76,7 +76,7 @@
     }
     [self.modelViews removeAllObjects];
     self.nameLabel.hidden = YES;
-    self.nameLabel.text = application.name;
+    self.nameLabel.text = @"";
     
     for (NSInteger i = 0; i < application.modules.count; i ++) {
         

@@ -318,7 +318,13 @@
     
     if (resp.cmdId == HQCMD_customApplicationList) {
         
-        [self.applications addObjectsFromArray:resp.body];
+        NSMutableArray *arr = [NSMutableArray array];
+        for (TFApplicationModel *model in resp.body) {
+            if (model.modules.count != 0) {
+                [arr addObject:model];
+            }
+        }
+        [self.applications addObjectsFromArray:arr];
         
         if (self.applications.count == 0) {
             
@@ -653,9 +659,9 @@
     return 0;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
-    if (section == 0) {
-        return 0;
-    }
+//    if (section == 0) {
+//        return 0;
+//    }
     return 10;
 }
 

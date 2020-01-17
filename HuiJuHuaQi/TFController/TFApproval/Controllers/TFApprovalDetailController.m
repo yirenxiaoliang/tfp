@@ -2499,32 +2499,41 @@
     TFCustomerLayoutModel *layout = self.layouts[indexPath.section];
     TFCustomerRowsModel *model = layout.rows[indexPath.row];
     TFCustomerFieldModel *field = model.field;
-    
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    cell.hidden = NO;
     // 1. 不显示某组
     if ([layout.terminalApp isEqualToString:@"0"]) {
-        
+        cell.hidden = YES;
+        model.height = @0;
         return 0;
     }
     
     // 新建or编辑不显示系统信息
 //    if (self.type != 1) {
         if ([layout.name isEqualToString:@"systemInfo"]) {
+            cell.hidden = YES;
+            model.height = @0;
             return 0;
         }
 //    }
     
     if (self.type == 1) {// 详情时显示
         if ([layout.isHideInDetail isEqualToString:@"1"]) {
+            cell.hidden = YES;
+            model.height = @0;
             return 0;
         }
     }else{// 新建or编辑
         if ([layout.isHideInCreate isEqualToString:@"1"]) {
+            cell.hidden = YES;
+            model.height = @0;
             return 0;
         }
     }
     
     if ([field.terminalApp isEqualToString:@"0"]) {
-        
+        cell.hidden = YES;
+        model.height = @0;
         return 0;
     }
     
@@ -2532,7 +2541,8 @@
     if (self.type == 0 || self.type == 3) {// 新增
         
         if ([field.addView isEqualToString:@"0"]) {
-            
+            cell.hidden = YES;
+            model.height = @0;
             return 0;
         }
         
@@ -2541,7 +2551,8 @@
     if (self.type == 1) {// 详情
         
         if ([field.detailView isEqualToString:@"0"]) {
-            
+            cell.hidden = YES;
+            model.height = @0;
             return 0;
         }
         
@@ -2549,14 +2560,16 @@
     if (self.type == 2 || self.type == 7) {// 编辑
         
         if ([field.editView isEqualToString:@"0"]) {
-            
+            cell.hidden = YES;
+            model.height = @0;
             return 0;
         }
     }
     
 #pragma mark - 选项字段控制隐藏
     if ([field.isOptionHidden isEqualToString:@"1"]) {
-        
+        cell.hidden = YES;
+        model.height = @0;
         return 0;
     }
     
@@ -2597,33 +2610,14 @@
             if ([model.field.structure isEqualToString:@"1"]) {
                 return model.height.floatValue < 44 ? 44 : model.height.floatValue;
             }else{
-                return model.height.floatValue < 70 ? 70 : model.height.floatValue;
+                return model.height.floatValue < 75 ? 75 : model.height.floatValue;
             }
         }else{
             
             return [TFGeneralSingleCell refreshGeneralSingleCellHeightWithModel:model];
         }
     }
-    if ([model.type isEqualToString:@"picklist"]){
-        
-        
-        if (self.listType == 1 && self.isSelf && [self.currentTaskKey isEqualToString:self.approvalItem.task_key]) {
-            
-            if ([field.fieldControl isEqualToString:@"1"]) {
-                
-                return [TFCustomSelectOptionCell refreshCustomSelectOptionCellHeightWithModel:model showEdit:NO];
-            }else{
-                
-                return [TFCustomSelectOptionCell refreshCustomSelectOptionCellHeightWithModel:model showEdit:YES];
-            }
-            
-        }else{
-            
-            return [TFCustomSelectOptionCell refreshCustomSelectOptionCellHeightWithModel:model showEdit:NO];
-        }
-        
-    }
-    if ([model.type isEqualToString:@"mutlipicklist"]) {
+    if ([model.type isEqualToString:@"mutlipicklist"] || [model.type isEqualToString:@"picklist"] || [model.type isEqualToString:@"multi"]) {
         
         if (self.listType == 1 && self.isSelf && [self.currentTaskKey isEqualToString:self.approvalItem.task_key]) {
             
@@ -2652,20 +2646,6 @@
             
         }else{
             return [TFCustomAttachmentsCell refreshCustomAttachmentsCellHeightWithModel:model type:AttachmentsCellDetail];
-        }
-    }
-    if ([model.type isEqualToString:@"multi"]) {
-        
-        if (self.listType == 1 && self.isSelf && [self.currentTaskKey isEqualToString:self.approvalItem.task_key]) {
-            
-            if ([field.fieldControl isEqualToString:@"1"]) {
-                
-                return [TFCustomSelectOptionCell refreshCustomSelectOptionCellHeightWithModel:model showEdit:NO];
-            }else{
-                return [TFCustomSelectOptionCell refreshCustomSelectOptionCellHeightWithModel:model showEdit:YES];
-            }
-        }else{
-            return [TFCustomSelectOptionCell refreshCustomSelectOptionCellHeightWithModel:model showEdit:NO];
         }
     }
     if ([model.type isEqualToString:@"subform"]) {
