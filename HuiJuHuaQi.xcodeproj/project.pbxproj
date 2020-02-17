@@ -965,15 +965,13 @@
 		A1EC11B51C8AC84D00931E58 /* MWZoomingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = A1EC117A1C8AC3BD00931E58 /* MWZoomingScrollView.m */; };
 		A1EC11BB1C8AE9C200931E58 /* ZYQAssetPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1EC11B91C8AE9C200931E58 /* ZYQAssetPickerController.m */; };
 		A1FB92951C8D156E0048ADA1 /* FDActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = A1FB92941C8D156E0048ADA1 /* FDActionSheet.m */; };
-		B84C4A4C23D1901D009D015D /* teamface.cer in Resources */ = {isa = PBXBuildFile; fileRef = B84C4A4B23D1901D009D015D /* teamface.cer */; };
-		B84C4A4F23D1909E009D015D /* teamface.pem in Resources */ = {isa = PBXBuildFile; fileRef = B84C4A4D23D1909D009D015D /* teamface.pem */; };
-		B84C4A5023D1909E009D015D /* teamface.key in Resources */ = {isa = PBXBuildFile; fileRef = B84C4A4E23D1909D009D015D /* teamface.key */; };
 		B863FFDA234F11D70031EB8C /* UIImage+HJImage.m in Sources */ = {isa = PBXBuildFile; fileRef = B863FFD8234F11D70031EB8C /* UIImage+HJImage.m */; };
 		B863FFDD234F12030031EB8C /* HJSignatureView.m in Sources */ = {isa = PBXBuildFile; fileRef = B863FFDC234F12030031EB8C /* HJSignatureView.m */; };
 		B863FFE0234F14CB0031EB8C /* TFSignatureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B863FFDF234F14CB0031EB8C /* TFSignatureViewController.m */; };
 		B86DC22E23BD8D5A006C8205 /* TFSalaryController.m in Sources */ = {isa = PBXBuildFile; fileRef = B86DC22D23BD8D5A006C8205 /* TFSalaryController.m */; };
 		B8AB31AD237E52DC00DB8C58 /* TFSelectFirstLevelPeopleController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8AB31AC237E52DC00DB8C58 /* TFSelectFirstLevelPeopleController.m */; };
 		B8C8CC912356A862007CBCCD /* TFCustomSignatureCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B8C8CC902356A862007CBCCD /* TFCustomSignatureCell.m */; };
+		B8D43F1123D9755E00F63646 /* server123.cer in Resources */ = {isa = PBXBuildFile; fileRef = B8D43F1023D9755D00F63646 /* server123.cer */; };
 		B8FE79D42399DC01004D56C9 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58323069200D9505006FE165 /* Photos.framework */; };
 		B8FE7EE7239A8BE3004D56C9 /* PhotosUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8FE79D52399DDD1004D56C9 /* PhotosUI.framework */; };
 		B8FE7EEC239A8D5F004D56C9 /* ZLPhotoBrowser.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = B8FE7EE1239A8884004D56C9 /* ZLPhotoBrowser.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -1142,10 +1140,7 @@
 		D61E7A411D23B65700F1392C /* XWDragCellCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = D61E7A401D23B65700F1392C /* XWDragCellCollectionView.m */; };
 		D61E7A441D23B73C00F1392C /* HQBenchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D61E7A431D23B73C00F1392C /* HQBenchCell.m */; };
 		D61E7A4C1D23C1A800F1392C /* HQRootModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D61E7A4B1D23C1A800F1392C /* HQRootModel.m */; };
-		D620A0341F468C4400087B1A /* 214220181260644.cer in Resources */ = {isa = PBXBuildFile; fileRef = D620A0321F468C4400087B1A /* 214220181260644.cer */; };
-		D620A0351F468C4400087B1A /* 214220181260644.key in Resources */ = {isa = PBXBuildFile; fileRef = D620A0331F468C4400087B1A /* 214220181260644.key */; };
 		D620A0381F46938700087B1A /* Bugly.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D620A0371F46938700087B1A /* Bugly.framework */; };
-		D620A03A1F469B8500087B1A /* httpsSSL.cer in Resources */ = {isa = PBXBuildFile; fileRef = D620A0391F469B8500087B1A /* httpsSSL.cer */; };
 		D624DB5E1E80B83E004DE28C /* TFMainScheduleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D624DB5D1E80B83E004DE28C /* TFMainScheduleModel.m */; };
 		D624DB611E80B904004DE28C /* TFMainTaskModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D624DB601E80B904004DE28C /* TFMainTaskModel.m */; };
 		D624DB6A1E810EE2004DE28C /* HQTFSelectCompanyController.m in Sources */ = {isa = PBXBuildFile; fileRef = D624DB691E810EE2004DE28C /* HQTFSelectCompanyController.m */; };
@@ -1245,7 +1240,6 @@
 		D630005A2043F6DE0049F9D6 /* TFResetPasswordController.m in Sources */ = {isa = PBXBuildFile; fileRef = D63000592043F6DE0049F9D6 /* TFResetPasswordController.m */; };
 		D630B3F52149F4BE0045AC4C /* TFAutoMatchDataListController.m in Sources */ = {isa = PBXBuildFile; fileRef = D630B3F42149F4BE0045AC4C /* TFAutoMatchDataListController.m */; };
 		D630B3F8214A0DD30045AC4C /* TFAutoMatchRuleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D630B3F7214A0DD30045AC4C /* TFAutoMatchRuleModel.m */; };
-		D63231652025CCCD007A189D /* ssl.cer in Resources */ = {isa = PBXBuildFile; fileRef = D63231642025CCCD007A189D /* ssl.cer */; };
 		D63231F120286DF0007A189D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D63231F320286DF0007A189D /* Localizable.strings */; };
 		D632DB871ED809E5007B63CC /* HQBaseBL.m in Sources */ = {isa = PBXBuildFile; fileRef = D632DB841ED809E5007B63CC /* HQBaseBL.m */; };
 		D632DB8D1ED80AC0007B63CC /* HQTFTaskDynamicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D632DB8B1ED80AC0007B63CC /* HQTFTaskDynamicCell.m */; };
@@ -3547,9 +3541,6 @@
 		A1EC11B91C8AE9C200931E58 /* ZYQAssetPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYQAssetPickerController.m; sourceTree = "<group>"; };
 		A1FB92931C8D156E0048ADA1 /* FDActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDActionSheet.h; sourceTree = "<group>"; };
 		A1FB92941C8D156E0048ADA1 /* FDActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDActionSheet.m; sourceTree = "<group>"; };
-		B84C4A4B23D1901D009D015D /* teamface.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = teamface.cer; sourceTree = "<group>"; };
-		B84C4A4D23D1909D009D015D /* teamface.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = teamface.pem; sourceTree = "<group>"; };
-		B84C4A4E23D1909D009D015D /* teamface.key */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = teamface.key; sourceTree = "<group>"; };
 		B863FFD8234F11D70031EB8C /* UIImage+HJImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+HJImage.m"; sourceTree = "<group>"; };
 		B863FFD9234F11D70031EB8C /* UIImage+HJImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+HJImage.h"; sourceTree = "<group>"; };
 		B863FFDB234F12020031EB8C /* HJSignatureView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJSignatureView.h; sourceTree = "<group>"; };
@@ -3562,6 +3553,7 @@
 		B8AB31AC237E52DC00DB8C58 /* TFSelectFirstLevelPeopleController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFSelectFirstLevelPeopleController.m; sourceTree = "<group>"; };
 		B8C8CC8F2356A862007CBCCD /* TFCustomSignatureCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFCustomSignatureCell.h; sourceTree = "<group>"; };
 		B8C8CC902356A862007CBCCD /* TFCustomSignatureCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFCustomSignatureCell.m; sourceTree = "<group>"; };
+		B8D43F1023D9755D00F63646 /* server123.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = server123.cer; sourceTree = "<group>"; };
 		B8FE79D52399DDD1004D56C9 /* PhotosUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PhotosUI.framework; path = System/Library/Frameworks/PhotosUI.framework; sourceTree = SDKROOT; };
 		B8FE7EE1239A8884004D56C9 /* ZLPhotoBrowser.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ZLPhotoBrowser.framework; sourceTree = "<group>"; };
 		B8FE7EEE239A8F72004D56C9 /* UIImage+WebP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+WebP.m"; sourceTree = "<group>"; };
@@ -3792,10 +3784,7 @@
 		D61E7A431D23B73C00F1392C /* HQBenchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HQBenchCell.m; sourceTree = "<group>"; };
 		D61E7A4A1D23C1A800F1392C /* HQRootModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HQRootModel.h; sourceTree = "<group>"; };
 		D61E7A4B1D23C1A800F1392C /* HQRootModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HQRootModel.m; sourceTree = "<group>"; };
-		D620A0321F468C4400087B1A /* 214220181260644.cer */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 214220181260644.cer; sourceTree = "<group>"; };
-		D620A0331F468C4400087B1A /* 214220181260644.key */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 214220181260644.key; sourceTree = "<group>"; };
 		D620A0371F46938700087B1A /* Bugly.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bugly.framework; sourceTree = "<group>"; };
-		D620A0391F469B8500087B1A /* httpsSSL.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = httpsSSL.cer; sourceTree = "<group>"; };
 		D624DB5C1E80B83E004DE28C /* TFMainScheduleModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFMainScheduleModel.h; sourceTree = "<group>"; };
 		D624DB5D1E80B83E004DE28C /* TFMainScheduleModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFMainScheduleModel.m; sourceTree = "<group>"; };
 		D624DB5F1E80B904004DE28C /* TFMainTaskModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFMainTaskModel.h; sourceTree = "<group>"; };
@@ -3967,7 +3956,6 @@
 		D630B3F42149F4BE0045AC4C /* TFAutoMatchDataListController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFAutoMatchDataListController.m; sourceTree = "<group>"; };
 		D630B3F6214A0DD30045AC4C /* TFAutoMatchRuleModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFAutoMatchRuleModel.h; sourceTree = "<group>"; };
 		D630B3F7214A0DD30045AC4C /* TFAutoMatchRuleModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFAutoMatchRuleModel.m; sourceTree = "<group>"; };
-		D63231642025CCCD007A189D /* ssl.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = ssl.cer; sourceTree = "<group>"; };
 		D63231EC20286DA2007A189D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/MainInterface.strings; sourceTree = "<group>"; };
 		D63231ED20286DAB007A189D /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/MainInterface.strings"; sourceTree = "<group>"; };
 		D63231EE20286DB8007A189D /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/MainInterface.strings"; sourceTree = "<group>"; };
@@ -7147,14 +7135,8 @@
 		934E2DA51C8929F000C137CB /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				B84C4A4E23D1909D009D015D /* teamface.key */,
-				B84C4A4D23D1909D009D015D /* teamface.pem */,
-				B84C4A4B23D1901D009D015D /* teamface.cer */,
+				B8D43F1023D9755D00F63646 /* server123.cer */,
 				578414ED220145BC0002134D /* server.cer */,
-				D63231642025CCCD007A189D /* ssl.cer */,
-				D620A0391F469B8500087B1A /* httpsSSL.cer */,
-				D620A0321F468C4400087B1A /* 214220181260644.cer */,
-				D620A0331F468C4400087B1A /* 214220181260644.key */,
 				93C4E3671D1BBD0B001A5515 /* 摇一摇结束音效.wav */,
 				93C4E3631D1BBD06001A5515 /* shake_sound_male.mp3 */,
 				9327B8CD1D45CE52007B384A /* industry.xml */,
@@ -10898,7 +10880,6 @@
 				58667F801FE3DC75005C0504 /* 35.png in Resources */,
 				D62CB4B11DE6EE7700D0365B /* JCHATChangeNameViewController.xib in Resources */,
 				D616C8F31DD5D00700BDD8FF /* 3-6.png in Resources */,
-				B84C4A5023D1909E009D015D /* teamface.key in Resources */,
 				58667F5A1FE3DC74005C0504 /* 18.png in Resources */,
 				58667FE51FE3DC75005C0504 /* RecordingSignal002@2x.png in Resources */,
 				58667FD21FE3DC75005C0504 /* 72.png in Resources */,
@@ -10997,7 +10978,6 @@
 				D616C8E51DD5D00700BDD8FF /* 16-2.png in Resources */,
 				D693F9431E5D6238000CE0FE /* HQTFRelateCell.xib in Resources */,
 				57E67FA121F2BAD300B00BE7 /* TFWorkNumButton.xib in Resources */,
-				D620A03A1F469B8500087B1A /* httpsSSL.cer in Resources */,
 				A1EC11801C8AC3BD00931E58 /* ImageError@3x.png in Resources */,
 				D685CA3B20FD8D9E0039C42C /* TFProjectNoteCell.xib in Resources */,
 				58667F3A1FE3DC74005C0504 /* group_topic_keyboard.png in Resources */,
@@ -11034,7 +11014,6 @@
 				D616C9041DD5D00700BDD8FF /* 7-3-1.png in Resources */,
 				D62CB4A21DE6ECCE00D0365B /* JCHATGroupPersonView.xib in Resources */,
 				582C01D820CA74E20085CBDC /* TFPCRuleListCell.xib in Resources */,
-				D620A0351F468C4400087B1A /* 214220181260644.key in Resources */,
 				58667F691FE3DC75005C0504 /* 25.gif in Resources */,
 				58667F4D1FE3DC74005C0504 /* 12.gif in Resources */,
 				58667FE91FE3DC75005C0504 /* RecordingSignal006@2x.png in Resources */,
@@ -11132,7 +11111,6 @@
 				9383224B1CFC268900DA1CD0 /* photograph.html in Resources */,
 				57C42AA822BB13AF00436B8B /* TFPunchSuccessTipView.xib in Resources */,
 				D685CA2C20FD8D9E0039C42C /* TFImgDoubleLalImgCell.xib in Resources */,
-				D63231652025CCCD007A189D /* ssl.cer in Resources */,
 				D693F91E1E5BE24B000CE0FE /* HQTFPeopleView.xib in Resources */,
 				D67495311E83825800C48538 /* HQTFProjectModelCell.xib in Resources */,
 				5765476222310CA300B7FDFA /* TFMustPutchCardCell.xib in Resources */,
@@ -11213,7 +11191,6 @@
 				D616C8DB1DD5D00700BDD8FF /* 13-9.png in Resources */,
 				58667F501FE3DC74005C0504 /* 13.png in Resources */,
 				D616C8CA1DD5D00700BDD8FF /* 10-5.png in Resources */,
-				D620A0341F468C4400087B1A /* 214220181260644.cer in Resources */,
 				58667FC81FE3DC75005C0504 /* 68.png in Resources */,
 				58667FA31FE3DC75005C0504 /* 51.gif in Resources */,
 				D685CA2F20FD8D9E0039C42C /* TFModelView.xib in Resources */,
@@ -11232,7 +11209,6 @@
 				587C01E11FCE8B75000AEC1B /* emoNames.plist in Resources */,
 				D616C8C51DD5D00700BDD8FF /* 1-4.png in Resources */,
 				58E7CB58206759140077A84D /* TFNoteDetailHeadView.xib in Resources */,
-				B84C4A4C23D1901D009D015D /* teamface.cer in Resources */,
 				58667FAD1FE3DC75005C0504 /* 56.gif in Resources */,
 				5797A205224A26F5006D2DA2 /* TFReferanceTimeCell.xib in Resources */,
 				58667F591FE3DC74005C0504 /* 18.gif in Resources */,
@@ -11294,6 +11270,7 @@
 				57E8C1622265F255001F80E9 /* TFProjectNewListCell.xib in Resources */,
 				93397A5C1CAE6B2200475D7B /* chat_sender_audio_playing_001@2x.png in Resources */,
 				5835E730212FB0D400C677B0 /* TFNoteDetailRemindCell.xib in Resources */,
+				B8D43F1123D9755E00F63646 /* server123.cer in Resources */,
 				D616C90D1DD5D00800BDD8FF /* 9-4.png in Resources */,
 				58667FC91FE3DC75005C0504 /* 69.gif in Resources */,
 				58667F731FE3DC75005C0504 /* 3.gif in Resources */,
@@ -11314,7 +11291,6 @@
 				58667FBB1FE3DC75005C0504 /* 62.gif in Resources */,
 				9383224D1CFC268900DA1CD0 /* relation.html in Resources */,
 				57002D1321F56C75005E69DF /* TFEnterPeopleView.xib in Resources */,
-				B84C4A4F23D1909E009D015D /* teamface.pem in Resources */,
 				D616C8FE1DD5D00700BDD8FF /* 5-3.png in Resources */,
 				D616C9051DD5D00700BDD8FF /* 7-3.png in Resources */,
 				D63A27A421BFA07600EB4590 /* TFKnowledgeAnswerCell.xib in Resources */,
@@ -13071,7 +13047,7 @@
 					"$(PROJECT_DIR)/HuiJuHuaQi/ThirdPart/UMSocialSDK/UMSocialSDKPlugin",
 					"$(PROJECT_DIR)/HuiJuHuaQi/ThirdPart/UMSocialSDK/SocialLibraries/Sina",
 				);
-				MARKETING_VERSION = 5.3.1;
+				MARKETING_VERSION = 5.3.3;
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lxml2",
@@ -13179,7 +13155,7 @@
 					"$(PROJECT_DIR)/HuiJuHuaQi/ThirdPart/UMSocialSDK/UMSocialSDKPlugin",
 					"$(PROJECT_DIR)/HuiJuHuaQi/ThirdPart/UMSocialSDK/SocialLibraries/Sina",
 				);
-				MARKETING_VERSION = 5.3.1;
+				MARKETING_VERSION = 5.3.3;
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lxml2",
@@ -13267,7 +13243,7 @@
 				INFOPLIST_FILE = HuiQiWiget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				MARKETING_VERSION = 5.3.1;
+				MARKETING_VERSION = 5.3.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.TeamFaceCustom.HJHQ.Wiget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "db58449d-b8f6-41bb-bdd0-4df6e5a62656";
@@ -13291,7 +13267,7 @@
 				INFOPLIST_FILE = HuiQiWiget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				MARKETING_VERSION = 5.3.1;
+				MARKETING_VERSION = 5.3.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.TeamFaceCustom.HJHQ.Wiget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "cf004058-9807-422c-b21e-e36d3c8c5518";
