@@ -36,6 +36,7 @@
 #import "TFLoginBL.h"
 #import "TFEndlessView.h"
 #import "TFRefresh.h"
+#import "TFSalaryController.h"
 
 #define ADHEIGHT 160
 
@@ -109,7 +110,8 @@
             sys = @[@"协作",@"备忘录",@"审批"];
             beans = @[@"project",@"memo",@"approval"];
             icon = @[@"协作",@"备忘录",@"审批"];
-        }else if (self.type == 7){
+        }
+        else if (self.type == 7){
             sys = @[@"审批"];
             icon = @[@"审批"];
             beans = @[@"approval"];
@@ -316,7 +318,13 @@
     
     if (resp.cmdId == HQCMD_customApplicationList) {
         
-        [self.applications addObjectsFromArray:resp.body];
+        NSMutableArray *arr = [NSMutableArray array];
+        for (TFApplicationModel *model in resp.body) {
+            if (model.modules.count != 0) {
+                [arr addObject:model];
+            }
+        }
+        [self.applications addObjectsFromArray:arr];
         
         if (self.applications.count == 0) {
             
@@ -387,14 +395,20 @@
         self.systemApplication = nil;
         for (NSInteger i = 0; i < arr.count; i ++) {
             NSDictionary *dict = arr[i];
+            if (repositoryLibrariesHidden) {
+                if ([[dict valueForKey:@"bean"] isEqualToString:@"repository_libraries"]) {
+                    continue;
+                }
+            }
             if ([[[dict valueForKey:@"onoff_status"] description] isEqualToString:@"1"]) {
-                
+
                 if (!([[dict valueForKey:@"bean"] isEqualToString:@"approval"] || [[dict valueForKey:@"bean"] isEqualToString:@"workbench"] || [[dict valueForKey:@"bean"] isEqualToString:@"memo"])) {
                     
                     if (self.type == 6 || self.type == 7) {// 知识库引用的时候不需要文件库,知识库,考勤
                         if ([[dict valueForKey:@"bean"] isEqualToString:@"library"] ||
                             [[dict valueForKey:@"bean"] isEqualToString:@"repository_libraries"] ||
-                            [[dict valueForKey:@"bean"] isEqualToString:@"attendance"]) {
+                            [[dict valueForKey:@"bean"] isEqualToString:@"attendance"] ||
+                            [[dict valueForKey:@"bean"] isEqualToString:@"salary"]) {
                             continue;
                         }
                     }
@@ -403,6 +417,17 @@
                             continue;
                         }
                     }
+                    
+                    TFModuleModel *mu = [[TFModuleModel alloc] init];
+                    [self.systemApplication.modules addObject:mu];
+                    mu.chinese_name = [dict valueForKey:@"name"];
+                    mu.english_name = [dict valueForKey:@"bean"];
+                    mu.icon = [dict valueForKey:@"name"];
+                    mu.icon_type = 0;
+                    mu.icon_color = @"#FFFFFF";
+                }
+                // 将备忘录引用添加备忘录
+                if ([[dict valueForKey:@"bean"] isEqualToString:@"memo"] && self.type == 7) {
                     
                     TFModuleModel *mu = [[TFModuleModel alloc] init];
                     [self.systemApplication.modules addObject:mu];
@@ -634,9 +659,9 @@
     return 0;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
-    if (section == 0) {
-        return 0;
-    }
+//    if (section == 0) {
+//        return 0;
+//    }
     return 10;
 }
 
@@ -819,7 +844,7 @@
     }
     else if ([module.english_name isEqualToString:@"memo"]){
         
-        if (self.type == 3 || self.type == 6) {
+        if (self.type == 3 || self.type == 6 || self.type == 7) {
             TFSelectMemoListController *memo = [[TFSelectMemoListController alloc] init];
             memo.parameterAction = ^(NSArray *parameter) {
                 
@@ -958,6 +983,11 @@
     else if ([module.english_name isEqualToString:@"repository_libraries"]) { // 知识库
         
         TFKnowledgeListController *att = [[TFKnowledgeListController alloc] init];
+        [self.navigationController pushViewController:att animated:YES];
+    }
+    else if ([module.english_name isEqualToString:@"salary"]) { // 薪酬
+        
+        TFSalaryController *att = [[TFSalaryController alloc] init];
         [self.navigationController pushViewController:att animated:YES];
     }
     else{

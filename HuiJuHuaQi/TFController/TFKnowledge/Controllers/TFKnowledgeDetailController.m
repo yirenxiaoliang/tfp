@@ -1619,8 +1619,49 @@
     
     [self openCamera];
 }
+/** 选择照片处理 */
+-(void)handleImages:(NSArray *)arr{
+    
+    if (arr.count == 0) {
+        return;
+    }
+    // 选择照片上传
+    TFCustomerCommentModel *model = [[TFCustomerCommentModel alloc] init];
+    
+    model.fileType = @"jpg";
+    model.image = arr.firstObject;
+    
+    model.employee_name = UM.userLoginInfo.employee.employee_name;
+    model.employee_id = UM.userLoginInfo.employee.id;
+    model.picture = UM.userLoginInfo.employee.picture;
+    model.datetime_time = @([HQHelper getNowTimeSp]);
+    model.content = @"";
+    
+    self.commentModel = model;
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    
+    if ([self.bean isEqualToString:@"file_library"]|| [self.bean isEqualToString:@"approval"] || [self.bean isEqualToString:@"email"] || [self.bean isEqualToString:@"memo"] || [self.bean isEqualToString:@"repository_libraries"]) {
+
+        [self.customBL chatFileWithImages:arr withVioces:@[] bean:self.bean];
+    }else{
+        [self.customBL uploadFileWithImages:arr withAudios:@[] bean:self.bean];
+    }
+}
+
+
 #pragma mark - 打开相册
 - (void)openAlbum{
+    
+    kWEAKSELF
+    ZLPhotoActionSheet *sheet =[HQHelper takeHPhotoWithBlock:^(NSArray<UIImage *> *images) {
+        [weakSelf handleImages:images];
+    }];
+    //图片数量
+    sheet.configuration.maxSelectCount = 1;
+    //如果调用的方法没有传sender，则该属性必须提前赋值
+    sheet.sender = self;
+    [sheet showPhotoLibrary];
+    return;
     
     ZYQAssetPickerController *picker = [[ZYQAssetPickerController alloc] init];
     picker.maximumNumberOfSelection = 1 ; // 选择图片最大数量
@@ -1982,12 +2023,12 @@
 -(void)handAuth{
     
     // 此处为创建人
-    if ([UM.userLoginInfo.employee.id isEqualToNumber:self.knowledgeDetail.create_by.id]) {
+    if ([[UM.userLoginInfo.employee.id description] isEqualToString:[self.knowledgeDetail.create_by.id description]]) {
         self.auth = 1;
     }
     // 此处为管理员
     for (TFEmployModel *model in self.knowledgeDetail.allot_manager) {
-        if ([UM.userLoginInfo.employee.id isEqualToNumber:model.id]) {
+        if ([[UM.userLoginInfo.employee.id description] isEqualToNumber:[model.id description]]) {
             self.auth = 2;
             break;
         }

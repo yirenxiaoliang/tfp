@@ -812,7 +812,9 @@
                 TFProjectRowFrameModel *model = [[TFProjectRowFrameModel alloc] initBorder];
                 TFProjectRowModel *row = [[TFProjectRowModel alloc] init];
                 row.dataType = @4;
+                row.bean_type = @4;
                 row.id = @([item.approval_data_id longLongValue]);
+                row.bean_id = @([item.approval_data_id longLongValue]);
                 row.process_name = item.process_name;
                 row.process_field_v = item.process_field_v;
                 row.task_id = @([item.task_id integerValue]);
@@ -840,6 +842,9 @@
                 TFProjectRowModel *row = [[TFProjectRowModel alloc] init];
                 row.dataType = @1;
                 row.id = item.id;
+                row.bean_id = item.id;
+                row.bean_type = @1;
+                row.bean_name = bean;
                 row.remind_time = item.remind_time;
                 row.title = item.title;
                 row.create_time = item.create_time;
@@ -860,6 +865,9 @@
                 TFProjectRowModel *row = [[TFProjectRowModel alloc] init];
                 row.dataType = @5;
                 row.id = item.id;
+                row.bean_id = item.id;
+                row.bean_type = @5;
+                row.bean_name =bean;
                 row.create_time = @([item.create_time longLongValue]);
                 row.subject = item.subject;
                 row.from_recipient = item.from_recipient;
@@ -883,6 +891,7 @@
                 row.icon_type = @([item.icon_type integerValue]);
                 row.icon_color = item.icon_color;
                 row.module_bean = bean;
+                row.bean_type = @3;
                 
                 model.projectRow = row;
                 [self.knowledge.customs addObject:model];
@@ -933,8 +942,31 @@
     
 }
 
+/** 选择照片处理 */
+-(void)handleImages:(NSArray *)arr{
+    
+    if (arr.count == 0) {
+        return;
+    }
+    // 选择照片上传
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [self.knowledgeBL chatFileWithImages:arr withVioces:@[] bean:@"repository_libraries"];
+}
+
+
 #pragma mark - 打开相册
 - (void)openAlbum{
+    
+    kWEAKSELF
+    ZLPhotoActionSheet *sheet =[HQHelper takeHPhotoWithBlock:^(NSArray<UIImage *> *images) {
+        [weakSelf handleImages:images];
+    }];
+    //图片数量
+    sheet.configuration.maxSelectCount = 9;
+    //如果调用的方法没有传sender，则该属性必须提前赋值
+    sheet.sender = self;
+    [sheet showPhotoLibrary];
+    return;
     
     ZYQAssetPickerController *picker = [[ZYQAssetPickerController alloc] init];
     

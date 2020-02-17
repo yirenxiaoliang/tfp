@@ -48,7 +48,8 @@
         [subforms addObject:[row copy]];
     }
     model.componentList = [NSArray<Optional,TFCustomerRowsModel> arrayWithArray:subforms];
-    
+    model.controlFieldHide = self.controlFieldHide;
+    model.height = @44;
     return model;
 }
 
@@ -92,6 +93,8 @@
     model.componentList = [NSArray<Optional,TFCustomerRowsModel> arrayWithArray:subforms];
     
     
+    model.controlFieldHide = self.controlFieldHide;
+    model.height = @44;
     
     return model;
 }

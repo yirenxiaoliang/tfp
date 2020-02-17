@@ -8,7 +8,6 @@
 
 #import "HQPhotoView.h"
 #import "HQPhotoCell.h"
-#import "UIImageView+WebCache.h"
 
 @interface HQPhotoView ()<UICollectionViewDataSource , UICollectionViewDelegate, UICollectionViewDelegateFlowLayout , HQPhotoCellDelegate>
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;

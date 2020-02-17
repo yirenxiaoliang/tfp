@@ -68,10 +68,6 @@
         [self.navigationController.navigationBar setShadowImage:[HQHelper createImageWithColor:ClearColor size:(CGSize){SCREEN_WIDTH,0.5}]];
     }
 
-    [self.navigationController.navigationBar setTranslucent:YES];
-    [self.cardView refreshMyCardView];
-    [self setStatusBarBackgroundColor:[UIColor whiteColor]];
-    self.evironment.text = [NSString stringWithFormat:@"服务器：%@",[AppDelegate shareAppDelegate].baseUrl];
 }
 //设置状态栏颜色
 - (void)setStatusBarBackgroundColor:(UIColor *)color {

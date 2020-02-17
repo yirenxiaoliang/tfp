@@ -18,7 +18,6 @@
 #import "HQSwitchCell.h"
 #import "HQTFThreeLabelCell.h"
 
-
 @interface HQSetViewController ()<UITableViewDelegate,UITableViewDataSource,UIAlertViewDelegate,HQSwitchCellDelegate>
 
 @property (nonatomic, strong) UITableView *tableview;
@@ -168,7 +167,7 @@
         
     }else if (indexPath.section == 3){
         
-        NSInteger size = [[[SDWebImageManager sharedManager] imageCache] getSize];
+        NSInteger size = [[SDImageCache sharedImageCache] getSize];
         NSString *str = @"清空缓存";
         NSString *str1 = @"";
         if (size > 0) {

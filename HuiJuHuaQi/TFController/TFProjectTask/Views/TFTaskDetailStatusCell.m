@@ -35,19 +35,25 @@
             self.statusBtn.layer.borderColor = ClearColor.CGColor;
             if ([model.value integerValue] == 0) {// 未进行
                 [self.statusBtn setImage:IMG(@"task未开始") forState:UIControlStateNormal];
-                self.statusBtn.backgroundColor = HexColor(0xE5E5E5);
+                self.statusBtn.backgroundColor = [HQHelper colorWithHexString:model.color alpha:0.5];
             }else if ([model.value integerValue] == 1){// 进行中
                 [self.statusBtn setImage:IMG(@"task进行中") forState:UIControlStateNormal];
-                self.statusBtn.backgroundColor = HexColor(0xDAEDFF);
+                self.statusBtn.backgroundColor = [HQHelper colorWithHexString:model.color alpha:0.5];
             }else if ([model.value integerValue] == 2){// 暂停
                 [self.statusBtn setImage:IMG(@"task暂停") forState:UIControlStateNormal];
-                self.statusBtn.backgroundColor = HexColor(0xE5E5E5);
+                self.statusBtn.backgroundColor = [HQHelper colorWithHexString:model.color alpha:0.5];
             }else if ([model.value integerValue] == 3){// 完成
                 [self.statusBtn setImage:IMG(@"task已完成") forState:UIControlStateNormal];
-                self.statusBtn.backgroundColor = HexColor(0xEFF8E8);
+                self.statusBtn.backgroundColor = [HQHelper colorWithHexString:model.color alpha:0.5];
+            }else if ([model.value integerValue] == 4){// 待检验
+                [self.statusBtn setImage:IMG(@"task待校验") forState:UIControlStateNormal];
+                self.statusBtn.backgroundColor = [HQHelper colorWithHexString:model.color alpha:0.5];
+            }else if ([model.value integerValue] == 5){// 检验驳回
+                [self.statusBtn setImage:IMG(@"task待校验") forState:UIControlStateNormal];
+                self.statusBtn.backgroundColor = [HQHelper colorWithHexString:model.color alpha:0.5];
             }
             [self.statusBtn mas_remakeConstraints:^(MASConstraintMaker *make) {
-                make.width.mas_equalTo(@72);
+                make.width.mas_equalTo(@90);
             }];
             self.statusBtn.hidden = NO;
         }else{
@@ -104,6 +110,16 @@
             self.statusBtn.layer.borderColor = ClearColor.CGColor;
         }else if (status == 3){
             [self.statusBtn setTitle:@"  已完成  " forState:UIControlStateNormal];
+            self.statusBtn.backgroundColor = HexColor(0xEFF8E8);
+            [self.statusBtn setTitleColor:HexColor(0x4D7D2D) forState:UIControlStateNormal];
+            self.statusBtn.layer.borderColor = ClearColor.CGColor;
+        }else if (status == 4){
+            [self.statusBtn setTitle:@"  待检验  " forState:UIControlStateNormal];
+            self.statusBtn.backgroundColor = HexColor(0xEFF8E8);
+            [self.statusBtn setTitleColor:HexColor(0x4D7D2D) forState:UIControlStateNormal];
+            self.statusBtn.layer.borderColor = ClearColor.CGColor;
+        }else if (status == 5){
+            [self.statusBtn setTitle:@"  检验驳回  " forState:UIControlStateNormal];
             self.statusBtn.backgroundColor = HexColor(0xEFF8E8);
             [self.statusBtn setTitleColor:HexColor(0x4D7D2D) forState:UIControlStateNormal];
             self.statusBtn.layer.borderColor = ClearColor.CGColor;

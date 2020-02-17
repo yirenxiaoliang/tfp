@@ -57,8 +57,12 @@
 
 /** 部门id */
 @property (nonatomic, strong) NSNumber <Optional>*id;
+/** 父部门id */
+@property (nonatomic, strong) NSNumber <Optional>*parent_id;
 /** 部门名字 */
 @property (nonatomic, copy) NSString <Optional>*name;
+/** 部门名字 */
+@property (nonatomic, copy) NSString <Optional>*department_name;
 /** 父部门 */
 @property (nonatomic, copy) NSString <Optional>*parentId;
 /** 部门人员列表 */

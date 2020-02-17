@@ -16,8 +16,11 @@
 #import "TFEmailApprovalController.h"
 #import "TFApprovalSearchView.h"
 #import "TFAddCustomController.h"
+#import "TFCRMSearchView.h"
+#import "TFSearchTableView.h"
+#import "TFFilterView.h"
 
-@interface TFApprovalListController ()<UITableViewDelegate,UITableViewDataSource,HQBLDelegate,TFApprovalSearchViewDelegate,UITextFieldDelegate>
+@interface TFApprovalListController ()<UITableViewDelegate,UITableViewDataSource,HQBLDelegate,TFApprovalSearchViewDelegate,UITextFieldDelegate,TFCRMSearchViewDelegate,TFSearchTableViewDelegate,TFFilterViewDelegate>
 /** tableView */
 @property (nonatomic, weak) UITableView *tableView;
 
@@ -43,6 +46,12 @@
 
 /** keyword */
 @property (nonatomic, copy) NSString *keyword;
+@property (nonatomic, weak) TFCRMSearchView *downView;
+@property (nonatomic, strong) TFSearchTableView *searchTableView;
+@property (nonatomic, strong) TFFilterView *filterVeiw;
+@property (nonatomic, assign) BOOL show;
+@property (nonatomic, strong) NSMutableArray *types;
+@property (nonatomic, strong) TFBeanTypeModel *currentType;
 
 @end
 
@@ -118,7 +127,10 @@
         [self.customBL requestCustomApprovalSearchMenuWithType:self.type];
     }else{
         
-        [self.customBL requestGetApprovalWithBean:self.module.english_name keyword:self.keyword pageNum:self.pageNo pageSize:self.pageSize];
+//        [self.customBL requestGetApprovalWithBean:self.module.english_name keyword:self.keyword pageNum:self.pageNo pageSize:self.pageSize];
+        [self.customBL requsetApprovalListWithType:@([self.currentType.type integerValue]) pageNum:self.pageNo pageSize:self.pageSize querryWhere:self.querryWhere];
+        [self.customBL requestCustomApprovalSearchMenuWithType:@([self.currentType.type integerValue])];
+        
         self.navigationItem.title = self.module.chinese_name;
         UIBarButtonItem *item1 = [self itemWithTarget:self action:@selector(sure) text:@"确定" textColor:GreenColor];
         UIBarButtonItem *item2 = [self itemWithTarget:self action:@selector(add) text:@"新增" textColor:GreenColor];
@@ -164,6 +176,9 @@
         NSString *ids = @"";
         NSMutableArray *arr = [NSMutableArray array];
         for (TFApprovalListItemModel *model in self.allSelects) {
+            if ([ids containsString:[NSString stringWithFormat:@"%@,",model.approval_data_id]]) {
+                continue;
+            }
             ids = [ids stringByAppendingString:[NSString stringWithFormat:@"%@,",[model.approval_data_id description]]];
             [arr addObject:model];
         }
@@ -196,6 +211,21 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(searchList:) name:@"ApprovalSearchList" object:nil];
     
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    if ([self.type isEqualToNumber:@4]) {
+        [self setupCRMSearchView];
+        [self setupSearchTableView];
+        [self setupFilterView];
+        NSArray *arr = @[@"我发起的",@"待我审批",@"我已审批",@"抄送到我"];
+        self.types = [NSMutableArray array];
+        for (NSInteger i = 0; i < 4; i++) {
+            TFBeanTypeModel *model = [[TFBeanTypeModel alloc] init];
+            model.name = arr[i];
+            model.type = [NSString stringWithFormat:@"%ld",i];
+            [self.types addObject:model];
+        }
+        self.currentType = self.types.firstObject;
+        [self.searchTableView refreshSearchTableViewWithItems:self.types];
+    }
     
 }
 
@@ -210,6 +240,131 @@
     
 }
 
+#pragma mark - 初始化筛选View
+- (void)setupCRMSearchView{
+    TFCRMSearchView *view = [TFCRMSearchView CRMSearchView];
+    view.frame = CGRectMake(0, 0, SCREEN_WIDTH, 44);
+    view.delegate = self;
+    self.downView = view;
+    [self.view addSubview:view];
+    [self.downView refreshSearchViewWithTitle:[NSString stringWithFormat:@"我发起的"] number:0];
+}
+
+#pragma mark - TFCRMSearchViewDelegate
+-(void)crmSearchViewDidClicked:(BOOL)open{
+    
+    if (open) {
+        
+        [self.view insertSubview:self.searchTableView aboveSubview:self.tableView];
+        [self.searchTableView showAnimation];
+        
+    }else{
+        
+        [self.searchTableView hideAnimationWithCompletion:^(BOOL finish) {
+            
+            [self.searchTableView removeFromSuperview];
+        }];
+    }
+}
+
+-(void)crmSearchViewDidFilterBtn:(BOOL)show{
+    self.show = show;
+    if (show) {
+        
+        [self.view addSubview:self.filterVeiw];
+        
+        [UIView animateWithDuration:0.25 animations:^{
+            
+            self.filterVeiw.backgroundColor = RGBAColor(0, 0, 0, .5);
+            self.filterVeiw.left = 0;
+        }];
+        
+    }else{
+        [UIView animateWithDuration:0.25 animations:^{
+            
+            self.filterVeiw.left = SCREEN_WIDTH;
+            self.filterVeiw.backgroundColor = RGBAColor(0, 0, 0, 0);
+        } completion:^(BOOL finished) {
+            
+            [self.filterVeiw removeFromSuperview];
+        }];
+        
+    }
+}
+
+#pragma - mark 初始化SearchTableView
+- (void)setupSearchTableView{
+    self.searchTableView = [[TFSearchTableView alloc] initWithFrame:(CGRect){0,44,SCREEN_WIDTH,SCREEN_HEIGHT-NaviHeight-44}];
+    self.searchTableView.delegate = self;
+}
+
+#pragma mark - TFSearchTableViewDelegate
+-(void)searchTableViewDidSelectModel:(TFBeanTypeModel *)model{
+    
+    [self.downView refreshSearchViewWithTitle:model.name number:0];
+    self.downView.open = NO;
+    self.currentType = model;
+    
+    self.pageNo = @1;
+    [self.customBL requsetApprovalListWithType:@([self.currentType.type integerValue]) pageNum:self.pageNo pageSize:self.pageSize querryWhere:self.querryWhere];
+    
+}
+
+-(void)searchTableViewDidClickedBackgruod{
+    
+    self.downView.open = NO;
+}
+
+#pragma mark - 初始化filterView
+- (void)setupFilterView{
+    
+    TFFilterView *filterVeiw = [[TFFilterView alloc] initWithFrame:(CGRect){SCREEN_WIDTH,44,SCREEN_WIDTH,SCREEN_HEIGHT-NaviHeight-44}];
+    filterVeiw.tag = 0x1234554321;
+    self.filterVeiw = filterVeiw;
+    filterVeiw.delegate = self;
+}
+
+#pragma mark - TFFilterViewDelegate
+-(void)filterViewDidClicked:(BOOL)show{
+    
+    [self filterClick];
+    
+}
+
+-(void)filterViewDidSureBtnWithDict:(NSDictionary *)dict{
+    
+    [self filterClick];
+    
+    self.pageNo = @1;
+    self.querryWhere = dict;
+    [self.customBL requsetApprovalListWithType:@([self.currentType.type integerValue]) pageNum:self.pageNo pageSize:self.pageSize querryWhere:self.querryWhere];
+}
+
+- (void)filterClick{
+    
+    if (!self.show) {
+        self.show = YES;
+        [self.view addSubview:self.filterVeiw];
+        
+        [UIView animateWithDuration:0.25 animations:^{
+            
+            self.filterVeiw.backgroundColor = RGBAColor(0, 0, 0, .5);
+            self.filterVeiw.left = 0;
+        }];
+        
+    }else{
+        self.show = NO;
+        [UIView animateWithDuration:0.25 animations:^{
+            
+            self.filterVeiw.left = SCREEN_WIDTH;
+            self.filterVeiw.backgroundColor = RGBAColor(0, 0, 0, 0);
+        } completion:^(BOOL finished) {
+            
+            [self.filterVeiw removeFromSuperview];
+        }];
+        
+    }
+}
 
 #pragma mark - 网络请求代理
 -(void)finishedHandle:(HQBaseBL *)blEntity response:(HQResponseEntity *)resp{
@@ -266,10 +421,14 @@
     
     if (resp.cmdId == HQCMD_customApprovalSearchMenu) {
         
-        if (self.refreshAction) {
-            self.refreshAction(resp.body);
+        if (![self.type isEqualToNumber:@4]) {
+            if (self.refreshAction) {
+                self.refreshAction(resp.body);
+            }
         }
-        
+        if ([self.type isEqualToNumber:@4]) {
+            self.filterVeiw.filters = resp.body;
+        }
     }
     
 }
@@ -295,7 +454,7 @@
         tableView.frame = CGRectMake(-15, 0, SCREEN_WIDTH+30, SCREEN_HEIGHT-NaviHeight);
     }
     if ([self.type isEqualToNumber:@4]) {
-        tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
+        tableView.contentInset = UIEdgeInsetsMake(44, 0, 0, 0);
     }else{
         tableView.contentInset = UIEdgeInsetsMake(0, 0, 65, 0);
     }
@@ -313,7 +472,8 @@
             [self.customBL requsetApprovalListWithType:self.type pageNum:self.pageNo pageSize:self.pageSize querryWhere:self.querryWhere];
         }else{
             
-            [self.customBL requestGetApprovalWithBean:self.module.english_name keyword:self.keyword pageNum:self.pageNo pageSize:self.pageSize];
+//            [self.customBL requestGetApprovalWithBean:self.module.english_name keyword:self.keyword pageNum:self.pageNo pageSize:self.pageSize];
+            [self.customBL requsetApprovalListWithType:@([self.currentType.type integerValue]) pageNum:self.pageNo pageSize:self.pageSize querryWhere:self.querryWhere];
         }
     }];
     tableView.mj_header = header;
@@ -327,15 +487,17 @@
             [self.customBL requsetApprovalListWithType:self.type pageNum:self.pageNo pageSize:self.pageSize querryWhere:self.querryWhere];
         }else{
             
-            [self.customBL requestGetApprovalWithBean:self.module.english_name keyword:self.keyword pageNum:self.pageNo pageSize:self.pageSize];
+//            [self.customBL requestGetApprovalWithBean:self.module.english_name keyword:self.keyword pageNum:self.pageNo pageSize:self.pageSize];
+
+            [self.customBL requsetApprovalListWithType:@([self.currentType.type integerValue]) pageNum:self.pageNo pageSize:self.pageSize querryWhere:self.querryWhere];
         }
         
     }];
     tableView.mj_footer = footer;
     
-    if (self.quote) {
-        tableView.tableHeaderView = self.searchView;
-    }
+//    if (self.quote) {
+//        tableView.tableHeaderView = self.searchView;
+//    }
     
 }
 

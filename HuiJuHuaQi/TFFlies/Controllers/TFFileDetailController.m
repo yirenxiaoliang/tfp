@@ -1658,8 +1658,31 @@
     
 }
 
+/** 选择照片处理 */
+-(void)handleImages:(NSArray *)arr{
+    
+    if (arr.count == 0) {
+        return;
+    }
+    // 选择照片上传
+    [self.fileBL requestFileVersionUploadWithData:self.detailModel.basics.id folderUrl:self.detailModel.basics.url type:@(self.style) datas:arr];
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+}
+
+
 #pragma mark - 打开相册
 - (void)openAlbum{
+    
+    kWEAKSELF
+    ZLPhotoActionSheet *sheet =[HQHelper takeHPhotoWithBlock:^(NSArray<UIImage *> *images) {
+        [weakSelf handleImages:images];
+    }];
+    //图片数量
+    sheet.configuration.maxSelectCount = 9;
+    //如果调用的方法没有传sender，则该属性必须提前赋值
+    sheet.sender = self;
+    [sheet showPhotoLibrary];
+    return;
     
     ZYQAssetPickerController *picker = [[ZYQAssetPickerController alloc] init];
     picker.maximumNumberOfSelection = 1 ; // 选择图片最大数量
@@ -1797,7 +1820,7 @@
             
             self.refreshAction();
         }
-        
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
         [MBProgressHUD showError:@"上传成功" toView:self.view];
         
         [self.navigationController popViewControllerAnimated:YES];

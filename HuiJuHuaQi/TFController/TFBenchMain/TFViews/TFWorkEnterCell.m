@@ -175,7 +175,15 @@
         [self.imageButton setBackgroundImage:IMG(@"审批") forState:UIControlStateNormal];
         self.nameLabel.text = @"审批";
         [self.footerView refreshNums:module.approvalUnreads];
-    }else if ([module.english_name containsString:@"bean"]){
+    }
+    else if ([module.english_name isEqualToString:@"salary"]) {
+        self.type = 0;
+        self.bottomType = 0;
+        [self.imageButton setBackgroundImage:IMG(@"薪酬") forState:UIControlStateNormal];
+        self.nameLabel.text = @"薪酬";
+        [self.footerView refreshNums:@[]];
+    }
+    else if ([module.english_name containsString:@"bean"]){
         self.type = 3;
         self.bottomType = 4;
         [self.footerView refreshNums:@[]];

@@ -553,8 +553,34 @@
     }
 }
 
+
+/** 选择照片处理 */
+-(void)handleImages:(NSArray *)arr{
+    
+    if (arr.count == 0) {
+        return;
+    }
+    
+    MLImageCrop *imageCrop = [[MLImageCrop alloc]init];
+    imageCrop.delegate = self;
+    imageCrop.ratioOfWidthAndHeight = 800.0f/800.0f;
+    imageCrop.image = arr.firstObject;
+    [imageCrop showWithAnimation:YES];
+}
 #pragma mark - 打开相册
 - (void)openAlbum{
+    
+    kWEAKSELF
+    ZLPhotoActionSheet *sheet =[HQHelper takeHPhotoWithBlock:^(NSArray<UIImage *> *images) {
+        [weakSelf handleImages:images];
+    }];
+    //图片数量
+    sheet.configuration.maxSelectCount = 1;
+    sheet.configuration.allowEditImage = NO;
+    //如果调用的方法没有传sender，则该属性必须提前赋值
+    sheet.sender = self;
+    [sheet showPhotoLibrary];
+    return;
     
     ZYQAssetPickerController *picker = [[ZYQAssetPickerController alloc] init];
     picker.maximumNumberOfSelection = 1 ; // 选择图片最大数量
@@ -581,7 +607,6 @@
         ALAsset *asset=assets[i];
         UIImage *tempImg=[UIImage imageWithCGImage:asset.defaultRepresentation.fullScreenImage];
    
-        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         
         MLImageCrop *imageCrop = [[MLImageCrop alloc]init];
         imageCrop.delegate = self;
@@ -596,7 +621,8 @@
 - (void)cropImage:(UIImage*)cropImage forOriginalImage:(UIImage*)originalImage
 {
     self.image = cropImage;
-    
+
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [self.peopleBL imageFileWithImages:@[self.image] withVioces:nil];
 }
 
@@ -634,7 +660,7 @@
             [self.peopleBL requestUpdateEmployeeWithEmployee:em];
             
         }
-
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
     }
     
     if (resp.cmdId == HQCMD_updateEmployee) {

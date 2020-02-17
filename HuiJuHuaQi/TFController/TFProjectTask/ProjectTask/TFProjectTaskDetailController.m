@@ -3218,18 +3218,18 @@
                     }
                 }
             }
-            if (self.taskType == 0) {
-                
-                if ([[[self.detailDict valueForKey:@"complete_status"] description] isEqualToString:@"1"] && [[[self.detailDict valueForKey:@"check_status"] description] isEqualToString:@"1"]){
-                    if (![self.detailDict valueForKey:@"passed_status"] || [[[self.detailDict valueForKey:@"passed_status"] description] isEqualToString:@"0"]) {// 当需要校验的时候
-                        [cell.statusBtn setTitle:[NSString stringWithFormat:@" %@",@"待检验"] forState:UIControlStateNormal];
-                        cell.statusBtn.backgroundColor =HexColor(0xFFEDD0);
-                        [cell.statusBtn setTitleColor:BlackTextColor forState:UIControlStateNormal];
-                        cell.statusBtn.layer.borderColor = ClearColor.CGColor;
-                        [cell.statusBtn setImage:IMG(@"task待校验") forState:UIControlStateNormal];
-                    }
-                }
-            }
+//            if (self.taskType == 0) {
+//
+//                if ([[[self.detailDict valueForKey:@"complete_status"] description] isEqualToString:@"1"] && [[[self.detailDict valueForKey:@"check_status"] description] isEqualToString:@"1"]){
+//                    if (![self.detailDict valueForKey:@"passed_status"] || [[[self.detailDict valueForKey:@"passed_status"] description] isEqualToString:@"0"]) {// 当需要校验的时候
+//                        [cell.statusBtn setTitle:[NSString stringWithFormat:@" %@",@"待检验"] forState:UIControlStateNormal];
+//                        cell.statusBtn.backgroundColor =HexColor(0xFFEDD0);
+//                        [cell.statusBtn setTitleColor:BlackTextColor forState:UIControlStateNormal];
+//                        cell.statusBtn.layer.borderColor = ClearColor.CGColor;
+//                        [cell.statusBtn setImage:IMG(@"task待校验") forState:UIControlStateNormal];
+//                    }
+//                }
+//            }
             return cell;
         }else  if (indexPath.row == 2){
             TFTaskDetailCheckPeopleCell *cell = [TFTaskDetailCheckPeopleCell taskDetailCheckPeopleCellWithTableView:tableView];
@@ -9189,8 +9189,52 @@
     
     [self openCamera];
 }
+/** 选择照片处理 */
+-(void)handleImages:(NSArray *)arr{
+    
+    if (arr.count == 0) {
+        return;
+    }
+    // 选择照片上传
+    if (self.isFile) {// 上传附件
+        
+        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        [self.customBL chatFileWithImages:arr.firstObject withVioces:@[] bean:self.bean];
+        
+        return;
+    }
+    
+    TFCustomerCommentModel *model = [[TFCustomerCommentModel alloc] init];
+    
+    model.fileType = @"jpg";
+    model.image = arr.firstObject;
+    
+    model.employee_name = UM.userLoginInfo.employee.employee_name;
+    model.employee_id = UM.userLoginInfo.employee.id;
+    model.picture = UM.userLoginInfo.employee.picture;
+    model.datetime_time = @([HQHelper getNowTimeSp]);
+    model.content = @"";
+    
+    self.commentModel = model;
+    [MBProgressHUD showHUDAddedTo:KeyWindow animated:YES];
+    
+    [self.customBL chatFileWithImages:arr withVioces:@[] bean:self.bean];
+}
+
+
 #pragma mark - 打开相册
 - (void)openAlbum{
+    
+    kWEAKSELF
+    ZLPhotoActionSheet *sheet =[HQHelper takeHPhotoWithBlock:^(NSArray<UIImage *> *images) {
+        [weakSelf handleImages:images];
+    }];
+    //图片数量
+    sheet.configuration.maxSelectCount = 1;
+    //如果调用的方法没有传sender，则该属性必须提前赋值
+    sheet.sender = self;
+    [sheet showPhotoLibrary];
+    return;
     
     ZYQAssetPickerController *picker = [[ZYQAssetPickerController alloc] init];
     picker.maximumNumberOfSelection = 1 ; // 选择图片最大数量

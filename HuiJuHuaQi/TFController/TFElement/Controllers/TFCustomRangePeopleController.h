@@ -25,4 +25,7 @@
 /** 选择人员范围 */
 @property (nonatomic, strong) NSArray *rangePeople;
 
+/** 是不是部门 */
+@property (nonatomic, assign) BOOL isDepartment;
+
 @end

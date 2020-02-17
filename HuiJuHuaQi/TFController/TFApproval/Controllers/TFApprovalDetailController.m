@@ -90,6 +90,7 @@
 #import "TFRequest.h"
 #import "TFCustomSignatureCell.h"
 #import "TFSignatureViewController.h"
+#import "TFCustomRangePeopleController.h"
 
 @interface TFApprovalDetailController ()<UITableViewDelegate,UITableViewDataSource,HQTFInputCellDelegate,FDActionSheetDelegate,TFFileElementCellDelegate,UIDocumentInteractionControllerDelegate,MWPhotoBrowserDelegate,UITextViewDelegate,TFSubformCellDelegate,TFSingleTextCellDelegate,TFCustomLocationCellDelegate,UINavigationControllerDelegate, ZYQAssetPickerControllerDelegate, UIImagePickerControllerDelegate ,SendMessageDelegate,HQBLDelegate,TFSubformSectionViewDelegate,TFSubformAddViewDelegate,TFSubformHeadCellDelegate,TFColumnViewDelegate,TFTwoBtnsViewDelegate,UIAlertViewDelegate,FDActionSheetDelegate,TFCustomOptionCellDelegate,TFGeneralSingleCellDelegate,TFCustomSelectOptionCellDelegate,TFCustomAttachmentsCellDelegate,TFCustomAlertViewDelegate,TFCustomImageCellDelegate,TFCustomAttributeTextCellDelegate,TFCustomMultiSelectCellDelegate,UIActionSheetDelegate,TFCommentTableViewDelegate,KSPhotoBrowserDelegate,LiuqsEmotionKeyBoardDelegate,TFCustomDepartmentCellDelegate,TFTCustomSubformHeaderCellDelegate,TFCustomSignatureCellDelegate,KSPhotoBrowserDelegate,TFApprovalFlowProgramCellDelegate>
 /** tableView */
@@ -1093,7 +1094,9 @@
             for (TFCustomerRowsModel *row in subs) {// 子表单进行递归
                 
                 [self getDataWithModel:row withDict:subDict];
-                
+                if (row.subformItemId) {
+                    [subDict setObject:row.subformItemId forKey:@"id"];
+                }
             }
             [subforms addObject:subDict];
         }
@@ -2314,20 +2317,36 @@
         
         if ([model.name containsString:@"personnel"]) {
             
+            if (self.listType == 1 && self.isSelf && [self.currentTaskKey isEqualToString:self.approvalItem.task_key]) {
+
+                [self personnelHandleWithModel:model];
+                return;
+            }else{
+
+                TFApprovalCopyerController *copyer = [[TFApprovalCopyerController alloc] init];
+                copyer.naviTitle = model.label;
+                copyer.employees = model.selects;
+                copyer.actionParameter = ^(id parameter) {
+                    
+                    model.selects = parameter;
+                    [self.tableView reloadData];
+                };
+                [self.navigationController pushViewController:copyer animated:YES];
                 
-            TFApprovalCopyerController *copyer = [[TFApprovalCopyerController alloc] init];
-            copyer.naviTitle = model.label;
-            copyer.employees = model.selects;
-            copyer.actionParameter = ^(id parameter) {
-                
-                model.selects = parameter;
-                [self.tableView reloadData];
-            };
-            [self.navigationController pushViewController:copyer animated:YES];
-            
-            return;
+                return;
+            }
             
         }
+
+        if ([model.type isEqualToString:@"department"]) {
+
+            if (self.listType == 1 && self.isSelf && [self.currentTaskKey isEqualToString:self.approvalItem.task_key]) {
+
+                [self departmentHandleWithModel:model];
+                return;
+            }
+        }
+        
         
         if (self.listType == 1 && self.isSelf && [self.currentTaskKey isEqualToString:self.approvalItem.task_key]) {
             
@@ -2466,7 +2485,9 @@
               model.selects = [NSMutableArray arrayWithArray:parameter];
               [weakSelf.tableView reloadData];
           };
-          [self.navigationController pushViewController:sign animated:YES];
+//          [self.navigationController pushViewController:sign animated:YES];
+          sign.modalPresentationStyle = UIModalPresentationFullScreen;
+          [self presentViewController:sign animated:NO completion:nil];
       }
     
 }
@@ -2478,32 +2499,41 @@
     TFCustomerLayoutModel *layout = self.layouts[indexPath.section];
     TFCustomerRowsModel *model = layout.rows[indexPath.row];
     TFCustomerFieldModel *field = model.field;
-    
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    cell.hidden = NO;
     // 1. 不显示某组
     if ([layout.terminalApp isEqualToString:@"0"]) {
-        
+        cell.hidden = YES;
+        model.height = @0;
         return 0;
     }
     
     // 新建or编辑不显示系统信息
 //    if (self.type != 1) {
         if ([layout.name isEqualToString:@"systemInfo"]) {
+            cell.hidden = YES;
+            model.height = @0;
             return 0;
         }
 //    }
     
     if (self.type == 1) {// 详情时显示
         if ([layout.isHideInDetail isEqualToString:@"1"]) {
+            cell.hidden = YES;
+            model.height = @0;
             return 0;
         }
     }else{// 新建or编辑
         if ([layout.isHideInCreate isEqualToString:@"1"]) {
+            cell.hidden = YES;
+            model.height = @0;
             return 0;
         }
     }
     
     if ([field.terminalApp isEqualToString:@"0"]) {
-        
+        cell.hidden = YES;
+        model.height = @0;
         return 0;
     }
     
@@ -2511,7 +2541,8 @@
     if (self.type == 0 || self.type == 3) {// 新增
         
         if ([field.addView isEqualToString:@"0"]) {
-            
+            cell.hidden = YES;
+            model.height = @0;
             return 0;
         }
         
@@ -2520,7 +2551,8 @@
     if (self.type == 1) {// 详情
         
         if ([field.detailView isEqualToString:@"0"]) {
-            
+            cell.hidden = YES;
+            model.height = @0;
             return 0;
         }
         
@@ -2528,14 +2560,16 @@
     if (self.type == 2 || self.type == 7) {// 编辑
         
         if ([field.editView isEqualToString:@"0"]) {
-            
+            cell.hidden = YES;
+            model.height = @0;
             return 0;
         }
     }
     
 #pragma mark - 选项字段控制隐藏
     if ([field.isOptionHidden isEqualToString:@"1"]) {
-        
+        cell.hidden = YES;
+        model.height = @0;
         return 0;
     }
     
@@ -2570,38 +2604,20 @@
     }
     
     if ([model.type isEqualToString:@"department"]){
-        if (self.type != 1) {
+        
+        if (self.listType == 1 && self.isSelf && [self.currentTaskKey isEqualToString:self.approvalItem.task_key])  {
             
             if ([model.field.structure isEqualToString:@"1"]) {
                 return model.height.floatValue < 44 ? 44 : model.height.floatValue;
             }else{
-                return model.height.floatValue < 70 ? 70 : model.height.floatValue;
+                return model.height.floatValue < 75 ? 75 : model.height.floatValue;
             }
         }else{
             
             return [TFGeneralSingleCell refreshGeneralSingleCellHeightWithModel:model];
         }
     }
-    if ([model.type isEqualToString:@"picklist"]){
-        
-        
-        if (self.listType == 1 && self.isSelf && [self.currentTaskKey isEqualToString:self.approvalItem.task_key]) {
-            
-            if ([field.fieldControl isEqualToString:@"1"]) {
-                
-                return [TFCustomSelectOptionCell refreshCustomSelectOptionCellHeightWithModel:model showEdit:NO];
-            }else{
-                
-                return [TFCustomSelectOptionCell refreshCustomSelectOptionCellHeightWithModel:model showEdit:YES];
-            }
-            
-        }else{
-            
-            return [TFCustomSelectOptionCell refreshCustomSelectOptionCellHeightWithModel:model showEdit:NO];
-        }
-        
-    }
-    if ([model.type isEqualToString:@"mutlipicklist"]) {
+    if ([model.type isEqualToString:@"mutlipicklist"] || [model.type isEqualToString:@"picklist"] || [model.type isEqualToString:@"multi"]) {
         
         if (self.listType == 1 && self.isSelf && [self.currentTaskKey isEqualToString:self.approvalItem.task_key]) {
             
@@ -2630,20 +2646,6 @@
             
         }else{
             return [TFCustomAttachmentsCell refreshCustomAttachmentsCellHeightWithModel:model type:AttachmentsCellDetail];
-        }
-    }
-    if ([model.type isEqualToString:@"multi"]) {
-        
-        if (self.listType == 1 && self.isSelf && [self.currentTaskKey isEqualToString:self.approvalItem.task_key]) {
-            
-            if ([field.fieldControl isEqualToString:@"1"]) {
-                
-                return [TFCustomSelectOptionCell refreshCustomSelectOptionCellHeightWithModel:model showEdit:NO];
-            }else{
-                return [TFCustomSelectOptionCell refreshCustomSelectOptionCellHeightWithModel:model showEdit:YES];
-            }
-        }else{
-            return [TFCustomSelectOptionCell refreshCustomSelectOptionCellHeightWithModel:model showEdit:NO];
         }
     }
     if ([model.type isEqualToString:@"subform"]) {
@@ -2986,21 +2988,15 @@
 #pragma mark - 人员组件
 -(void)personnelHandleWithModel:(TFCustomerRowsModel *)model{
     
-    if ([model.name isEqualToString:@"copyer"]) {
-        return;
-    }
-    
     if (self.employ) {
-        [MBProgressHUD showError:@"不可编辑" toView:self.view];
+        [MBProgressHUD showError:@"不可编辑" toView:KeyWindow];
         return;
     }
     
     if ([model.field.fieldControl isEqualToString:@"1"]) {
-        [MBProgressHUD showError:@"不可编辑" toView:self.view];
+        [MBProgressHUD showError:@"不可编辑" toView:KeyWindow];
         return;
     }
-    
-    
     
     BOOL isSingle ;
     if (!model.field.chooseType || [model.field.chooseType isEqualToString:@"0"]) {// 单选
@@ -3009,29 +3005,120 @@
         isSingle = NO;
     }
     
-    
-    TFSelectChatPeopleController *select = [[TFSelectChatPeopleController alloc] init];
-    select.type = 1;
-    select.isSingle = isSingle;
-    select.peoples = model.selects;
-    select.actionParameter = ^(NSArray *parameter) {
+    NSMutableArray *arrss = [NSMutableArray array];
+    for (TFEmployModel *ee in model.field.choosePersonnel) {
         
-        NSString *str = @"";
-        for (HQEmployModel *em in parameter) {
-            str = [str stringByAppendingString:[NSString stringWithFormat:@"%@、",em.employeeName?:em.employee_name]];
-        }
-        if (str.length) {
-            str = [str substringToIndex:str.length - 1];
-        }
+        HQEmployModel *eeee = [TFChangeHelper tfEmployeeToHqEmployee:ee];
         
-        model.fieldValue = str;
-        model.selects = [NSMutableArray arrayWithArray:parameter];
-        [self.tableView reloadData];
-        // 联动
-        [self generalSingleCellWithModel:model];
-    };
+        if (eeee) {
+            [arrss addObject:eeee];
+        }
+    }
     
-    [self.navigationController pushViewController:select animated:YES];
+    if (arrss.count) {// 审批人人员范围
+        
+        TFSelectChatPeopleController *select = [[TFSelectChatPeopleController alloc] init];
+        select.type = 1;
+        select.isSingle = isSingle;
+        select.peoples = model.selects;
+        select.dataPeoples = arrss;
+        select.actionParameter = ^(NSArray *parameter) {
+            
+            model.fieldValue = [self handlePeopleTooLongWithPeople:parameter model:model];
+            model.selects = [NSMutableArray arrayWithArray:parameter];
+            [self.tableView reloadData];
+            // 联动
+            [self generalSingleCellWithModel:model];
+        };
+        
+        [self.navigationController pushViewController:select animated:YES];
+        
+    } else if (model.field.chooseRange.count){// 选择人员范围
+        
+        TFCustomRangePeopleController *frameWork = [[TFCustomRangePeopleController alloc] init];
+        
+        frameWork.isSingleSelect = isSingle;
+        frameWork.peoples = model.selects;
+        frameWork.rangePeople = model.field.chooseRange;
+        frameWork.actionParameter = ^(NSArray *parameter) {
+            
+            model.fieldValue = [self handlePeopleTooLongWithPeople:parameter model:model];
+            model.selects = [NSMutableArray arrayWithArray:parameter];
+            [self.tableView reloadData];
+            // 联动
+            [self generalSingleCellWithModel:model];
+        };
+        [self.navigationController pushViewController:frameWork animated:YES];
+        
+    }else{
+        
+        
+        TFMutilStyleSelectPeopleController *scheduleVC = [[TFMutilStyleSelectPeopleController alloc] init];
+        scheduleVC.selectType = 1;
+        scheduleVC.isSingleSelect = isSingle;
+        scheduleVC.defaultPoeples = model.selects;
+        //            scheduleVC.noSelectPoeples = model.selects;
+        scheduleVC.actionParameter = ^(NSArray *parameter) {
+            
+            model.fieldValue = [self handlePeopleTooLongWithPeople:parameter model:model];
+            model.selects = [NSMutableArray arrayWithArray:parameter];
+            [self.tableView reloadData];
+            // 联动
+            [self generalSingleCellWithModel:model];
+            
+        };
+        [self.navigationController pushViewController:scheduleVC animated:YES];
+        
+    }
+}
+
+/** 处理人员过长问题 */
+-(NSString *)handlePeopleTooLongWithPeople:(NSArray *)people model:(TFCustomerRowsModel *)model{
+    NSString *str = @"";
+    NSInteger index = 0;
+    
+    if ([model.field.structure isEqualToString:@"1"]) {// 左右结构
+        index = 3;
+        
+    }else{// 上下结构
+        index = 6;
+    }
+    for (NSInteger i = 0; i < (people.count > index ? index : people.count); i ++) {
+        HQEmployModel *em = people[i];
+        str = [str stringByAppendingString:[NSString stringWithFormat:@"%@、",em.employee_name?:em.employeeName]];
+    }
+    if (str.length) {
+        str = [str substringToIndex:str.length - 1];
+    }
+    if (people.count > index) {
+        str = [str stringByAppendingString:[NSString stringWithFormat:@"  等%ld人",people.count]];
+    }
+    
+    return str;
+}
+/** 处理部门过长问题 */
+-(NSString *)handlePeopleTooLongWithDepartment:(NSArray *)people model:(TFCustomerRowsModel *)model{
+    NSString *str = @"";
+    NSInteger index = 0;
+    
+    if ([model.field.structure isEqualToString:@"1"]) {// 左右结构
+        index = 3;
+        
+    }else{// 上下结构
+        index = 6;
+    }
+    for (NSInteger i = 0; i < (people.count > index ? index : people.count); i ++) {
+        TFDepartmentModel *em = people[i];
+        str = [str stringByAppendingString:[NSString stringWithFormat:@"%@、",em.name]];
+    }
+    if (str.length) {
+        str = [str substringToIndex:str.length - 1];
+    }
+    if (people.count > index) {
+        str = [str stringByAppendingString:[NSString stringWithFormat:@"  等%ld部门",people.count]];
+    }
+    
+    return str;
 }
 
 #pragma mark - 部门组件
@@ -3049,6 +3136,24 @@
         isSingle = NO;
     }
     
+    if (model.field.chooseRange.count){// 选择部门范围
+         
+         TFCustomRangePeopleController *frameWork = [[TFCustomRangePeopleController alloc] init];
+        frameWork.isDepartment = YES;
+         frameWork.isSingleSelect = isSingle;
+         frameWork.peoples = model.selects;
+         frameWork.rangePeople = model.field.chooseRange;
+         frameWork.actionParameter = ^(NSArray *parameter) {
+             
+             model.fieldValue = [self handlePeopleTooLongWithDepartment:parameter model:model];
+             model.selects = [NSMutableArray arrayWithArray:parameter];
+             [self.tableView reloadData];
+             // 联动
+             [self generalSingleCellWithModel:model];
+         };
+         [self.navigationController pushViewController:frameWork animated:YES];
+        return;
+     }
     
     TFContactsDepartmentController *scheduleVC = [[TFContactsDepartmentController alloc] init];
     scheduleVC.isSingleUse = YES;
@@ -6390,11 +6495,77 @@
 //    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
 //    [self.customBL uploadFileWithImages:@[] withAudios:@[voicePath] bean:self.approvalItem.module_bean];
 //}
-
+/** 选择照片处理 */
+-(void)handleImages:(NSArray *)arr{
+    
+    if (arr.count == 0) {
+        return;
+    }
+    
+     if (self.isComment) {
+         
+         for (int i=0; i < arr.count; i++) {
+             UIImage *image = arr[i];
+             // 添加图片
+     
+             TFCustomerCommentModel *model = [[TFCustomerCommentModel alloc] init];
+     
+             model.fileType = @"jpg";
+             model.image = image;
+     
+             model.employee_name = UM.userLoginInfo.employee.employee_name;
+             model.employee_id = UM.userLoginInfo.employee.id;
+             model.picture = UM.userLoginInfo.employee.picture;
+             model.datetime_time = @([HQHelper getNowTimeSp]);
+             model.content = @"";
+     
+             self.commentModel = model;
+             [MBProgressHUD showHUDAddedTo:KeyWindow animated:YES];
+     
+             [self.customBL chatFileWithImages:@[image] withVioces:@[] bean:@"approval"];
+             
+         }
+         
+         return;
+     }
+    
+     
+     if ([self.attachmentModel.type isEqualToString:@"resumeanalysis"]){// 简历解析
+         
+         [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+         [self.customBL requestResumeWithBean:self.approvalItem.module_bean files:arr];
+     }else{
+         if ([self.attachmentModel.field.countLimit isEqualToString:@"1"]) {// 限制图片大小
+             NSArray *fits = [HQHelper caculateImageSizeWithImages:arr maxSize:[self.attachmentModel.field.maxSize floatValue]];
+             if (arr.count != fits.count)  {
+                 [MBProgressHUD showError:[NSString stringWithFormat:@"有%ld张不符合上传条件的图片",arr.count-fits.count] toView:KeyWindow];
+             }
+             if (fits.count) {
+                 [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+                 [self.customBL uploadFileWithImages:fits withAudios:@[] bean:self.approvalItem.module_bean];
+             }
+         }else{
+             [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+             [self.customBL uploadFileWithImages:arr withAudios:@[] bean:self.approvalItem.module_bean];
+         }
+     }
+}
 #pragma mark - 打开相册
 - (void)openAlbum{
 
     if (self.isComment) {
+        
+            
+        kWEAKSELF
+        ZLPhotoActionSheet *sheet =[HQHelper takeHPhotoWithBlock:^(NSArray<UIImage *> *images) {
+            [weakSelf handleImages:images];
+        }];
+        //图片数量
+        sheet.configuration.maxSelectCount = 1;
+        //如果调用的方法没有传sender，则该属性必须提前赋值
+        sheet.sender = self;
+        [sheet showPhotoLibrary];
+        return;
         
         ZYQAssetPickerController *picker = [[ZYQAssetPickerController alloc] init];
         picker.maximumNumberOfSelection = 1 ; // 选择图片最大数量
@@ -6415,6 +6586,29 @@
         
         return;
     }
+
+    kWEAKSELF
+    ZLPhotoActionSheet *sheet =[HQHelper takeHPhotoWithBlock:^(NSArray<UIImage *> *images) {
+        [weakSelf handleImages:images];
+    }];
+    //图片数量
+    if ([self.attachmentModel.field.countLimit isEqualToString:@"1"]) {// 限制图片大小
+        
+        if (self.attachmentModel.field.maxCount && ![self.attachmentModel.field.maxCount isEqualToString:@""]) {
+            
+            NSInteger num = [self.attachmentModel.field.maxCount integerValue] - self.attachmentModel.selects.count;
+            if (num <= 0) {
+                return;
+            }
+            sheet.configuration.maxSelectCount = num; // 选择图片最大数量
+        }
+    }else{
+        sheet.configuration.maxSelectCount = 1000000; // 选择图片最大数量
+    }
+    //如果调用的方法没有传sender，则该属性必须提前赋值
+    sheet.sender = self;
+    [sheet showPhotoLibrary];
+    return;
     
     ZYQAssetPickerController *picker = [[ZYQAssetPickerController alloc] init];
     
@@ -7870,6 +8064,9 @@
                     for (TFCustomerRowsModel *row in arrs) {
                         
                         [self customerRowsModel:row WithDict:dic];
+                        if ([dic valueForKey:@"id"]) {
+                            row.subformItemId = [dic valueForKey:@"id"];
+                        }
                     }
                 }
             }

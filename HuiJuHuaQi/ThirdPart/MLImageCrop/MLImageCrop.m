@@ -7,7 +7,6 @@
 //
 
 #import "MLImageCrop.h"
-#import "UIImageView+WebCache.h"
 //#import "Debug.h"
 
 #define kDefualRatioOfWidthAndHeight 1.0f
@@ -293,7 +292,7 @@
     _image = image;
     
 //    [self.imageView cancelImageRequestOperation];
-    [self.imageView sd_cancelCurrentAnimationImagesLoad];
+//    [self.imageView sd_cancelCurrentAnimationImagesLoad];
     self.imageView.image = [image MLImageCrop_fixOrientation];
     if (self.isViewLoaded) {
         [self.view setNeedsLayout];

@@ -142,6 +142,7 @@ typedef enum {
     HQCMD_moduleHaveAuth,// 某个模块是否有权限
     HQCMD_moduleHaveReadAuth,// 阅读权限
     HQCMD_customRangePeople,// 自定义人员选择范围
+    HQCMD_customRangeDepartment,// 自定义部门选择范围
     HQCMD_quickAdd,// 快速新增
     HQCMD_createBarcode,// 生成条形码
     HQCMD_barcodeDetail,// 条形码详情

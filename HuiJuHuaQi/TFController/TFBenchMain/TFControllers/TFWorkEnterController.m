@@ -51,6 +51,7 @@
 #import "TFPluginModel.h"
 #import "TFRequest.h"
 #import "TFCachePlistManager.h"
+#import "TFSalaryController.h"
 
 #define Empty 30
 
@@ -569,7 +570,15 @@
         model.english_name = @"data";
         [self.modules addObject:model];
         
-        [self.modules addObjectsFromArray:resp.body];
+        for (TFModuleModel *mm in resp.body) {
+            if (repositoryLibrariesHidden) {
+                if ([mm.english_name isEqualToString:@"repository_libraries"]) {
+                    continue;
+                }
+            }
+            [self.modules addObject:mm];
+        }
+//        [self.modules addObjectsFromArray:resp.body];
         [self.tableView reloadData];
         
         // 将模块数据缓存起来，启动进入时出现闪动，体验不好
@@ -1295,6 +1304,9 @@
         [self.navigationController pushViewController:chart animated:YES];
     }else if ([module.english_name isEqualToString:@"attendance"]){
         TFAttendanceTabbarController *attendanceTabbar = [[TFAttendanceTabbarController alloc] init];
+        [self.navigationController pushViewController:attendanceTabbar animated:YES];
+    }else if ([module.english_name isEqualToString:@"salary"]){
+        TFSalaryController *attendanceTabbar = [[TFSalaryController alloc] init];
         [self.navigationController pushViewController:attendanceTabbar animated:YES];
     }else if ([module.english_name containsString:@"bean"]){
         TFCustomListController *custom = [[TFCustomListController alloc] init];

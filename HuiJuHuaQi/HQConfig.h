@@ -45,7 +45,8 @@
 //#define DisFlag
 
 /** Are you want to show name of controller ? */
-#define ShowNameOfController 1
+#define repositoryLibrariesHidden 1
+#define ShowNameOfController 0
 #define CurrentTime @"2019-07-22 10:30"
 
 /************************     接口头部    ***********************/

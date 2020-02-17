@@ -23,7 +23,6 @@
 #import <NetworkExtension/NetworkExtension.h>
 #import "FileManager.h"
 #import <sys/utsname.h>
-
 @implementation HQHelper
 
 
@@ -479,7 +478,19 @@
         
         wifiName = [info[@"SSID"] nullProcess];// WIFI名
         macAddress = [info[@"BSSID"] nullProcess];// MAC地址
-        HQLog(@"支持的WiFiName%@ => MacAddress%@", wifiName, macAddress);
+        NSArray *macItems = [macAddress componentsSeparatedByString:@":"];
+        NSString *totalMac = @"";
+        for (NSInteger i = 0; i < macItems.count; i++) {
+            NSString *str = macItems[i];
+            if (str.length == 1) {
+                str = [NSString stringWithFormat:@"0%@",str];
+            }
+            totalMac = [totalMac stringByAppendingString:[NSString stringWithFormat:@"%@:",str]];
+        }
+        if (totalMac.length > 0) {
+            macAddress = [totalMac substringToIndex:totalMac.length-1];
+        }
+        HQLog(@"支持的WiFiName == %@ ; MacAddress == %@", wifiName, macAddress);
         
         if (info && [info count]) break;
     }
@@ -2382,7 +2393,8 @@
         folderSize += [self fileSizeAtPath:fileAbsolutePath];
     }
     
-    NSString * currentVolum = [NSString stringWithFormat:@"%@",[self fileSizeWithInterge:[[SDImageCache sharedImageCache] getSize]]];
+    NSString * currentVolum = [NSString stringWithFormat:@"%@",[self fileSizeWithInterge:[[[SDWebImageManager sharedManager] imageCache] getSize]]];
+    
     
     CGFloat sdCache=[currentVolum floatValue];
     if([currentVolum rangeOfString:@"K"].length>0)
@@ -2870,6 +2882,146 @@
     
 }
 
+/** 0:@"本月",1:@"上月",2:@"本季度",3:@"上季度" */
++ (NSDictionary *)monthPeriodWithIndex:(NSInteger)index{
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    
+    switch (index) {
+        case 0:// 本月
+        {
+            long long startSp = [[[NSDate date] firstDayOfTheMonth] getTimeSp];
+            long long endSp = [self getNowTimeSp];
+            [dict setObject:@(startSp) forKey:@"startTime"];
+            [dict setObject:@(endSp) forKey:@"endTime"];
+        }
+            break;
+        case 1:// 上月
+        {
+            long long endSp = [[[NSDate date] firstDayOfTheMonth] getTimeSp];
+            long long startSp = endSp - (long long)30 * 24 * 60 * 60 * 1000;
+            [dict setObject:@(startSp) forKey:@"startTime"];
+            [dict setObject:@(endSp) forKey:@"endTime"];
+        }
+            break;
+        case 2:// 本季度
+        {
+            NSInteger month = [[self nsdateToTime:[self getNowTimeSp] formatStr:@"MM"] integerValue];
+            
+            NSInteger season = month / 3 + 1;
+            
+            if (season == 1) {
+                long long startSp = [self changeTimeToTimeSp:[NSString stringWithFormat:@"%@-01-01",[self nsdateToTime:[self getNowTimeSp] formatStr:@"yyyy"]] formatStr:@"yyyy-MM-dd"];
+                long long endSp = [self getNowTimeSp];
+                
+                [dict setObject:@(startSp) forKey:@"startTime"];
+                [dict setObject:@(endSp) forKey:@"endTime"];
+                
+            }else if (season == 2){
+                long long startSp = [self changeTimeToTimeSp:[NSString stringWithFormat:@"%@-04-01",[self nsdateToTime:[self getNowTimeSp] formatStr:@"yyyy"]] formatStr:@"yyyy-MM-dd"];
+                long long endSp = [self getNowTimeSp];
+                
+                [dict setObject:@(startSp) forKey:@"startTime"];
+                [dict setObject:@(endSp) forKey:@"endTime"];
+                
+            }else if (season == 3){
+                
+                long long startSp = [self changeTimeToTimeSp:[NSString stringWithFormat:@"%@-07-01",[self nsdateToTime:[self getNowTimeSp] formatStr:@"yyyy"]] formatStr:@"yyyy-MM-dd"];
+                long long endSp = [self getNowTimeSp];
+                
+                [dict setObject:@(startSp) forKey:@"startTime"];
+                [dict setObject:@(endSp) forKey:@"endTime"];
+            }else{
+                
+                long long startSp = [self changeTimeToTimeSp:[NSString stringWithFormat:@"%@-10-01",[self nsdateToTime:[self getNowTimeSp] formatStr:@"yyyy"]] formatStr:@"yyyy-MM-dd"];
+                long long endSp = [self getNowTimeSp];
+                
+                [dict setObject:@(startSp) forKey:@"startTime"];
+                [dict setObject:@(endSp) forKey:@"endTime"];
+            }
+            
+        }
+            break;
+        case 3:
+        {
+            NSInteger month = [[self nsdateToTime:[self getNowTimeSp] formatStr:@"MM"] integerValue];
+            
+            NSInteger season = month / 3 + 1;
+            
+            if (season == 1) {
+                long long endSp = [self changeTimeToTimeSp:[NSString stringWithFormat:@"%@-01-01",[self nsdateToTime:[self getNowTimeSp] formatStr:@"yyyy"]] formatStr:@"yyyy-MM-dd"];
+                long long startSp = endSp - (long long)3 * 30 * 24 * 60 * 60 * 1000;
+                
+                [dict setObject:@(startSp) forKey:@"startTime"];
+                [dict setObject:@(endSp) forKey:@"endTime"];
+                
+            }else if (season == 2){
+                long long endSp = [self changeTimeToTimeSp:[NSString stringWithFormat:@"%@-04-01",[self nsdateToTime:[self getNowTimeSp] formatStr:@"yyyy"]] formatStr:@"yyyy-MM-dd"];
+                long long startSp = endSp - (long long)3 * 30 * 24 * 60 * 60 * 1000;
+                
+                [dict setObject:@(startSp) forKey:@"startTime"];
+                [dict setObject:@(endSp) forKey:@"endTime"];
+                
+            }else if (season == 3){
+                
+                long long endSp = [self changeTimeToTimeSp:[NSString stringWithFormat:@"%@-07-01",[self nsdateToTime:[self getNowTimeSp] formatStr:@"yyyy"]] formatStr:@"yyyy-MM-dd"];
+                long long startSp = endSp - (long long)3 * 30 * 24 * 60 * 60 * 1000;
+                
+                [dict setObject:@(startSp) forKey:@"startTime"];
+                [dict setObject:@(endSp) forKey:@"endTime"];
+            }else{
+                
+                long long endSp = [self changeTimeToTimeSp:[NSString stringWithFormat:@"%@-10-01",[self nsdateToTime:[self getNowTimeSp] formatStr:@"yyyy"]] formatStr:@"yyyy-MM-dd"];
+                long long startSp = endSp - (long long)3 * 30 * 24 * 60 * 60 * 1000;
+                
+                [dict setObject:@(startSp) forKey:@"startTime"];
+                [dict setObject:@(endSp) forKey:@"endTime"];
+            }
+            
+
+        }
+            break;
+            
+        default:
+            break;
+    }
+    
+    return dict;
+}
+
+/** 0:@"本年",1:@"上年"*/
++ (NSDictionary *)yearPeriodWithIndex:(NSInteger)index{
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    
+    switch (index) {
+        case 0:// 本年
+        {
+            NSString *start = [self nsdateToTime:[self getNowTimeSp] formatStr:@"yyyy"];// 去掉时分
+            long long startSp = [self changeTimeToTimeSp:start formatStr:@"yyyy"];
+            long long year = (long long)356 * 24 * 60 * 60 * 1000;
+            long long endSp = startSp + year;
+            
+            [dict setObject:@(startSp) forKey:@"startTime"];
+            [dict setObject:@(endSp) forKey:@"endTime"];
+            
+        }
+            break;
+        case 1:// 上年
+        {
+            NSString *end = [self nsdateToTime:[self getNowTimeSp] formatStr:@"yyyy"];// 去掉时分
+            long long endSp = [self changeTimeToTimeSp:end formatStr:@"yyyy"];
+            long long year = (long long)356 * 24 * 60 * 60 * 1000;
+            long long startSp = endSp - year;
+            [dict setObject:@(startSp) forKey:@"startTime"];
+            [dict setObject:@(endSp) forKey:@"endTime"];
+        }
+            break;
+        
+        default:
+            break;
+    }
+    
+    return dict;
+}
 /** 0:@"今天",1:@"昨天",2:@"过去7天",3:@"过去30天",4:@"本月",5:@"上月",6:@"本季度",7:@"上季度" */
 + (NSDictionary *)timePeriodWithIndex:(NSInteger)index{
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
@@ -3057,6 +3209,9 @@
         
         
         
+    }
+    else if ([field.name containsString:@"multitext"]){
+        str = field.value;
     }
     else if ([field.name containsString:@"department"]) {
         
@@ -3347,6 +3502,10 @@
         
         
     }
+    
+    else if ([name containsString:@"multitext"]){
+        str = TEXT([dict valueForKey:@"value"]);
+    }
     else if ([name containsString:@"picklist"] || [name containsString:@"multi"] || [name containsString:@"mutlipicklist"]){
         
         NSArray *arr = [dict valueForKey:@"value"];
@@ -3452,7 +3611,7 @@
             }
             
         }
-        else if ([field.type containsString:@"textarea"]) {
+        else if ([field.type containsString:@"textarea"] || [field.type containsString:@"multitext"]) {
             
             
             if (field.field_value && ![field.field_value isEqualToString:@""]) {
@@ -4359,5 +4518,51 @@
         return newstring;
     }
 }
+
+
++ (ZLPhotoActionSheet *)takeHPhotoWithBlock:(void (^) (NSArray<UIImage *> *images))block
+{
+    ZLPhotoActionSheet *actionSheet = [[ZLPhotoActionSheet alloc] init];
+    
+    actionSheet.configuration.allowSelectImage = YES;
+    actionSheet.configuration.maxSelectCount = 9;
+//    actionSheet.configuration.maxVideoSelectCountInMix = 3;
+//    actionSheet.configuration.minVideoSelectCountInMix = 1;
+    //是否允许框架解析图片
+    actionSheet.configuration.shouldAnialysisAsset = NO;
+    actionSheet.configuration.allowSelectVideo = NO;
+    actionSheet.configuration.allowSelectLivePhoto = NO;
+    //设置相册内部显示拍照按钮
+    actionSheet.configuration.allowTakePhotoInLibrary = NO;
+    
+    [actionSheet setSelectImageBlock:^(NSArray<UIImage *> * _Nonnull images, NSArray<PHAsset *> * _Nonnull assets, BOOL isOriginal) {
+        [ZLPhotoManager anialysisAssets:assets original:NO completion:^(NSArray<UIImage *> *assetimages) {
+            if (block) {
+                block(assetimages);
+            }
+        }];
+    }];
+    
+    actionSheet.selectImageRequestErrorBlock = ^(NSArray<PHAsset *> * _Nonnull errorAssets, NSArray<NSNumber *> * _Nonnull errorIndex) {
+        HQLog(@"图片解析出错的索引为: %@, 对应assets为: %@", errorIndex, errorAssets);
+    };
+    
+    actionSheet.cancleBlock = ^{
+        HQLog(@"取消选择图片");
+    };
+    
+    return actionSheet;
+}
+
+
+
+
+
+
+
+
+
+
+
 
 @end

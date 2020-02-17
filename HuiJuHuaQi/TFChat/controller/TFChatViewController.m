@@ -1417,8 +1417,86 @@
     [self.chatBL chatFileWithImages:@[] withVioces:@[voicePath] bean:@"chat111"];
 }
 
+/** 选择照片处理 */
+-(void)handleImages:(NSArray *)arr{
+    
+    if (arr.count == 0) {
+        return;
+    }
+    if (self.isVideo) { //相册视频
+        
+        for (NSInteger i = 0; i < arr.count; i++) {
+            UIImage *asset = arr[i];
+            // 我想在这里拿到视频文件
+            NSData *fileData = UIImagePNGRepresentation(asset);
+            
+            //File URL
+            NSString *savePath = [NSString stringWithFormat:@"%@%@", [NSHomeDirectory() stringByAppendingString:@"/tmp/"], [NSString stringWithFormat:@"video%ld",i]];
+            [[NSFileManager defaultManager] removeItemAtPath:savePath error:nil];
+
+            BOOL resu = [fileData writeToFile:savePath atomically:NO];
+            
+                if (resu) {
+                    
+                    NSLog(@"写入成功！");
+                    self.msgType = @5;
+                    [self.chatBL uploadFileWithImages:nil withAudios:nil withVideo:@[savePath] bean:@"chat111"];
+                }
+                else {
+                    
+                    NSLog(@"写入失败！");
+                }
+            
+        }
+        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        
+        
+    }
+    else { //相册图片
+        
+        for (int i=0; i<arr.count; i++) {
+            UIImage *image = arr[i];
+            
+            // 选择照片上传
+            self.msgType = @2;
+            [self.chatBL chatFileWithImages:@[image] withVioces:nil bean:@"chat111"];
+            
+        }
+        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    }
+    
+}
+
 #pragma mark - 打开相册
 - (void)openAlbum:(NSInteger)index {
+
+    kWEAKSELF
+    ZLPhotoActionSheet *sheet =[HQHelper takeHPhotoWithBlock:^(NSArray<UIImage *> *images) {
+        [weakSelf handleImages:images];
+    }];
+    //图片数量
+    if (index == 1) {
+
+        sheet.configuration.maxSelectCount = 9;
+        sheet.configuration.allowSelectImage = YES;
+        sheet.configuration.allowSelectVideo = NO;
+//        sheet.configuration.maxVideoSelectCountInMix = 9;
+//        sheet.configuration.minVideoSelectCountInMix = 1;
+        self.isVideo = NO;
+    }
+    else if (index == 2) {
+
+//        sheet.configuration.maxSelectCount = 9;
+        sheet.configuration.allowSelectImage = NO;
+        sheet.configuration.allowSelectVideo = YES;
+        sheet.configuration.maxVideoSelectCountInMix = 9;
+        sheet.configuration.minVideoSelectCountInMix = 1;
+        self.isVideo = YES;
+    }
+    //如果调用的方法没有传sender，则该属性必须提前赋值
+    sheet.sender = self;
+    [sheet showPhotoLibrary];
+    return;
     
     ZYQAssetPickerController *picker = [[ZYQAssetPickerController alloc] init];
     picker.maximumNumberOfSelection = 1 ; // 选择图片最大数量

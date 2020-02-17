@@ -8,7 +8,6 @@
 
 #import "HQTFHeartCell.h"
 #import "HQEmployModel.h"
-#import "UIButton+WebCache.h"
 #define Margin 15
 #define Padding 10
 #define Count 8

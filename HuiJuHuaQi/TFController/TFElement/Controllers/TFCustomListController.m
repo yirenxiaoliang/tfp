@@ -224,7 +224,7 @@
 #pragma mark - 初始化filterView
 - (void)setupFilterView{
     
-    TFFilterView *filterVeiw = [[TFFilterView alloc] initWithFrame:(CGRect){SCREEN_WIDTH,0,SCREEN_WIDTH,SCREEN_HEIGHT}];
+    TFFilterView *filterVeiw = [[TFFilterView alloc] initWithFrame:(CGRect){SCREEN_WIDTH,0,SCREEN_WIDTH,SCREEN_HEIGHT-NaviHeight}];
     filterVeiw.tag = 0x1234554321;
     self.filterVeiw = filterVeiw;
     filterVeiw.delegate = self;

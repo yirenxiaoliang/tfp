@@ -39,6 +39,7 @@
 
 #import "UIImageView+WebCache.h"
 #import "UIButton+WebCache.h"
+#import "SDImageCache.h"
 #import "HQBaseNavigationController.h"
 #import "LiuqsKeyBoardHeader.pch"
 

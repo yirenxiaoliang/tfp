@@ -660,7 +660,7 @@
             
             for (HQEmployModel *em in employess) {
                 
-                if ([em.id isEqualToNumber:model.id]) {
+                if ([[em.id description] isEqualToString:[model.id description]]) {
                     
                     em.selectState = @1;
                     break;

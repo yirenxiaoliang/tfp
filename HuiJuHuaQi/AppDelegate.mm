@@ -12,7 +12,7 @@
 #import "AlertView.h"
 #import <AMapFoundationKit/AMapFoundationKit.h>
 #import <AdSupport/AdSupport.h>
-
+#import "SDImageCache.h"
 
 #import "HQTabBar.h"
 #import "UITabBar+RedPoint.h"
@@ -127,7 +127,7 @@
         manager.shouldToolbarUsesTextFieldTintColor = YES;
         manager.enableAutoToolbar = NO;
         // 图片缓存
-        [SDImageCache sharedImageCache].maxCacheSize = 1024*1024*8;
+//        [SDImageCache sharedImageCache].maxCacheSize = 1024*1024*8;
     });
     
     self.loginBL = [TFLoginBL build];

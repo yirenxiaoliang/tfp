@@ -1045,10 +1045,29 @@
     }
     
 }
-
+/** 选择照片处理 */
+-(void)handleImages:(NSArray *)arr{
+    
+    if (arr.count == 0) {
+        return;
+    }
+    
+    self.backImage = arr.firstObject;
+    [self.peopleBL chatFileWithImages:arr.firstObject withVioces:@[] bean:@"circle111"];
+}
 #pragma mark - 打开相册
 - (void)openAlbum{
     
+    kWEAKSELF
+    ZLPhotoActionSheet *sheet =[HQHelper takeHPhotoWithBlock:^(NSArray<UIImage *> *images) {
+        [weakSelf handleImages:images];
+    }];
+    //图片数量
+    sheet.configuration.maxSelectCount = 1;
+    //如果调用的方法没有传sender，则该属性必须提前赋值
+    sheet.sender = self;
+    [sheet showPhotoLibrary];
+    return;
     ZYQAssetPickerController *picker = [[ZYQAssetPickerController alloc] init];
     picker.maximumNumberOfSelection = 1 ; // 选择图片最大数量
     picker.assetsFilter = [ALAssetsFilter allPhotos]; // 可选择所有相册图片

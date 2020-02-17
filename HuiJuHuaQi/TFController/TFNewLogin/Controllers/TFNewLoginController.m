@@ -709,6 +709,7 @@
             
             [MBProgressHUD hideHUDForView:self.view animated:YES];
             HQReSetPasswordController *reset = [[HQReSetPasswordController alloc] init];
+            reset.phone = self.telePhoneField.text;
             reset.action = ^(NSString *parameter) {
               
                 // 直接登录

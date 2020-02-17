@@ -7,7 +7,6 @@
 //
 
 #import "HQEmployHeadView.h"
-#import "UIButton+WebCache.h"
 
 @interface HQEmployHeadView ()
 {

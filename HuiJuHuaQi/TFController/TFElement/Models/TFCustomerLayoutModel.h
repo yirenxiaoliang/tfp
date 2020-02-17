@@ -53,5 +53,7 @@
 @property (nonatomic, copy) NSString <Ignore>*show;
 /** 只读属性 0 不只读 ，1只读*/
 @property (nonatomic, copy) NSString <Optional>*fieldControl;
+@property (nonatomic, copy) NSString <Optional>*add;
+@property (nonatomic, copy) NSString <Optional>*adelete;
 
 @end

@@ -16,6 +16,8 @@
 #import "TFAssistantFieldInfoModel.h"
 #import "TFProjectRowModel.h"
 #import "TFFileModel.h"
+#import <Photos/Photos.h>
+#import <ZLPhotoBrowser/ZLPhotoBrowser.h>
 
 
 @interface HQHelper : NSObject
@@ -580,6 +582,10 @@
 + (NSDictionary *)timePeriodWithIndex:(NSInteger)index;
 
 
+/** 0:@"本年",1:@"上年"*/
++ (NSDictionary *)yearPeriodWithIndex:(NSInteger)index;
+/** 0:@"本月",1:@"上月",2:@"本季度",3:@"上季度" */
++ (NSDictionary *)monthPeriodWithIndex:(NSInteger)index;
 
 +(NSString *)createStarWithNumber:(NSInteger)number;
 /** 处理组件类型的值 */
@@ -661,4 +667,6 @@
 /** 是否为有意义的数字 */
 +(BOOL)judgeNumberWithStr:(NSString *)str;
 
+/** 照片选择器 */
++ (ZLPhotoActionSheet *)takeHPhotoWithBlock:(void (^) (NSArray<UIImage *> *images))block;
 @end

@@ -96,7 +96,7 @@ static dispatch_once_t oncetoKen;
         [securityPolicy setAllowInvalidCertificates:NO];
         [securityPolicy setValidatesDomainName:YES];
         
-        NSString *cerPath = [[NSBundle mainBundle] pathForResource:@"server" ofType:@"cer"];
+        NSString *cerPath = [[NSBundle mainBundle] pathForResource:@"server123" ofType:@"cer"];
         NSData *certData = [NSData dataWithContentsOfFile:cerPath];
         NSSet *set = [NSSet setWithObject:certData];
         [securityPolicy setPinnedCertificates:set];

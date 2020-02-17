@@ -115,7 +115,7 @@
 
 -(void)setModel:(TFCustomerRowsModel *)model{
     _model = model;
-    if (model.subformRelation) {
+    if (model.subformRelation && ![model.controlFieldHide isEqualToString:@"1"]) {
         self.addBtn.hidden = NO;
         [self.addBtn setTitle:[NSString stringWithFormat:@"  %@  ",TEXT(model.subformRelation.title)] forState:UIControlStateNormal];
     }else{
@@ -158,7 +158,7 @@
         self.scanBtn.hidden = YES;
         self.titleLabel.textColor = ExtraLightBlackTextColor;
     }else{
-        self.addBtn.hidden = self.model.subformRelation ? NO : YES;
+        self.addBtn.hidden = (self.model.subformRelation && ![self.model.controlFieldHide isEqualToString:@"1"]) ? NO : YES;
         
         TFCustomerRowsModel *refRow = nil;
         for (TFCustomerRowsModel *row in self.model.componentList) {

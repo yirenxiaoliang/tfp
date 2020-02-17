@@ -7,7 +7,6 @@
 //
 
 #import "HQSelectPhotoView.h"
-#import "UIButton+WebCache.h"
 
 
 @interface HQSelectPhotoView ()

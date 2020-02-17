@@ -219,6 +219,8 @@
         
     }else if (type == 9){
         _moduleNameLab.text = @"考勤";
+    }else if (type == 3){
+        _moduleNameLab.text = @"审批";
     }
     else {
     

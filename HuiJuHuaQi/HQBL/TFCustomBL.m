@@ -1589,6 +1589,29 @@
     
 }
 
+/** 获取自定义选择范围部门 */
+- (void)requestCustomRangeDepartmentWithRangeDepartment:(NSArray *)rangeDepartment{
+    
+    
+    NSString *url = [super urlFromCmd:HQCMD_customRangeDepartment];
+    
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    
+    if (rangeDepartment) {
+        [dict setObject:rangeDepartment forKey:@"chooseRange"];
+    }
+    
+    HQRequestItem *requestItem = [RM requestToURL:url
+                                           method:@"SELFPOST"
+                                     requestParam:dict
+                                            cmdId:HQCMD_customRangeDepartment
+                                         delegate:self
+                                       startBlock:^(HQCMD cmd, NSInteger sid) {
+                                       }];
+    
+    [self.tasks addObject:requestItem];
+    
+}
 /** 快速新增 */
 -(void)requestQuickAdd{
     
@@ -2766,6 +2789,12 @@
             }
                 break;
             case HQCMD_customRangePeople: // 自定义人员范围
+            {
+                NSArray *arr = data[kData];
+                resp = [HQResponseEntity responseFromCmdId:cmdId sid:sid body:arr];
+            }
+                break;
+            case HQCMD_customRangeDepartment: // 自定义部门范围
             {
                 NSArray *arr = data[kData];
                 resp = [HQResponseEntity responseFromCmdId:cmdId sid:sid body:arr];
