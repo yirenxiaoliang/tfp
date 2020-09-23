@@ -67,6 +67,7 @@
         
         [self.navigationController.navigationBar setShadowImage:[HQHelper createImageWithColor:ClearColor size:(CGSize){SCREEN_WIDTH,0.5}]];
     }
+    [self.navigationController.navigationBar setTranslucent:YES];
 
 }
 //设置状态栏颜色

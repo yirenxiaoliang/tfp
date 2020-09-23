@@ -141,7 +141,9 @@
 - (HQRESCode)getResCodeFromRespBag:(id)respBag
 {
     if (respBag && [respBag isKindOfClass:[NSDictionary class]]) {
-        return (HQRESCode)[respBag[kCode] integerValue];
+        if ([[respBag[kCode] description] isEqualToString:@"common.sucess"] || [[respBag[kCode] description] isEqualToString:@"1001"]) {
+            return HQRESCode_Success;
+        }
     }
     return HQRESCode_UNKNOWN;
 }
@@ -1908,9 +1910,9 @@
         if (!dic) {
             dic = data;
         }
-        HQRESCode code = (HQRESCode)[dic[kCode] integerValue];
+        NSString *code = [dic[kCode] description];
         
-        if (code == HQRESCode_Success) {// 成功code
+        if ([code isEqualToString:@"common.sucess"] || [code isEqualToString:@"1001"]) {// 成功code
             return YES;
         }
     }
@@ -1958,7 +1960,7 @@
             if (!dic) {
                 dic = data;
             }
-            code = (HQRESCode)[dic[kCode] integerValue];
+            code = HQRESCode_NETERROR;
             errorDesc = dic[kDescribe];
             if (!errorDesc || [errorDesc isKindOfClass:[NSNull class]]) {
                 errorDesc = [NSString stringWithFormat:@"数据异常"];

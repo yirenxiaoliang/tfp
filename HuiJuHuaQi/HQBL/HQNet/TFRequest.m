@@ -180,8 +180,8 @@ static dispatch_once_t oncetoKen;
             HQLog(@"response jsonStr (%@)---From Bag(%@)", [HQHelper dictionaryToJson:dic], [NSString stringWithFormat:@"URL:%@, Param:%@", URLString,[HQHelper dictionaryToJson:body]]);
             
             NSDictionary *res = [dic valueForKey:@"response"];
-            long long code = [[res valueForKey:@"code"] longLongValue];
-            if (code == 1001) {
+            NSString *code = [[res valueForKey:@"code"] description];
+            if ([code isEqualToString:@"common.sucess"] || [code isEqualToString:@"1001"]) {
                 
                 HQMainQueue(^{
                     
@@ -192,7 +192,7 @@ static dispatch_once_t oncetoKen;
                 });
             }else{
                 HQMainQueue((^{
-                    NSError *error1 = [NSError errorWithDomain:NSCocoaErrorDomain code:code userInfo:@{NSLocalizedDescriptionKey:[res valueForKey:@"describe"],NSStringEncodingErrorKey:[res valueForKey:@"code"]}];
+                    NSError *error1 = [NSError errorWithDomain:NSCocoaErrorDomain code:1000 userInfo:@{NSLocalizedDescriptionKey:[res valueForKey:@"describe"],NSStringEncodingErrorKey:[res valueForKey:@"code"]}];
                     
                     if (failure) {
                         failure(error1);

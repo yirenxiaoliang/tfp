@@ -13047,7 +13047,7 @@
 					"$(PROJECT_DIR)/HuiJuHuaQi/ThirdPart/UMSocialSDK/UMSocialSDKPlugin",
 					"$(PROJECT_DIR)/HuiJuHuaQi/ThirdPart/UMSocialSDK/SocialLibraries/Sina",
 				);
-				MARKETING_VERSION = 5.3.3;
+				MARKETING_VERSION = 5.4;
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lxml2",
@@ -13155,7 +13155,7 @@
 					"$(PROJECT_DIR)/HuiJuHuaQi/ThirdPart/UMSocialSDK/UMSocialSDKPlugin",
 					"$(PROJECT_DIR)/HuiJuHuaQi/ThirdPart/UMSocialSDK/SocialLibraries/Sina",
 				);
-				MARKETING_VERSION = 5.3.3;
+				MARKETING_VERSION = 5.4;
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lxml2",
@@ -13243,7 +13243,7 @@
 				INFOPLIST_FILE = HuiQiWiget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				MARKETING_VERSION = 5.3.3;
+				MARKETING_VERSION = 5.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.TeamFaceCustom.HJHQ.Wiget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "db58449d-b8f6-41bb-bdd0-4df6e5a62656";
@@ -13267,7 +13267,7 @@
 				INFOPLIST_FILE = HuiQiWiget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				MARKETING_VERSION = 5.3.3;
+				MARKETING_VERSION = 5.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.TeamFaceCustom.HJHQ.Wiget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "cf004058-9807-422c-b21e-e36d3c8c5518";
