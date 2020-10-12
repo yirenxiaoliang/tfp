@@ -164,7 +164,7 @@ typedef NS_ENUM(NSUInteger, XWDragCellCollectionViewScrollDirection) {
 //    //开启边缘滚动定时器
     [self xwp_setEdgeTimer];
     //开启抖动
-    if (_shakeWhenMoveing && !_editing) {
+    if (_shakeWhenMoveing && !self.editing) {
         [self xwp_shakeAllCell];
         [self addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew context:nil];
     }
@@ -497,7 +497,7 @@ typedef NS_ENUM(NSUInteger, XWDragCellCollectionViewScrollDirection) {
 }
 
 - (void)xwp_stopShakeAllCell{
-    if (!_shakeWhenMoveing || _editing) {
+    if (!_shakeWhenMoveing || self.editing) {
         return;
     }
     NSArray *cells = [self visibleCells];
@@ -529,7 +529,7 @@ typedef NS_ENUM(NSUInteger, XWDragCellCollectionViewScrollDirection) {
 #pragma mark - public methods
 
 - (void)xw_enterEditingModel{
-    _editing = YES;
+    self.editing = YES;
 //    _oldMinimumPressDuration =  _longPressGesture.minimumPressDuration;
 //    _longPressGesture.minimumPressDuration = 0.4;
     if (_shakeWhenMoveing) {
@@ -542,7 +542,7 @@ typedef NS_ENUM(NSUInteger, XWDragCellCollectionViewScrollDirection) {
 }
 
 - (void)xw_stopEditingModel{
-    _editing = NO;
+    self.editing = NO;
 //    _longPressGesture.minimumPressDuration = _oldMinimumPressDuration;
     [self xwp_stopShakeAllCell];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationWillEnterForegroundNotification object:nil];
@@ -593,7 +593,7 @@ typedef NS_ENUM(NSUInteger, XWDragCellCollectionViewScrollDirection) {
 #pragma mark - notification
 
 - (void)xwp_foreground{
-    if (_editing) {
+    if (self.editing) {
         [self xwp_shakeAllCell];
     }
 }
