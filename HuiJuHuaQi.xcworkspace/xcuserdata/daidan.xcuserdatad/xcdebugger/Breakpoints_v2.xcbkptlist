@@ -7,64 +7,64 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "4013F77D-44D0-42EA-8F86-CECA52949B26"
+            uuid = "6A0A8D70-5AAA-442D-B8B2-29EB1791733C"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "HuiJuHuaQi/TFController/TFElement/Controllers/TFAddCustomController.m"
+            filePath = "HuiJuHuaQi/TFLocationViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "4837"
-            endingLineNumber = "4837"
-            landmarkName = "-switchCellDidSwitchButton:"
+            startingLineNumber = "165"
+            endingLineNumber = "165"
+            landmarkName = "-onPOISearchDone:response:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "FAFA7C3C-8415-4388-B938-FE23CDEE53A8"
+            uuid = "C7440112-6FC1-45DC-8220-02103844478B"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "HuiJuHuaQi/TFController/TFElement/Controllers/TFAddCustomController.m"
+            filePath = "HuiJuHuaQi/TFLocationViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "7688"
-            endingLineNumber = "7688"
-            landmarkName = "-handleDefaultWithModel:"
+            startingLineNumber = "159"
+            endingLineNumber = "159"
+            landmarkName = "-onPOISearchDone:response:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "6ABF9238-BA8B-4DAA-92C6-FA49B3B2B3E6"
+            uuid = "32963A00-42DF-46C4-B48C-ADFED7D23B43"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "HuiJuHuaQi/TFController/TFElement/Controllers/TFAddCustomController.m"
+            filePath = "HuiJuHuaQi/TFLocationViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "8352"
-            endingLineNumber = "8352"
-            landmarkName = "-customerRowsModel:WithDict:"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
+            landmarkName = "-viewDidLoad"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "2A4C1006-9DD9-4AD7-836C-6891BA59B35F"
+            uuid = "82244F93-DC0A-4EE2-8F4C-69F26623A5F3"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "HuiJuHuaQi/TFController/TFElement/Controllers/TFAddCustomController.m"
+            filePath = "HuiJuHuaQi/TFLocationViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "3643"
-            endingLineNumber = "3643"
-            landmarkName = "-handleReferanceMapFieldWithDict:currentModel:"
+            startingLineNumber = "74"
+            endingLineNumber = "74"
+            landmarkName = "-viewDidLoad"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

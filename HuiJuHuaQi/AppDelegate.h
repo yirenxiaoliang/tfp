@@ -10,6 +10,7 @@
 #import <CoreData/CoreData.h>
 #import "HQBaseTabBarViewController.h"
 #import "TFCompanyCircleController.h"
+#import "TFHtmlFiveNavigationController.h"
 #if kUseScreenShotGesture
 #import "ScreenShotView.h"
 #endif
@@ -37,6 +38,8 @@ static BOOL isProduction = YES;
 
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) HQBaseTabBarViewController *tabCtrl;
+@property (strong, nonatomic) TFHtmlFiveNavigationController *htmlFiveNaviCtrl;
+@property (strong, nonatomic) UIViewController *htmlFiveCtrl;
 /** 同事圈控制器 */
 @property (nonatomic, strong) TFCompanyCircleController *circleCtrl;
 
@@ -62,7 +65,8 @@ static BOOL isProduction = YES;
 @property (nonatomic, copy) NSString *urlEnvironment;
 /** 重置URL */
 -(void)resetUrlData;
-
+/** 记录运行 */
+@property (nonatomic, strong) NSNumber *runStatus;
 
 @end
 

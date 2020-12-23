@@ -39,6 +39,7 @@
 #import "TFChatInfoListModel.h"
 #import "TFRequest.h"
 #import "FPSDisplay.h"
+#import "TFHtmlFiveViewController.h"
 
 @interface AppDelegate () < HQBLDelegate, UIDocumentInteractionControllerDelegate,BuglyDelegate>
 
@@ -178,6 +179,7 @@
 #endif
 #endif
     
+    self.runStatus = @1;
 
     return YES;
 }
@@ -258,22 +260,34 @@ void uncaughtExceptionHandler(NSException *exception) {
 /** 登录成功 */
 - (void)loginSuccess:(NSNotification *)note{
     
-    if (!self.tabCtrl) {
-        HQBaseTabBarViewController *tabCtrl = [[HQBaseTabBarViewController alloc] init];
-        self.window.rootViewController  = tabCtrl;
-        self.tabCtrl = tabCtrl;
-        
+    if (!self.htmlFiveNaviCtrl) {
+        TFHtmlFiveViewController *htmlFiveCtrl = [[TFHtmlFiveViewController alloc] init];
+        TFHtmlFiveNavigationController *htmlFiveNaviCtrl = [[TFHtmlFiveNavigationController alloc] initWithRootViewController:htmlFiveCtrl];
+        self.window.rootViewController  = htmlFiveNaviCtrl;
+        self.htmlFiveNaviCtrl = htmlFiveNaviCtrl;
     }else{
-        // 根控制器
-        [self appPopToRootCtrlWithAnimated:NO];
-        self.tabCtrl.selectedIndex = 0;
-        self.window.rootViewController  = self.tabCtrl;
+        [self.window.rootViewController dismissViewControllerAnimated:NO completion:nil];
+        self.window.rootViewController  = self.htmlFiveNaviCtrl;
     }
+    
+    
+//    if (!self.tabCtrl) {
+//        HQBaseTabBarViewController *tabCtrl = [[HQBaseTabBarViewController alloc] init];
+//        self.window.rootViewController  = tabCtrl;
+//        self.tabCtrl = tabCtrl;
+//
+//    }else{
+//        // 根控制器
+//        [self appPopToRootCtrlWithAnimated:NO];
+//        self.tabCtrl.selectedIndex = 0;
+//        self.window.rootViewController  = self.tabCtrl;
+//    }
+
     if (note.object) {
         
-        self.socket = [TFSocketManager sharedInstance];
-        [self.socket socketClose];// 关闭（一切置为起点）
-        [self.socket socketOpenIsReconnect:NO];//打开soket
+//        self.socket = [TFSocketManager sharedInstance];
+//        [self.socket socketClose];// 关闭（一切置为起点）
+//        [self.socket socketOpenIsReconnect:NO];//打开soket
         
         // 登录成功了才保存访问IP
         NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
@@ -283,8 +297,8 @@ void uncaughtExceptionHandler(NSException *exception) {
         [userDefault removeObjectForKey:SaveInputUrlRecordKey];
         [userDefault synchronize];
         
-        [self.loginBL requestEmployeeList];
-        [self.chatBL requestGetChatListInfoData];
+//        [self.loginBL requestEmployeeList];
+//        [self.chatBL requestGetChatListInfoData];
     }
 
 }
@@ -482,17 +496,17 @@ void uncaughtExceptionHandler(NSException *exception) {
         
     }else{
         
-        self.socket = [TFSocketManager sharedInstance];
-        [self.socket socketOpenIsReconnect:NO];//打开soket
-        
-        [self.chatBL requestGetChatListInfoData];
+//        self.socket = [TFSocketManager sharedInstance];
+//        [self.socket socketOpenIsReconnect:NO];//打开soket
+//
+//        [self.chatBL requestGetChatListInfoData];
     }
     
     
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.35 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        
-        [[NSNotificationCenter defaultCenter] postNotificationName:UIApplicationDidBecomeActiveNotification object:nil];
-    });
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.25 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//
+//        [[NSNotificationCenter defaultCenter] postNotificationName:UIApplicationDidBecomeActiveNotification object:nil];
+//    });
     
 }
 

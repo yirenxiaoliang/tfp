@@ -47,7 +47,7 @@
 /** Are you want to show name of controller ? */
 #define repositoryLibrariesHidden 1
 #define ShowNameOfController 0
-#define CurrentTime @"2019-07-22 10:30"
+#define CurrentTime @"2020-10-22 15:00"
 
 /************************     接口头部    ***********************/
 
@@ -246,6 +246,7 @@
 
 /** 高德地图 */
 #define AMapKey @"91786defed1816b5f0dd096672731ff8"
+//#define AMapKey @"803d22acd84afb9c096027bc09ee8886"
 
 /** QQ */
 //#define QQAppkey @"sj0l55afKP1ISPat"  // TeamFace

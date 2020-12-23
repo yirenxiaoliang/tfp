@@ -965,11 +965,18 @@
 		A1EC11B51C8AC84D00931E58 /* MWZoomingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = A1EC117A1C8AC3BD00931E58 /* MWZoomingScrollView.m */; };
 		A1EC11BB1C8AE9C200931E58 /* ZYQAssetPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1EC11B91C8AE9C200931E58 /* ZYQAssetPickerController.m */; };
 		A1FB92951C8D156E0048ADA1 /* FDActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = A1FB92941C8D156E0048ADA1 /* FDActionSheet.m */; };
+		B84654232541188E00CB5E81 /* TFHtmlFiveNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = B84654222541188E00CB5E81 /* TFHtmlFiveNavigationController.m */; };
 		B863FFDA234F11D70031EB8C /* UIImage+HJImage.m in Sources */ = {isa = PBXBuildFile; fileRef = B863FFD8234F11D70031EB8C /* UIImage+HJImage.m */; };
 		B863FFDD234F12030031EB8C /* HJSignatureView.m in Sources */ = {isa = PBXBuildFile; fileRef = B863FFDC234F12030031EB8C /* HJSignatureView.m */; };
 		B863FFE0234F14CB0031EB8C /* TFSignatureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B863FFDF234F14CB0031EB8C /* TFSignatureViewController.m */; };
 		B86DC22E23BD8D5A006C8205 /* TFSalaryController.m in Sources */ = {isa = PBXBuildFile; fileRef = B86DC22D23BD8D5A006C8205 /* TFSalaryController.m */; };
 		B8AB31AD237E52DC00DB8C58 /* TFSelectFirstLevelPeopleController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8AB31AC237E52DC00DB8C58 /* TFSelectFirstLevelPeopleController.m */; };
+		B8AE59E8253E815F00D75F2D /* AMapLocationKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8AE59E7253E815F00D75F2D /* AMapLocationKit.framework */; };
+		B8AE59EC253E848800D75F2D /* AMapFoundationKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8AE59EB253E848700D75F2D /* AMapFoundationKit.framework */; };
+		B8AE59EE253E849200D75F2D /* MAMapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8AE59ED253E849100D75F2D /* MAMapKit.framework */; };
+		B8AE59F0253E849900D75F2D /* AMapSearchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8AE59EF253E849900D75F2D /* AMapSearchKit.framework */; };
+		B8AE59F4253E84F600D75F2D /* AMap.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B8AE59F3253E84F600D75F2D /* AMap.bundle */; };
+		B8C009CC253453B400A5C875 /* TFHtmlFiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8C009CB253453B400A5C875 /* TFHtmlFiveViewController.m */; };
 		B8C8CC912356A862007CBCCD /* TFCustomSignatureCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B8C8CC902356A862007CBCCD /* TFCustomSignatureCell.m */; };
 		B8D43F1123D9755E00F63646 /* server123.cer in Resources */ = {isa = PBXBuildFile; fileRef = B8D43F1023D9755D00F63646 /* server123.cer */; };
 		B8FE79D42399DC01004D56C9 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58323069200D9505006FE165 /* Photos.framework */; };
@@ -1808,12 +1815,7 @@
 		D6BCB0411FC6AD89009CB3A6 /* TFFileCModel+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = D6BCB0341FC6AD89009CB3A6 /* TFFileCModel+CoreDataClass.m */; };
 		D6BCB0421FC6AD89009CB3A6 /* TFFileCModel+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = D6BCB0361FC6AD89009CB3A6 /* TFFileCModel+CoreDataProperties.m */; };
 		D6BE34392170806900D07E2B /* TFNoNetworkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BE34382170806900D07E2B /* TFNoNetworkView.swift */; };
-		D6C345B51FCC13F400CC732E /* AMapFoundationKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6C345B31FCC13F400CC732E /* AMapFoundationKit.framework */; };
-		D6C345B61FCC13F400CC732E /* AMapLocationKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6C345B41FCC13F400CC732E /* AMapLocationKit.framework */; };
-		D6C345BB1FCC16F600CC732E /* MAMapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6C345BA1FCC16F600CC732E /* MAMapKit.framework */; };
-		D6C345BD1FCC16FE00CC732E /* AMapSearchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6C345BC1FCC16FE00CC732E /* AMapSearchKit.framework */; };
 		D6C345BF1FCC240F00CC732E /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6C345BE1FCC240F00CC732E /* GLKit.framework */; };
-		D6C345C11FCC263C00CC732E /* AMap.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D6C345C01FCC263C00CC732E /* AMap.bundle */; };
 		D6C34BA92003081B00185684 /* TFContactsDepartmentController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C34BA82003081B00185684 /* TFContactsDepartmentController.m */; };
 		D6C34BAC2003456D00185684 /* TFContactsRoleController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C34BAB2003456D00185684 /* TFContactsRoleController.m */; };
 		D6C34BAF200347BD00185684 /* TFContactsDynamicParameterController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C34BAE200347BD00185684 /* TFContactsDynamicParameterController.m */; };
@@ -3541,6 +3543,8 @@
 		A1EC11B91C8AE9C200931E58 /* ZYQAssetPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYQAssetPickerController.m; sourceTree = "<group>"; };
 		A1FB92931C8D156E0048ADA1 /* FDActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDActionSheet.h; sourceTree = "<group>"; };
 		A1FB92941C8D156E0048ADA1 /* FDActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDActionSheet.m; sourceTree = "<group>"; };
+		B84654212541188D00CB5E81 /* TFHtmlFiveNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFHtmlFiveNavigationController.h; sourceTree = "<group>"; };
+		B84654222541188E00CB5E81 /* TFHtmlFiveNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFHtmlFiveNavigationController.m; sourceTree = "<group>"; };
 		B863FFD8234F11D70031EB8C /* UIImage+HJImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+HJImage.m"; sourceTree = "<group>"; };
 		B863FFD9234F11D70031EB8C /* UIImage+HJImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+HJImage.h"; sourceTree = "<group>"; };
 		B863FFDB234F12020031EB8C /* HJSignatureView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJSignatureView.h; sourceTree = "<group>"; };
@@ -3551,9 +3555,17 @@
 		B86DC22D23BD8D5A006C8205 /* TFSalaryController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFSalaryController.m; sourceTree = "<group>"; };
 		B8AB31AB237E52DC00DB8C58 /* TFSelectFirstLevelPeopleController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFSelectFirstLevelPeopleController.h; sourceTree = "<group>"; };
 		B8AB31AC237E52DC00DB8C58 /* TFSelectFirstLevelPeopleController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFSelectFirstLevelPeopleController.m; sourceTree = "<group>"; };
+		B8AE59E7253E815F00D75F2D /* AMapLocationKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AMapLocationKit.framework; sourceTree = "<group>"; };
+		B8AE59EB253E848700D75F2D /* AMapFoundationKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AMapFoundationKit.framework; sourceTree = "<group>"; };
+		B8AE59ED253E849100D75F2D /* MAMapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MAMapKit.framework; sourceTree = "<group>"; };
+		B8AE59EF253E849900D75F2D /* AMapSearchKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AMapSearchKit.framework; sourceTree = "<group>"; };
+		B8AE59F3253E84F600D75F2D /* AMap.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AMap.bundle; sourceTree = "<group>"; };
+		B8C009CA253453B400A5C875 /* TFHtmlFiveViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFHtmlFiveViewController.h; sourceTree = "<group>"; };
+		B8C009CB253453B400A5C875 /* TFHtmlFiveViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFHtmlFiveViewController.m; sourceTree = "<group>"; };
 		B8C8CC8F2356A862007CBCCD /* TFCustomSignatureCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFCustomSignatureCell.h; sourceTree = "<group>"; };
 		B8C8CC902356A862007CBCCD /* TFCustomSignatureCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFCustomSignatureCell.m; sourceTree = "<group>"; };
 		B8D43F1023D9755D00F63646 /* server123.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = server123.cer; sourceTree = "<group>"; };
+		B8FB36B92592E9F20090C84B /* teamface.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = teamface.cer; sourceTree = "<group>"; };
 		B8FE79D52399DDD1004D56C9 /* PhotosUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PhotosUI.framework; path = System/Library/Frameworks/PhotosUI.framework; sourceTree = SDKROOT; };
 		B8FE7EE1239A8884004D56C9 /* ZLPhotoBrowser.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ZLPhotoBrowser.framework; sourceTree = "<group>"; };
 		B8FE7EEE239A8F72004D56C9 /* UIImage+WebP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+WebP.m"; sourceTree = "<group>"; };
@@ -5013,12 +5025,7 @@
 		D6BCB0351FC6AD89009CB3A6 /* TFFileCModel+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TFFileCModel+CoreDataProperties.h"; sourceTree = "<group>"; };
 		D6BCB0361FC6AD89009CB3A6 /* TFFileCModel+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TFFileCModel+CoreDataProperties.m"; sourceTree = "<group>"; };
 		D6BE34382170806900D07E2B /* TFNoNetworkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TFNoNetworkView.swift; sourceTree = "<group>"; };
-		D6C345B31FCC13F400CC732E /* AMapFoundationKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AMapFoundationKit.framework; sourceTree = "<group>"; };
-		D6C345B41FCC13F400CC732E /* AMapLocationKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AMapLocationKit.framework; sourceTree = "<group>"; };
-		D6C345BA1FCC16F600CC732E /* MAMapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MAMapKit.framework; sourceTree = "<group>"; };
-		D6C345BC1FCC16FE00CC732E /* AMapSearchKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AMapSearchKit.framework; sourceTree = "<group>"; };
 		D6C345BE1FCC240F00CC732E /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
-		D6C345C01FCC263C00CC732E /* AMap.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AMap.bundle; sourceTree = "<group>"; };
 		D6C34BA72003081B00185684 /* TFContactsDepartmentController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFContactsDepartmentController.h; sourceTree = "<group>"; };
 		D6C34BA82003081B00185684 /* TFContactsDepartmentController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFContactsDepartmentController.m; sourceTree = "<group>"; };
 		D6C34BAA2003456D00185684 /* TFContactsRoleController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFContactsRoleController.h; sourceTree = "<group>"; };
@@ -5283,14 +5290,15 @@
 				D64315EE1EBC255F00333634 /* AdSupport.framework in Frameworks */,
 				934E2DA11C891B3F00C137CB /* ImageIO.framework in Frameworks */,
 				589C11BB1FC2852000034D7C /* libmp3lame.a in Frameworks */,
+				B8AE59F0253E849900D75F2D /* AMapSearchKit.framework in Frameworks */,
 				D64791D61DE2FBF60025909A /* UserNotifications.framework in Frameworks */,
+				B8AE59EE253E849200D75F2D /* MAMapKit.framework in Frameworks */,
 				934A3D8C1C8701D900E7BF15 /* libresolv.tbd in Frameworks */,
 				D11AD3781C3D078100931860 /* libsqlite3.0.tbd in Frameworks */,
 				934A3D821C87018A00E7BF15 /* MobileCoreServices.framework in Frameworks */,
 				D613264A20510DB000D6A7EC /* NetworkExtension.framework in Frameworks */,
 				D11AD3761C3D076D00931860 /* Security.framework in Frameworks */,
 				D64791D01DE2E3D80025909A /* CoreAudio.framework in Frameworks */,
-				D6C345B61FCC13F400CC732E /* AMapLocationKit.framework in Frameworks */,
 				D64791CE1DE2E3990025909A /* CoreFoundation.framework in Frameworks */,
 				938156BE1D73D16600DD9D69 /* JavaScriptCore.framework in Frameworks */,
 				9396425C1D66A75700AC0087 /* QuickLook.framework in Frameworks */,
@@ -5311,6 +5319,8 @@
 				934A3D881C8701CA00E7BF15 /* libiconv.tbd in Frameworks */,
 				D11AD36C1C3D072200931860 /* CoreLocation.framework in Frameworks */,
 				D1CF6C5F1C3E12E3001641B5 /* MapKit.framework in Frameworks */,
+				B8AE59EC253E848800D75F2D /* AMapFoundationKit.framework in Frameworks */,
+				B8AE59E8253E815F00D75F2D /* AMapLocationKit.framework in Frameworks */,
 				934E2D9F1C891B3700C137CB /* CoreText.framework in Frameworks */,
 				934E2D9D1C891B1C00C137CB /* CoreData.framework in Frameworks */,
 				934E2D9B1C891B0B00C137CB /* Accounts.framework in Frameworks */,
@@ -5319,11 +5329,8 @@
 				D68F03172117F81B00976ACD /* jshare-ios-1.6.0.a in Frameworks */,
 				D68F03182117F81B00976ACD /* jcore-ios-1.2.1.a in Frameworks */,
 				93454BBF1C4738B600E7B733 /* AddressBookUI.framework in Frameworks */,
-				D6C345B51FCC13F400CC732E /* AMapFoundationKit.framework in Frameworks */,
 				D11AD37C1C3D07DC00931860 /* CoreTelephony.framework in Frameworks */,
 				D11AD3701C3D075000931860 /* OpenGLES.framework in Frameworks */,
-				D6C345BB1FCC16F600CC732E /* MAMapKit.framework in Frameworks */,
-				D6C345BD1FCC16FE00CC732E /* AMapSearchKit.framework in Frameworks */,
 				D620A0381F46938700087B1A /* Bugly.framework in Frameworks */,
 				589C11B71FC282B900034D7C /* jpush-ios-3.0.5.a in Frameworks */,
 				6EDD4A373E5BFE874A48422C /* Pods_HuiJuHuaQi.framework in Frameworks */,
@@ -5380,6 +5387,10 @@
 				D667F1971D051B4000A4F239 /* HuiJuHuaQi.entitlements */,
 				18A49DEC1C29008000DDED09 /* AppDelegate.h */,
 				18A49DED1C29008000DDED09 /* AppDelegate.mm */,
+				B8C009CA253453B400A5C875 /* TFHtmlFiveViewController.h */,
+				B8C009CB253453B400A5C875 /* TFHtmlFiveViewController.m */,
+				B84654212541188D00CB5E81 /* TFHtmlFiveNavigationController.h */,
+				B84654222541188E00CB5E81 /* TFHtmlFiveNavigationController.m */,
 				D66DA811209303C800C2399F /* HQConfig.h */,
 				D632DB731ED8077F007B63CC /* HQEnum.h */,
 				D632DB891ED80A5A007B63CC /* HQConst.h */,
@@ -7135,6 +7146,7 @@
 		934E2DA51C8929F000C137CB /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				B8FB36B92592E9F20090C84B /* teamface.cer */,
 				B8D43F1023D9755D00F63646 /* server123.cer */,
 				578414ED220145BC0002134D /* server.cer */,
 				93C4E3671D1BBD0B001A5515 /* 摇一摇结束音效.wav */,
@@ -10129,11 +10141,11 @@
 		D6C345B21FCC13F400CC732E /* AMapFrameWork */ = {
 			isa = PBXGroup;
 			children = (
-				D6C345C01FCC263C00CC732E /* AMap.bundle */,
-				D6C345BC1FCC16FE00CC732E /* AMapSearchKit.framework */,
-				D6C345BA1FCC16F600CC732E /* MAMapKit.framework */,
-				D6C345B31FCC13F400CC732E /* AMapFoundationKit.framework */,
-				D6C345B41FCC13F400CC732E /* AMapLocationKit.framework */,
+				B8AE59F3253E84F600D75F2D /* AMap.bundle */,
+				B8AE59EF253E849900D75F2D /* AMapSearchKit.framework */,
+				B8AE59ED253E849100D75F2D /* MAMapKit.framework */,
+				B8AE59EB253E848700D75F2D /* AMapFoundationKit.framework */,
+				B8AE59E7253E815F00D75F2D /* AMapLocationKit.framework */,
 			);
 			path = AMapFrameWork;
 			sourceTree = "<group>";
@@ -10853,7 +10865,6 @@
 				A1A2F5BF1C9A95B400D53988 /* HQRootButton.xib in Resources */,
 				D616C8F21DD5D00700BDD8FF /* 3-5.png in Resources */,
 				58667FD41FE3DC75005C0504 /* 8.png in Resources */,
-				D6C345C11FCC263C00CC732E /* AMap.bundle in Resources */,
 				58667F971FE3DC75005C0504 /* 46.gif in Resources */,
 				5835E735212FB3AE00C677B0 /* TFNoteDetailRelatedCell.xib in Resources */,
 				58667FE81FE3DC75005C0504 /* RecordingSignal005@2x.png in Resources */,
@@ -11090,6 +11101,7 @@
 				D62CB44C1DE6E32300D0365B /* JCHATPhotoBrowserViewController.xib in Resources */,
 				58667F431FE3DC74005C0504 /* 文件库@2x.png in Resources */,
 				D685C8F620FD76FF0039C42C /* TFCRMSearchView.xib in Resources */,
+				B8AE59F4253E84F600D75F2D /* AMap.bundle in Resources */,
 				D61E2CB61DEBD3C30079894B /* JCHATMoreView.xib in Resources */,
 				A1EC118C1C8AC3BD00931E58 /* ImageSelectedSmallOn@3x.png in Resources */,
 				D685CA2320FD8D9E0039C42C /* TFChildTaskCell.xib in Resources */,
@@ -11952,6 +11964,7 @@
 				578628D722B89CA500CC22B4 /* TFRuleTimeCell.m in Sources */,
 				D685C89820FD76FE0039C42C /* TFCustomBaseModel.m in Sources */,
 				58667FFF1FE3DC75005C0504 /* NSParagraphStyle+YYText.m in Sources */,
+				B84654232541188E00CB5E81 /* TFHtmlFiveNavigationController.m in Sources */,
 				931C01EC1C5214D20037AD56 /* NSManagedObject+GetContext.m in Sources */,
 				D624DB611E80B904004DE28C /* TFMainTaskModel.m in Sources */,
 				587CFFC01FCE5FF7000AEC1B /* TFIMLoginData.m in Sources */,
@@ -12485,6 +12498,7 @@
 				D685CA3C20FD8D9E0039C42C /* TFProjectProgressView.m in Sources */,
 				D6CD83471EA85AEA004CE772 /* YYCache.m in Sources */,
 				B8FE7F14239A8F72004D56C9 /* SDWebImageDownloader.m in Sources */,
+				B8C009CC253453B400A5C875 /* TFHtmlFiveViewController.m in Sources */,
 				D62CB4521DE6E32300D0365B /* JCHATPhotoModel.m in Sources */,
 				D685C98220FD793D0039C42C /* TFColumnDeleteController.m in Sources */,
 				D685C8C820FD76FF0039C42C /* TFApprovalDetailController.m in Sources */,
@@ -12966,10 +12980,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImageNew;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = HuiJuHuaQi/HuiJuHuaQi.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development: JIAN YANG (U3R5H9DK9G)";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 5;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 2ZT3U7CV84;
@@ -13047,7 +13061,7 @@
 					"$(PROJECT_DIR)/HuiJuHuaQi/ThirdPart/UMSocialSDK/UMSocialSDKPlugin",
 					"$(PROJECT_DIR)/HuiJuHuaQi/ThirdPart/UMSocialSDK/SocialLibraries/Sina",
 				);
-				MARKETING_VERSION = 5.4;
+				MARKETING_VERSION = 5.5;
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lxml2",
@@ -13057,7 +13071,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.TeamFaceCustom.HJHQ;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "08878339-5f64-43bb-941d-1b6f349cff40";
-				PROVISIONING_PROFILE_SPECIFIER = TeamFaceCustom20181217;
+				PROVISIONING_PROFILE_SPECIFIER = teamfaceDevelop20201020;
 				SWIFT_OBJC_BRIDGING_HEADER = "HuiJuHuaQi/HuiJuHuaQi-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
@@ -13077,7 +13091,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Shenzhen Huijuhuaqi Technology Co.,Ltd (2ZT3U7CV84)";
 				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Distribution: Shenzhen Huijuhuaqi Technology Co.,Ltd (2ZT3U7CV84)";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 5;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 2ZT3U7CV84;
 				ENABLE_BITCODE = NO;
@@ -13155,7 +13169,7 @@
 					"$(PROJECT_DIR)/HuiJuHuaQi/ThirdPart/UMSocialSDK/UMSocialSDKPlugin",
 					"$(PROJECT_DIR)/HuiJuHuaQi/ThirdPart/UMSocialSDK/SocialLibraries/Sina",
 				);
-				MARKETING_VERSION = 5.4;
+				MARKETING_VERSION = 5.5;
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lxml2",
@@ -13165,7 +13179,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.TeamFaceCustom.HJHQ;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "9ef3623a-2c79-4664-85d9-86cccc217a12";
-				PROVISIONING_PROFILE_SPECIFIER = TeamFaceCustomProfile;
+				PROVISIONING_PROFILE_SPECIFIER = teamface20201020;
 				SWIFT_OBJC_BRIDGING_HEADER = "HuiJuHuaQi/HuiJuHuaQi-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -13234,20 +13248,20 @@
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CODE_SIGN_ENTITLEMENTS = HuiQiWiget/HuiQiWiget.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development: JIAN YANG (U3R5H9DK9G)";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = 2ZT3U7CV84;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = HuiQiWiget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				MARKETING_VERSION = 5.4;
+				MARKETING_VERSION = 5.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.TeamFaceCustom.HJHQ.Wiget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "db58449d-b8f6-41bb-bdd0-4df6e5a62656";
-				PROVISIONING_PROFILE_SPECIFIER = TeamFaceCustomWiget20181217;
+				PROVISIONING_PROFILE_SPECIFIER = teamfaceWigetDevelop20201020;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -13261,17 +13275,17 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Shenzhen Huijuhuaqi Technology Co.,Ltd (2ZT3U7CV84)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Shenzhen Huijuhuaqi Technology Co.,Ltd (2ZT3U7CV84)";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = 2ZT3U7CV84;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = HuiQiWiget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				MARKETING_VERSION = 5.4;
+				MARKETING_VERSION = 5.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.TeamFaceCustom.HJHQ.Wiget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "cf004058-9807-422c-b21e-e36d3c8c5518";
-				PROVISIONING_PROFILE_SPECIFIER = TeamFaceCustomWigetProfile;
+				PROVISIONING_PROFILE_SPECIFIER = teamfaceWiget20201020;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

@@ -514,11 +514,10 @@
     AMapPOIAroundSearchRequest *request = [[AMapPOIAroundSearchRequest alloc] init];
     
     request.location            = [AMapGeoPoint locationWithLatitude:self.selectLocation.latitude longitude:self.selectLocation.longitude];
-    request.keywords            = keyword;
+    request.keywords            = @"大厦|楼|建筑|地名地址信息";
 //    request.types = @"大厦|楼|建筑|地名地址信息";
     /* 按照距离排序. */
     request.sortrule            = 0;
-    request.offset = 50;
     request.requireExtension    = YES;
     
     [self.search AMapPOIAroundSearch:request];
