@@ -41,6 +41,7 @@
     [self setupWebview];
     [self clearCookie];
     [self loginSuccess];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(postWebSocket:) name:@"WebSocketNotification" object:nil];
 }
 
 /** 清除缓存 */
@@ -364,6 +365,30 @@
     }];
 }
 
+/** 推送传值 */
+- (void)postWebSocket:(NSNotification *)noti{
+    
+    NSMutableDictionary *domain = [NSMutableDictionary dictionary];
+    NSString *pic = [[NSUserDefaults standardUserDefaults] valueForKey:UserPictureDomain];
+    if (pic) {
+        [domain setObject:pic forKey:@"domain"];
+    }
+    if (UM.userLoginInfo.token) {
+        [domain setObject:@"webSocket" forKey:@"type"];
+    }
+    if (noti) {
+        [domain setObject:noti.object forKey:@"html"];
+    }
+    
+    NSString * jsStri  =[NSString stringWithFormat:@"getValHtml(%@)",[HQHelper dictionaryToJson:domain]];
+
+    [self.webView evaluateJavaScript:jsStri completionHandler:^(id _Nullable result, NSError * _Nullable error) {
+        //此处可以打印error.
+
+        NSLog(@"result:%@  error:%@",result,error);
+    }];
+    
+}
 
 /*
 #pragma mark - Navigation

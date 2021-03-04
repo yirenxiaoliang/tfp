@@ -112,6 +112,9 @@
  */
 -(void)requestGetEmployeeInfoAndCompanyInfo;
 
+/** ----------上传 DeviceToken--------- */
+-(void)requestUploadDeviceToken;
+
 /** ----------新获取员工列表--------- */
 -(void)requestEmployeeList;
 

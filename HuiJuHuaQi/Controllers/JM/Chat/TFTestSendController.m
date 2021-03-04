@@ -140,7 +140,8 @@
         imData.OneselfIMID = 112;
         imData.usCmdID = self.commond;
         imData.ucVer = 1;
-        imData.ucDeviceType = self.device;
+//        imData.ucDeviceType = self.device;
+        imData.ucDeviceType = iOSDevice;
         imData.senderID = 112;
         imData.receiverID = self.receive;
         

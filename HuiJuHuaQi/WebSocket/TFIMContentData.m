@@ -85,7 +85,8 @@
     data.OneselfIMID = headData.OneselfIMID;
     data.usCmdID = headData.usCmdID;
     data.ucVer = headData.ucVer;
-    data.ucDeviceType = headData.ucDeviceType;
+//    data.ucDeviceType = headData.ucDeviceType;
+    data.ucDeviceType = iOSDevice;
     data.ucFlag = headData.ucFlag;
     data.ServerTimes = headData.ServerTimes;
     data.senderID = headData.senderID;
@@ -159,7 +160,8 @@
     data.OneselfIMID = [[dict valueForKey:@"OneselfIMID"] integerValue];
     data.usCmdID = [[dict valueForKey:@"usCmdID"] integerValue];
     data.ucVer = [[dict valueForKey:@"ucVer"] integerValue];
-    data.ucDeviceType = [[dict valueForKey:@"ucDeviceType"] integerValue];
+//    data.ucDeviceType = [[dict valueForKey:@"ucDeviceType"] integerValue];
+    data.ucDeviceType = iOSDevice;
     data.ucFlag = [[dict valueForKey:@"ucFlag"] integerValue];
     data.ServerTimes = [[dict valueForKey:@"ServerTimes"] integerValue];
     data.senderID = [[dict valueForKey:@"senderID"] integerValue];

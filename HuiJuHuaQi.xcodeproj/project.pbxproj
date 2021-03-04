@@ -118,7 +118,7 @@
 		577A446E2226AF8500AA28CF /* TFDepartmentItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577A446D2226AF8500AA28CF /* TFDepartmentItem.swift */; };
 		577A44702226B2E600AA28CF /* TFDepartmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577A446F2226B2E600AA28CF /* TFDepartmentView.swift */; };
 		5783B14B2243784000086A35 /* TFSubformRelationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5783B14A2243784000086A35 /* TFSubformRelationModel.m */; };
-		578414EE220145BC0002134D /* server.cer in Resources */ = {isa = PBXBuildFile; fileRef = 578414ED220145BC0002134D /* server.cer */; };
+		578414EE220145BC0002134D /* server2.cer in Resources */ = {isa = PBXBuildFile; fileRef = 578414ED220145BC0002134D /* server2.cer */; };
 		578628D722B89CA500CC22B4 /* TFRuleTimeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 578628D622B89CA500CC22B4 /* TFRuleTimeCell.m */; };
 		578628D922B89CB100CC22B4 /* TFRuleTimeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 578628D822B89CB100CC22B4 /* TFRuleTimeCell.xib */; };
 		5788E384229E5F0200E7E3F1 /* TFSelectStatusController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5788E383229E5F0200E7E3F1 /* TFSelectStatusController.m */; };
@@ -970,6 +970,8 @@
 		B863FFDD234F12030031EB8C /* HJSignatureView.m in Sources */ = {isa = PBXBuildFile; fileRef = B863FFDC234F12030031EB8C /* HJSignatureView.m */; };
 		B863FFE0234F14CB0031EB8C /* TFSignatureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B863FFDF234F14CB0031EB8C /* TFSignatureViewController.m */; };
 		B86DC22E23BD8D5A006C8205 /* TFSalaryController.m in Sources */ = {isa = PBXBuildFile; fileRef = B86DC22D23BD8D5A006C8205 /* TFSalaryController.m */; };
+		B891D1B325A953D200322772 /* server.cer in Resources */ = {isa = PBXBuildFile; fileRef = B891D1B225A953D200322772 /* server.cer */; };
+		B891D1B425A953D200322772 /* server.cer in Resources */ = {isa = PBXBuildFile; fileRef = B891D1B225A953D200322772 /* server.cer */; };
 		B8AB31AD237E52DC00DB8C58 /* TFSelectFirstLevelPeopleController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8AB31AC237E52DC00DB8C58 /* TFSelectFirstLevelPeopleController.m */; };
 		B8AE59E8253E815F00D75F2D /* AMapLocationKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8AE59E7253E815F00D75F2D /* AMapLocationKit.framework */; };
 		B8AE59EC253E848800D75F2D /* AMapFoundationKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8AE59EB253E848700D75F2D /* AMapFoundationKit.framework */; };
@@ -978,6 +980,9 @@
 		B8AE59F4253E84F600D75F2D /* AMap.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B8AE59F3253E84F600D75F2D /* AMap.bundle */; };
 		B8C009CC253453B400A5C875 /* TFHtmlFiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8C009CB253453B400A5C875 /* TFHtmlFiveViewController.m */; };
 		B8C8CC912356A862007CBCCD /* TFCustomSignatureCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B8C8CC902356A862007CBCCD /* TFCustomSignatureCell.m */; };
+		B8CD849025F0B92600E48647 /* sortedNameEN.plist in Resources */ = {isa = PBXBuildFile; fileRef = B8CD848D25F0B92600E48647 /* sortedNameEN.plist */; };
+		B8CD849125F0B92600E48647 /* sortedNameCH.plist in Resources */ = {isa = PBXBuildFile; fileRef = B8CD848E25F0B92600E48647 /* sortedNameCH.plist */; };
+		B8CD849225F0B92700E48647 /* XWCountryCodeController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8CD848F25F0B92600E48647 /* XWCountryCodeController.m */; };
 		B8D43F1123D9755E00F63646 /* server123.cer in Resources */ = {isa = PBXBuildFile; fileRef = B8D43F1023D9755D00F63646 /* server123.cer */; };
 		B8FE79D42399DC01004D56C9 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58323069200D9505006FE165 /* Photos.framework */; };
 		B8FE7EE7239A8BE3004D56C9 /* PhotosUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8FE79D52399DDD1004D56C9 /* PhotosUI.framework */; };
@@ -1702,7 +1707,6 @@
 		D696516320627BE6005E761A /* TFNoteModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D696516220627BE6005E761A /* TFNoteModel.m */; };
 		D697AE851FA07D610054A365 /* NSString+Auth.m in Sources */ = {isa = PBXBuildFile; fileRef = D697AE841FA07D610054A365 /* NSString+Auth.m */; };
 		D6990A5D2150A5DA00BB88E0 /* TFTransferTaskController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6990A5C2150A5DA00BB88E0 /* TFTransferTaskController.m */; };
-		D69936311F7C8D150032CB81 /* JMessage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D69936301F7C8D150032CB81 /* JMessage.framework */; };
 		D69A948D2089963A00F61BEF /* TFRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D69A948C2089963A00F61BEF /* TFRequest.m */; };
 		D69AB8C21E97AE800096C5BB /* UILabel+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = D69AB8C11E97AE800096C5BB /* UILabel+Extension.m */; };
 		D69ADD971DC9C6AF00932C05 /* HQDepartmentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D69ADD961DC9C6AF00932C05 /* HQDepartmentModel.m */; };
@@ -2183,7 +2187,7 @@
 		577A446F2226B2E600AA28CF /* TFDepartmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TFDepartmentView.swift; sourceTree = "<group>"; };
 		5783B1492243784000086A35 /* TFSubformRelationModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFSubformRelationModel.h; sourceTree = "<group>"; };
 		5783B14A2243784000086A35 /* TFSubformRelationModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFSubformRelationModel.m; sourceTree = "<group>"; };
-		578414ED220145BC0002134D /* server.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = server.cer; sourceTree = "<group>"; };
+		578414ED220145BC0002134D /* server2.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = server2.cer; sourceTree = "<group>"; };
 		578628D522B89CA500CC22B4 /* TFRuleTimeCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFRuleTimeCell.h; sourceTree = "<group>"; };
 		578628D622B89CA500CC22B4 /* TFRuleTimeCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFRuleTimeCell.m; sourceTree = "<group>"; };
 		578628D822B89CB100CC22B4 /* TFRuleTimeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TFRuleTimeCell.xib; sourceTree = "<group>"; };
@@ -3553,6 +3557,7 @@
 		B863FFDF234F14CB0031EB8C /* TFSignatureViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFSignatureViewController.m; sourceTree = "<group>"; };
 		B86DC22C23BD8D5A006C8205 /* TFSalaryController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFSalaryController.h; sourceTree = "<group>"; };
 		B86DC22D23BD8D5A006C8205 /* TFSalaryController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFSalaryController.m; sourceTree = "<group>"; };
+		B891D1B225A953D200322772 /* server.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = server.cer; sourceTree = "<group>"; };
 		B8AB31AB237E52DC00DB8C58 /* TFSelectFirstLevelPeopleController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFSelectFirstLevelPeopleController.h; sourceTree = "<group>"; };
 		B8AB31AC237E52DC00DB8C58 /* TFSelectFirstLevelPeopleController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFSelectFirstLevelPeopleController.m; sourceTree = "<group>"; };
 		B8AE59E7253E815F00D75F2D /* AMapLocationKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AMapLocationKit.framework; sourceTree = "<group>"; };
@@ -3564,8 +3569,11 @@
 		B8C009CB253453B400A5C875 /* TFHtmlFiveViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFHtmlFiveViewController.m; sourceTree = "<group>"; };
 		B8C8CC8F2356A862007CBCCD /* TFCustomSignatureCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFCustomSignatureCell.h; sourceTree = "<group>"; };
 		B8C8CC902356A862007CBCCD /* TFCustomSignatureCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFCustomSignatureCell.m; sourceTree = "<group>"; };
+		B8CD848C25F0B92600E48647 /* XWCountryCodeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWCountryCodeController.h; sourceTree = "<group>"; };
+		B8CD848D25F0B92600E48647 /* sortedNameEN.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = sortedNameEN.plist; sourceTree = "<group>"; };
+		B8CD848E25F0B92600E48647 /* sortedNameCH.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = sortedNameCH.plist; sourceTree = "<group>"; };
+		B8CD848F25F0B92600E48647 /* XWCountryCodeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWCountryCodeController.m; sourceTree = "<group>"; };
 		B8D43F1023D9755D00F63646 /* server123.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = server123.cer; sourceTree = "<group>"; };
-		B8FB36B92592E9F20090C84B /* teamface.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = teamface.cer; sourceTree = "<group>"; };
 		B8FE79D52399DDD1004D56C9 /* PhotosUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PhotosUI.framework; path = System/Library/Frameworks/PhotosUI.framework; sourceTree = SDKROOT; };
 		B8FE7EE1239A8884004D56C9 /* ZLPhotoBrowser.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ZLPhotoBrowser.framework; sourceTree = "<group>"; };
 		B8FE7EEE239A8F72004D56C9 /* UIImage+WebP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+WebP.m"; sourceTree = "<group>"; };
@@ -5305,7 +5313,6 @@
 				D120147F1CEECAB000A3313F /* libstdc++.tbd in Frameworks */,
 				D11AD3741C3D076400931860 /* CoreGraphics.framework in Frameworks */,
 				934A3D861C8701A700E7BF15 /* libsqlite3.tbd in Frameworks */,
-				D69936311F7C8D150032CB81 /* JMessage.framework in Frameworks */,
 				934A3D8A1C8701D100E7BF15 /* libz.tbd in Frameworks */,
 				D11AD3721C3D075A00931860 /* SystemConfiguration.framework in Frameworks */,
 				93443DE11CA02BF90027D567 /* AVFoundation.framework in Frameworks */,
@@ -5397,6 +5404,7 @@
 				57AE6CB72269AC5400820875 /* TFUrl.h */,
 				D6930E061E65151F000CE0FE /* TFNotification.h */,
 				D6930E071E65151F000CE0FE /* TFNotification.m */,
+				B8CD848B25F0B92600E48647 /* XWCountryCode */,
 				D60E2AE41FFF273A004682D1 /* SelectPeople */,
 				58667E201FE3DC74005C0504 /* KeyBoard */,
 				587C01661FCE6574000AEC1B /* TFChat */,
@@ -7146,9 +7154,9 @@
 		934E2DA51C8929F000C137CB /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				B8FB36B92592E9F20090C84B /* teamface.cer */,
+				B891D1B225A953D200322772 /* server.cer */,
 				B8D43F1023D9755D00F63646 /* server123.cer */,
-				578414ED220145BC0002134D /* server.cer */,
+				578414ED220145BC0002134D /* server2.cer */,
 				93C4E3671D1BBD0B001A5515 /* 摇一摇结束音效.wav */,
 				93C4E3631D1BBD06001A5515 /* shake_sound_male.mp3 */,
 				9327B8CD1D45CE52007B384A /* industry.xml */,
@@ -7867,6 +7875,17 @@
 				A1FB92941C8D156E0048ADA1 /* FDActionSheet.m */,
 			);
 			path = FDActionSheet;
+			sourceTree = "<group>";
+		};
+		B8CD848B25F0B92600E48647 /* XWCountryCode */ = {
+			isa = PBXGroup;
+			children = (
+				B8CD848C25F0B92600E48647 /* XWCountryCodeController.h */,
+				B8CD848D25F0B92600E48647 /* sortedNameEN.plist */,
+				B8CD848E25F0B92600E48647 /* sortedNameCH.plist */,
+				B8CD848F25F0B92600E48647 /* XWCountryCodeController.m */,
+			);
+			path = XWCountryCode;
 			sourceTree = "<group>";
 		};
 		B8FE7EED239A8F72004D56C9 /* SDWebImage */ = {
@@ -10873,6 +10892,7 @@
 				58667F781FE3DC75005C0504 /* 31.png in Resources */,
 				A1EC11821C8AC3BD00931E58 /* ImageSelectedOff@2x.png in Resources */,
 				58246D741FF4CD1400FEBFB0 /* TFSelectFolderCell.xib in Resources */,
+				B891D1B325A953D200322772 /* server.cer in Resources */,
 				D6930DA91E601368000CE0FE /* HQTFLabelButton.xib in Resources */,
 				D62CB4AC1DE6EDA300D0365B /* JCHATPersonViewController.xib in Resources */,
 				58667FCB1FE3DC75005C0504 /* 7.gif in Resources */,
@@ -11128,7 +11148,7 @@
 				5765476222310CA300B7FDFA /* TFMustPutchCardCell.xib in Resources */,
 				D616C9001DD5D00700BDD8FF /* 5-5.png in Resources */,
 				D6930D7D1E5EC66F000CE0FE /* HQTFProjectCollectionViewCell.xib in Resources */,
-				578414EE220145BC0002134D /* server.cer in Resources */,
+				578414EE220145BC0002134D /* server2.cer in Resources */,
 				58667F8B1FE3DC75005C0504 /* 40.gif in Resources */,
 				57AB7E5B21F2CC9E0086A5B5 /* TFWorkEnterCell.xib in Resources */,
 				5898F89220C8E7DB008A330E /* TFPCPeoplesCell.xib in Resources */,
@@ -11268,6 +11288,7 @@
 				D6B132311F98901D001A5C0C /* MJRefresh.bundle in Resources */,
 				58667F681FE3DC75005C0504 /* 24.png in Resources */,
 				D616C8EB1DD5D00700BDD8FF /* 17-5.png in Resources */,
+				B8CD849125F0B92600E48647 /* sortedNameCH.plist in Resources */,
 				A1EC11901C8AC3BD00931E58 /* PlayButtonOverlayLargeTap.png in Resources */,
 				58667FD61FE3DC75005C0504 /* 9.png in Resources */,
 				93397A5F1CAE6B2200475D7B /* chat_sender_audio_playing_full@2x.png in Resources */,
@@ -11313,6 +11334,7 @@
 				D616C8CB1DD5D00700BDD8FF /* 10-6.png in Resources */,
 				58667F721FE3DC75005C0504 /* 29.png in Resources */,
 				D616C9081DD5D00700BDD8FF /* 8-3.png in Resources */,
+				B8CD849025F0B92600E48647 /* sortedNameEN.plist in Resources */,
 				D69E21C61EADAD45005EB7E1 /* HQBenchCollectionCell.xib in Resources */,
 				93572B9D1CFE80D100568E6A /* Confidentilty_agreement.html in Resources */,
 				58667F4B1FE3DC74005C0504 /* 11.gif in Resources */,
@@ -11434,6 +11456,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B891D1B425A953D200322772 /* server.cer in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -11609,6 +11632,7 @@
 				D63A27B021BFD7D600EB4590 /* TFCategoryMoveController.m in Sources */,
 				D62CB4CD1DE6F3BD00D0365B /* JCHATGroupDetailFooterReusableView.m in Sources */,
 				D6930D731E5EB3E9000CE0FE /* HQTFCreatRowCollectionViewCell.m in Sources */,
+				B8CD849225F0B92700E48647 /* XWCountryCodeController.m in Sources */,
 				585B97B31FFCAF1300715EDE /* TFAddPeoplesView.m in Sources */,
 				D6A9F7161E6FFD3F00C063FA /* HQPhotoView.m in Sources */,
 				D685C99F20FD793D0039C42C /* TFSectionDeleteController.m in Sources */,
@@ -12894,8 +12918,8 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "Apple Development: jian yang (U3R5H9DK9G)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development: jian yang (U3R5H9DK9G)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = KXYEAAT5SR;
@@ -12981,9 +13005,9 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = HuiJuHuaQi/HuiJuHuaQi.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development: JIAN YANG (U3R5H9DK9G)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: jian yang (U3R5H9DK9G)";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 3;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 2ZT3U7CV84;
@@ -13061,7 +13085,7 @@
 					"$(PROJECT_DIR)/HuiJuHuaQi/ThirdPart/UMSocialSDK/UMSocialSDKPlugin",
 					"$(PROJECT_DIR)/HuiJuHuaQi/ThirdPart/UMSocialSDK/SocialLibraries/Sina",
 				);
-				MARKETING_VERSION = 5.5;
+				MARKETING_VERSION = 5.6;
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lxml2",
@@ -13071,7 +13095,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.TeamFaceCustom.HJHQ;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "08878339-5f64-43bb-941d-1b6f349cff40";
-				PROVISIONING_PROFILE_SPECIFIER = teamfaceDevelop20201020;
+				PROVISIONING_PROFILE_SPECIFIER = teamfaceDevelop202012;
 				SWIFT_OBJC_BRIDGING_HEADER = "HuiJuHuaQi/HuiJuHuaQi-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
@@ -13088,10 +13112,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImageNew;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = HuiJuHuaQi/HuiJuHuaQi.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Shenzhen Huijuhuaqi Technology Co.,Ltd (2ZT3U7CV84)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Distribution: Shenzhen Huijuhuaqi Technology Co.,Ltd (2ZT3U7CV84)";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 3;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 2ZT3U7CV84;
 				ENABLE_BITCODE = NO;
@@ -13169,7 +13193,7 @@
 					"$(PROJECT_DIR)/HuiJuHuaQi/ThirdPart/UMSocialSDK/UMSocialSDKPlugin",
 					"$(PROJECT_DIR)/HuiJuHuaQi/ThirdPart/UMSocialSDK/SocialLibraries/Sina",
 				);
-				MARKETING_VERSION = 5.5;
+				MARKETING_VERSION = 5.6;
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lxml2",
@@ -13249,19 +13273,19 @@
 				CLANG_ANALYZER_NONNULL = YES;
 				CODE_SIGN_ENTITLEMENTS = HuiQiWiget/HuiQiWiget.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development: JIAN YANG (U3R5H9DK9G)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: jian yang (U3R5H9DK9G)";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = 2ZT3U7CV84;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = HuiQiWiget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				MARKETING_VERSION = 5.5;
+				MARKETING_VERSION = 5.6;
 				PRODUCT_BUNDLE_IDENTIFIER = com.TeamFaceCustom.HJHQ.Wiget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "db58449d-b8f6-41bb-bdd0-4df6e5a62656";
-				PROVISIONING_PROFILE_SPECIFIER = teamfaceWigetDevelop20201020;
+				PROVISIONING_PROFILE_SPECIFIER = teamfaceWigetDevelop202012;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -13272,16 +13296,16 @@
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CODE_SIGN_ENTITLEMENTS = HuiQiWiget/HuiQiWiget.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Shenzhen Huijuhuaqi Technology Co.,Ltd (2ZT3U7CV84)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Shenzhen Huijuhuaqi Technology Co.,Ltd (2ZT3U7CV84)";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = 2ZT3U7CV84;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = HuiQiWiget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				MARKETING_VERSION = 5.5;
+				MARKETING_VERSION = 5.6;
 				PRODUCT_BUNDLE_IDENTIFIER = com.TeamFaceCustom.HJHQ.Wiget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "cf004058-9807-422c-b21e-e36d3c8c5518";

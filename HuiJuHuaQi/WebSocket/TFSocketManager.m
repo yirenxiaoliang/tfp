@@ -455,6 +455,7 @@
 /** 服务器返回数据 */
 - (void)webSocket:(SRWebSocket *)webSocket didReceiveMessage:(id)message  {
     
+    return;
     if (webSocket == self.socket) {
         
         if (!message)return;

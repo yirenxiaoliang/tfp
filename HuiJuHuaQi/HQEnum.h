@@ -405,6 +405,7 @@ typedef enum {
     HQCMD_newProjectTaskList,// 项目任务列表
     
     /******************  新成员  ************************/
+    HQCMD_uploadDeviceToken, // 上传 DeviceToken
     HQCMD_employeeList, // 新员工列表
     HQCMD_companyFramework, // 组织架构
     HQCMD_modPassWrd, //修改密码

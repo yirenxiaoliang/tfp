@@ -12,6 +12,7 @@
 #import "HQReSetPasswordController.h"
 #import "TFSetUrlController.h"
 #import "TFSelectUrlView.h"
+#import "XWCountryCodeController.h"
 
 @interface TFNewLoginController ()<HQBLDelegate,UITextFieldDelegate,UIAlertViewDelegate>
 /** 登录btn */
@@ -65,6 +66,8 @@
 @property (nonatomic, copy) NSString *url;
 
 @property (nonatomic, weak) UIButton *setBtn;
+
+@property (nonatomic, copy) NSString *district;
 
 @end
 
@@ -263,15 +266,16 @@
 #endif
     
     // 手机图标
-    UIButton *teleIcon = [[UIButton alloc] initWithFrame:(CGRect){30,CGRectGetMaxY(logo.frame) + Long(60),40,40}];
+    UIButton *teleIcon = [[UIButton alloc] initWithFrame:(CGRect){20,CGRectGetMaxY(logo.frame) + Long(60),60,40}];
     [scrollView addSubview:teleIcon];
 //    [teleIcon setImage:[UIImage imageNamed:@"白手机"]];
     teleIcon.contentMode = UIViewContentModeCenter;
     [teleIcon setTitleColor:BlackTextColor forState:UIControlStateNormal];
     [teleIcon setTitle:@"+86" forState:UIControlStateNormal];
     self.teleIcon = teleIcon;
+    [teleIcon addTarget:self action:@selector(selectDistrict) forControlEvents:UIControlEventTouchUpInside];
     
-    UIView *Vline = [[UIView alloc] initWithFrame:(CGRect){CGRectGetMaxX(teleIcon.frame)+20,teleIcon.y+10,0.5,20}];
+    UIView *Vline = [[UIView alloc] initWithFrame:(CGRect){CGRectGetMaxX(teleIcon.frame)+10,teleIcon.y+10,0.5,20}];
     Vline.backgroundColor = BlackTextColor;
     [scrollView addSubview:Vline];
     self.Vline = Vline;
@@ -436,6 +440,20 @@
     self.setBtn = setBtn;
     
 }
+- (void)selectDistrict{
+    
+    XWCountryCodeController *countryCodeVC = [[XWCountryCodeController alloc] init];
+    
+    __weak __typeof(self)weakSelf = self;
+    countryCodeVC.returnCountryCodeBlock = ^(NSString *countryName, NSString *code) {
+        [weakSelf.teleIcon setTitle:[NSString stringWithFormat:@"+%@",code] forState:UIControlStateNormal];
+        [weakSelf.teleIcon setTitle:[NSString stringWithFormat:@"+%@",code] forState:UIControlStateNormal];
+        weakSelf.district = code;
+    };
+
+    [self.navigationController pushViewController:countryCodeVC animated:YES];
+}
+
 -(void)setBtnClicked{
     TFSetUrlController *setUrl = [[TFSetUrlController alloc] init];
     [self.navigationController pushViewController:setUrl animated:YES];
@@ -658,12 +676,18 @@
     [[NSUserDefaults standardUserDefaults] setObject:self.telePhoneField.text forKey:UserLoginTelephone];
     
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    NSString *str = nil;
+    if (self.district == nil || [self.district isEqualToString:@"86"]) {
+        str = self.telePhoneField.text;
+    }else{
+        str = [NSString stringWithFormat:@"+%@-%@",self.district,self.telePhoneField.text];
+    }
     
     // 登录
     if (self.verifyField.hidden) {// 密码登录
-        [self.loginBL requestLoginWithUserName:self.telePhoneField.text password:self.passwordField.text userCode:nil];
+        [self.loginBL requestLoginWithUserName:str password:self.passwordField.text userCode:nil];
     }else{// 验证码登录
-        [self.loginBL requestLoginWithUserName:self.telePhoneField.text password:nil userCode:self.verifyField.text];
+        [self.loginBL requestLoginWithUserName:str password:nil userCode:self.verifyField.text];
     }
 }
 

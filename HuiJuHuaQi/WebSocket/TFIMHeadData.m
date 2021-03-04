@@ -31,7 +31,8 @@
     int64_t OneselfIMID = self.OneselfIMID;
     uint16_t usCmdID = self.usCmdID;
     uint8_t ucVer = self.ucVer;
-    uint8_t ucDeviceType = self.ucDeviceType;
+//    uint8_t ucDeviceType = self.ucDeviceType;
+    uint8_t ucDeviceType = iOSDevice;
     uint8_t ucFlag = self.ucFlag;
     int64_t ServerTimes = self.ServerTimes;
     int64_t senderID = self.senderID;
@@ -134,7 +135,8 @@
         head.OneselfIMID = OneselfIMID;
         head.usCmdID = usCmdID;
         head.ucVer = ucVer;
-        head.ucDeviceType = ucDeviceType;
+//        head.ucDeviceType = ucDeviceType;
+        head.ucDeviceType = iOSDevice;
         head.ucFlag = ucFlag;
         head.ServerTimes = ServerTimes;
         head.senderID = senderID;

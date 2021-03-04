@@ -101,7 +101,7 @@
 	<key>CFBundleVersion</key>
 	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>LSApplicationCategoryType</key>
-	<string></string>
+	<string>public.app-category.business</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>mqqapi</string>
@@ -205,6 +205,6 @@
 	<key>UIUserInterfaceStyle</key>
 	<string>Light</string>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
-	<false/>
+	<true/>
 </dict>
 </plist>

@@ -180,6 +180,7 @@
 #endif
     
     self.runStatus = @1;
+    [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
 
     return YES;
 }
@@ -297,7 +298,7 @@ void uncaughtExceptionHandler(NSException *exception) {
         [userDefault removeObjectForKey:SaveInputUrlRecordKey];
         [userDefault synchronize];
         
-//        [self.loginBL requestEmployeeList];
+        [self.loginBL requestUploadDeviceToken];
 //        [self.chatBL requestGetChatListInfoData];
     }
 
@@ -393,12 +394,35 @@ void uncaughtExceptionHandler(NSException *exception) {
     // dc2883f9587b10a637cedce1ea9becd2848d1fc45d5dad07c923a4538a546c11
     // 95bd9d9a9588e0ddfee67b78689cb14a1f1988faa97dce912faf2c2da9eddf76
     
-    NSString *str = [[deviceToken description] stringByReplacingOccurrencesOfString:@" " withString:@""];
-    str = [str stringByReplacingOccurrencesOfString:@"<" withString:@""];
-    str = [str stringByReplacingOccurrencesOfString:@">" withString:@""];
-    [[NSUserDefaults standardUserDefaults] setObject:str forKey:DeviceToken];
+//    NSString *str = [[deviceToken description] stringByReplacingOccurrencesOfString:@" " withString:@""];
+//    str = [str stringByReplacingOccurrencesOfString:@"<" withString:@""];
+//    str = [str stringByReplacingOccurrencesOfString:@">" withString:@""];
+    if (!deviceToken || ![deviceToken isKindOfClass:[NSData class]] || deviceToken.length==0) {
+            return;
+        }
+    NSString *(^getDeviceToken)(void) = ^() {
+        if (IOS13_AND_LATER) {
+            const unsigned char *dataBuffer = (const unsigned char *)deviceToken.bytes;
+            NSMutableString *myToken  = [NSMutableString stringWithCapacity:(deviceToken.length * 2)];
+            for (int i = 0; i < deviceToken.length; i++) {
+                [myToken appendFormat:@"%02x", dataBuffer[i]];
+            }
+            return (NSString *)[myToken copy];
+        } else {
+            NSCharacterSet *characterSet = [NSCharacterSet characterSetWithCharactersInString:@"<>"];
+            NSString *myToken = [[deviceToken description] stringByTrimmingCharactersInSet:characterSet];
+            return [myToken stringByReplacingOccurrencesOfString:@" " withString:@""];
+        }
+    };
+    NSString *myToken = getDeviceToken();
+    HQLog(@"deviceToken=====%@", myToken);
+
+    [[NSUserDefaults standardUserDefaults] setObject:myToken forKey:DeviceToken];
     [[NSUserDefaults standardUserDefaults] synchronize];
     
+//    UITextView *view = [[UITextView alloc] initWithFrame:(CGRect){0,20,SCREEN_WIDTH,90}];
+//    view.text = myToken;
+//    [KeyWindow addSubview:view];
 }
 
 
@@ -425,15 +449,20 @@ void uncaughtExceptionHandler(NSException *exception) {
     HQLog(@"iOS7及以上系统，收到通知:%@", userInfo);
     completionHandler(UIBackgroundFetchResultNewData);
     
-//    [self resetApplicationBadge];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"WebSocketNotification" object:userInfo];
 }
 
+- (void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)())completionHandler{
+    
+    HQLog(@"iOS10及以上系统，收到通知:%@", response.notification);
+    
+}
 
 
 /** 点击通知返回APP */
 - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification{
-
-//    [self didLocalNotiBeginApplication:notification.userInfo];
+    
+    HQLog(@"收到通知");
 }
 
 
@@ -498,7 +527,6 @@ void uncaughtExceptionHandler(NSException *exception) {
         
 //        self.socket = [TFSocketManager sharedInstance];
 //        [self.socket socketOpenIsReconnect:NO];//打开soket
-//
 //        [self.chatBL requestGetChatListInfoData];
     }
     
@@ -513,6 +541,10 @@ void uncaughtExceptionHandler(NSException *exception) {
 #pragma mark - 网络请求代理
 -(void)finishedHandle:(HQBaseBL *)blEntity response:(HQResponseEntity *)resp{
     
+    if (resp.cmdId == HQCMD_uploadDeviceToken) {
+        
+        HQLog(@"uploadDeviceToken success!");
+    }
     if (resp.cmdId == HQCMD_getChatListInfo) {
         
         /** 角标未读数 */

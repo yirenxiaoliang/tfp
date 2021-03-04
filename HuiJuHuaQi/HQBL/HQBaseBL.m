@@ -594,6 +594,9 @@
             
             
             /** -----------新员工列表---------- */
+        case HQCMD_uploadDeviceToken:      // 上传 DeviceToken
+            pathURL = UploadDeviceToken;
+            break;
         case HQCMD_employeeList:      // 员工列表
             pathURL = EmployeeList;
             break;

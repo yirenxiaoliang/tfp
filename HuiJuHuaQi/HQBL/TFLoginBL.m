@@ -382,6 +382,27 @@
     [self.tasks addObject:requestItem];
 }
 
+/** ----------上传 DeviceToken--------- */
+-(void)requestUploadDeviceToken{
+    
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    
+    NSString *token = [[NSUserDefaults standardUserDefaults] objectForKey:DeviceToken];
+    [dict setObject:token forKey:@"device_token"];
+    
+    NSString *url = [super urlFromCmd:HQCMD_uploadDeviceToken];
+    
+    HQRequestItem *requestItem = [RM requestToURL:url
+                                           method:@"SELFPOST"
+                                     requestParam:dict
+                                            cmdId:HQCMD_uploadDeviceToken
+                                         delegate:self
+                                       startBlock:^(HQCMD cmd, NSInteger sid) {
+                                       }];
+    
+    [self.tasks addObject:requestItem];
+}
+
 /** ----------新获取员工列表--------- */
 -(void)requestEmployeeList{
     
@@ -721,6 +742,11 @@
                 resp = [HQResponseEntity responseFromCmdId:cmdId sid:sid body:dict];
             }
                 break;
+            case HQCMD_uploadDeviceToken:// 上传 deviceToken
+            {
+                resp = [HQResponseEntity responseFromCmdId:cmdId sid:sid body:data[kData]];
+                
+            }
                 
             case HQCMD_employeeList:// 员工列表
             {

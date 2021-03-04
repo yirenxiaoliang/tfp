@@ -19,6 +19,7 @@
 #define IOS8_AND_LATER (SystemVersion >= 8.0)
 #define IOS9_AND_LATER (SystemVersion >= 9.0)
 #define IOS10_AND_LATER (SystemVersion >= 10.0)
+#define IOS13_AND_LATER (SystemVersion >= 13.0)
 
 #define  Is_iPhone4S  ([[UIScreen mainScreen] bounds].size.width == 320 &&  [[UIScreen mainScreen] bounds].size.height == 480)
 #define Is_IPHONE_5 ( fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height - ( double )568 ) < DBL_EPSILON )
@@ -1067,6 +1068,9 @@
 #define NewProjectTaskList @"/projectTaskController/queryProjectTaskList"
 
 /** -----------------新员工列表---------------------- */
+
+/** 上传 DeviceToken */
+#define UploadDeviceToken @"/messagePushSetting/saveAPNSDeviceToken"
 /** 员工列表 */
 #define EmployeeList @"/employee/selectEmployeeList"
 /** 修改员工 */
