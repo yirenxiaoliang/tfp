@@ -273,6 +273,8 @@
 #define groupChat 6
 
 #define DeviceToken @"iOSPushDeviceToken"
+#define PushNotificationData @"PushNotificationData"
+#define EnterForegroundNowTime @"EnterForegroundNowTime"
 //消息类型
 
 #define ChatTypeWithText @1

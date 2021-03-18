@@ -292,6 +292,30 @@
     // 执行登录传值
     [self postLoginScript];
     
+    
+    NSString *str = [[NSUserDefaults standardUserDefaults] valueForKey:PushNotificationData];
+    
+    if (str && ![str isEqualToString:@""]) {
+        
+        NSMutableDictionary *domain = [NSMutableDictionary dictionary];
+        NSString *pic = [[NSUserDefaults standardUserDefaults] valueForKey:UserPictureDomain];
+        if (pic) {
+            [domain setObject:pic forKey:@"domain"];
+        }
+        if (UM.userLoginInfo.token) {
+            [domain setObject:@"jumpPage" forKey:@"type"];
+        }
+        NSDictionary *obj = [HQHelper dictionaryWithJsonString:str];
+        if (obj) {
+            [domain setObject:obj forKey:@"html"];
+        }
+        NSString *jsonStr = [HQHelper dictionaryToJson:domain];
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            
+            [self handleJavaScript:jsonStr];
+        });
+    }
 }
 
 /** 执行登录传值 */
@@ -373,21 +397,41 @@
     if (pic) {
         [domain setObject:pic forKey:@"domain"];
     }
-    if (UM.userLoginInfo.token) {
-        [domain setObject:@"webSocket" forKey:@"type"];
+    
+    long long sp2 = [HQHelper getNowTimeSp];
+    long long sp1 = [[[NSUserDefaults standardUserDefaults] objectForKey:EnterForegroundNowTime] longLongValue];
+    if (sp2 - sp1 < 2000) {// 毫秒，后台刚进入前台
+        if (UM.userLoginInfo.token) {
+            [domain setObject:@"jumpPage" forKey:@"type"];
+        }
+    }else{// 一直在前台（很早就进入了）
+        if (UM.userLoginInfo.token) {
+            [domain setObject:@"webSocket" forKey:@"type"];
+        }
     }
+    
     if (noti) {
         [domain setObject:noti.object forKey:@"html"];
     }
+    NSString *jsonStr = [HQHelper dictionaryToJson:domain];
     
-    NSString * jsStri  =[NSString stringWithFormat:@"getValHtml(%@)",[HQHelper dictionaryToJson:domain]];
+    [self handleJavaScript:jsonStr];
+    
+}
 
+/** 执行jsStri */
+- (void)handleJavaScript:(NSString *)jsonStr{
+    
+    NSString * jsStri  =[NSString stringWithFormat:@"getValHtml(%@)",jsonStr];
+    
     [self.webView evaluateJavaScript:jsStri completionHandler:^(id _Nullable result, NSError * _Nullable error) {
         //此处可以打印error.
-
-        NSLog(@"result:%@  error:%@",result,error);
+        
+        [[NSUserDefaults standardUserDefaults] setObject:@"" forKey:PushNotificationData];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        
+        HQLog(@"result:%@  error:%@",result,error);
     }];
-    
 }
 
 /*

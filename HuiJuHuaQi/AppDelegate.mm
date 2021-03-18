@@ -102,11 +102,7 @@
     } else { // iOS7
         [application registerForRemoteNotificationTypes:UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeNewsstandContentAvailability | UIRemoteNotificationTypeSound |UIRemoteNotificationTypeAlert];
     }
-    // 根据远程通知通过UIApplicationLaunchOptionsRemoteNotificationKey打开的情况来进行
-    if (launchOptions[UIApplicationLaunchOptionsRemoteNotificationKey]) {
-        // 跳转
-        // 添加一个红色的View
-    }
+    
     
     // 截屏View（用于右滑返回）
 #if kUseScreenShotGesture
@@ -181,7 +177,17 @@
     
     self.runStatus = @1;
     [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
-
+    
+    // 根据远程通知通过UIApplicationLaunchOptionsRemoteNotificationKey打开的情况来进行
+    if (launchOptions[UIApplicationLaunchOptionsRemoteNotificationKey]) {
+        
+        //app关闭时，收到推送
+        NSString *jsonStr = [HQHelper dictionaryToJson:launchOptions[@"UIApplicationLaunchOptionsRemoteNotificationKey"]];
+        [[NSUserDefaults standardUserDefaults] setObject:jsonStr forKey:PushNotificationData];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    }
+    
     return YES;
 }
 
@@ -456,8 +462,34 @@ void uncaughtExceptionHandler(NSException *exception) {
     
     HQLog(@"iOS10及以上系统，收到通知:%@", response.notification);
     
+    NSString *userAction = response.actionIdentifier;
+   // 点击通知打开
+   if ([userAction isEqualToString:UNNotificationDefaultActionIdentifier]) {
+       HQLog(@"User opened the notification.");
+       // 处理iOS 10通知，并上报通知打开回执
+       
+       UNNotification *notification = response.notification;
+       UNNotificationRequest *request = notification.request;
+       UNNotificationContent *content = request.content;
+       NSDictionary *userInfo = content.userInfo;
+       [[NSNotificationCenter defaultCenter] postNotificationName:@"WebSocketNotification" object:userInfo];
+   }
+    
 }
-
+/**
+ *  App处于前台时收到通知(iOS 10+)
+ */
+- (void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions))completionHandler {
+    HQLog(@"Receive a notification in foregound.");
+    
+    UNNotificationRequest *request = notification.request;
+    UNNotificationContent *content = request.content;
+    NSDictionary *userInfo = content.userInfo;
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"WebSocketNotification" object:userInfo];
+    
+    // 通知不弹出
+    completionHandler(UNNotificationPresentationOptionNone);
+}
 
 /** 点击通知返回APP */
 - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification{
@@ -506,6 +538,9 @@ void uncaughtExceptionHandler(NSException *exception) {
     
 //    [application cancelAllLocalNotifications];
 //    [application setApplicationIconBadgeNumber:0];
+    long long sp = [HQHelper getNowTimeSp];
+    [[NSUserDefaults standardUserDefaults] setObject:@(sp) forKey:EnterForegroundNowTime];
+    [[NSUserDefaults standardUserDefaults] synchronize];
     
 }
 
