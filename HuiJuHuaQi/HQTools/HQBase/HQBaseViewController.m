@@ -155,7 +155,7 @@
 - (void)setNavigationBar {
     [self.navigationController.navigationBar setTranslucent:NO];
     [self.navigationController setNavigationBarHidden:NO animated:YES];
-    self.navigationItem.leftBarButtonItem = [self itemWithTarget:self action:@selector(didBack:) image:@"返回灰色" text:@"返回" textColor:GreenColor];
+    self.navigationItem.leftBarButtonItem = [self itemWithTarget:self action:@selector(didBack:) image:@"返回灰色" text:NSLocalizedString(@"Back", nil) textColor:GreenColor];
     
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:BlackTextColor,NSFontAttributeName:BFONT(20)}];
 

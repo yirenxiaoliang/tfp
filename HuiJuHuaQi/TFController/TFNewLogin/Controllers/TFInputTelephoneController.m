@@ -48,12 +48,12 @@
     UILabel *teleLabel = [[UILabel alloc] initWithFrame:(CGRect){30,42,SCREEN_WIDTH-60,30}];
     [self.view addSubview:teleLabel];
     teleLabel.textColor = BlackTextColor;
-    teleLabel.text = @"输入手机号";
+    teleLabel.text = NSLocalizedString(@"phone number", nil);
     teleLabel.font = FONT(18);
     
     //telephone
     UITextField *telePhone = [[UITextField alloc]initWithFrame:CGRectMake(30,CGRectGetMaxY(teleLabel.frame) + 30, SCREEN_WIDTH-60, 40)];
-    NSAttributedString *str = [[NSAttributedString alloc] initWithString:@"请输入手机号" attributes:@{ NSForegroundColorAttributeName:LightGrayTextColor,                                            NSFontAttributeName:FONT(14)}];
+    NSAttributedString *str = [[NSAttributedString alloc] initWithString:NSLocalizedString(@"Please enter your mobile phone number", nil) attributes:@{ NSForegroundColorAttributeName:LightGrayTextColor,                                            NSFontAttributeName:FONT(14)}];
     [telePhone setAttributedPlaceholder:str];
     telePhone.clearButtonMode = UITextFieldViewModeWhileEditing;
     [telePhone setContentVerticalAlignment:UIControlContentVerticalAlignmentCenter];
@@ -72,9 +72,9 @@
     // 下一步按钮
     UIButton *stepBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     stepBtn.frame = CGRectMake(30, CGRectGetMaxY(telePhone.frame) + 52, SCREEN_WIDTH - 60, 50);
-    [stepBtn setTitle:@"下一步" forState:UIControlStateNormal];
-    [stepBtn setTitle:@"下一步" forState:UIControlStateHighlighted];
-    [stepBtn setTitle:@"下一步" forState:UIControlStateSelected];
+    [stepBtn setTitle:NSLocalizedString(@"next step", nil) forState:UIControlStateNormal];
+    [stepBtn setTitle:NSLocalizedString(@"next step", nil) forState:UIControlStateHighlighted];
+    [stepBtn setTitle:NSLocalizedString(@"next step", nil) forState:UIControlStateSelected];
     
     [stepBtn setBackgroundImage:[HQHelper createImageWithColor:GreenColor] forState:UIControlStateNormal];
     [stepBtn setBackgroundImage:[HQHelper createImageWithColor:GreenColor] forState:UIControlStateHighlighted];
@@ -165,7 +165,7 @@
 //    [MBProgressHUD showError:resp.errorDescription toView:self.view];
     
     
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:resp.errorDescription delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:resp.errorDescription delegate:self cancelButtonTitle:NSLocalizedString(@"Sure", nil) otherButtonTitles:nil];
     [alert show];
 }
 

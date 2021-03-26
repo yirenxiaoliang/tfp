@@ -11,6 +11,7 @@
 #import "NSDate+NSString.h"
 #import "TFInputTelephoneController.h"
 #import "TFNewLoginController.h"
+#import "NSBundle+Language.h"
 
 #define BHeight 210
 
@@ -67,6 +68,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    NSArray *codes = @[@"zh-Hans",@"zh-Hant",@"en"];
+    NSNumber *tag = [[NSUserDefaults standardUserDefaults] valueForKey:SelectLanguageTag];
+    if (tag == nil) {
+        [NSBundle setLanguage:codes[0]];
+    }else{
+        [NSBundle setLanguage:codes[[tag integerValue]]];
+    }
+    
     self.view.backgroundColor = WhiteColor;
     [self setupBtns];
     [self setEdition];
@@ -146,8 +155,8 @@
         [registerBtn addTarget:self action:@selector(btnClicked:) forControlEvents:UIControlEventTouchUpInside];
         
         if (i == 0) {
-            [registerBtn setTitle:@"注册" forState:UIControlStateNormal];
-            [registerBtn setTitle:@"注册" forState:UIControlStateHighlighted];
+            [registerBtn setTitle:NSLocalizedString(@"register", nil) forState:UIControlStateNormal];
+            [registerBtn setTitle:NSLocalizedString(@"register", nil) forState:UIControlStateHighlighted];
             [registerBtn setTitleColor:WhiteColor forState:UIControlStateNormal];
             [registerBtn setTitleColor:WhiteColor forState:UIControlStateHighlighted];
             registerBtn.backgroundColor = ClearColor;
@@ -157,8 +166,8 @@
             self.registerBtn = registerBtn;
             registerBtn.hidden = YES;
         }else{
-            [registerBtn setTitle:@"登录" forState:UIControlStateNormal];
-            [registerBtn setTitle:@"登录" forState:UIControlStateHighlighted];
+            [registerBtn setTitle:NSLocalizedString(@"login", nil) forState:UIControlStateNormal];
+            [registerBtn setTitle:NSLocalizedString(@"login", nil) forState:UIControlStateHighlighted];
             [registerBtn setTitleColor:GreenColor forState:UIControlStateNormal];
             [registerBtn setTitleColor:GreenColor forState:UIControlStateHighlighted];
             registerBtn.backgroundColor = WhiteColor;

@@ -40,7 +40,7 @@
     [self setupChild];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showKeybord) name:UIKeyboardWillShowNotification object:nil];
     
-    self.navigationItem.rightBarButtonItem = [self itemWithTarget:self action:@selector(resetUrl) text:@"重置" textColor:GreenColor];
+    self.navigationItem.rightBarButtonItem = [self itemWithTarget:self action:@selector(resetUrl) text:NSLocalizedString(@"Reset", nil) textColor:GreenColor];
     
 }
 
@@ -98,12 +98,12 @@
     
     UILabel *label = [[UILabel alloc] initWithFrame:(CGRect){30,60,SCREEN_WIDTH-60,40}];
     [self.view addSubview:label];
-    label.text = @"私有部署服务器";
+    label.text = NSLocalizedString(@"Private Deployment Server", nil);
     label.font = FONT(18);
     
     UITextField *textField = [[UITextField alloc] initWithFrame:(CGRect){30,CGRectGetMaxY(label.frame)+ 20,SCREEN_WIDTH-60-30-30,40}];
     [self.view addSubview:textField];
-    textField.placeholder = @"请输入IP+端口号或者域名";
+    textField.placeholder = NSLocalizedString(@"input IP + port number or domain name", nil);
     textField.font = FONT(17);
     textField.textColor = BlackTextColor;
     textField.keyboardType = UIKeyboardTypeURL;
@@ -142,8 +142,8 @@
     [self.view addSubview:remenber];
     remenber.frame = CGRectMake(30, CGRectGetMaxY(line.frame)+ 8, 96, 44);
     remenber.titleLabel.font = FONT(14);
-    [remenber setTitle:@"  记住地址" forState:UIControlStateNormal];
-    [remenber setTitle:@"  记住地址" forState:UIControlStateSelected];
+    [remenber setTitle:NSLocalizedString(@"Remember the address", nil) forState:UIControlStateNormal];
+    [remenber setTitle:NSLocalizedString(@"Remember the address", nil) forState:UIControlStateSelected];
     [remenber setImage:IMG(@"未选中") forState:UIControlStateNormal];
     [remenber setImage:IMG(@"选中g") forState:UIControlStateSelected];
     remenber.selected = YES;
@@ -154,15 +154,15 @@
     
     UILabel *tip = [[UILabel alloc] initWithFrame:(CGRect){30,CGRectGetMaxY(remenber.frame)+ 8,SCREEN_WIDTH-60,20}];
     [self.view addSubview:tip];
-    tip.text = @"例如 http://192.168.1.183:8081";
+    tip.text = NSLocalizedString(@"input IP + port number or domain name", nil);
     tip.textColor = LightGrayTextColor;
     tip.font = FONT(14);
     
     UIButton *finishBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     finishBtn.frame = CGRectMake(30, CGRectGetMaxY(tip.frame) + 40, SCREEN_WIDTH - 60, 50);
-    [finishBtn setTitle:@"完成" forState:UIControlStateNormal];
-    [finishBtn setTitle:@"完成" forState:UIControlStateHighlighted];
-    [finishBtn setTitle:@"完成" forState:UIControlStateSelected];
+    [finishBtn setTitle:NSLocalizedString(@"accomplish", nil) forState:UIControlStateNormal];
+    [finishBtn setTitle:NSLocalizedString(@"accomplish", nil) forState:UIControlStateHighlighted];
+    [finishBtn setTitle:NSLocalizedString(@"accomplish", nil) forState:UIControlStateSelected];
     
     [finishBtn setBackgroundImage:[HQHelper createImageWithColor:GreenColor] forState:UIControlStateNormal];
     [finishBtn setBackgroundImage:[HQHelper createImageWithColor:GreenColor] forState:UIControlStateHighlighted];
@@ -216,9 +216,9 @@
     [self.view endEditing:YES];
     
     if (self.textField.text.length == 0) {
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"是否访问Teamface服务器？" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Tip", nil) message:NSLocalizedString(@"Do you access the Teamface server?", nil) preferredStyle:UIAlertControllerStyleAlert];
         
-        [alert addAction:[UIAlertAction actionWithTitle:@"访问" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [alert addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Access", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             
             AppDelegate *app = [AppDelegate shareAppDelegate];
             app.baseUrl = baseUrl;
@@ -229,7 +229,7 @@
             [self.navigationController popViewControllerAnimated:YES];
             
         }]];
-        [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        [alert addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel", nil) style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
             
         }]];
         
@@ -239,7 +239,7 @@
     }
     
     if (![HQHelper checkUrl:self.textField.text]) {
-        [MBProgressHUD showError:@"格式不正确" toView:self.view];
+        [MBProgressHUD showError:NSLocalizedString(@"Incorrect format", nil) toView:self.view];
         return;
     }
     

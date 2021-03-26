@@ -166,6 +166,7 @@
 #define HQGlobalQueue(block) dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), block)
 
 //文字
+#define SelectLanguageTag @"SelectLanguageTag"
 #define UserPictureDomain   @"UserPictureDomain"
 #define UserLoginTelephone   @"UserLoginTelephone"
 #define LoginState      @"loginState"

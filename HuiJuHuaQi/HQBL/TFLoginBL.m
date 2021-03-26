@@ -151,6 +151,8 @@
     if (type) {
         [dic setObject:type forKey:@"type"];
     }
+    [dic setObject:@"zh" forKey:@"language"];
+    
     
     NSString *url = [super urlFromCmd:HQCMD_sendVerifyCode];
     

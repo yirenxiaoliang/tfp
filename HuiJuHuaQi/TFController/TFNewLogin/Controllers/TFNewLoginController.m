@@ -13,6 +13,7 @@
 #import "TFSetUrlController.h"
 #import "TFSelectUrlView.h"
 #import "XWCountryCodeController.h"
+#import "NSBundle+Language.h"
 
 @interface TFNewLoginController ()<HQBLDelegate,UITextFieldDelegate,UIAlertViewDelegate>
 /** 登录btn */
@@ -66,12 +67,25 @@
 @property (nonatomic, copy) NSString *url;
 
 @property (nonatomic, weak) UIButton *setBtn;
+@property (nonatomic, weak) UIButton *languageBtn;
+@property (nonatomic, weak) UIButton *down;
 
 @property (nonatomic, copy) NSString *district;
+@property (nonatomic, weak) UIView *mask;
+@property (nonatomic, weak) UIView *popview;
+
+@property (nonatomic, strong) NSArray *codes;
 
 @end
 
 @implementation TFNewLoginController
+
+-(NSArray *)codes{
+    if (_codes == nil) {
+        _codes = @[@"zh-Hans",@"zh-Hant",@"en"];
+    }
+    return _codes;
+}
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
@@ -143,6 +157,8 @@
     self.footer.alpha = 0;
     self.forgetBtn.alpha = 0;
     self.tipLabel.alpha = 0;
+    self.down.alpha = 0;
+    self.languageBtn.alpha = 0;
     if (self.bgImageView.alpha != 0) {
         self.bgImageView.alpha = 1;
     }
@@ -159,6 +175,8 @@
         self.footer.alpha = 1;
         self.forgetBtn.alpha = 1;
         self.tipLabel.alpha = 1;
+        self.down.alpha = 1;
+        self.languageBtn.alpha = 1;
         self.alpha.alpha = 0.4;
         self.bgImageView.alpha = 0;
     }];
@@ -282,7 +300,7 @@
     
     //telephone
     UITextField *telePhone = [[UITextField alloc]initWithFrame:CGRectMake(70+40,CGRectGetMaxY(logo.frame) + Long(60), SCREEN_WIDTH-60-40-40, 40)];
-    NSAttributedString *str1 = [[NSAttributedString alloc] initWithString:@"请输入手机号" attributes:@{ NSForegroundColorAttributeName:ExtraLightBlackTextColor,                                            NSFontAttributeName:FONT(14)}];
+    NSAttributedString *str1 = [[NSAttributedString alloc] initWithString:NSLocalizedString(@"Please enter your mobile phone number", nil) attributes:@{ NSForegroundColorAttributeName:ExtraLightBlackTextColor,                                            NSFontAttributeName:FONT(14)}];
     [telePhone setAttributedPlaceholder:str1];
     telePhone.clearButtonMode = UITextFieldViewModeWhileEditing;
 //    telePhone.backgroundColor = WhiteColor;
@@ -302,10 +320,10 @@
     self.telePhoneBg = telePhoneBg;
     
     // 密码图标
-    UIButton *passIcon = [[UIButton alloc] initWithFrame:(CGRect){30,CGRectGetMaxY(telePhone.frame) + 20,40,40}];
+    UIButton *passIcon = [[UIButton alloc] initWithFrame:(CGRect){25,CGRectGetMaxY(telePhone.frame) + 20,80,40}];
     [scrollView addSubview:passIcon];
     //    [passIcon setImage:[UIImage imageNamed:@"密码"]];
-    [passIcon setTitle:@"密码" forState:UIControlStateNormal];
+    [passIcon setTitle:NSLocalizedString(@"password", nil) forState:UIControlStateNormal];
     [passIcon setTitleColor:BlackTextColor forState:UIControlStateNormal];
     passIcon.contentMode = UIViewContentModeCenter;
     self.passIcon = passIcon;
@@ -314,7 +332,7 @@
     UITextField *password = [[UITextField alloc]initWithFrame:CGRectMake(70+40,passIcon.y, SCREEN_WIDTH-60-40-40-40, 40)];
 //    password.placeholder = @"请输入登录密码";
     
-    NSAttributedString *str = [[NSAttributedString alloc] initWithString:@"请输入登录密码" attributes:@{ NSForegroundColorAttributeName:ExtraLightBlackTextColor,                                            NSFontAttributeName:FONT(14)}];
+    NSAttributedString *str = [[NSAttributedString alloc] initWithString:NSLocalizedString(@"Please input a password", nil) attributes:@{ NSForegroundColorAttributeName:ExtraLightBlackTextColor,                                            NSFontAttributeName:FONT(14)}];
     [password setAttributedPlaceholder:str];
     password.clearButtonMode = UITextFieldViewModeWhileEditing;
 //    password.backgroundColor = WhiteColor;
@@ -347,7 +365,7 @@
     UIButton *verifyIcon = [[UIButton alloc] initWithFrame:(CGRect){30,CGRectGetMaxY(telePhone.frame) + 20,60,40}];
     [scrollView addSubview:verifyIcon];
     //    [passIcon setImage:[UIImage imageNamed:@"密码"]];
-    [verifyIcon setTitle:@"验证码" forState:UIControlStateNormal];
+    [verifyIcon setTitle:NSLocalizedString(@"Verification code", nil) forState:UIControlStateNormal];
     [verifyIcon setTitleColor:BlackTextColor forState:UIControlStateNormal];
     verifyIcon.contentMode = UIViewContentModeCenter;
     self.verifyIcon = verifyIcon;
@@ -356,7 +374,7 @@
     UITextField *verifyField = [[UITextField alloc]initWithFrame:CGRectMake(70+40,verifyIcon.y, SCREEN_WIDTH-60-40-40-100, 40)];
     //    password.placeholder = @"请输入登录密码";
     
-    NSAttributedString *str2 = [[NSAttributedString alloc] initWithString:@"请输入验证码" attributes:@{ NSForegroundColorAttributeName:ExtraLightBlackTextColor,                                            NSFontAttributeName:FONT(14)}];
+    NSAttributedString *str2 = [[NSAttributedString alloc] initWithString:NSLocalizedString(@"Please input verification code", nil) attributes:@{ NSForegroundColorAttributeName:ExtraLightBlackTextColor,                                            NSFontAttributeName:FONT(14)}];
     [verifyField setAttributedPlaceholder:str2];
     verifyField.clearButtonMode = UITextFieldViewModeWhileEditing;
     //    password.backgroundColor = WhiteColor;
@@ -373,7 +391,7 @@
     // 显示密码按钮
     UIButton *sendVerify = [UIButton buttonWithType:UIButtonTypeCustom];
     sendVerify.frame = CGRectMake(CGRectGetMaxX(verifyField.frame)-5, verifyField.y, 100, 38);
-    [sendVerify setTitle:@"发送验证码" forState:UIControlStateNormal];
+    [sendVerify setTitle:NSLocalizedString(@"Send verification code", nil) forState:UIControlStateNormal];
     [sendVerify addTarget:self action:@selector(sendVerifyClicked) forControlEvents:UIControlEventTouchUpInside];
     self.sendVerify = sendVerify;
     [sendVerify setTitleColor:ExtraLightBlackTextColor forState:UIControlStateNormal];
@@ -392,10 +410,11 @@
     registerBtn.hidden = YES;
     
     // 忘记密码
-    UIButton *forgetBtn = [HQHelper buttonWithFrame:CGRectMake(SCREEN_WIDTH-80-30, CGRectGetMaxY(footer.frame) + 10, 80, 44) target:self action:@selector(forgetPasswordClicked)];
+    UIButton *forgetBtn = [HQHelper buttonWithFrame:CGRectMake(SCREEN_WIDTH-180-30, CGRectGetMaxY(footer.frame) + 10, 180, 44) target:self action:@selector(forgetPasswordClicked)];
+    
     [scrollView addSubview:forgetBtn];
-    [forgetBtn setTitle:@"忘记密码？" forState:UIControlStateNormal];
-    [forgetBtn setTitle:@"忘记密码？" forState:UIControlStateNormal];
+    [forgetBtn setTitle:NSLocalizedString(@"forget the password?", nil) forState:UIControlStateNormal];
+    [forgetBtn setTitle:NSLocalizedString(@"forget the password?", nil) forState:UIControlStateNormal];
     forgetBtn.titleLabel.font = FONT(14);
     [forgetBtn setTitleColor:BlackTextColor forState:UIControlStateNormal];
     [forgetBtn setTitleColor:BlackTextColor forState:UIControlStateHighlighted];
@@ -404,9 +423,9 @@
     // 登录按钮
     UIButton *loginBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     loginBtn.frame = CGRectMake(30, CGRectGetMaxY(forgetBtn.frame) + 10, SCREEN_WIDTH - 60, 50);
-    [loginBtn setTitle:@"登录" forState:UIControlStateNormal];
-    [loginBtn setTitle:@"登录" forState:UIControlStateHighlighted];
-    [loginBtn setTitle:@"登录" forState:UIControlStateSelected];
+    [loginBtn setTitle:NSLocalizedString(@"login", nil) forState:UIControlStateNormal];
+    [loginBtn setTitle:NSLocalizedString(@"login", nil) forState:UIControlStateHighlighted];
+    [loginBtn setTitle:NSLocalizedString(@"login", nil) forState:UIControlStateSelected];
     
     [loginBtn setBackgroundImage:[HQHelper createImageWithColor:GreenColor] forState:UIControlStateNormal];
     [loginBtn setBackgroundImage:[HQHelper createImageWithColor:GreenColor] forState:UIControlStateHighlighted];
@@ -422,7 +441,7 @@
     
     UILabel *tipLabel = [[UILabel alloc] initWithFrame:(CGRect){0,CGRectGetMaxY(loginBtn.frame)+20,SCREEN_WIDTH,20}];
     [scrollView addSubview:tipLabel];
-    tipLabel.text = @"开启新一代数据化管理方式";
+    tipLabel.text = NSLocalizedString(@"Open a new generation of digital management", nil);
     tipLabel.font = FONT(14);
     tipLabel.textColor = ExtraLightBlackTextColor;
     tipLabel.textAlignment = NSTextAlignmentCenter;
@@ -438,6 +457,46 @@
     
     [setBtn addTarget:self action:@selector(setBtnClicked) forControlEvents:UIControlEventTouchUpInside];
     self.setBtn = setBtn;
+    
+    
+    UIButton *languageBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [self.view addSubview:languageBtn];
+    [languageBtn setImage:IMG(@"earth") forState:UIControlStateNormal];
+    languageBtn.frame = CGRectMake(screenW-150-44, SCREEN_HEIGHT-BottomM-44-30, 150, 44);
+    [languageBtn setImage:IMG(@"earth") forState:UIControlStateHighlighted];
+    [languageBtn addTarget:self action:@selector(languageBtnClicked) forControlEvents:UIControlEventTouchUpInside];
+    self.languageBtn = languageBtn;
+    
+    UIButton *down = [UIButton buttonWithType:UIButtonTypeCustom];
+    [self.view addSubview:down];
+    [down setImage:IMG(@"workDown") forState:UIControlStateNormal];
+    down.frame = CGRectMake(screenW-30-44, SCREEN_HEIGHT-BottomM-44-30, 30, 44);
+    [down setImage:IMG(@"workDown") forState:UIControlStateHighlighted];
+    [down addTarget:self action:@selector(languageBtnClicked) forControlEvents:UIControlEventTouchUpInside];
+    self.down = down;
+    
+    [languageBtn setTitleColor:LightGrayTextColor forState:UIControlStateNormal];
+    [languageBtn setTitleColor:LightGrayTextColor forState:UIControlStateHighlighted];
+    
+    NSNumber *tag = [[NSUserDefaults standardUserDefaults] valueForKey:SelectLanguageTag];
+    if (tag == nil) {
+        [languageBtn setTitle:@"简体中文" forState:UIControlStateNormal];
+        [languageBtn setTitle:@"简体中文" forState:UIControlStateHighlighted];
+        [NSBundle setLanguage:self.codes[0]];
+    }else{
+        if (0 == [tag integerValue]) {
+            [languageBtn setTitle:@"简体中文" forState:UIControlStateNormal];
+            [languageBtn setTitle:@"简体中文" forState:UIControlStateHighlighted];
+        }else if (1 == [tag integerValue]) {
+            [languageBtn setTitle:@"繁體中文" forState:UIControlStateNormal];
+            [languageBtn setTitle:@"繁體中文" forState:UIControlStateHighlighted];
+        }else{
+            
+            [languageBtn setTitle:@"English" forState:UIControlStateNormal];
+            [languageBtn setTitle:@"English" forState:UIControlStateHighlighted];
+        }
+        [NSBundle setLanguage:self.codes[[tag integerValue]]];
+    }
     
 }
 - (void)selectDistrict{
@@ -459,6 +518,94 @@
     [self.navigationController pushViewController:setUrl animated:YES];
 }
 
+-(void)maskTap:(UITapGestureRecognizer *)tap{
+    [tap.view removeFromSuperview];
+}
+
+-(void)setupPopview{
+    
+    UIView *mask = [[UIView alloc] initWithFrame:(CGRect){0,0,screenW,screenH}];
+    mask.backgroundColor = HexAColor(0xffffff, 0.8);
+    [mask addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(maskTap:)]];
+    UIView *popview = [[UIView alloc] initWithFrame:(CGRect){screenW-164,SCREEN_HEIGHT-BottomM-44-30-120,100,120}];
+    [mask addSubview:popview];
+    [self.view addSubview:mask];
+    self.mask = mask;
+    self.popview = popview;
+    popview.backgroundColor = WhiteColor;
+    popview.layer.borderWidth = 0.5;
+    popview.layer.borderColor = [CellSeparatorColor CGColor];
+    popview.layer.cornerRadius = 5.0;
+    popview.layer.masksToBounds = YES;
+    
+    popview.layer.shadowColor = HexColor(0xe1e1e1).CGColor;//shadowColor阴影颜色
+    popview.layer.shadowOffset = CGSizeMake(2,4);//shadowOffset阴影偏移,x向右偏移4，y向下偏移4，默认(0, -3),这个跟shadowRadius配合使用
+    popview.layer.shadowOpacity = 0.5;//阴影透明度，默认0
+    popview.layer.shadowRadius = 2;//阴影半径，默认3
+    
+    NSArray *title = @[@"简体中文",@"繁體中文",@"English"];
+    for (NSInteger i = 0; i < 3; i ++) {
+        UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+        [btn setTitle:title[i] forState:UIControlStateNormal];
+        [btn setTitle:title[i] forState:UIControlStateHighlighted];
+        [btn setTitle:title[i] forState:UIControlStateSelected];
+        NSNumber *tag = [[NSUserDefaults standardUserDefaults] valueForKey:SelectLanguageTag];
+        if (tag == nil) {
+            if (i == 0) {
+                btn.selected = YES;
+            }
+        }else{
+            if (i == [tag integerValue]) {
+                btn.selected = YES;
+            }
+        }
+        [btn setTitleColor:BlackTextColor forState:UIControlStateNormal];
+        [btn setTitleColor:BlackTextColor forState:UIControlStateHighlighted];
+        [btn setTitleColor:GreenColor forState:UIControlStateSelected];
+        [btn addTarget:self action:@selector(selectLanguageClicked:) forControlEvents:UIControlEventTouchUpInside];
+        btn.tag = i;
+        [popview addSubview:btn];
+        btn.frame = CGRectMake(0, 40 * i, 100, 40);
+    }
+}
+
+-(void)selectLanguageClicked:(UIButton *)btn{
+    
+    [[NSUserDefaults standardUserDefaults] setValue:@(btn.tag) forKey:SelectLanguageTag];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    NSArray *views = self.popview.subviews;
+    for (UIButton *b in views) {
+        b.selected = NO;
+    }
+    btn.selected = YES;
+    
+    [NSBundle setLanguage:self.codes[btn.tag]];
+    
+    if (0 == btn.tag) {
+        [self.languageBtn setTitle:@"简体中文" forState:UIControlStateNormal];
+        [self.languageBtn setTitle:@"简体中文" forState:UIControlStateHighlighted];
+    }else if (1 == btn.tag) {
+        [self.languageBtn setTitle:@"繁體中文" forState:UIControlStateNormal];
+        [self.languageBtn setTitle:@"繁體中文" forState:UIControlStateHighlighted];
+    }else{
+        
+        [self.languageBtn setTitle:@"English" forState:UIControlStateNormal];
+        [self.languageBtn setTitle:@"English" forState:UIControlStateHighlighted];
+    }
+    for (UIView *view in self.view.subviews) {
+        [view removeFromSuperview];
+    }
+    [self setupChild];
+    [self.bgImageView removeFromSuperview];
+    self.scrollView.y = self.scrollView.y + 20;
+    [self.mask removeFromSuperview];
+}
+
+-(void)languageBtnClicked{
+    
+    [self setupPopview];
+    
+}
 -(void)longPress:(UILongPressGestureRecognizer *)gesture{
     
     [self.view endEditing:YES];
@@ -558,7 +705,7 @@
             dispatch_source_cancel(_timer);
             dispatch_async(dispatch_get_main_queue(), ^{
                 //设置界面的按钮显示 根据自己需求设置
-                [button setAttributedTitle:[[NSAttributedString alloc] initWithString:@"重发验证码"] forState:UIControlStateNormal];
+                [button setAttributedTitle:[[NSAttributedString alloc] initWithString:NSLocalizedString(@"重发验证码", nil)] forState:UIControlStateNormal];
                 button.width = 100;
                 button.userInteractionEnabled = YES;
             });
@@ -615,7 +762,7 @@
         //        [MBProgressHUD showError:@"手机号输入有误" toView:self.view];
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"登录失败" message:@"请输入手机号码！" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"login fail", nil) message:NSLocalizedString(@"Please enter your mobile phone number", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Sure", nil) otherButtonTitles:nil];
             [alert show];
         });
         return;
@@ -628,7 +775,7 @@
             //        [MBProgressHUD showError:@"请输入密码" toView:self.view];
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"登录失败" message:@"请输入密码！" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil];
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"login fail", nil) message:NSLocalizedString(@"Please input a password", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Sure", nil) otherButtonTitles:nil];
                 [alert show];
             });
             return;
@@ -639,7 +786,7 @@
 //        [MBProgressHUD showError:@"手机号输入有误" toView:self.view];
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"登录失败" message:@"手机号码格式不正确！" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"login fail", nil) message:NSLocalizedString(@"手机号码格式不正确", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Sure", nil) otherButtonTitles:nil];
             [alert show];
         });
         return;
@@ -652,7 +799,7 @@
             //        [MBProgressHUD showError:@"手机号输入有误" toView:self.view];
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"登录失败" message:@"密码格式不正确！" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil];
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"login fail", nil) message:NSLocalizedString(@"密码格式不正确", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Sure", nil) otherButtonTitles:nil];
                 [alert show];
             });
             return;
@@ -666,7 +813,7 @@
             //        [MBProgressHUD showError:@"手机号输入有误" toView:self.view];
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"登录失败" message:@"验证码不正确！" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil];
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"login fail", nil) message:NSLocalizedString(@"验证码不正确", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Sure", nil) otherButtonTitles:nil];
                 [alert show];
             });
             return;
@@ -707,7 +854,7 @@
 
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
 
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"密码过期，请修改密码" message:nil delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"密码过期，请修改密码",nil) message:nil delegate:self cancelButtonTitle:NSLocalizedString(@"Sure", nil) otherButtonTitles:nil];
                 alert.delegate = self;
                 alert.tag = 0x38;
                 [alert show];
@@ -720,7 +867,7 @@
         [MBProgressHUD hideHUDForView:self.view animated:YES];
         [[NSNotificationCenter defaultCenter] postNotificationName:NotificationLoginSuccess object:@1];
         if (self.modify) {
-            [MBProgressHUD showImageSuccess:@"修改成功" toView:KeyWindow];
+            [MBProgressHUD showImageSuccess:NSLocalizedString(@"修改成功", nil) toView:KeyWindow];
         }
     }
     
@@ -759,7 +906,7 @@
             
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"登录失败" message:resp.errorDescription delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil];
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"登录失败", nil) message:resp.errorDescription delegate:self cancelButtonTitle:NSLocalizedString(@"Sure", nil) otherButtonTitles:nil];
                 alert.tag = 20120021;
                 [alert show];
             });
@@ -767,7 +914,7 @@
             
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"登录失败" message:resp.errorDescription delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil];
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"登录失败", nil) message:resp.errorDescription delegate:self cancelButtonTitle:NSLocalizedString(@"Sure", nil) otherButtonTitles:nil];
                 [alert show];
             });
         }
