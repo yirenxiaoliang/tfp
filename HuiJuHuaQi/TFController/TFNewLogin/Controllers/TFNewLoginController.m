@@ -99,6 +99,8 @@
     self.url = [[NSUserDefaults standardUserDefaults] valueForKey:SaveInputUrlRecordKey]?[[NSUserDefaults standardUserDefaults] valueForKey:SaveInputUrlRecordKey]:[AppDelegate shareAppDelegate].baseUrl;
     
     self.setBtn.selected = ![[AppDelegate shareAppDelegate].baseUrl isEqualToString:baseUrl];
+    self.forgetBtn.hidden = self.setBtn.selected;
+    
     
 }
 
