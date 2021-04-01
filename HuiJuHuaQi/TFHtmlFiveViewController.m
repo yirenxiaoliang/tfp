@@ -84,23 +84,28 @@
     }
     
 }
+
+
 /** 登录成功 */
 - (void)loginSuccess{
     
     // 测试穿透
 //    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://cnknt.vicp.net:1112/wdist/index.html#/"]]]];
-//    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://app.teamface.cn/webview/app.html#/"]]]];
+    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://app.teamface.cn/webview/app.html#/"]]]];
 
     
     // 外网
     if ([[AppDelegate shareAppDelegate].urlEnvironment isEqualToString:@"teamface"]) {
         HQLog(@"===============%@------------------",[NSString stringWithFormat:@"https://app.teamface.cn/webview/app.html#/"]);
+        
         [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://app.teamface.cn/webview/app.html#/"]]]];
+        
     }else{// 内网
-
         HQLog(@"===============%@------------------",[NSString stringWithFormat:@"%@/webview/app.html#/",[AppDelegate shareAppDelegate].baseUrl]);
         [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/webview/app.html",[AppDelegate shareAppDelegate].baseUrl]]]];
     }
+    [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
 }
 
 
@@ -291,8 +296,7 @@
     
     // 执行登录传值
     [self postLoginScript];
-    
-    
+    [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
     NSString *str = [[NSUserDefaults standardUserDefaults] valueForKey:PushNotificationData];
     
     if (str && ![str isEqualToString:@""]) {

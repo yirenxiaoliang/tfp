@@ -138,16 +138,16 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(companyFrameworkChange) name:CompanyFrameworkChange object:nil];
     
     
-    HQGlobalQueue(^{
-        
-        [DataBaseHandle creatwChatRoomWithData]; //聊天室数据库
-        [DataBaseHandle createChatListWithData]; //会话列表数据库
-        [DataBaseHandle createAssistantListTable]; //会话列表小助手数据库
-        [DataBaseHandle createSubAssistantDataListTable]; //小助手列表数据库
-        TFFMDBModel *model = [[TFFMDBModel alloc] init];
-        
-        [DataBaseHandle createCallWithData:model];
-    });
+//    HQGlobalQueue(^{
+//        
+//        [DataBaseHandle creatwChatRoomWithData]; //聊天室数据库
+//        [DataBaseHandle createChatListWithData]; //会话列表数据库
+//        [DataBaseHandle createAssistantListTable]; //会话列表小助手数据库
+//        [DataBaseHandle createSubAssistantDataListTable]; //小助手列表数据库
+//        TFFMDBModel *model = [[TFFMDBModel alloc] init];
+//        
+//        [DataBaseHandle createCallWithData:model];
+//    });
     
     // 控制器根控制器
     [self loginSuccess:nil];
@@ -155,7 +155,7 @@
     
     // 分享
     HQGlobalQueue(^{
-        
+
         // Bugly
         [self setupBugly];
         // 分享
@@ -429,6 +429,8 @@ void uncaughtExceptionHandler(NSException *exception) {
 //    UITextView *view = [[UITextView alloc] initWithFrame:(CGRect){0,20,SCREEN_WIDTH,90}];
 //    view.text = myToken;
 //    [KeyWindow addSubview:view];
+    
+    [self.loginBL requestUploadDeviceToken];
 }
 
 
@@ -566,10 +568,10 @@ void uncaughtExceptionHandler(NSException *exception) {
     }
     
     
-//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.25 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//
-//        [[NSNotificationCenter defaultCenter] postNotificationName:UIApplicationDidBecomeActiveNotification object:nil];
-//    });
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.25 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+
+        [[NSNotificationCenter defaultCenter] postNotificationName:UIApplicationDidBecomeActiveNotification object:nil];
+    });
     
 }
 

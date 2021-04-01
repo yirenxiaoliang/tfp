@@ -390,7 +390,11 @@
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
     
     NSString *token = [[NSUserDefaults standardUserDefaults] objectForKey:DeviceToken];
-    [dict setObject:token forKey:@"device_token"];
+    if (token) {
+        [dict setObject:token forKey:@"device_token"];
+    }else{
+        return;
+    }
     
     NSString *url = [super urlFromCmd:HQCMD_uploadDeviceToken];
     
