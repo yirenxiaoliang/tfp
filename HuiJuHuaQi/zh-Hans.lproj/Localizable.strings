@@ -22,7 +22,7 @@
 "login" = "登录";
 "password" = "密码";
 "Please input a password" = "请输入登录密码";
-"Please enter your mobile phone number" = "请输入手机号";
+"Please enter your mobile phone number" = "手机号码/邮箱/工号";
 "forget the password?" = "忘记密码？";
 "Open a new generation of digital management" = "开启新一代数据化管理方式";
 "Make management simple and efficient" = "让管理简单高效";

@@ -40,8 +40,9 @@
 #import "TFRequest.h"
 #import "FPSDisplay.h"
 #import "TFHtmlFiveViewController.h"
+#import "WXApi.h"
 
-@interface AppDelegate () < HQBLDelegate, UIDocumentInteractionControllerDelegate,BuglyDelegate>
+@interface AppDelegate () < HQBLDelegate, UIDocumentInteractionControllerDelegate,BuglyDelegate,WXApiDelegate>
 
 
 @property (nonatomic, strong) NSDate *lastPlaySoundDate;   //记录上次响铃的声音
@@ -58,6 +59,20 @@
 
 
 @implementation AppDelegate
+-(TFLoginBL *)loginBL{
+    if (_loginBL == nil) {
+        self.loginBL = [TFLoginBL build];
+        self.loginBL.delegate = self;
+    }
+    return _loginBL;
+}
+-(TFChatBL *)chatBL{
+    if (_chatBL == nil) {
+        self.chatBL = [TFChatBL build];
+        self.chatBL.delegate = self;
+    }
+    return _chatBL;
+}
 
 -(TFCompanyCircleController *)circleCtrl{
     if (!_circleCtrl) {
@@ -105,32 +120,28 @@
     
     
     // 截屏View（用于右滑返回）
-#if kUseScreenShotGesture
-    self.screenshotView = [[ScreenShotView alloc] initWithFrame:CGRectMake(0, 0, self.window.frame.size.width, self.window.frame.size.height)];
-    [self.window insertSubview:self.screenshotView atIndex:0];
-    self.screenshotView.hidden = YES;
-#endif
+//#if kUseScreenShotGesture
+//    self.screenshotView = [[ScreenShotView alloc] initWithFrame:CGRectMake(0, 0, self.window.frame.size.width, self.window.frame.size.height)];
+//    [self.window insertSubview:self.screenshotView atIndex:0];
+//    self.screenshotView.hidden = YES;
+//#endif
     [self.window makeKeyAndVisible];
     
-    HQGlobalQueue(^{
+//    HQGlobalQueue(^{
         // 录音
-        [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
+//        [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
         //高德地图
-        [AMapServices sharedServices].apiKey = AMapKey;
+//        [AMapServices sharedServices].apiKey = AMapKey;
         //键盘
-        IQKeyboardManager *manager = [IQKeyboardManager sharedManager];
-        manager.enable = YES;
-        manager.shouldResignOnTouchOutside = YES;
-        manager.shouldToolbarUsesTextFieldTintColor = YES;
-        manager.enableAutoToolbar = NO;
+//        IQKeyboardManager *manager = [IQKeyboardManager sharedManager];
+//        manager.enable = YES;
+//        manager.shouldResignOnTouchOutside = YES;
+//        manager.shouldToolbarUsesTextFieldTintColor = YES;
+//        manager.enableAutoToolbar = NO;
         // 图片缓存
 //        [SDImageCache sharedImageCache].maxCacheSize = 1024*1024*8;
-    });
+//    });
     
-    self.loginBL = [TFLoginBL build];
-    self.loginBL.delegate = self;
-    self.chatBL = [TFChatBL build];
-    self.chatBL.delegate = self;
     /** 监听登录、退出通知 */
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginSuccess:) name:NotificationLoginSuccess object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(logoutSuccess) name:NotificationLogoutSuccess object:nil];
@@ -154,13 +165,13 @@
     
     
     // 分享
-    HQGlobalQueue(^{
+//    HQGlobalQueue(^{
 
         // Bugly
-        [self setupBugly];
+//        [self setupBugly];
         // 分享
-        [self setupShare];
-    });
+//        [self setupShare];
+//    });
     
     
     // 错误打印
@@ -169,11 +180,11 @@
     // 创建文件夹,用于存放缓存数据文件
     [FileManager createDir:[FileManager dirCache] DirStr:@"HomeDataCache"];
     HQLog(@"沙盒路径:%@", NSHomeDirectory());
-#ifdef DEBUG
-#if ShowNameOfController
-    [FPSDisplay shareFPSDisplay];
-#endif
-#endif
+//#ifdef DEBUG
+//#if ShowNameOfController
+//    [FPSDisplay shareFPSDisplay];
+//#endif
+//#endif
     
     self.runStatus = @1;
     [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
@@ -188,6 +199,16 @@
     
     }
     
+//    [WXApi startLogByLevel:WXLogLevelDetail logBlock:^(NSString *log) {
+//        NSLog(@"WeChatSDK: %@", log);
+//    }];
+
+    // 向微信注册ID
+    [WXApi registerApp:WXAppId universalLink:@"https://file.teamface.cn"];
+    
+//    [WXApi checkUniversalLinkReady:^(WXULCheckStep step, WXCheckULStepResult* result) {
+//        NSLog(@"%@, %u, %@, %@", @(step), result.success, result.errorInfo, result.suggestion);
+//    }];
     return YES;
 }
 
@@ -328,6 +349,14 @@ void uncaughtExceptionHandler(NSException *exception) {
 }
 
 #pragma mark - 从其它应用跳转过来的
+- (BOOL)application:(UIApplication *)application
+  continueUserActivity:(NSUserActivity *)userActivity
+   restorationHandler:(nonnull void (^)  (NSArray<id<UIUserActivityRestoring>> * _Nullable))restorationHandler{
+    
+    return [WXApi handleOpenUniversalLink:userActivity
+                             delegate:self];
+}
+
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString *,id> *)options{
     
     NSString *urlStr = url.absoluteString;
@@ -340,19 +369,20 @@ void uncaughtExceptionHandler(NSException *exception) {
         
     }else{ // 其他APP（如QQ、微信等第三方授权
 
+        return [WXApi handleOpenURL:url delegate:self];
     }
     
-    if(0) {
-        
-        //        其他APP（如QQ、微信等
-        if (url.absoluteString.length > 0) {
-            
-            // 由其他APP发过来的文件
-            UIDocumentInteractionController *ctrl = [UIDocumentInteractionController  interactionControllerWithURL:url];
-            ctrl.delegate = self;
-            [ctrl presentPreviewAnimated:YES];
-        }
-    }
+//    if(0) {
+//
+//        //        其他APP（如QQ、微信等
+//        if (url.absoluteString.length > 0) {
+//
+//            // 由其他APP发过来的文件
+//            UIDocumentInteractionController *ctrl = [UIDocumentInteractionController  interactionControllerWithURL:url];
+//            ctrl.delegate = self;
+//            [ctrl presentPreviewAnimated:YES];
+//        }
+//    }
     
     return YES;
 }
@@ -369,6 +399,7 @@ void uncaughtExceptionHandler(NSException *exception) {
         
     }else{ // 其他APP（如QQ、微信等第三方授权
         
+        return [WXApi handleOpenURL:url delegate:self];
     }
     
     return YES;
@@ -386,12 +417,24 @@ void uncaughtExceptionHandler(NSException *exception) {
         [self performSelector:@selector(delayDidWiget) withObject:self afterDelay:0.5];
         
     }else{ // 其他APP（如QQ、微信等第三方授权
-        [JSHAREService handleOpenUrl:url];
+        
+        return [WXApi handleOpenURL:url delegate:self];
+//        [JSHAREService handleOpenUrl:url];
     }
     
     return YES;
 }
 
+//-(BOOL)application:(UIApplication *)application continueUserActivity:(NSUserActivity *)userActivity restorationHandler:(void(^)(NSArray<id<UIUserActivityRestoring>> * __nullable restorableObjects))restorationHandler NS_AVAILABLE_IOS(8_0); {
+//
+//        // Demo处理Universallink的示例代码
+//        if ([userActivity.activityType isEqualToString:NSUserActivityTypeBrowsingWeb]) {
+//
+////             NSURL *url = userActivity.webpageURL;
+//             
+//        }
+//        return YES;
+//}
 
 // 将得到的deviceToken传给SDK
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
@@ -430,7 +473,6 @@ void uncaughtExceptionHandler(NSException *exception) {
 //    view.text = myToken;
 //    [KeyWindow addSubview:view];
     
-    [self.loginBL requestUploadDeviceToken];
 }
 
 

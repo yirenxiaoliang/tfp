@@ -2,8 +2,9 @@
 //  XWCountryCodeController.m
 //  XWCountryCodeDemo
 //
-//  Created by 邱学伟 on 16/4/19.
-//  Copyright © 2016年 邱学伟. All rights reserved.
+//  Created by daidan on 2020/10/22.
+//  Copyright © 2020 com.huijuhuaqi.com. All rights reserved.
+//
 //
 
 #import "XWCountryCodeController.h"

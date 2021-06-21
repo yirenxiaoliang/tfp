@@ -13,6 +13,8 @@
 #import "TFMapController.h"
 #import "StyleDIY.h"
 #import "HQHelpDetailCtrl.h"
+#import "WXApiObject.h"
+#import "WXApi.h"
 
 @interface TFHtmlFiveViewController ()<WKUIDelegate,WKNavigationDelegate,UIScrollViewDelegate,WKScriptMessageHandler,UIAlertViewDelegate>
 
@@ -186,10 +188,25 @@
             [self getCallPhoneScript:dict];
         }else if ([type isEqualToString:@"back"]){// 返回上级界面
             [self getBackScript];
+        }else if ([type isEqualToString:@"miniProgram"]){// 打开Teamface小程序
+            [self getMiniProgram];
         }
         
     }
 }
+
+/** 打开Teamface小程序 */
+- (void)getMiniProgram{
+    WXLaunchMiniProgramReq *launchMiniProgramReq = [WXLaunchMiniProgramReq object];
+    launchMiniProgramReq.userName = @"gh_ac5b7922fd24";//拉起的小程序的username
+    launchMiniProgramReq.path = @"/pages/index/index";//拉起小程序页面的可带参路径，不填默认拉起小程序首页
+    launchMiniProgramReq.miniProgramType = 0;//拉起小程序的类型
+    [WXApi sendReq:launchMiniProgramReq completion:^(BOOL success) {
+        
+        HQLog(@"打开Teamface小程序");
+    }];
+}
+
 
 /** 退出登录 */
 - (void)getLogoutScript{

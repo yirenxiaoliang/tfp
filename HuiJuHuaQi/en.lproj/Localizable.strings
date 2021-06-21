@@ -22,7 +22,7 @@
 "login" = "login";
 "password" = "password";
 "Please input a password" = "Please input a password";
-"Please enter your mobile phone number" = "Please enter your mobile phone number";
+"Please enter your mobile phone number" = "phone number / email / work number";
 "forget the password?" = "forget the password?";
 "Open a new generation of digital management" = "Open a new generation of digital management";
 "Make management simple and efficient" = "Make management simple and efficient";

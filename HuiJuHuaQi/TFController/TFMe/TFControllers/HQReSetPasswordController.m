@@ -40,10 +40,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.view.backgroundColor = WhiteColor;
     [self setupNavigation];
     
-    [self createTableView];
+//    [self createTableView];
+    [self creatView];
  
     [self createBottomView];
     self.loginBL = [TFLoginBL build];
@@ -56,10 +57,70 @@
     _nameArr = @[@"原密码",@"新密码",@"确认密码"];
     _placeholderArr = @[@"请输入原密码",@"请输入新密码",@"请确认新密码"];
 }
-
+- (NSArray *)nameArr{
+    if (!_nameArr) {
+        _nameArr = @[@"原密码",@"新密码",@"确认密码"];
+    }
+    return _nameArr;
+}
+- (NSArray *)placeholderArr{
+    if (!_placeholderArr) {
+        _placeholderArr = @[@"请输入原密码",@"请输入新密码",@"请确认新密码"];
+    }
+    return _placeholderArr;
+}
 - (void)setupNavigation {
     self.navigationController.navigationBar.translucent = NO;
     self.navigationItem.title = @"修改密码";
+    
+}
+
+- (void)creatView{
+    
+    for (int i = 0; i < 3; i ++) {
+        
+        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 15 + 56 * i, SCREEN_WIDTH, 56)];
+        
+        UILabel *passwordLab = [UILabel initCustom:CGRectMake(15, 18, 80, 20) title:self.nameArr[i] titleColor:BlackTextColor titleFont:16 bgColor:HexAColor(0xFFFFFF, 1)];
+        passwordLab.textAlignment = NSTextAlignmentLeft;
+        [view addSubview:passwordLab];
+        
+            
+        UITextField *textField = [[UITextField alloc] init];
+        textField.frame = CGRectMake(101, 5, SCREEN_WIDTH-150, 45);
+        textField.placeholder = self.placeholderArr[i];
+        textField.textColor = HexAColor(0xCACAD0, 1);
+        textField.font = [UIFont systemFontOfSize:16];
+        textField.keyboardType = UIKeyboardTypeURL;
+        textField.delegate = self;
+        textField.secureTextEntry = YES;
+        [view addSubview:textField];
+        
+        // 显示密码按钮
+        UIButton *showPassword = [UIButton buttonWithType:UIButtonTypeCustom];
+        showPassword.frame = CGRectMake(SCREEN_WIDTH-45, 0, 40, 55);
+        [showPassword setImage:[UIImage imageNamed:@"显示密码green"] forState:UIControlStateSelected];
+        [showPassword setImage:[UIImage imageNamed:@"不显示数字"] forState:UIControlStateNormal];
+        [showPassword addTarget:self action:@selector(showPasswordClicked:) forControlEvents:UIControlEventTouchUpInside];
+        showPassword.tag = 0x123 * (i+1);
+        [view addSubview:showPassword];
+       
+        //线
+        UILabel *bottomLine = [[UILabel alloc] initWithFrame:CGRectMake(16, 55, SCREEN_WIDTH-16, 0.5)];
+        
+        bottomLine.backgroundColor = CellSeparatorColor;
+        [view addSubview:bottomLine];
+        
+        if (i == 0) {
+            _textField = textField;
+        }else if (i == 1){
+            _textField2 = textField;
+        }else{
+            _textField3 = textField;
+        }
+        
+        [self.view addSubview:view];
+    }
     
 }
 
@@ -218,7 +279,7 @@
         }
     }
     
-    UILabel *passwordLab = [UILabel initCustom:CGRectMake(15, 18, 80, 20) title:_nameArr[indexPath.row] titleColor:BlackTextColor titleFont:16 bgColor:HexAColor(0xFFFFFF, 1)];
+    UILabel *passwordLab = [UILabel initCustom:CGRectMake(15, 18, 80, 20) title:self.nameArr[indexPath.row] titleColor:BlackTextColor titleFont:16 bgColor:HexAColor(0xFFFFFF, 1)];
     passwordLab.textAlignment = NSTextAlignmentLeft;
     [cell addSubview:passwordLab];
     
@@ -226,7 +287,7 @@
         
         _textField = [[UITextField alloc] init];
         _textField.frame = CGRectMake(101, 5, SCREEN_WIDTH-150, 45);
-        _textField.placeholder = _placeholderArr[0];
+        _textField.placeholder = self.placeholderArr[0];
         _textField.textColor = HexAColor(0xCACAD0, 1);
         _textField.font = [UIFont systemFontOfSize:16];
         _textField.keyboardType = UIKeyboardTypeURL;
@@ -247,7 +308,7 @@
     
         _textField2 = [[UITextField alloc] init];
         _textField2.frame = CGRectMake(101, 5, SCREEN_WIDTH-150, 45);
-        _textField2.placeholder = _placeholderArr[indexPath.row];
+        _textField2.placeholder = self.placeholderArr[indexPath.row];
         _textField2.textColor = HexAColor(0xCACAD0, 1);
         _textField2.font = [UIFont systemFontOfSize:16];
         _textField2.keyboardType = UIKeyboardTypeURL;
@@ -267,7 +328,7 @@
         
         _textField3 = [[UITextField alloc] init];
         _textField3.frame = CGRectMake(101, 5, SCREEN_WIDTH-150, 45);
-        _textField3.placeholder = _placeholderArr[indexPath.row];
+        _textField3.placeholder = self.placeholderArr[indexPath.row];
         _textField3.textColor = HexAColor(0xCACAD0, 1);
         _textField3.font = [UIFont systemFontOfSize:16];
         _textField3.keyboardType = UIKeyboardTypeURL;
@@ -303,7 +364,7 @@
     button.selected = !button.selected;
     if (button.tag == 0x123) {
         _textField.secureTextEntry = !_textField.secureTextEntry;
-    }else if (button.tag == 0x456){
+    }else if (button.tag == 0x123 * 2){
         _textField2.secureTextEntry = !_textField2.secureTextEntry;
     }else{
         _textField3.secureTextEntry = !_textField3.secureTextEntry;

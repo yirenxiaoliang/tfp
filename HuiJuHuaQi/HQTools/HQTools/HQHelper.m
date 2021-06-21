@@ -657,7 +657,7 @@
 
 
 
-//字母、数字或下划线
+//数字或下划线
 + (BOOL)numberWithStr:(NSString *)textStr
 {
     for (int i=0; i<textStr.length; i++) {
@@ -677,6 +677,24 @@
 }
 
 
+//数字
++ (BOOL)pureNumberWithStr:(NSString *)textStr
+{
+    for (int i=0; i<textStr.length; i++) {
+        
+        NSString *subStr = [textStr substringWithRange:NSMakeRange(i, 1)];
+        
+        NSString *phoneRegex = @"^[0-9]$";
+        NSPredicate *phoneTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",phoneRegex];
+        
+        if (![phoneTest evaluateWithObject:subStr]) {
+            return NO;
+            break;
+        }
+    }
+    
+    return YES;
+}
 
 
 

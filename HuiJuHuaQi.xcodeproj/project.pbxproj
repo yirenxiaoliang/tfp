@@ -965,6 +965,8 @@
 		A1EC11B51C8AC84D00931E58 /* MWZoomingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = A1EC117A1C8AC3BD00931E58 /* MWZoomingScrollView.m */; };
 		A1EC11BB1C8AE9C200931E58 /* ZYQAssetPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1EC11B91C8AE9C200931E58 /* ZYQAssetPickerController.m */; };
 		A1FB92951C8D156E0048ADA1 /* FDActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = A1FB92941C8D156E0048ADA1 /* FDActionSheet.m */; };
+		B83FEB9C265D1F5C00524423 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = B83FEB99265D1F5B00524423 /* README.txt */; };
+		B83FEB9D265D1F5C00524423 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B83FEB9B265D1F5B00524423 /* libWeChatSDK.a */; };
 		B84654232541188E00CB5E81 /* TFHtmlFiveNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = B84654222541188E00CB5E81 /* TFHtmlFiveNavigationController.m */; };
 		B863FFDA234F11D70031EB8C /* UIImage+HJImage.m in Sources */ = {isa = PBXBuildFile; fileRef = B863FFD8234F11D70031EB8C /* UIImage+HJImage.m */; };
 		B863FFDD234F12030031EB8C /* HJSignatureView.m in Sources */ = {isa = PBXBuildFile; fileRef = B863FFDC234F12030031EB8C /* HJSignatureView.m */; };
@@ -3547,6 +3549,11 @@
 		A1EC11B91C8AE9C200931E58 /* ZYQAssetPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYQAssetPickerController.m; sourceTree = "<group>"; };
 		A1FB92931C8D156E0048ADA1 /* FDActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDActionSheet.h; sourceTree = "<group>"; };
 		A1FB92941C8D156E0048ADA1 /* FDActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDActionSheet.m; sourceTree = "<group>"; };
+		B83FEB97265D1F5B00524423 /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
+		B83FEB98265D1F5B00524423 /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
+		B83FEB99265D1F5B00524423 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
+		B83FEB9A265D1F5B00524423 /* WechatAuthSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WechatAuthSDK.h; sourceTree = "<group>"; };
+		B83FEB9B265D1F5B00524423 /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
 		B84654212541188D00CB5E81 /* TFHtmlFiveNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFHtmlFiveNavigationController.h; sourceTree = "<group>"; };
 		B84654222541188E00CB5E81 /* TFHtmlFiveNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFHtmlFiveNavigationController.m; sourceTree = "<group>"; };
 		B863FFD8234F11D70031EB8C /* UIImage+HJImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+HJImage.m"; sourceTree = "<group>"; };
@@ -5336,6 +5343,7 @@
 				D68F03172117F81B00976ACD /* jshare-ios-1.6.0.a in Frameworks */,
 				D68F03182117F81B00976ACD /* jcore-ios-1.2.1.a in Frameworks */,
 				93454BBF1C4738B600E7B733 /* AddressBookUI.framework in Frameworks */,
+				B83FEB9D265D1F5C00524423 /* libWeChatSDK.a in Frameworks */,
 				D11AD37C1C3D07DC00931860 /* CoreTelephony.framework in Frameworks */,
 				D11AD3701C3D075000931860 /* OpenGLES.framework in Frameworks */,
 				D620A0381F46938700087B1A /* Bugly.framework in Frameworks */,
@@ -7484,6 +7492,7 @@
 		93C328F41C45FBB80021AF20 /* ThirdPart */ = {
 			isa = PBXGroup;
 			children = (
+				B83FEB96265D1F5B00524423 /* OpenSDK1.8.9 */,
 				B8FE7F1F239A9596004D56C9 /* SDWebImage.framework */,
 				B8FE7EED239A8F72004D56C9 /* SDWebImage */,
 				B8FE7EE1239A8884004D56C9 /* ZLPhotoBrowser.framework */,
@@ -7875,6 +7884,18 @@
 				A1FB92941C8D156E0048ADA1 /* FDActionSheet.m */,
 			);
 			path = FDActionSheet;
+			sourceTree = "<group>";
+		};
+		B83FEB96265D1F5B00524423 /* OpenSDK1.8.9 */ = {
+			isa = PBXGroup;
+			children = (
+				B83FEB97265D1F5B00524423 /* WXApi.h */,
+				B83FEB98265D1F5B00524423 /* WXApiObject.h */,
+				B83FEB99265D1F5B00524423 /* README.txt */,
+				B83FEB9A265D1F5B00524423 /* WechatAuthSDK.h */,
+				B83FEB9B265D1F5B00524423 /* libWeChatSDK.a */,
+			);
+			path = OpenSDK1.8.9;
 			sourceTree = "<group>";
 		};
 		B8CD848B25F0B92600E48647 /* XWCountryCode */ = {
@@ -11232,6 +11253,7 @@
 				D62CB3EB1DE6D64900D0365B /* JCHATToolBar.xib in Resources */,
 				58667F3F1FE3DC74005C0504 /* group_topic_voice@3x.png in Resources */,
 				58667F371FE3DC74005C0504 /* group_topic_expression.png in Resources */,
+				B83FEB9C265D1F5C00524423 /* README.txt in Resources */,
 				58667FEA1FE3DC75005C0504 /* RecordingSignal007@2x.png in Resources */,
 				58667FD31FE3DC75005C0504 /* 8.gif in Resources */,
 				938321EE1CFC268900DA1CD0 /* catalog.html in Resources */,
@@ -13000,6 +13022,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 71EEDCA0950A9F7E51E3FB43 /* Pods-HuiJuHuaQi.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconCustom;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImageNew;
 				CLANG_ENABLE_MODULES = YES;
@@ -13007,7 +13030,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: jian yang (U3R5H9DK9G)";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 2ZT3U7CV84;
@@ -13084,8 +13107,9 @@
 					"$(PROJECT_DIR)/HuiJuHuaQi/ThirdPart/UMSocialSDK/SocialLibraries/WeChat/WechatSDK",
 					"$(PROJECT_DIR)/HuiJuHuaQi/ThirdPart/UMSocialSDK/UMSocialSDKPlugin",
 					"$(PROJECT_DIR)/HuiJuHuaQi/ThirdPart/UMSocialSDK/SocialLibraries/Sina",
+					"$(PROJECT_DIR)/HuiJuHuaQi/ThirdPart/OpenSDK1.8.9",
 				);
-				MARKETING_VERSION = 5.7;
+				MARKETING_VERSION = 5.8.2;
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lxml2",
@@ -13108,6 +13132,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 465571DE9F8DDEFCA1EF2F92 /* Pods-HuiJuHuaQi.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconCustom;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImageNew;
 				CLANG_ENABLE_MODULES = YES;
@@ -13115,7 +13140,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Distribution: Shenzhen Huijuhuaqi Technology Co.,Ltd (2ZT3U7CV84)";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 2ZT3U7CV84;
 				ENABLE_BITCODE = NO;
@@ -13192,8 +13217,9 @@
 					"$(PROJECT_DIR)/HuiJuHuaQi/ThirdPart/UMSocialSDK/SocialLibraries/WeChat/WechatSDK",
 					"$(PROJECT_DIR)/HuiJuHuaQi/ThirdPart/UMSocialSDK/UMSocialSDKPlugin",
 					"$(PROJECT_DIR)/HuiJuHuaQi/ThirdPart/UMSocialSDK/SocialLibraries/Sina",
+					"$(PROJECT_DIR)/HuiJuHuaQi/ThirdPart/OpenSDK1.8.9",
 				);
-				MARKETING_VERSION = 5.7;
+				MARKETING_VERSION = 5.8.2;
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lxml2",
@@ -13275,13 +13301,13 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: jian yang (U3R5H9DK9G)";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2ZT3U7CV84;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = HuiQiWiget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				MARKETING_VERSION = 5.7;
+				MARKETING_VERSION = 5.8.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.TeamFaceCustom.HJHQ.Wiget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "db58449d-b8f6-41bb-bdd0-4df6e5a62656";
@@ -13299,13 +13325,13 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Shenzhen Huijuhuaqi Technology Co.,Ltd (2ZT3U7CV84)";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2ZT3U7CV84;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = HuiQiWiget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				MARKETING_VERSION = 5.7;
+				MARKETING_VERSION = 5.8.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.TeamFaceCustom.HJHQ.Wiget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "cf004058-9807-422c-b21e-e36d3c8c5518";

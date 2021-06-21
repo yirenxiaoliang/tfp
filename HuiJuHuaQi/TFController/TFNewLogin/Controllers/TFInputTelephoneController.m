@@ -58,7 +58,7 @@
     telePhone.clearButtonMode = UITextFieldViewModeWhileEditing;
     [telePhone setContentVerticalAlignment:UIControlContentVerticalAlignmentCenter];
     telePhone.font = FONT(16);
-    telePhone.keyboardType = UIKeyboardTypeNumberPad;
+//    telePhone.keyboardType = UIKeyboardTypeNumberPad;
     [telePhone addTarget:self action:@selector(textFieldTextChangeAction:) forControlEvents:UIControlEventEditingChanged];
     telePhone.tag = 0x111;
     self.telePhoneField = telePhone;

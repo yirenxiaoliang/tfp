@@ -169,6 +169,8 @@
 + (BOOL)numberWithStr:(NSString *)textStr;
 
 
+//数字
++ (BOOL)pureNumberWithStr:(NSString *)textStr;
 /**************************    时间处理    **********************/
 /**
  *  获取当前时间戳

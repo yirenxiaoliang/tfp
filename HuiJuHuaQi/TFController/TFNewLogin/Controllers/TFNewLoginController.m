@@ -73,7 +73,7 @@
 @property (nonatomic, copy) NSString *district;
 @property (nonatomic, weak) UIView *mask;
 @property (nonatomic, weak) UIView *popview;
-
+@property (nonatomic, weak) UILabel *accountLabel;
 @property (nonatomic, strong) NSArray *codes;
 
 @end
@@ -153,6 +153,7 @@
     self.passwordField.alpha = 0;
     self.telePhoneField.alpha = 0;
     self.teleIcon.alpha = 0;
+    self.accountLabel.alpha = 0;
     self.Vline.alpha = 0;
     self.telePhoneBg.alpha = 0;
     self.passIcon.alpha = 0;
@@ -171,6 +172,7 @@
         self.passwordField.alpha = 1;
         self.telePhoneField.alpha = 1;
         self.teleIcon.alpha = 1;
+        self.accountLabel.alpha = 1;
         self.Vline.alpha = 1;
         self.telePhoneBg.alpha = 1;
         self.passIcon.alpha = 1;
@@ -300,6 +302,14 @@
     [scrollView addSubview:Vline];
     self.Vline = Vline;
     
+    UILabel *accountLabel = [[UILabel alloc] initWithFrame:teleIcon.frame];
+    accountLabel.text = @"账号";
+    accountLabel.textAlignment = NSTextAlignmentRight;
+    [scrollView addSubview:accountLabel];
+    accountLabel.backgroundColor = WhiteColor;
+    accountLabel.font = FONT(18);
+    self.accountLabel = accountLabel;
+    
     //telephone
     UITextField *telePhone = [[UITextField alloc]initWithFrame:CGRectMake(70+40,CGRectGetMaxY(logo.frame) + Long(60), SCREEN_WIDTH-60-40-40, 40)];
     NSAttributedString *str1 = [[NSAttributedString alloc] initWithString:NSLocalizedString(@"Please enter your mobile phone number", nil) attributes:@{ NSForegroundColorAttributeName:ExtraLightBlackTextColor,                                            NSFontAttributeName:FONT(14)}];
@@ -308,13 +318,18 @@
 //    telePhone.backgroundColor = WhiteColor;
     [telePhone setContentVerticalAlignment:UIControlContentVerticalAlignmentCenter];
     telePhone.font = FONT(18);
-    telePhone.keyboardType = UIKeyboardTypeNumberPad;
-//    [telePhone addTarget:self action:@selector(textFieldTextChangeAction:) forControlEvents:UIControlEventEditingChanged];
+//    telePhone.keyboardType = UIKeyboardTypeNumberPad;
+    [telePhone addTarget:self action:@selector(textFieldTextChangeAction:) forControlEvents:UIControlEventEditingChanged];
     telePhone.tag = 0x111;
     telePhone.text = [[NSUserDefaults standardUserDefaults] objectForKey:UserLoginTelephone];
     self.telePhoneField = telePhone;
     telePhone.textColor = ExtraLightBlackTextColor;
     [scrollView addSubview:telePhone];
+    if ([HQHelper checkTel:telePhone.text]) {
+        self.accountLabel.hidden = YES;
+    }else{
+        self.accountLabel.hidden = NO;
+    }
     
     UIView *telePhoneBg = [[UIView alloc] initWithFrame:CGRectMake(30,CGRectGetMaxY(telePhone.frame) , SCREEN_WIDTH-60, .5)];
     telePhoneBg.backgroundColor = ExtraLightBlackTextColor;
@@ -636,8 +651,8 @@
 }
 
 /** 输入框文字改变 */
-//- (void)textFieldTextChangeAction:(UITextField *)textField{
-//
+- (void)textFieldTextChangeAction:(UITextField *)textField{
+
 //    BOOL tele = NO;
 //    BOOL pass = NO;
 //    if ([HQHelper checkTel:self.telePhoneField.text]) {
@@ -653,7 +668,14 @@
 //    }else{
 //        self.loginBtn.enabled = NO;
 //    }
-//}
+    
+    HQLog(@"====%@====", textField.text);
+    if ([HQHelper pureNumberWithStr:textField.text] && (textField.text.length > 3 && textField.text.length  < 12)) {
+        self.accountLabel.hidden = YES;
+    }else{
+        self.accountLabel.hidden = NO;
+    }
+}
 
 /** 0:显示密码 1:显示验证码 */
 -(void)changeType:(NSInteger)type{
@@ -753,6 +775,9 @@
     TFInputTelephoneController *forget = [[TFInputTelephoneController alloc] init];
     forget.type = 1;
     [self.navigationController pushViewController:forget animated:YES];
+    
+//    HQReSetPasswordController *ser = [[HQReSetPasswordController alloc] init];
+//    [self.navigationController pushViewController:ser animated:YES];
 }
 
 /** 登录按钮点击 */
@@ -760,15 +785,15 @@
     
     [self.view endEditing:YES];
     
-    if (self.telePhoneField.text.length == 0) {
-        //        [MBProgressHUD showError:@"手机号输入有误" toView:self.view];
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"login fail", nil) message:NSLocalizedString(@"Please enter your mobile phone number", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Sure", nil) otherButtonTitles:nil];
-            [alert show];
-        });
-        return;
-    }
+//    if (self.telePhoneField.text.length == 0) {
+//        //        [MBProgressHUD showError:@"手机号输入有误" toView:self.view];
+//        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//
+//            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"login fail", nil) message:NSLocalizedString(@"Please enter your mobile phone number", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Sure", nil) otherButtonTitles:nil];
+//            [alert show];
+//        });
+//        return;
+//    }
     
     if (self.verifyField.hidden) {
         
@@ -784,15 +809,15 @@
         }
     }
     
-    if (![HQHelper checkTel:self.telePhoneField.text]) {
-//        [MBProgressHUD showError:@"手机号输入有误" toView:self.view];
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"login fail", nil) message:NSLocalizedString(@"手机号码格式不正确", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Sure", nil) otherButtonTitles:nil];
-            [alert show];
-        });
-        return;
-    }
+//    if (![HQHelper checkTel:self.telePhoneField.text]) {
+////        [MBProgressHUD showError:@"手机号输入有误" toView:self.view];
+//        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//
+//            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"login fail", nil) message:NSLocalizedString(@"手机号码格式不正确", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Sure", nil) otherButtonTitles:nil];
+//            [alert show];
+//        });
+//        return;
+//    }
     
     
     if (self.verifyField.hidden) {
@@ -904,7 +929,8 @@
 //    [MBProgressHUD showError:resp.errorDescription toView:self.view];
     if (resp.cmdId == HQCMD_userLogin) {
         
-        if ((NSInteger)resp.errorCode == 20120021) {
+        NSString *str = [[resp.body valueForKey:@"response"] valueForKey:@"code"];
+        if ([str isEqualToString:@"postprocess.username.password.sms.error"]) {
             
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 
